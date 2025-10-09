@@ -1,0 +1,99 @@
+<section class="contribution-section">
+  <h2>Semetary Contribution</h2>
+  <p>Your contribution helps us maintain the church Semetary with dignity and care.</p>
+
+  <form class="contribution-form">
+    <!-- Name -->
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+    <!-- Contribution Amount -->
+    <label for="amount">Contribution Amount (Ksh):</label>
+    <input type="number" id="amount" name="amount" placeholder="e.g. 1000" required>
+
+    <!-- Contribution Type -->
+    <label for="type">Contribution Type:</label>
+    <select id="type" name="type" required>
+      <option value="">-- Select --</option>
+      <option value="once">One-semester</option>
+      <option value="monthly">Two_semester</option>
+
+    </select>
+
+    <!-- Payment Method -->
+    <label for="method">Payment Method:</label>
+    <select id="method" name="method" required>
+      <option value="">-- Select Method --</option>
+      <option value="mpesa">M-Pesa</option>
+      <option value="bank">Bank Transfer</option>
+      <option value="cash">Cash</option>
+    </select>
+
+    <!-- Submit Button -->
+    <button type="submit">Contribute</button>
+  </form>
+</section>
+
+<style>
+.contribution-section {
+  padding: 40px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.contribution-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.contribution-section p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.contribution-form {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  float:right;
+  
+}
+
+.contribution-form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.contribution-form input,
+.contribution-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.contribution-form button {
+  width: 100%;
+  padding: 12px;
+  background: #2c3e50; 
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.contribution-form button:hover {
+  background: #34495e;
+  font-size:1.8rem;
+}
+</style>

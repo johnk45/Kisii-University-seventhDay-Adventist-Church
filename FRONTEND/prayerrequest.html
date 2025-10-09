@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Request</title>
+    <style>
+        .prayer-request-container{
+            background: #f9f9f9;
+            max-width:600px;
+            padding:30px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            margin:auto;
+            box-shadow:0 2px 25px rgba(0,0,0,0.7);
+            
+        }
+        h2{
+            margin-bottom:20px;
+            animation:zoomInOut 3s infinite ease-in-out;
+            text-align:center;
+                }
+                @keyframes zoomInOut{
+                    0%,100%{transform:scale(1);color:slateblue;}
+                    50%{transform:scale(1.5);color:blue;}
+                }
+                input,textarea,select{
+                    width:100%;
+                    padding:10px;
+                    font-size:1rem;
+                    color:black;
+                    margin-top:5px;
+                    
+                
+                    
+                }
+                label{
+                    display:block;
+                    margin-top:15px;
+                    font-family: sans-serif;
+                }
+                button{
+                    width:100%;
+                    font-size: 1.5rem;
+                    margin-top:20px;
+                    margin-bottom:24px;
+                    background:#007bff;
+                    cursor:pointer;
+                    color:white;
+                    border:none;
+                    border-radius:6px;
+                    padding:10px;
+                }
+                button:hover{
+                    background: #0053b3;
+                    font-weight:bold;
+
+                }
+
+
+    </style>
+</head>
+<body>
+    <div class="prayer-request-container">
+        <form action="process.php" method="post">
+            <h2>Submit your Prayer Request</h2>
+            <label for="name">Name (Optional)</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+
+            <label for="email">Email / Phone (Optional)</label>
+            <input type="text" id="email" name="email" placeholder="Enter your contact info">
+
+            <label for="request">Your Request</label>
+            <textarea id="message" name="message" rows="5" cols="50" placeholder="Type your Prayer Request..."></textarea>
+                
+                <label>Privacy</label>
+    <select name="is_confidential">
+      <option value="0">Public (Can be shared)</option>
+      <option value="1">Confidential (Pastoral team only)</option>
+    </select>
+<button type="submit">Send Request</button>
+            
+        </form>
+    </div>
+</body>
+</html>

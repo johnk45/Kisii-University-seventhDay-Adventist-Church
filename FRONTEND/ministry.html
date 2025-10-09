@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background: rgb(215, 130, 130);
+      margin:auto;
+      font-family:sans-serif,Arial;
+      color:white;
+
+    }
+    .registration-form{
+      background: rgb(53, 7, 7);
+      max-width:600px;
+      padding:10px  30px 14px  12px;
+      margin:auto;
+      outline:none;
+      border-radius:5px;
+      box-shadow:0 2px 25px rgba(0,25,45,1);
+    }
+    .registration-form h2{
+      margin-bottom:20px;
+      font-size: 2rem;
+      font-weight: 700;
+      text-align:center;
+      animation:zoomInOut 3s infinite ease-in-out;
+
+    }
+    @keyframes zoomInOut{
+      0%,100%{transform:scale(1);color:white;}
+      50%{transform:scale(1.5);color:green;}
+    }
+    label{
+    color:#fff;
+    font-weight: bold;
+    }
+    select{
+      width:100%;
+      margin:20px;
+      padding:20px;
+      margin-top:5px;
+      border-radius: 6px;
+      font-size: 1.2rem;
+    }
+    button{
+      background: teal;
+      color:#f9f9f9;
+      margin-top:20px;
+      padding:10px;
+      width:100%;
+      font-size:1.5rem;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      margin-bottom:20px;
+    }
+    button:hover{
+      background: darkslateblue;
+      color:white;
+    }
+  </style>
+</head>
+<body>
+  <h2><marquee>Choose your Ministry and Family</marquee></h2>
+<section class="registration-form">
+  <h2>Join a Ministry</h2>
+  <form>
+    <!-- Ministry Dropdown -->
+    <label for="ministry">Select Ministry:</label>
+    <select id="ministry" name="ministry">
+      <option value="">-- Choose Ministry --</option>
+      <option value="youth">Youth Ministry</option>
+      <option value="music">Music Ministry</option>
+      <option value="outreach">Outreach Ministry</option>
+    </select>
+
+    <br><br>
+
+    <!-- Family Dropdown -->
+    <label for="family">Select Family:</label>
+    <select id="family" name="family">
+      <option value="">-- Choose Family --</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<script>
+  // Families grouped by ministry
+  const families = {
+    youth: ["Christ Abiders Family", "Newzion Family", "Evangelism Family"],
+    music: ["Choir Family", "Praise Team Family", "Instrumental Family"],
+    outreach: ["Evangelism Family", "Community Service Family", "Health Ministry Family"]
+  };
+
+  const ministrySelect = document.getElementById("ministry");
+  const familySelect = document.getElementById("family");
+
+  ministrySelect.addEventListener("change", function () {
+    const selectedMinistry = this.value;
+    familySelect.innerHTML = '<option value="">-- Choose Family --</option>';
+
+    if (selectedMinistry && families[selectedMinistry]) {
+      families[selectedMinistry].forEach(family => {
+        let option = document.createElement("option");
+        option.value = family.toLowerCase().replace(/\s+/g, "-");
+        option.textContent = family;
+        familySelect.appendChild(option);
+      });
+    }
+  });
+</script>
+
+
+
+</body>
+</html>

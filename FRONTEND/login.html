@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('image/church\ design.jpg');
+      background-size:cover;
+      background-repeat:no repeat;
+      position:relative;
+      
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow:hidden;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      inset:0;
+      background: rgba(0, 0, 0, 0.5);
+     z-index:0;
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+      z-index:1;
+      position:relative;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: #444;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      transform: scale(1.02);
+      background: linear-gradient(135deg, #5a67d8, #6b46c1);
+    }
+
+    .social-login {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .social-login p {
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+
+    .social-buttons {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .social-btn {
+      flex: 1;
+      padding: 0.6rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .google { background: #db4437; }
+    .facebook { background: #1877f2; }
+    .x { background: #000; }
+.google:hover{background-color: tomato;color:#f9f9f9}
+.facebook:hover{background: #1877f2;}
+.x:hover{background:rgb(26, 22, 22);}
+    .options {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+    }
+
+    .options a {
+      text-decoration: none;
+      color: #667eea;
+      transition: 0.2s;
+    }
+
+    .options a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 500px) {
+      .social-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+      </div>
+      <button type="submit" class="login-btn">Login</button>
+
+      <div class="options">
+        <a href="#">Forgot password?</a>
+        <a href="student.html">Create account</a>
+      </div>
+    </form>
+
+    <div class="social-login">
+      <p>Or continue with</p>
+      <div class="social-buttons">
+        <button type="button" class="social-btn google">Google</button>
+        <button type="button" class="social-btn facebook">Facebook</button>
+        <button type="button" class="social-btn x">X</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

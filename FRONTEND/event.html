@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KUSDA Events</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f7f9fb;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #004d40, #009688);
+      color: white;
+      text-align: center;
+      padding: 40px 10px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1rem;
+      margin-top: 10px;
+      opacity: 0.9;
+    }
+
+    .event-section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #004d40;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+
+    .event-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .event-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .event-content {
+      padding: 20px;
+    }
+
+    .event-content h3 {
+      color: #00796b;
+      margin-bottom: 10px;
+    }
+
+    .event-content p {
+      color: #555;
+      line-height: 1.5;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .event-date {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .countdown {
+      color: #d32f2f;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .share-buttons a {
+      text-decoration: none;
+      color: white;
+      background: #00796b;
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin-right: 8px;
+      font-size: 0.9em;
+      transition: background 0.3s;
+    }
+
+    .share-buttons a:hover {
+      background: #004d40;
+    }
+
+    footer {
+      background: #004d40;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📅 KUSDA Upcoming Events</h1>
+    <p>Stay updated and join us in our upcoming spiritual and campus events</p>
+  </header>
+
+  <section class="event-section">
+    <h2 class="section-title">Upcoming Programs</h2>
+
+    <div class="event-grid">
+      <!-- Event Card 1 -->
+      <div class="event-card">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800" alt="Sabbath Worship">
+        <div class="event-content">
+          <h3>First Fruits Sabbath</h3>
+          <p>A day of praise, worship, and gratitude. Join us as we thank God for His blessings.</p>
+          <p class="event-date">📆 October 12, 2025 — 9:00 AM</p>
+          <p class="countdown">⏳ 7 days remaining</p>
+          <div class="share-buttons">
+            <a href="#">WhatsApp</a>
+            <a href="#">Facebook</a>
+            <a href="#">X</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event Card 2 -->
+      <div class="event-card">
+        <img src="image/church.jpg" alt="Prayer Vigil">
+        <div class="event-content">
+          <h3>Campus Prayer Vigil</h3>
+          <p>An all-night prayer meeting dedicated to seeking God's presence for the new semester.</p>
+          <p class="event-date">📆 October 25, 2025 — 8:00 PM</p>
+          <p class="countdown">⏳ 20 days remaining</p>
+          <div class="share-buttons">
+            <a href="#">WhatsApp</a>
+            <a href="#">Facebook</a>
+            <a href="#">X</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event Card 3 -->
+      <div class="event-card">
+        <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=800" alt="Outreach">
+        <div class="event-content">
+          <h3>Community Outreach</h3>
+          <p>We’ll be visiting the nearby children’s home to share love, donations, and prayers.</p>
+          <p class="event-date">📆 November 2, 2025 — 10:00 AM</p>
+          <p class="countdown">⏳ 28 days remaining</p>
+          <div class="share-buttons">
+            <a href="#">WhatsApp</a>
+            <a href="#">Facebook</a>
+            <a href="#">X</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Kisii University SDA | Designed by KUSDA Tech Team
+  </footer>
+
+</body>
+</html>

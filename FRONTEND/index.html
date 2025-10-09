@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kisii University SDA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --accent: #1abc9c;
+      --light-bg: #f9f9f9;
+      --text: #333;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Open Sans", sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: #fff;
+    }
+    h1, h2, h3 {
+      font-family: "Poppins", sans-serif;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    /*This is class for designing the*/
+    #k{color:green;font-size: 2rem;}
+       #u{color:orangered;font-size:1.8rem;}
+       #s{color:lightblue;font-size:1.5rem;}
+       #d{color:#ecf0f1;font-size:2rem;}
+       #a{color:tomato;}
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(44, 62, 80, 0.9);
+      color: #733a3a;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    .logo { font-size: 1.5rem; font-weight: 700; animation: zoomInOut 3s infinite ease-in-out; }
+    @keyframes zoomInOut{
+      0%{transform:scale(1);}
+      50%{transform:scale(1.5);}
+      100%{transform:scale(1);}
+    }
+    .menu-toggle-button {
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    nav {
+      display: none;
+    }
+    nav.show {
+      display: block;
+      position: absolute;
+      top: 60px; left: 0; right: 0;
+      background: var(--primary);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      display: block;
+    }
+    nav ul li a:hover {
+      background: var(--accent);
+    }
+    @media (min-width: 800px) {
+      .menu-toggle-button { display: none; }
+      nav { display: block; position: static; }
+      nav ul { flex-direction: row; }
+      nav ul li a { padding: 10px 15px; }
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: url("image/church\ audotorium.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 { font-size: 2.5rem;text-shadow:1px 1px 8px#222;color:gold; }
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 25px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow:0 2px 8px rgba(44,62,80,0.18);
+    }
+    .btn:hover { background: #16a085; }
+  section{
+    padding:50px 20px;
+    max-width:1200px;
+    margin:auto;
+  } section h2,section h3{
+    color:#4e54c8;
+    font-family:'poppins',sans-serif;
+    margin-bottom:18px;
+    text-align:center;
+    text-shadow:1px 1px 6px #f9f9f9;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minimax(280px,1fr));
+    gap:20px;
+  }
+  .card{
+    background-color: white;
+    border-radius:10px;
+    padding:20px;
+    box-shadow:0 4px 2px rgba(0,0,0,0.1);
+    color:#2c3e50;
+  }
+  .card img{
+    max-width:100%;
+    border-radius:8px;
+    
+  }
+  .card h3{
+    color:#1abc9c;
+  }
+  .card p{
+    color:#333;
+  }
+    /* SECTION */
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .mission-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+    .mission-container img { width: 100%; border-radius: 10px; }
+    @media (max-width: 768px) {
+      .mission-container { grid-template-columns: 1fr; }
+    }
+
+    /* EVENTS */
+    .event-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .event-card {
+      background: var(--light-bg);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .event-card .date {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    /* MINISTRIES */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); }
+
+    button{
+      background-color: teal;
+      color:white;
+      font-size:20px;
+      margin:10px;
+      border:none;
+      padding:20px;
+      border-radius:5px;
+    }
+    button:hover{
+      background-color: var(--text);
+    }
+
+    .ministry{
+     background-color:liner-gradient(135deg,rgba(44,62,80,0.85));
+  
+      margin: 0;
+      background: linear-gradient(135deg, #2c3e50 70%, #1abc9c 100%);
+      box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 350px;
+      border-radius: 18px;
+      border: 2px solid #1abc9c;
+      overflow: hidden;
+      position: relative;
+      transition: box-shadow 0.3s;
+      padding:40px 40px;
+      width:100vw;
+      max-width: 100%;
+      align-items: center;
+      justify-content: center;
+      color:white;
+      border-radius:0 ;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      font-family:'segoe UI'Arial;sans-serif;
+}
+span{
+  font-family: 'Segoe UI';
+  color:#e74c3c;
+  font-size:24px;
+}
+span:hover{
+  color:red;
+  font-family:var(--primary);
+
+}
+.ministry h2{color:gold;}
+.ministry button{background-color: rgb(242, 242, 242);box-shadow: 5 10px 25px #515453;color:black;}
+.ministry button:hover{background-color: #0f1028;color:white;transition:2s;}
+/* VIDEO */
+.programs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+.programs iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+}
+@media (max-width: 900px) {
+  .programs { grid-template-columns: 1fr; }
+}
+
+/*styling of the loader */
+#loader{
+  position:absolute;
+  left:50%;
+  top:50%;
+  z-index:1;
+  width:150px;
+  height:150px;
+  margin:-75px 0 0 -75px;
+  border:16px solid lightgrey;
+  border-radius:50%;
+  border-top:16px solid blue;
+  
+  -webkit-animation:spin 2s linear infinite;
+  animation:spin 2s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* Loader Design */
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1001;
+  width: 90px;
+  height: 90px;
+  margin: -45px 0 0 -45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+.loader-ring {
+  box-sizing: border-box;
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border: 8px solid #1abc9c;
+  border-top: 8px solid #e74c3c;
+  border-radius: 50%;
+  animation: loader-spin 1.1s linear infinite;
+}
+.loader-dot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #3498db;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  animation: loader-dot-bounce 1.1s infinite alternate;
+  z-index: 2;
+}
+@keyframes loader-spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+@keyframes loader-dot-bounce {
+  0% { transform: translate(-50%, -50%) scale(1);}
+  100% { transform: translate(-50%, -70%) scale(1.3);}
+}
+#loader::after {
+  content: "Loading...";
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #2c3e50;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  opacity: 0.85;
+}
+#loader {
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ z-index: 1001;
+ width: 120px;
+ height: 120px;
+ margin: -60px 0 0 -60px;
+ border: 12px solid #e0e0e0;
+ border-radius: 50%;
+ border-top: 12px solid #1abc9c;
+ border-right: 12px solid #3498db;
+ border-bottom: 12px solid #e67e22;
+ border-left: 12px solid #e74c3c;
+ box-shadow: 0 8px 24px rgba(44,62,80,0.15);
+ -webkit-animation: spin 1.2s linear infinite;
+ animation: spin 1.2s linear infinite;
+ background: linear-gradient(135deg, #f9f9f9 60%, #ecf0f1 100%);
+}
+/* Loader text (optional) */
+#loader::after {
+ content: "Loading...";
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ color: #2c3e50;
+ font-family: 'Poppins', sans-serif;
+ font-size: 1.1rem;
+ font-weight: 600;
+ letter-spacing: 1px;
+ opacity: 0.8;
+}
+/* Animate page content */
+.animate-bottom {
+ position: relative;
+ -webkit-animation-name: animate-bottom;
+ -webkit-animation-duration: 1s;
+ animation-name: animate-bottom;
+ animation-duration: 1s;
+}
+@-webkit-keyframes animate-bottom {
+ from { bottom: -100px; opacity: 0; }
+ to { bottom: 0px; opacity: 1; }
+}
+@keyframes animate-bottom {
+ from { bottom: -100px; opacity: 0; }
+ to { bottom: 0px; opacity: 1; }
+}
+#prayer-request-container{
+  max-width:600px;
+  text-align:justify;
+  text-shadow:2px darkgreen;
+  background:#222;
+  color:white;
+  border-radius:5px;
+  float:right;
+  margin-bottom:70px;
+}
+
+
+  .prayer-request-container{
+            display:none;
+            background: #f9f9f9;
+            max-width:600px;
+            padding:30px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            margin:auto;
+            box-shadow:0 2px 25px rgba(0,0,0,0.7);
+            position:relative;
+            width:100%;
+            width:100%;
+
+            
+        }
+        h2{
+            margin-bottom:20px;
+            animation:zoomInOut 3s infinite ease-in-out;
+            text-align:center;
+                }
+                @keyframes zoomInOut{
+                    0%,100%{transform:scale(1);color:slateblue;}
+                    50%{transform:scale(1.5);color:blue;}
+                }
+                input,textarea,select{
+                    width:100%;
+                    padding:10px;
+                    font-size:1rem;
+                    color:black;
+                    margin-top:5px;
+                    
+                
+                    
+                }
+                label{
+                    display:block;
+                    margin-top:15px;
+                    font-family: sans-serif;
+                }
+                
+                button{
+                    width:100%;
+                    font-size: 1.5rem;
+                    margin-top:20px;
+                    margin-bottom:24px;
+                    background:#007bff;
+                    cursor:pointer;
+                    color:white;
+                    border:none;
+                    border-radius:6px;
+                    padding:10px;
+                }
+                .open-button{
+                  display:block;
+                  margin:0mauto 18px auto;
+                  background: #1abc9c;
+                  color:#fff;
+                  border:none;
+                  border-radius:6px;
+                  padding:12px 18px;
+                  font-size:1.1rem;
+                  cursor:pointer;
+                  transition:background 0.3s;
+                }
+                .btn.cancel{
+                  background:#c0392b;
+                  color:#fff;
+                  border:none;
+                  border-radius:6px;
+                  padding:10px 22px;
+                  font-size:1rem;
+                  cursor:pointer;
+                  margin-left:10px;
+                  transition:background 0.3s;
+                }
+                .btn.cancel:hover{
+                  background:#e74c3c;
+                }
+                /*Responsive*/
+                @media(max-width:700px){
+                  .prayer-request-container{
+                    width:100%;
+                    min-height:320px;
+                  }
+                }
+                button:hover{
+                    background: #0053b3;
+                    font-weight:bold;
+
+                }
+                footer{
+  margin-top: 50px;
+  margin-bottom:0px;
+  background: linear-gradient(90deg, #3e435f, #0f1028);
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-height: 120px;
+  clear: both;
+  z-index: 999;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  padding: 30px 20px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+                }
+                  
+</style>
+</head>
+<body onload="myFunction()" style="margin:0;">
+  <div id="loader"></div>
+  <div style="display:none;" id="myDiv" class="animate-bottom">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+
+      <span id="k">K</span>
+      <span id="u">U</span>
+      <span id="s">S</span>
+      <span id="d">D</span>
+      <span id="a">A</span>
+    
+    
+    
+    
+    </div>
+    <button id="menu-toggle" class="menu-toggle-button">☰</button>
+    <nav id="navbar-nav">
+      
+      <ul>
+        <li><a href="idex3.html">Home</a></li>
+        <li><a href="calender_activities.html">Mission</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="ministry.html">Ministries</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="donate.html">Donation</a></li>
+        <li><a href="#about">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Kisii University SDA</h1>
+      <p>Faith   Fellowship   Community</p>
+      <a href="#mission" class="btn">Join Us This Sabbath</a>
+    </div>
+  </section>
+<!--Mission section-->
+  <section>
+       <div class="card-grid">
+      <div class="card">
+         <h2>Our Mission</h2
+            <p>At <span>KSUSDA</span> we are dedicated at spreading love,hope and the teachings of Jesus christ.We strive to create a welcome environment for all,where every individual can grow spiritually and serve the community.</p>
+            <img src="image/congregration.jpg" alt="church congregation" height="400" width="500">
+      
+    </div>
+    <div class="card">
+      <h2>About Us</h2>
+      <p>We have a strong sense of community with Parrishioners,students and children of all ages<br>Here we are encourage to learn about their own faith and the role of the church in our community and countrywide.We invite anyone and every  to attend our Saturday Gathering at Kisii University Main Campus</p>
+      <img src="image/video/outreach2.jpg" alt="outreach">
+      <p></p>
+    </div>
+    </div>
+
+    
+
+  <h2>Find Us Here 📍</h2>
+  
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63832.451184220736!2d34.74394256884286!3d-0.6909609937894874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182b3eb1068f0739%3A0x2f6a4c9c2f40ae3a!2sKisii%20University%20Main%20Library!5e0!3m2!1sen!2ske!4v1759176776779!5m2!1sen!2ske" 
+    width="100%" 
+    height="450" 
+    max-width="900";
+    ratio="16:9;
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+
+
+
+  </section>
+ <!-- EVENTS -->
+  <section id="events">
+    <h2>Join Us In Our Coming Events</h2>
+    <div class="event-cards">
+      <div class="event-card">
+        <span class="date">Sat</span>
+        <h3>Sabbath Service</h3>
+        <p>Every Saturday | 8 AM – 12 PM</p>
+      </div>
+      <div class="event-card">
+        <span class="date">Wed</span>
+        <h3>Bible Study</h3>
+        <p>Every Wednesday | 2 PM</p>
+      </div>
+      <div class="event-card">
+        <span class="date">12 Apr</span>
+        <h3>Outreach Program</h3>
+        <p>Join us in the community outreach mission.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINISTRIES -->
+  <section id="ministries">
+    <h2>Our Programs</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Get Involved</h3>
+        <p>Make a differnce in our community through active participation in various programs</p>
+<img src="image/video/outreach2.jpg" alt="church activity">
+<button type="button" onclick="location.href=''">Find out More</button>
+      </div>
+      <div class="card">
+        <h3>Voluteer Opportunities</h3>
+        <p>Share your skills and time to help us serve those in need</p>
+        <img src="image/video/outreach2.jpg" alt="voluteer opportunities">
+        <button type="button" onclick="location.href=''">Get More</button>
+      </div>
+      <div class="card">
+        <h3>Outreach Programs</h3>
+        <p>Get involved in our outreach programs</p>
+        <p>Help us spread Compassion and kindness to the community</p>
+        <img src="image/oute.jpg" alt="outreach" height="200" width="200">
+        <button type="button" onclick="location.href='program.html'">Find More</button>
+      </div>
+      
+    </div>
+  </section>
+
+  <div class="ministry">
+    <h2>Join a Ministry</h2>
+    <p>Explore the various ministries we offer at <span>Kisii University Seventh Day Adventist</span>.Whether it's yourth,music,or outreach and there is a place for you to serve and grow in faith</p>
+    <button type="button" onclick="location.href='ministry.html'">Find your Place</button>
+    
+   </div>
+
+
+  <!-- PROGRAMS -->
+  <section id="programs">
+    <h2>Our Programs</h2>
+    <div class="programs">
+      
+      <div>
+        <h3>Serving the Community</h3>
+        <p>We run outreach, evangelism, and student fellowship programs to spread hope and uplift lives. Everyone is welcome to participate in God’s mission with us.</p>
+      </div>
+    </div>
+  </section>
+
+<section id="leader">
+  <button type="button" onclick="location.href='leader_dashboard.html'">Meet Our Leaders</button>
+</section>
+
+<section id="prayer-request-container">
+  <h3>Submit Your Prayer</h3>
+  <p>God cares about you.Send your prayer request so that  we can pray and God may fulfil your desires</p>
+  <button class="open-button" onclick="openForm()">Send Request</button>
+
+   <div class="prayer-request-container" id="myForm">
+        <form action="process.php" method="post">
+            <h2>Submit your Prayer Request</h2>
+            <label for="name">Name (Optional)</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+
+            <label for="email">Email / Phone (Optional)</label>
+            <input type="text" id="email" name="email" placeholder="Enter your contact info">
+
+            <label for="request">Your Request</label>
+            <textarea id="message" name="message" rows="5" cols="50" placeholder="Type your Prayer Request..."></textarea>
+                
+                <label>Privacy</label>
+    <select name="is_confidential">
+      <option value="0">Public (Can be shared)</option>
+      <option value="1">Confidential (Pastoral team only)</option>
+    </select>
+<button type="submit">Send Request</button>
+<button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            
+        </form>
+    </div>
+</section>
+
+  <!-- FOOTER -->
+  
+    <footer style="margin-top: 50px; margin-bottom:0px;background: linear-gradient(90deg, #3e435f, #0f1028); color: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.12); padding: 30px 20px; font-family: 'Segoe UI', Arial, sans-serif;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center;justify-content: center; gap: 18px; flex-wrap: wrap;">
+                <span style="font-weight: 500; font-size: 1.1rem; color:white;">Follow us:</span>
+                <a href="https://twitter.com/" target="_blank" style="text-decoration: none;">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" style="width:28px; height:28px; filter: invert(1);">
+                </a>
+                <a href="https://instagram.com/" target="_blank" style="text-decoration: none;"></a>
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:28px; height:28px; filter: invert(1);">
+                </a>
+                <a href="https://facebook.com/" target="_blank" style="text-decoration: none;">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="width:28px; height:28px; filter: invert(1);">
+                </a>
+                <a href="https://linkedin.com/" target="_blank" style="text-decoration: none;">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width:28px; height:28px; filter: invert(1);">
+                </a>
+                <a href="https://youtube.com/" target="_blank" style="text-decoration: none;">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" style="width:28px; height:28px; filter: invert(1);">
+                </a>
+                <a href="idex3.html" target="_blank" style="text-decoration: none;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Kisii University seventhday adventist" style="width:28px; height:28px; filter: invert(1);">
+                </a>
+            </div>
+            <div style="margin-top: 18px; flex: 1 1 100%;"></div>
+            <div style="margin-top: 12px; font-size: 1rem;">
+                <strong>Need assistance?</strong> Call us: 
+                <a href="tel:0791302316" style="color: #ffd700; text-decoration: none;">0791302316</a>, 
+                <a href="tel:0112634759" style="color: #ffd700; text-decoration: none;">0112634759</a>
+                <br>
+                <span style="font-size: 0.97rem; color: #e0e0e0;">Official website: 
+                    <a href="https://kisiiuniversity.ac.ke/" target="_blank" style="color: #ffd700; text-decoration: underline;">kisiiuniversity sda.ac.ke</a></span>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 18px; font-size: 0.95rem; color: #e0e0e0;">
+            &copy; 2025 Kisii University Seventh Day Adventist. All rights reserved.
+        </div>
+    </footer>
+
+  </footer>
+</div>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbarNav = document.getElementById('navbar-nav');
+    menuToggle.addEventListener('click', () => {
+      navbarNav.classList.toggle('show');
+      menuToggle.textContent = navbarNav.classList.contains('show') ? '✖' : '☰';
+    });
+  </script>
+
+<script>
+  var myVar;
+  function myFunction(){
+    myVar=setTimeout(showPage,1000);
+  }
+  function showPage(){
+    document.getElementById("loader").style.display="none";
+    document.getElementById("myDiv").style.display="block";
+  }
+</script>
+<script>
+  function openForm(){
+    document.getElementById('myForm').style.display="block";
+  }
+  function closeForm(){
+    document.getElementById('myForm').style.display="none";
+  }
+</script>
+</body>
+</html>

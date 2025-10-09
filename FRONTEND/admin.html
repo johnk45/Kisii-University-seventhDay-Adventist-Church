@@ -1,0 +1,93 @@
+<!--This page is for admin-->
+<!--Admin will login to confirm the members who have donated and what amount-->
+<!--It was created by john Katana on 8/9/2025-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - SDA Donations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-4xl">
+    <h2 class="text-2xl font-bold text-dark teal-700 mb-6 text-center">Admin Dashboard</h2>
+
+    <!-- Login Form -->
+    <div id="loginSection">
+      <label class="block mb-2 font-medium">Username</label>
+      <input id="username" class="w-full border p-2 rounded mb-4">
+      <label class="block mb-2 font-medium">Password</label>
+      <input type="password" id="password" class="w-full border p-2 rounded mb-4">
+      <button onclick="login()" class="w-full bg-teal-600 text-white py-2 rounded">Login</button>
+    </div>
+
+    <!-- Donations Table -->
+    <div id="dashboardSection" class="hidden">
+      <button onclick="logout()" class="bg-red-500 text-white px-3 py-1 rounded mb-4">Logout</button>
+      <table class="w-full border-collapse bg-white shadow-md rounded">
+        <thead>
+          <tr class="bg-green-600 text-white">
+            <th class="p-2">Name</th>
+            <th class="p-2">Phone</th>
+            <th class="p-2">Amount</th>
+            <th class="p-2">Purpose</th>
+            <th class="p-2">Method</th>
+            <th class="p-2">Date</th>
+          </tr>
+        </thead>
+        <tbody id="donationsTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+<script>
+async function login() {
+  let response = await fetch("http://127.0.0.1:5000/admin/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify({
+      username: document.getElementById("username").value,
+      password: document.getElementById("password").value
+    })
+  });
+
+  if (response.ok) {
+    document.getElementById("loginSection").classList.add("hidden");
+    document.getElementById("dashboardSection").classList.remove("hidden");
+    loadDonations();
+  } else {
+    alert("Invalid login");
+  }
+}
+
+async function logout() {
+  await fetch("http://127.0.0.1:5000/admin/logout", { method: "POST", credentials: "include" });
+  document.getElementById("dashboardSection").classList.add("hidden");
+  document.getElementById("loginSection").classList.remove("hidden");
+}
+
+async function loadDonations() {
+  let response = await fetch("http://127.0.0.1:5000/admin/donations", { credentials: "include" });
+  let donations = await response.json();
+
+  let table = document.getElementById("donationsTable");
+  table.innerHTML = "";
+  donations.forEach(d => {
+    table.innerHTML += `
+      <tr class="border-b">
+        <td class="p-2">${d.fullname}</td>
+        <td class="p-2">${d.phone}</td>
+        <td class="p-2">KES ${d.amount}</td>
+        <td class="p-2">${d.purpose}</td>
+        <td class="p-2">${d.method}</td>
+        <td class="p-2">${d.date}</td>
+      </tr>`;
+  });
+}
+</script>
+</body>
+</html>
