@@ -6,8 +6,8 @@
   <title>Document</title>
   <style>
     body{
-      background: rgb(215, 130, 130);
-      margin:auto;
+      background: #0a0a23;
+      margin:0;
       font-family:sans-serif,Arial;
       color:white;
 
@@ -15,11 +15,15 @@
     .registration-form{
       background: rgb(53, 7, 7);
       max-width:600px;
-      padding:10px  30px 14px  12px;
-      margin:auto;
+      width:95vw;
+      padding:10px  16px 14px  16px;
+      margin:20px auto;
       outline:none;
       border-radius:5px;
-      box-shadow:0 2px 25px rgba(0,25,45,1);
+      box-shadow:0 2px 25px gold;
+    }
+    h2{
+      color:#00bcd4;
     }
     .registration-form h2{
       margin-bottom:20px;
@@ -37,29 +41,52 @@
     color:#fff;
     font-weight: bold;
     }
-    select{
-      width:100%;
+    select,button{
+      width:98%;
       margin:20px;
-      padding:20px;
-      margin-top:5px;
+      padding:12px 56px;
+      margin-top:8px;
       border-radius: 6px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
     button{
       background: teal;
       color:#f9f9f9;
       margin-top:20px;
-      padding:10px;
-      width:100%;
-      font-size:1.5rem;
+      border:2px solid teal;
+      width:98%;
+      font-size:1.1rem;
       border:none;
       border-radius:6px;
       cursor:pointer;
       margin-bottom:20px;
+      padding:12px 16px;
     }
     button:hover{
       background: darkslateblue;
       color:white;
+    }
+    @media(max-width:600px){
+      .registration-form{
+        max-width:95vw;
+        padding:6px 2vw;
+        margin:8px auto;
+      }
+      .registration-form h2{
+        font-size:1rem;
+        padding:6px;
+      }
+      label{
+        font-size:0.95rem;
+      }
+      body{
+        font-size:0.9rem;
+      }
+      select,button{
+        font-size:1rem;
+        padding:6px;
+        margin:10px 0 0 0;
+      }
     }
   </style>
 </head>

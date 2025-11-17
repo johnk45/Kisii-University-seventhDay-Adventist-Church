@@ -1,39 +1,9 @@
-<section class="contribution-section">
-  <h2>Semetary Contribution</h2>
-  <p>Your contribution helps us maintain the church Semetary with dignity and care.</p>
-
-  <form class="contribution-form">
-    <!-- Name -->
-    <label for="name">Full Name:</label>
-    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-
-    <!-- Contribution Amount -->
-    <label for="amount">Contribution Amount (Ksh):</label>
-    <input type="number" id="amount" name="amount" placeholder="e.g. 1000" required>
-
-    <!-- Contribution Type -->
-    <label for="type">Contribution Type:</label>
-    <select id="type" name="type" required>
-      <option value="">-- Select --</option>
-      <option value="once">One-semester</option>
-      <option value="monthly">Two_semester</option>
-
-    </select>
-
-    <!-- Payment Method -->
-    <label for="method">Payment Method:</label>
-    <select id="method" name="method" required>
-      <option value="">-- Select Method --</option>
-      <option value="mpesa">M-Pesa</option>
-      <option value="bank">Bank Transfer</option>
-      <option value="cash">Cash</option>
-    </select>
-
-    <!-- Submit Button -->
-    <button type="submit">Contribute</button>
-  </form>
-</section>
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scaale=1.0">
+    <title>Semetary Contribution</title>
 <style>
 .contribution-section {
   padding: 40px;
@@ -61,7 +31,7 @@
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  float:right;
+  
   
 }
 
@@ -96,4 +66,83 @@
   background: #34495e;
   font-size:1.8rem;
 }
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #2c3e50;
+  color: white;
+  margin-top: 30px;
+}
+.social-icons {
+  margin-top: 10px;
+  
+}
+.contact-info p a{
+  color:#fff;
+  text-decoration:none;
+}
+.contact-info p a:hover{
+  text-decoration:underline;
+  color:#00bcd4;
+}
 </style>
+
+
+  </head>
+  <body>
+    <section class="contribution-section">
+  <h2><marquee>Sementary Contribution</marquee>Let's Support the Program of the Semester</h2>
+  <p>Your contribution helps us maintain the church Semetary with dignity and care.</p>
+
+  <form class="contribution-form">
+    <!-- Name -->
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+    <!-- Contribution Amount -->
+    <label for="amount">Contribution Amount (Ksh):</label>
+    <input type="number" id="amount" name="amount" placeholder="e.g. 1000" required>
+
+    <!-- Contribution Type -->
+    <label for="type">Contribution Type:</label>
+    <select id="type" name="type" required>
+      <option value="">-- Select --</option>
+      <option value="once">One-semester</option>
+      <option value="monthly">Two_semester</option>
+
+    </select>
+
+    <!-- Payment Method -->
+    <label for="method">Payment Method:</label>
+    <select id="method" name="method" required>
+      <option value="">-- Select Method --</option>
+      <option value="mpesa">M-Pesa</option>
+      <option value="bank">Bank Transfer</option>
+      <option value="cash">Cash</option>
+    </select>
+
+    <!-- Submit Button -->
+    <button type="submit">Contribute</button>
+  </form>
+</section>
+<footer>
+  <p>&copy;Kisii University SeventhDay Adventist Church.All rights reserved</p>
+  <div class="social-icons">
+    <h2>Follow us on:</h2>
+    <a href="#"><img src="image/facebook-icon.png" alt="Facebook" width="24"></a>
+    <a href="#"><img src="image/twitter-icon.png" alt="Twitter" width="24"></a>
+    <a href="#"><img src="image/instagram-icon.png" alt="Instagram" width="24"></a>
+  </div>
+  <div class="contact-info">
+    <p>Contact us: <a href="mailto:johnziro68@gmail.com">ksusda456@gmail.com</a>
+      </p>
+  </div>
+  <hr>
+<p style="color:#00bcd4;">All rights reserved.prepared by <span style="color:red;font-weight: 600;font-size: 18px;text-shadow: 0 10px 20px #fff;">Jtech Softwares</span></p>
+</footer>
+  </body>
+</html>
+
+
+
+

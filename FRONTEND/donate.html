@@ -80,7 +80,7 @@
     input, textarea, select {
       width: 100%;
       padding: 13px;
-      margin-top: 7px;
+      margin-top: 4px;
       border: 1.5px solid #bfc9ea;
       border-radius: 8px;
       font-size: 15px;
@@ -156,9 +156,9 @@
       background: linear-gradient(90deg, #2ecc71 60%, #27ae60 100%);
       box-shadow: 0 4px 16px rgba(44,62,80,0.12);
     }
-    @media (max-width: 600px) {
+    @media (max-width: 450px) {
       .form-container {
-        padding: 18px 8px 18px 8px;
+        padding: 24px 18px 18px 8px;
       }
       .payment-methods {
         grid-template-columns: 1fr;
@@ -169,6 +169,7 @@
       border-radius: 12px;
       padding: 22px;
       max-width: 480px;
+      width:100%;
       margin: 0 auto 32px auto;
       box-shadow: 0 4px 16px rgba(44,62,80,0.10);
       text-align: center;
@@ -204,14 +205,27 @@
       margin-top: auto;
       box-shadow: 0 -2px 12px rgba(44,62,80,0.08);
     }
+    .footer-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      grid: 30px;
+      max-width:1200px;
+      margin:auto;
+    }
+    footer ul{
+      list-style:none;
+    }
+    footer h3{
+      color:#00bcd4;
+    }
     footer a {
-      color: #ffd700;
+      color: #aaaa;
       text-decoration: none;
       font-weight: 600;
     }
     footer a:hover {
       text-decoration: underline;
-      color: #fff;
+      color: turquoise;
     }
   </style>
 </head>
@@ -219,7 +233,7 @@
   <header>
     <img src="image/SDA Logo.jpg" alt="SDA Logo">
     <h2>Support Our Mission</h2>
-    <p>The money you contribute supports our ministries, community, and church at large.</p>
+    <p>The money you contribute supports our ministries, help us run our programs, and church at large.</p>
   </header>
 
   <div class="form-container">
@@ -250,12 +264,12 @@
           M-Pesa
         </label>
         <label class="method">
-          <span class="icon">🌍</span>
+          <span class="icon"></span>
           <input type="radio" name="payment" value="flutterwave">
           Flutterwave
         </label>
         <label class="method">
-          <span class="icon">💳</span>
+          <span class="icon"></span>
           <input type="radio" name="payment" value="card">
           Debit/Credit Card
         </label>
@@ -275,15 +289,36 @@
     </form>
   </div>
 
-  <section class="contact">
+ 
+
+  <footer>
+    <section class="contact">
     <h2>Contact Us</h2>
     <p>📧 Email: <a href="mailto:support@kusda.org">support@kusda.org</a></p>
     <p>📞 Phone: <a href="tel:+254712345678">+254 712 345 678</a></p>
     <p>🌍 Follow us on <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a></p>
   </section>
+    <div class="footer-container">
+      <div class="footer-resource">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="">Why should we Give</a></li>
+          <li><a href="">What does the bible says about giving?</a></li>
+          <li><a href="">How Does your offering help us ?</a></li>
+          <li><a href="">Importance of giving</a></li>
+        </ul>
+      </div>
 
-  <footer>
-    <p>&copy; 2025 Kisii University SDA Church. All Rights Reserved.</p>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="">Sermons</a></li>
+          <li><a href="">Beliefs</a></li>
+          <li><a href="">Events</a></li>
+          <li><a href="">Gallery</a></li>
+        </ul>
+      </div>
+    </div>
   </footer>
 
   <script>

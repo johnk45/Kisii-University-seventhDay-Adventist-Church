@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KSUSDA | Kisii University SDA Church</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+     :root {
+     --primary: #2c3e50;
+      --accent: #1abc9c;
+      --light-bg: #f9f9f9;
+      --text: #333;
+      --btn-blue: #007bff;
+      --btn-green: #28a745;
+      --btn-orange: #fd7e14;
+      --btn-purple: #6f42c1;
+      --btn-red: #dc3545;
+      --btn-dark: #343a40;
+    }
+    .btn-blue { background: var(--btn-blue); }
+    .btn-green { background: var(--btn-green); }
+    .btn-orange { background: var(--btn-orange); }
+    .btn-purple { background: var(--btn-purple); }
+    .btn-red { background: var(--btn-red); }
+    .btn-dark { background: var(--btn-dark); }
+
+    .btn:hover { opacity: 0.85; transform: translateY(-3px); }
+    * {margin:0; padding:0; box-sizing:border-box;}
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #222;
+      line-height: 1.6;
+      background: linear-gradient(-45deg, #e3f2fd, #cfd8dc, #bbdefb, #90caf9);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    header {
+      background: linear-gradient(90deg, #003366, #001f3f);
+      color: #fff;
+      padding: 1rem 4%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+      background: #040b57;
+      padding:10px;
+    }
+
+    /* Mobile toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+
+    .bar {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin: 4px 0;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    @media(max-width: 768px){
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #002b5b;
+        position: absolute;
+        top: 70px;
+        right: 4%;
+        width: 200px;
+        border-radius: 8px;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    /* Hero section */
+    .hero {
+       background: url("image/church\ audotorium.jpg") center/cover no-repeat;
+      color: #fff;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align:center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .hero h2, .hero p {
+      position: relative;
+      z-index: 2;
+    }
+    .highlight{
+      background: #000;
+      color:var(--light-bg);
+
+    }
+    .themeBtn{
+      padding:5px;
+      float:right;
+      top:0;
+      color:#1abc9c;
+    }
+    /* Make hero buttons sit inline and centered, with good spacing and responsive stacking 
+    .hero a {
+      display: inline-block;
+      margin: 20px 10px 0;
+      text-decoration: none;
+      vertical-align: middle;
+      z-index: 2;
+    }
+      */
+
+    /* Replace float with inline styling for the specific button */
+    
+.hero .heroBtn {
+  display: flex;
+  flex-wrap: wrap;            /* allow wrapping only when space is tight */
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .heroBtn a {
+  display: inline-flex;       /* icon + text align */
+  align-items: center;
+  gap: 10px;
+  padding: 0.85rem 1.1rem;
+  border-radius: 12px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(8,16,40,0.16);
+  flex: 0 0 auto;             /* keep inline-block behaviour */
+  min-width: 140px;
+  max-width: 280px;
+  white-space: nowrap;
+  transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+}
+
+/* small decorative/icon container (use 1em so it matches text size) */
+.hero .heroBtn a::before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex: 0 0 1em;
+  transform: translateY(0.05em);
+}
+
+/* Two color variants (first and second button) */
+.hero .heroBtn a:nth-child(1) {
+  background: linear-gradient(135deg, #0066cc 0%, #00a3ff 100%);
+}
+.hero .heroBtn a:nth-child(2) {
+  background: linear-gradient(135deg, #ff7a18 0%, #ffb03b 100%);
+}
+.hero .heroBtn a:not(:nth-child(1)):not(:nth-child(2)) {
+  background: linear-gradient(135deg, #6b46c1 0%, #9f7aea 100%);
+}
+
+.hero .heroBtn a:hover,
+.hero .heroBtn a:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(8,16,40,0.22);
+  opacity: 0.98;
+}
+
+/* Keep inline behavior on small screens but reduce size slightly */
+@media (max-width: 480px) {
+  .hero .heroBtn {
+    gap: 10px;
+  }
+  .hero .heroBtn a {
+    padding: 0.6rem 0.9rem;
+    min-width: 110px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Default button look (applies to all hero buttons) */
+.hero .heroBtn a {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  min-width: 120px;        /* keeps compact inline appearance */
+  text-align: center;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(135deg,#1abc9c 0%,#16a085 100%);
+  box-shadow: 0 6px 18px rgba(8,16,40,0.12);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover, .btn:focus { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(8,16,40,0.18); }
+
+    /* Small screens: stack buttons and center them */
+    @media (max-width: 480px) {
+      .hero a {
+        display: block;
+        width: calc(100% - 48px);
+        max-width: 360px;
+        margin: 12px auto 0;
+        text-align: center;
+      }
+    }
+
+    .hero h2 {
+      font-size: 2.7rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 5px goldenrod;
+      animation: fadeInDown 1.5s ease;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+      animation: fadeIn 2s ease;
+      color:var(--light-bg);
+    }
+    .hero .heroBtn{
+      display:flex;
+      flex-direction:column;
+      align-items: center;
+      justify-content: center;
+      gap:10px;
+      margin-top:12px;
+
+    }
+
+    .hero .heroBtn a {
+     width:100%;
+     max-width:auto;
+     max-width:80%;
+     padding:0.4rem 0.4rem;
+     font-size:0.8rem;
+    }
+   
+
+    
+
+    @keyframes fadeInDown {
+      0% {opacity: 0; transform: translateY(-30px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      0% {opacity: 0; transform: translateY(30px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeIn {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+@media(max-width:768px){
+  .hero{height:110vh}
+  .hero h2{font-size: 1.8rem;}
+  .hero p{font-size: 1rem;}
+  section{padding:8px 8%;}
+  .hero .heroBtn a{min-width: 100px;}
+}
+
+    section {
+      padding: 4rem 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #003366;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .about, .ministries, .events, .sermons, .join, .contact {
+      background-color: #fff;
+      margin-bottom: 2rem;
+      margin-top:0.5rem;
+      margin-left:0.2rem;
+      margin-right:0.2rem;
+
+      border-radius: 15px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      padding: 2rem;
+      animation: fadeIn 2s ease;
+      
+    }
+
+    .ministries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .ministry {
+      text-align: center;
+      padding: 1.5rem;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      transition: 0.3s;
+      
+    }
+
+    .ministry:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .sermons ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+     .sermons li {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #ddd;
+
+    }
+     .card{
+      
+      padding:20px;
+    }
+    #events{
+      margin:auto;
+      max-width:1200px;
+      padding:50px 20px;
+      background: #f9f9f9;
+      margin-bottom:20px;
+      border-radius:20px;
+    }
+    #events h2{
+      color:black;
+      text-align: center;
+      margin-bottom:20px;
+      font-size:2rem;
+    }
+    .btn{
+      padding:12px 25px;
+      border-radius: 30px;
+      margin-top:15px;
+      text-decoration: none;
+      display:inline-block;
+      font-weight:bold;
+      background: var(--accent);
+      transition:0.3s;
+       box-shadow:0 2px 8px rgba(44,62,80,0.18);
+
+      
+    }
+    .btn:hover{
+      background: var(--btn-blue);
+      color:#fff;
+    }
+   
+   .event-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+   }
+   .event-card{
+    background: lightgrey;
+    border-radius:10px;
+    padding:20px;
+    box-shadow:0 4px 10px(0,0,0,0.1);
+    text-align:center;
+   }
+   .event-card .date{
+    display:inline-block;
+    background:var(--btn-orange);
+    color:#fff;
+    padding:5px 12px;
+    border-radius:5px;
+    font-weight: bold;
+    margin-bottom:10px;
+   }
+    .join {
+      text-align: center;
+      background: linear-gradient(120deg, #004e92, #000428);
+      color: #fff;
+      
+    }
+
+    .join a {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #ffd700;
+      color: #000;
+      padding: 0.7rem 1.4rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+   .footer {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 60px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer h2 {
+  color: #38bdf8;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.footer h3 {
+  color: #38bdf8;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.footer-about p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #cbd5e1;
+}
+
+.footer-links ul,
+.footer-resources ul,
+.social-icons {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li,
+.footer-resources li {
+  margin-bottom: 8px;
+}
+
+.footer a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #38bdf8;
+}
+
+.social-icons ul {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+.social-icons img {
+  transition: transform 0.3s ease;
+
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 14px;
+  color: #94a3b8;
+  margin-top: 30px;
+}
+
+.footer-bottom hr {
+  border: none;
+  border-top: 1px solid #1e293b;
+  margin: 20px 0;
+}
+
+.footer-legal {
+  color: #38bdf8;
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+.footer-legal:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom span {
+  color: #38bdf8;
+}
+
+  </style>
+</head>
+<body>
+  <div id="preloader">
+    <style>
+      #preloader {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: #fd7e14;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+      
+      .loader-ring {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+      }
+      
+      .loader-ring:after {
+        content: "";
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border-radius: 50%;
+        border: 16px solid #a3ef21;
+        border-color: #003366 transparent #201746 transparent;
+        animation: loader-ring 1.2s linear infinite;
+      }
+      
+      @keyframes loader-ring {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(480deg); }
+      }
+
+      .loader-text {
+        text-align: center;
+      }
+
+      .loader-text h1 {
+        color: #003366;
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .loader-text p {
+        color: #666;
+      }
+    </style>
+    <div class="loader-ring"></div>
+    <div class="loader-text">
+      <h1>KSUSDA</h1>
+      <p>Loading...</p>
+    </div>
+  </div>
+
+ 
+
+  <header>
+    <h1>KSUSDA</h1>
+    <div class="menu-toggle" id="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <nav>
+      <ul id="nav-links">
+        <li><a href="index65.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="ministr.html">Ministries</a></li>
+        <li><a href="event.html">Events</a></li>
+        <li><a href="sermon.html">Sermons</a></li>
+        <li><a href="contac.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <button class="themeBtn" id="button">Change Theme</button>
+    <h2>Welcome to Kisii University SDA Church</h2>
+    <p>A community of faith,hope, and love.Join us as we worship together and grow in Christ</p>
+    <div class="heroBtn">
+    <a href="About.html">Learn More </a>
+    <a href="contac.html">Plan a visit </a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h3 class="section-title">About Us</h3>
+    <p>KSUSDA is a spiritual home for students and staff at Kisii University, dedicated to nurturing faith through worship, fellowship, and service. Our mission is to spread the everlasting gospel and empower members to live Christ-centered lives on campus and beyond.</p>
+  </section>
+
+  <section class="ministries" id="ministries">
+    <h3 class="section-title">Our Ministries</h3>
+    <div class="ministries-grid">
+      <div class="ministry">
+        <h4>KSUSDA Department</h4>
+        <p>Equipping young people to grow in faith, leadership, and service.</p>
+        <a href="ministr.html" class="btn --btn-dark">Join Us</a>
+      </div>
+      <div class="ministry">
+        <h4>KSUSDA Ministries</h4>
+        <p>The backbone of the church.Helps Students to be truly followers of christ</p>
+        <a href="ministr.html" class="btn btn-green">Join Us</a>
+      </div>
+      <div class="ministry">
+        <h4>Community Outreach</h4>
+        <p>Spreading hope through acts of kindness, evangelism, and mission work.</p>
+        <a href="event.html" class="btn btn-purple">Join Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="events">
+    <h2>Join Us in Our Upcoming Events</h2>
+    <div class="event-cards">
+      <div class="event-card">
+        <span class="date">Date</span>
+        <h3>Sabbath Services</h3>
+        <p>Every Saturday | 8AM-12PM</p>
+        <a href="event.html" class="btn btn-orange">View Details</a>
+      </div>
+      <div class="event-card">
+        <span class="date">Date</span>
+        <h3>Midweek Activities</h3>
+        <p>Every Sunday and Tuesday At 2PM</p>
+        <a href="event.html" class="btn btn-purple">View Details</a>
+      </div>
+      <div class="event-card">
+        <span class="date">Date</span>
+        <h3>Song Polishing</h3>
+        <p>Thursady at 6PM-8:30PM</p>
+        <a href="event.html" class="btn btn-blue">View Details</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sermons" id="sermons">
+    <h3 class="section-title">Recent Sermons</h3>
+    <ul>
+      <li>🎧 "Faith Over Fear" - Pr. M. Okech</li>
+      <li>🎧 "The Power of Prayer" -Pr. J. Onyancha</li>
+      <li>🎧 "Walking in the Light" - Student Speaker Sabbath</li>
+    </ul>
+  </section>
+
+  <section class="join" id="join">
+    <h3>Join the KSUSDA Family</h3>
+    <p>We welcome you to be part of a growing faith community that loves God and serves others passionately.</p>
+    <a href="#contact">Join Us Today</a>
+  </section>
+
+  <section class="join" id="join" style="background: linear-gradient(120deg, #061030, #84057e);">
+    <h3>Meet Our Leaders</h3>
+    <p>Meet the dedicated leaders of KSUSDA that plays a big role in conducting church programs and activities.</p>
+    <a href="leader_dashboard.html">Meet Leaders</a>
+  </section>
+
+  <section class="contact" id="contact">
+    <div>
+      <h3 class="section-title">Contact Us</h3>
+      <p>Email: ksusda@kisiiuniversity.ac.ke</p>
+      <p>Phone: +254 791302316</p>
+      <p>Address: Kisii University SDA Church, Kisii, Kenya</p>
+      <a href="contac.html" class="btn btn-dark">Contact Us</a>
+    </div>
+    <div>
+      <iframe src="https://www.google.com/maps?q=kisii%20university&output=embed" width="100%" height="250" style="border:0;" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <footer class="footer">
+  <div class="footer-container">
+    <!-- About Section -->
+    <div class="footer-about">
+      <h2>KSUSDA</h2>
+      <p>
+        Kisii University SDA Church - A community of faith, hope, and service. 
+        Growing in Christ and preparing for His soon return. We welcome everyone to worship, grow, and serve with us.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="sermon.html">Sermons</a></li>
+        <li><a href="donate.html">Donations</a></li>
+        <li><a href="ministr.html">Ministries</a></li>
+        <li><a href="prayerrequest.html">Prayer Request</a></li>
+      </ul>
+    </div>
+
+    <!-- Resources -->
+    <div class="footer-resources">
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="#">Beliefs</a></li>
+        <li><a href="prayerrequest.html">Prayer Requests</a></li>
+        <li><a href="announcement donate.html">Online Giving</a></li>
+        <li><a href="announcement.html">Newsletter</a></li>
+      </ul>
+    </div>
+
+    <!-- Follow Us -->
+    <div class="footer-social">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <ul>
+        <li>
+      <a href="https://facebook.com" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="30">
+        </li>
+             <li> 
+ <a href="https://www.youtube.com" target="_blank" title="YouTube">
+  <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="30">
+
+</a>
+</li>
+ <li>
+       <a href="https://x.com" target="_blank" title="Follow us on X">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" 
+       alt="X Icon" width="40" style="filter: brightness(0) invert(1);"><!--It make the color white even f the icon is b;ack-->
+</a>
+    
+       </li>
+       <li>
+ <a href="https://x.com/yourProfile" target="_blank" title="Follow us on X">
+  <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-white-icon.svg"
+       alt="X logo" width="40">
+</a>
+
+</li>
+<li>
+        <a href="https://t.me" target="_blank" title="Join us on Telegram">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111644.png" 
+           alt="Telegram Icon" width="35">
+    </a>
+       <li>
+          <a href="https://instagram.com" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="40">
+    </a>
+  </li>
+  </li>
+  </ul>
+      <p>Email: info@ksusda.org</p>
+      <p>Phone: +254 791302316</p>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <hr>
+
+  <!-- Legal Info -->
+  <div class="footer-bottom">
+    <p>
+      <a href="#" class="footer-legal">Privacy Policy</a> |
+      <a href="#" class="footer-legal">Terms of Service</a>
+    </p>
+    <p>&copy; 2025 KSUSDA | All Rights Reserved | Designed by <span>JTech Softwares</span></p>
+  </div>
+</footer>
+</body>
+</html>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+ <script>
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('preloader').style.display = 'none';
+      }, 1500);
+    });
+  </script>
+
+  <script>
+(function (){
+  const BODY = document.body;
+  const THEME_KEY = 'ksusda_theme';
+  const themeBtn = document.getElementById('button');
+  const menuToggle =  document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  //Aplly Theme state
+  function applyTheme(theme){
+    if(theme === 'dark'){
+      BODY.classList.add('highlight');
+      if(themeBtn) themeBtn.textContent = 'Light Theme';
+      BODY.setAttribute('data-theme','dark');
+    }else{
+      BODY.classList.remove('highlight');
+      if(themeBtn) themeBtn.textContent = 'Dark Theme';
+      BODY.setAttribute('data-theme','light');
+    }
+  }
+
+  //Load stored theme
+  try{
+    const stored = localStorage.getItem(THEME_KEY);
+    applyTheme(stored === 'dark' ? 'dark' : 'light');
+
+  }catch(e){
+    applyTheme('light');
+  }
+
+  //Theme toggle handler
+  if(themeBtm){
+    themeBtn.addEventListener('click',()=>{
+      const isNowDark = BODY.classList.toggle('highlight');
+      const newTheme = isNowDark ? 'dark' : 'light';
+      try{localStorage.setItem(THEME_KEY,newTheme);}catch(e){}
+      applyTheme(newTheme);
+
+      //accessibility
+      themeBtn.setAttribute('aria-pressed', isNowDark ? 'true':'falser');
+    });
+  }
+  //Mobile menu toggle(safe guards)
+  if(menuToggle && navLinks){
+    menuToggle.addEventListener('click',()=>{
+      navLinks.classList.toggle('active');
+      const expanded = navLinks.classList.contains('active');
+      navLinks.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    });
+  }
+
+  //Preloader hide page  load
+})();
+  </script>
+  

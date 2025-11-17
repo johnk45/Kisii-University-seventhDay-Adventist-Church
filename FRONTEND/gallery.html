@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KSU SDA | Gallery</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap">
+  <style>
+    :root {
+      --primary-color: #0a1a2f;
+      --accent-color: #f4c542;
+      --light-color: #ffffff;
+      --text-light: #d6e4f0;
+      --bg-light: #f5f7fa;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-light);
+      color: #222;
+    }
+
+    /* ===== HEADER / NAVBAR ===== */
+    header {
+      background: var(--primary-color);
+      color: var(--light-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      color: var(--accent-color);
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    @media (max-width: 700px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(rgba(10,26,47,0.8), rgba(10,26,47,0.8)), url('images/church-bg.jpg') center/cover;
+      color: var(--light-color);
+    }
+
+    .page-header h2 {
+      font-size: 2.3rem;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+
+    .page-header p {
+      font-size: 15px;
+      color: var(--text-light);
+    }
+
+    /* ===== FILTER BUTTONS ===== */
+    .filter-buttons {
+      text-align: center;
+      margin: 40px auto 20px;
+    }
+
+    .filter-buttons button {
+      background: var(--primary-color);
+      color: var(--light-color);
+      border: none;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      padding: 10px 22px;
+      margin: 5px;
+      border-radius: 25px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-buttons button.active,
+    .filter-buttons button:hover {
+      background: var(--accent-color);
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    /* ===== GALLERY GRID ===== */
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-item::after {
+      content: attr(data-title);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px;
+      background: rgba(10, 26, 47, 0.8);
+      color: #fff;
+      text-align: center;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover::after {
+      opacity: 1;
+    }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      animation: zoomIn 0.4s ease;
+    }
+
+    .lightbox span {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .lightbox span:hover {
+      color: var(--accent-color);
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--primary-color);
+      color: var(--text-light);
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 14px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header>
+    <h1>KSUSDA</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="ministries.html">Ministries</a></li>
+        <li><a href="sermons.html">Sermons</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <section class="page-header">
+    <h2>Gallery</h2>
+    <p>Moments of Worship, Fellowship & Service — Kisii University SDA Church</p>
+  </section>
+
+  <!-- ===== FILTER BUTTONS ===== -->
+  <div class="filter-buttons">
+    <button class="active" onclick="filterGallery('all')">All</button>
+    <button onclick="filterGallery('AMO')">AMO</button>
+    <button onclick="filterGallery('ALO')">ALO</button>
+    <button onclick="filterGallery('Christ')">Christ Messengers</button>
+    <button onclick="filterGallery('ACTS')">ACTs on Mission</button>
+  </div>
+
+  <!-- ===== GALLERY GRID ===== -->
+  <section class="gallery-container">
+    <div class="gallery-item" data-category="AMO" data-title="AMO Evangelism Day">
+      <img src="image/beach1.jpeg" alt="AMO Evangelism Day">
+    </div>
+    <div class="gallery-item" data-category="ALO" data-title="ALO Fellowship">
+      <img src="image/Life is not meant to be lived in isolation but in….jpeg" alt="ALO Fellowship">
+    </div>
+    <div class="gallery-item" data-category="Christ" data-title="Christ Messengers Choir">
+      <img src="image/html.jpeg" alt="Christ Messengers Choir">
+    </div>
+    <div class="gallery-item" data-category="ACTS" data-title="ACTs on Mission Trip">
+      <img src="image/church.jpg" alt="ACTs on Mission Trip">
+    </div>
+    <div class="gallery-item" data-category="ALO" data-title="ALO Ladies Sabbath">
+      <img src="image/Mega Church.jpeg" alt="ALO Ladies Sabbath">
+    </div>
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+      <img src="image/zio.jpg" alt="AMO Men's Retreat">
+    </div>
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+      <img src="image/video/men1.jpg" alt="AMO Men's Retreat">
+    </div>
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+      <img src="image/nature.jpg" alt="AMO Men's Retreat">
+    </div>
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+      <img src="image/visit.jpeg" alt="AMO Men's Retreat">
+    </div>
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+      <img src="image/fruit.jpg" alt="AMO Men's Retreat">
+    </div>
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+      <img src="image/first2.jpg" alt="AMO Men's Retreat">
+      </div>
+      <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+      <img src="image/video/lizzy.jpg" alt="AMO Men's Retreat">
+    </div>
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+      <img src="image/video/outreach6.jpg" alt="AMO Men's Retreat">
+    </div>
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+      <img src="image/church design.jpg" alt="AMO Men's Retreat">
+    </div>
+    <div class="gallery-item" data-category="AMO" data-title="Ivona Mission">
+      <img src="image/video/outreach2.jpg" alt="AMO Men's Retreat">
+    </div>
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+      <img src="image/congregration.jpg" alt="AMO Men's Retreat">
+    </div>
+    </div>
+  </section>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div id="lightbox" class="lightbox">
+    <span onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    &COPY;2025 Kisii University SDA | All Rights Reserved
+    <hr>
+    <p>Designed and Developed by Jtech Softwares</p>
+  </footer>
+
+  <!-- ===== SCRIPT ===== -->
+  <script>
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.style.display = 'none';
+    }
+
+    // Filtering
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      const buttons = document.querySelectorAll('.filter-buttons button');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      items.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = 'block';
+          item.style.animation = 'fadeIn 0.5s ease';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Fade animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+      }
+    `;
+    document.head.append(style);
+  </script>
+</body>
+</html>

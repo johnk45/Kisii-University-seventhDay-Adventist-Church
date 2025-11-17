@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KUSDA Contribution Page</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f0f5ff, #ffffff);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .contribution-container {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      max-width: 850px;
+      width: 100%;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .contribution-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .title h2 {
+      color: #1f3a93;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .title p {
+      color: #666;
+      font-size: 0.95rem;
+      margin-top: 5px;
+    }
+
+    .option-group label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .options {
+      display: flex;
+      gap: 15px;
+    }
+
+    .option {
+      flex: 1;
+      background: #f3f5fa;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .option i {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+      color: #0077ff;
+      display: block;
+    }
+
+    .option.active {
+      background: #0077ff;
+      color: white;
+      border-color: #005ecc;
+    }
+
+    .option.active i {
+      color: white;
+    }
+
+    .input-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    select, input, textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    select:focus, input:focus, textarea:focus {
+      border-color: #0077ff;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    button {
+      width: 100%;
+      background: #0077ff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #005ecc;
+    }
+
+    .note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: 10px;
+    }
+
+    /* Preview Card */
+    .preview {
+      background: #f8faff;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .preview::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 120px;
+      height: 120px;
+      background: rgba(0, 119, 255, 0.1);
+      border-radius: 50%;
+    }
+
+    .preview h3 {
+      color: #1f3a93;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .preview-item {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #444;
+    }
+
+    .preview-item i {
+      color: #0077ff;
+      font-size: 1.2rem;
+    }
+
+    .thank-you {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #555;
+      font-style: italic;
+    }
+
+    .fade {
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contribution-container">
+    <!-- Left Side -->
+    <div class="left">
+      <div class="title">
+        <h2>Support God's Work at KUSDA</h2>
+        <p>Choose how you'd like to contribute and which ministry you’d like to support.</p>
+      </div>
+
+      <div class="option-group">
+        <label>Contribution Type:</label>
+        <div class="options" id="contributionType">
+          <div class="option active" data-type="money"><i class="ri-money-dollar-circle-line"></i> Money</div>
+          <div class="option" data-type="material"><i class="ri-box-3-line"></i> Material Items</div>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="program">Select Church Program:</label>
+        <select id="program">
+          <option value="">-- Choose a program --</option>
+          <option>Church Mission & Evangelism</option>
+          <option>Church Building Project</option>
+          <option>Youth & Pathfinder Ministry</option>
+          <option>Health & Welfare Department</option>
+          <option>Music & Choir Department</option>
+          <option>Media & Communication</option>
+        </select>
+      </div>
+
+      <div id="moneySection" class="input-group">
+        <label for="amount">Contribution Amount (KES):</label>
+        <input type="number" id="amount" placeholder="Enter amount you wish to give">
+      </div>
+
+      <div id="materialSection" class="input-group" style="display: none;">
+        <label for="materials">Material Items Description:</label>
+        <textarea id="materials" rows="3" placeholder="E.g., 5 bags of cement, 2 boxes of books, etc."></textarea>
+      </div>
+
+      <div class="input-group">
+        <label for="message">Your Message (Optional):</label>
+        <textarea id="message" rows="3" placeholder="Write a short prayer or message..."></textarea>
+      </div>
+
+      <button id="submitBtn"><i class="ri-heart-fill"></i> Submit Contribution</button>
+      <p class="note">Your generosity helps spread the Gospel and strengthen our faith community.</p>
+    </div>
+
+    <!-- Right Side: Preview -->
+    <div class="preview fade" id="preview">
+      <h3><i class="ri-eye-line"></i> Contribution Summary</h3>
+      <div class="preview-item"><i class="ri-money-dollar-circle-line"></i> Type: <span id="previewType">Money</span></div>
+      <div class="preview-item"><i class="ri-community-line"></i> Program: <span id="previewProgram">None selected</span></div>
+      <div class="preview-item"><i class="ri-price-tag-3-line"></i> Amount: <span id="previewAmount">0</span> KES</div>
+      <div class="preview-item"><i class="ri-box-3-line"></i> Materials: <span id="previewMaterial">None</span></div>
+      <div class="preview-item"><i class="ri-message-3-line"></i> Message: <span id="previewMessage">—</span></div>
+
+      <p class="thank-you">🙏 Thank you for supporting God's work at KUSDA!</p>
+    </div>
+  </div>
+
+  <script>
+    const options = document.querySelectorAll('.option');
+    const moneySection = document.getElementById('moneySection');
+    const materialSection = document.getElementById('materialSection');
+
+    const previewType = document.getElementById('previewType');
+    const previewProgram = document.getElementById('previewProgram');
+    const previewAmount = document.getElementById('previewAmount');
+    const previewMaterial = document.getElementById('previewMaterial');
+    const previewMessage = document.getElementById('previewMessage');
+
+    // Toggle between Money & Material
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        options.forEach(o => o.classList.remove('active'));
+        opt.classList.add('active');
+
+        const type = opt.dataset.type;
+        previewType.textContent = type === 'money' ? 'Money' : 'Material Items';
+
+        if (type === 'money') {
+          moneySection.style.display = 'block';
+          materialSection.style.display = 'none';
+        } else {
+          moneySection.style.display = 'none';
+          materialSection.style.display = 'block';
+        }
+      });
+    });
+
+    // Live Preview Updates
+    document.getElementById('program').addEventListener('input', e => {
+      previewProgram.textContent = e.target.value || 'None selected';
+    });
+
+    document.getElementById('amount').addEventListener('input', e => {
+      previewAmount.textContent = e.target.value || '0';
+    });
+
+    document.getElementById('materials').addEventListener('input', e => {
+      previewMaterial.textContent = e.target.value || 'None';
+    });
+
+    document.getElementById('message').addEventListener('input', e => {
+      previewMessage.textContent = e.target.value || '—';
+    });
+
+    // Submit button
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      const selectedType = document.querySelector('.option.active').dataset.type;
+      const program = document.getElementById('program').value;
+      const amount = document.getElementById('amount').value;
+      const materials = document.getElementById('materials').value;
+
+      if (!program) {
+        alert('Please select a program to support.');
+        return;
+      }
+
+      if (selectedType === 'money' && !amount) {
+        alert('Please enter a contribution amount.');
+        return;
+      }
+
+      if (selectedType === 'material' && !materials.trim()) {
+        alert('Please describe the material items.');
+        return;
+      }
+
+      alert('🎉 Thank you for your kind contribution to KUSDA!');
+    });
+  </script>
+
+</body>
+</html>

@@ -13,13 +13,18 @@
     }
 
     header {
-      background: #004d40;
+      background: #0a0a23;
       color: #fff;
       padding: 1.5rem;
       text-align: center;
       font-size: 1.5rem;
       font-weight: bold;
       letter-spacing: 1px;
+      border-radius:0 0 20px 25px;
+      box-shadow:0 0 10px 10px #0a0a47;
+    }
+    header p{
+      color:#00bcd4;
     }
 
     .container {
@@ -40,22 +45,10 @@
     .announcement:hover {
       transform: translateY(-5px);
     }
-
-    .announcement h2 {
-      margin-top: 0;
-      font-size: 1.4rem;
-      color: #004d40;
-    }
-
-    .meta {
-      font-size: 0.9rem;
-      color: #777;
-      margin-bottom: 10px;
-    }
-
-    .announcement p {
-      line-height: 1.6;
-    }
+/*styling of announcement class*/
+    .announcement h2 {margin-top: 0;font-size: 1.4rem; color: #004d40; }
+    .meta {font-size: 0.9rem; color: #777; margin-bottom: 10px;}
+    .announcement p {line-height: 1.6;}
 
     .btn {
       display: inline-block;
@@ -73,18 +66,64 @@
       background: #00796b;
     }
 
-    footer {
+/*Styling of footer start here*/
+    .footer {
       text-align: center;
-      padding: 15px;
-      background: #004d40;
+      padding: 50px 20px 20px;
+      background: #0a0a23;
       color: #fff;
       margin-top: 30px;
     }
+    .footer-container{
+      display:flex;
+      flex-wrap: wrap;
+      justify-content:space-between;
+      gap:40px;
+      margin:auto;
+      border-bottom:1px solid(255,255,255,0.2);
+      padding-bottom:30px;
+      font-family:'Open sans 'sans-serif
+    }
+    /*styling of footer about*/
+    .footer .about h2{ font-size:1.8rem; color:#00bcd4; }
+    .footer .about h2:hover{color:#cccccc;transition:color 0.7s ease;}
+    .about p{font-size:0.95rem;line-height: 1.6;color:#cccccc;cursor:pointer;}
+
+    /*This is the styling of links*/
+    .footer-links h3,.footer-social h3{ color:#00bcd4;font-size:1.2rem; margin-bottom:15px; }
+         .footer-links ul { list-style-type:none; padding:0; }
+         .footer ul li{margin-bottom:10px; }
+         .footer-links ul li a{text-decoration:none;color:#cccccc;transition: color 0.3s ease; }
+         .footer-links ul li a:hover{color:aqua; }
+
+/*This style the icons in the footer*/
+        .social-icons{display:flex;gap:15px;list-style: none;justify-content: center;padding:0;margin:20px 0;}
+        .social-icons img{ width:35px;}
+
+        .footer-bottom{
+          margin-top:5px;
+          text-align:center;
+          color:#aaaaaa;
+        }
+
+        /*Responsiveness*/
+        @media(max-width:768px){
+          .footer-container{
+            flex-direction:column;
+            text-align:center;
+          }
+.social-icons a{
+  margin:5px;
+}
+        }
+
   </style>
 </head>
 <body>
 
-  <header>KSUSDA Announcements</header>
+  <header>KSUSDA Announcements
+    <p>You are advised to look at the announcement or follow us incase of any inquiry</p>
+  </header>
 
   <div class="container">
     
@@ -92,28 +131,99 @@
       <h2>Youth Sabbath Program</h2>
       <div class="meta">Posted by John • Sept 29, 2025</div>
       <p>We invite all students to join the Youth Sabbath this coming Saturday. The theme will be “Walking with God in Campus Life.”</p>
-      <a href="#" class="btn">Read More</a>
+      <a href="#" class="btn">Read More -></a>
     </div>
 
     <div class="announcement">
       <h2>Week of Prayer</h2>
       <div class="meta">Posted by Admin • Oct 1, 2025</div>
       <p>The Week of Prayer will begin on Monday evening at 6:30 PM. Let us all join for spiritual nourishment and fellowship.</p>
-      <a href="#" class="btn">Read More</a>
+      <a href="#" class="btn">Read More -></a>
     </div>
 
     <div class="announcement">
       <h2>Community Service Activity</h2>
       <div class="meta">Posted by SDA Choir • Oct 2, 2025</div>
       <p>All members are encouraged to participate in the upcoming community service event where we will be visiting the children’s home.</p>
-      <a href="#" class="btn">Read More</a>
+      <a href="#" class="btn">Read More -></a>
     </div>
-
+<div class="announcement">
+  <h2>FirstFruit Outreach</h2>
+  <div class="meta">Posted by FirstFruit chairperson</div>
+  <p>All Members are urged to attend an outreach program at Oyugis on 29/11/025</p>
+  <a href="#" class="btn">Read More -></a>
+</div>
+  
+  <div class="announcement">
+    <h2>Midweek Vespers</h2>
+    <div class="meta">Posted by Nature and Rentention Cordinator Oct 22,2025</div>
+    <p>All Members are encouraged to attend midweek vespers today at TC 31 from 6:30 PM to 8:30PM</p>
+    <a href="#" class="btn">Read More -></a>
+  </div>
   </div>
 
-  <footer>
-    © 2025 Kisii University SDA (KSUSDA) - All Rights Reserved
-  </footer>
+  <div class="footer">
+    <div class="footer-container">
+      <div class="about">
+        <h2>KSUSDA</h2>
+        <p>Kisii University Seventh-Day Adventist Church(KSUSDA) - it is a church that is focused in naturing faith,character and hope.</p>
+       
+      </div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ministr">Ministries</a></li>
+          <li><a href="#">Families</a></li>
+          <li><a href="event.html">Events</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h3>Follow Us On:</h3>
+        <div class="social-icons">
+           <li>
+      <a href="https://facebook.com" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="30">
+        </li>
+             <li> 
+ <a href="https://www.youtube.com" target="_blank" title="YouTube">
+  <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="30">
+
+</a>
+</li>
+ <li>
+       <a href="https://x.com" target="_blank" title="Follow us on X">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" 
+       alt="X Icon" width="40" style="filter: brightness(0) invert(1);"><!--It make the color white even f the icon is b;ack-->
+</a>
+    
+       </li>
+       <li>
+ <a href="https://x.com/yourProfile" target="_blank" title="Follow us on X">
+  <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-white-icon.svg"
+       alt="X logo" width="40">
+</a>
+
+</li>
+<li>
+        <a href="https://t.me" target="_blank" title="Join us on Telegram">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111644.png" 
+           alt="Telegram Icon" width="35">
+    </a>
+       <li>
+          <a href="https://instagram.com" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="40">
+    </a>
+  </li>
+        </div>
+      </div>
+    </div>
+  <hr>
+  <div class="footer-bottom">
+    <p>&copy;Kisii University SeventhDay Adventist (KSUSDA) - All rights reserved.<span style="color:gold;padding:0 100px;">Developed by Jtech Softwares </span></p>
+
+  </div>
+  </div>
 
 </body>
 </html>

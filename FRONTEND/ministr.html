@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KUSDA Ministries</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f9fafc;
+      color: #333;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to right, rgba(0, 51, 102, 0.8), rgba(0, 102, 153, 0.8)), 
+      url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1950&q=80') center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+
+    .hero button {
+      background: #ffcc00;
+      color: #003366;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background: #ffd633;
+    }
+
+    /* Navigation Buttons */
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 25px auto;
+    }
+
+    .nav-buttons button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #003366;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-weight: 500;
+    }
+
+    .nav-buttons button:hover {
+      background: #00509e;
+      transform: translateY(-2px);
+    }
+
+    /* Ministries Grid */
+    .ministries {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .ministries h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: #003366;
+    }
+
+    .ministry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .ministry-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .ministry-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .ministry-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .ministry-content {
+      padding: 20px;
+    }
+
+    .ministry-content h3 {
+      color: #003366;
+      margin-bottom: 10px;
+    }
+
+    .ministry-content p {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .ministry-content button {
+      background: #003366;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .ministry-content button:hover {
+      background: #00509e;
+    }
+
+    /* Popup Form */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-content {
+      background: #fff;
+      width: 90%;
+      max-width: 500px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .popup-content h3 {
+      color: #003366;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .popup-content label {
+      display: block;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .popup-content input, .popup-content select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    .family-member {
+      margin-top: 10px;
+    }
+    span{
+      font-weight:700;
+      font-size: 14px;
+      text-transform: uppercase;
+      color:#000;
+
+    }
+
+    .add-family {
+      background: none;
+      color: #003366;
+      border: 1px dashed #003366;
+      padding: 8px;
+      width: 100%;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .popup-content button.submit {
+      background: #003366;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .popup-content button.submit:hover {
+      background: #00509e;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 22px;
+      cursor: pointer;
+      color: #333;
+    }
+    footer{
+      text-align:center;
+      color:#9eff;
+      background:linear-gradient(180deg,#001428,#00102a);
+      bottom:0;
+      width:100%;
+      font-size:0.95rem;
+      border-top:1px solid rgba(255,255,255,0.04);
+      padding:44px 4%;
+      margin-top:24px;
+  
+    }
+    footer p :hover{color:red;}
+
+    
+  .footer {
+    background-color: #0a1a2f;
+    color: #fff;
+    padding: 60px 20px 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer h3 {
+    color: #f4c542;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+
+  .footer p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .footer ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer ul li {
+    margin-bottom: 8px;
+  }
+
+  .footer a {
+    color: #d6e4f0;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer a:hover {
+    color: #f4c542;
+  }
+
+  .socials a {
+    color: #d6e4f0;
+    font-size: 20px;
+    margin-right: 10px;
+    transition: color 0.3s;
+  }
+
+  .socials a:hover {
+    color: #f4c542;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 13px;
+    margin-top: 30px;
+  }
+
+  @media (max-width: 600px) {
+    .footer {
+      padding: 40px 15px;
+    }
+    .footer-container {
+      text-align: center;
+    }
+    .socials a {
+      margin: 0 5px;
+    }
+  }
+
+  </style>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    
+  
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>KSUSDA Ministries</h1>
+    <p>Discover your place in service and grow together with your family in faith, love, and purpose.</p>
+    <button id="openFormBtn">Join a Ministry</button>
+  </section>
+
+  <!-- Back & Forward Navigation -->
+  <div class="nav-buttons">
+    <button onclick="goBack()">⬅️ Back</button>
+    <button onclick="goForward()">➡️ Forward</button>
+  </div>
+
+  <!-- Ministries -->
+  <section class="ministries">
+    <h2>Our Ministries</h2>
+    <div class="ministry-grid">
+      <div class="ministry-card">
+        <img src="image/music.jpg" alt="Music Ministry">
+        <div class="ministry-content">
+          <h3>Music Ministry</h3>
+          <p><span>Music Ministry </span> plays a crucial role in leading the congregation in Saturday's worship through song and praise.</p>
+          <button class="join-btn">Join</button>
+        </div>
+      </div>
+
+      <div class="ministry-card">
+        <img src="image/pray3.jpg" alt="Prayer Ministry">
+        <div class="ministry-content">
+          <h3>Prayer Ministry</h3>
+          <p><span>Prayer Ministry</span> involved in Interceding for the church, campus, and community in faith.</p>
+          <button class="join-btn">Join</button>
+        </div>
+      </div>
+      <div class="ministry-card">
+        <img src="image/zio.jpg" alt="Prayer Ministry">
+        <div class="ministry-content">
+          <h3>New Zion Ministry</h3>
+          <p><span>Welcome to New Zion Ministry</span>,We are dedicated to serve christ Through song</p>
+          <button class="join-btn">Join</button>
+        </div>
+      </div>
+      <div class="ministry-card">
+        <img src="image/mission.jpg" alt="Prayer Ministry">
+        <div class="ministry-content">
+          <h3>Acts on Mission Ministry</h3>
+          <p><span>ACTs on Mission Ministry </span>is a passionate group dedicated to fulfilling the Great Commission through active evangelism, community outreach, and discipleship. The ministry empowers members to live out their faith by serving others, spreading God’s love, and transforming lives through Christ-centered missions..</p>
+          <button class="join-btn">Join</button>
+        </div>
+      </div>
+
+      <div class="ministry-card">
+        <img src="image/christ messangers.jpg" alt="Prayer Ministry">
+        <div class="ministry-content">
+          <h3>Christ Messengers</h3>
+          <p><span>Christ Messengers</span> is a dynamic ministry committed to spreading the gospel and leading others to Christ through evangelism, music, and service. The group inspires spiritual growth, unity, and dedication among members as they share God’s word with love and purpose.</p>
+          <button class="join-btn">Join</button>
+        </div>
+      </div>
+
+      <div class="ministry-card">
+        <img src="image/mm2.jpg" alt="Prayer Ministry">
+        <div class="ministry-content">
+          <h3>Medical Department Ministry</h3>
+          <p><span>Medical Missionary Department</span> is devoted to promoting health, healing, and hope through Christ-centered service. It trains members to care for both body and soul, sharing God’s love through health education, community outreach, and compassionate acts of medical and spiritual ministry.</p>
+          <button class="join-btn">Join</button>
+        </div>
+      </div>
+
+      <div class="ministry-card">
+        <img src="image/html.jpeg" alt="Quill Ministry">
+        <div class="ministry-content">
+          <h3>Personal Ministry</h3>
+          <p><span>Personal Ministry</span> is focused on equipping church members to share their faith and lead others to Christ through personal witness and service. It encourages every believer to be an active missionary in daily life, promoting spiritual growth, evangelism, and community outreach for God’s glory.</p>
+          <button class="join-btn">Join</button>
+        </div>
+      </div>
+       <div class="ministry-card">
+        <img src="image/sits2.jpg" alt="Quill Ministry">
+        <div class="ministry-content">
+          <h3>Adventist Ladies Organisation</h3>
+          <p><span>Adventist Ladies Organization (ALO)</span> is a vibrant ministry that brings together women to grow spiritually, support one another, and serve God with dedication. At Kisii University SDA, ALO empowers ladies to live purposefully, nurture their faith, and use their talents to impact the church and community positively. Through fellowship, mentorship, and outreach programs, the ministry inspires women to be Christ-centered leaders and shining examples of love and service.</p>
+          <button class="join-btn">Join</button>
+        </div>
+      </div>
+       <div class="ministry-card">
+        <img src="image/undefined (1).jpeg" alt="Quill Ministry">
+        <div class="ministry-content">
+          <h3>Adventist Men Organisation</h3>
+          <p><span>Adventist Men Organization (AMO)</span> is a dedicated ministry that unites men to grow in faith, leadership, and service. At Kisii University SDA, AMO empowers men to live with purpose, uphold Christian values, and serve as spiritual leaders in their homes, church, and society. Through fellowship, mentorship, and community outreach, the ministry nurtures men to be strong, responsible, and faithful ambassadors of Christ.</p>
+          <button class="join-btn">Join</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popup Form -->
+  <div class="popup" id="popupForm">
+    <div class="popup-content">
+      <span class="close-btn" id="closeForm">&times;</span>
+      <h3>Join a Ministry</h3>
+      <form>
+        <label for="name">Your Full Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+
+        <label for="ministry">Select Ministry:</label>
+        <select id="ministry">
+          <option>First Fruit Ministry</option>
+          <option>Christ Messangers</option>
+          <option>New Zion Ministry</option>
+          <option>Quill Organisation</option>
+          <option>Medical Missionary</option>
+          <option>Hearts on Mission Ministry</option>
+        </select>
+
+        <div id="familyContainer">
+          <label>Add Family Members:</label>
+          <div class="family-member">
+            <input type="text" placeholder="Family member name" />
+          </div>
+        </div>
+
+        <button type="button" class="add-family" id="addFamilyBtn">+ Add Another Family Member</button>
+
+        <button type="submit" class="submit">Submit Registration</button>
+      </form>
+    </div>
+  </div>
+  <!-- ====== FOOTER SECTION ====== -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- About -->
+    <div class="footer-about">
+      <h3>About Us</h3>
+      <p>We are a Christ-centered ministry at Kisii University SDA, dedicated to spreading the gospel, nurturing spiritual growth, and serving our community with love and purpose.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#about">About Ministry</a></li>
+        <li><a href="#programs">Programs & Activities</a></li>
+        <li><a href="leader_dashboard.html">Our Leaders</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contac.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Resources -->
+    <div class="footer-resources">
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="sermon.html">Sermons</a></li>
+        <li><a href="#">Devotionals</a></li>
+        <li><a href="prayerrequest.html">Prayer Requests</a></li>
+        <li><a href="About.html">Mission Reports</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-contact">
+      <h3>Get in Touch</h3>
+      <p>Kisii University SDA Church<br>Kisii, Kenya</p>
+      <p>Email: <a href="mailto:info@ksusda.org">info@ksusda.org</a></p>
+      <p>Phone: +254 791302316</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Kisii University SDA | All Rights Reserved  | Developed by Jtech Softwares</p>
+  </div>
+</footer>
+  <script>
+    // Back & Forward functions
+    function goBack() {
+      window.history.back();
+    }
+
+    function goForward() {
+      window.history.forward();
+    }
+
+    // Popup form logic
+    const openFormBtns = document.querySelectorAll('.join-btn');
+    const popup = document.getElementById('popupForm');
+    const closeForm = document.getElementById('closeForm');
+    const addFamilyBtn = document.getElementById('addFamilyBtn');
+    const familyContainer = document.getElementById('familyContainer');
+    const openFormHero = document.getElementById('openFormBtn');
+
+    openFormBtns.forEach(btn => {
+      btn.addEventListener('click', () => popup.style.display = 'flex');
+    });
+
+    openFormHero.addEventListener('click', () => popup.style.display = 'flex');
+    closeForm.addEventListener('click', () => popup.style.display = 'none');
+
+    window.addEventListener('click', (e) => {
+      if (e.target === popup) popup.style.display = 'none';
+    });
+
+    addFamilyBtn.addEventListener('click', () => {
+      const div = document.createElement('div');
+      div.classList.add('family-member');
+      div.innerHTML = `<input type="text" placeholder="Family member name" />`;
+      familyContainer.appendChild(div);
+    });
+  </script>
+</body>
+</html>

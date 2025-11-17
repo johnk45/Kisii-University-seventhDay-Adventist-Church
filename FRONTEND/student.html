@@ -72,17 +72,55 @@
       box-shadow:0 20px 25px rgb(58, 41, 66);
       border-bottom:5px;
         }
+        .options{
+            display:flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            margin-top:20px;
+        }
+        .options a:hover{
+            color:blue;
+        }
         @media(max-width:600px){
             .container{
                 padding:18px 8px 18px 8px;
             }
         }
         .error{
+            
             color:red;
             font-size: 1rem;
             margin:4px 0;
             text-align:left;
         }
+        footer{
+            text-align:center;
+            margin-top:30px;
+            padding:15px;
+            background:#090f16;
+            color:#fff;
+            width:100%;
+
+        }
+        footer .quick-links li {
+            margin-top:12px;
+            margin-right:10px;
+            list-style-type: none;
+    
+
+        }
+        .quick-links li a{
+            color:#fff;
+            padding:10px;
+            text-decoration: none;
+           display:-webkit-flex;
+        }
+        .quick-links li a:hover{
+            color:#00bcd4;
+            cursor:pointer;
+        }
+
+        
       
     </style>
 </head>
@@ -125,10 +163,30 @@
             <label for="confirmpassword">Confirm Password</label>
             <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm your password"required>
             <span class="error" id="error-confirmpassword"></span>
-            <button type="submit" onclick="location.href='ministry.html'">Register</button>
+            <button type="submit">Register</button>
+            <div class="options">
+                <p><a href="">Forgot Password</a></p>
+                <p><a href="">Sign in</a></p>
+            </div>
         </form>
 
     </div>
+    <footer>
+<p>&copy;Kisii University SeventhDay Adventist.All rights reserved.</p>
+    
+    <div class="quick-links">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Announcement</a></li>
+            <li><a href="">Events</a></li>
+        </ul>
+    </div>
+    </footer>
+    </body>
+    </html>
+    
     <script>
     
 function validateRegForm() {
@@ -194,7 +252,19 @@ function validateRegForm() {
     return valid;
 }
     </script>
-    <!--This is the php code to validating a form-->
+    <script>
+        document.body.style.background="rgba(56,99,17,47)";
+        setTimeout(()=>{
+            document.body.style.background="none";
+        },5000);
+    </script>
+
+    <script>
+       document.querySelector('h2').innerHTML="Register with us";
+       setTimeout(()=>{
+        document.querySelector('h2').innerHTML="Registration";
+       },2000);
+    </script>
     
 </body>
 </html>

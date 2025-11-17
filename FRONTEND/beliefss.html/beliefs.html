@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KSUSDA | Our Beliefs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f4f8fb;
+      color: #333;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(135deg, #003366, #00509e);
+      color: white;
+      padding: 1.8rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    header img {
+      height: 65px;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .intro h2 {
+      color: #003366;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro p {
+      color: #555;
+      font-size: 1.1rem;
+    }
+
+    .beliefs-section {
+      width: 90%;
+      max-width: 1100px;
+      margin: 3rem auto;
+    }
+
+    .belief {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .belief:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .belief:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .belief img {
+      width: 45%;
+      border-radius: 0;
+      object-fit: cover;
+      height: 300px;
+      filter: brightness(95%);
+      transition: 0.4s ease;
+    }
+
+    .belief:hover img {
+      filter: brightness(105%);
+      transform: scale(1.02);
+    }
+
+    .belief-content {
+      width: 50%;
+      padding: 2rem;
+    }
+
+    .belief-content h2 {
+      color: #003366;
+      margin-bottom: 0.5rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    .belief-content p {
+      font-size: 1.05rem;
+      color: #555;
+    }
+
+    footer {
+      background: linear-gradient(135deg, #003366, #00509e);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    footer .verse {
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #dce8ff;
+    }
+
+    @media (max-width: 768px) {
+      .belief {
+        flex-direction: column;
+      }
+
+      .belief img, .belief-content {
+        width: 100%;
+      }
+
+      .belief-content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Seventh-day_Adventist_logo.svg/512px-Seventh-day_Adventist_logo.svg.png" alt="KSUSDA Logo">
+    <h1>KSUSDA | Our Beliefs</h1>
+  </header>
+
+  <section class="intro">
+    <h2>What We Believe</h2>
+    <p>At Kisii University Seventh-day Adventist Church, our faith is built upon the eternal Word of God. 
+       We believe in living by Christ’s teachings — growing in love, serving with compassion, and preparing for His soon return.</p>
+  </section>
+
+  <section class="beliefs-section">
+
+    <div class="belief">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80" alt="God the Creator">
+      <div class="belief-content">
+        <h2>1. God the Creator</h2>
+        <p>We believe in one God — Father, Son, and Holy Spirit — a unity of three co-eternal Persons. God is love, the Creator and Sustainer of all things, worthy of worship and praise.</p>
+      </div>
+    </div>
+
+    <div class="belief">
+      <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1200&q=80" alt="The Word of God">
+      <div class="belief-content">
+        <h2>2. The Word of God</h2>
+        <p>The Scriptures, both Old and New Testaments, are the written Word of God, inspired by the Holy Spirit. They reveal His will and guide us in truth and righteousness.</p>
+      </div>
+    </div>
+
+    <div class="belief">
+      <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1200&q=80" alt="The Sabbath">
+      <div class="belief-content">
+        <h2>3. The Sabbath</h2>
+        <p>The seventh day is the Sabbath, a day of rest and worship established at creation. It reminds us of God’s power as our Creator and Redeemer, calling us to communion with Him.</p>
+      </div>
+    </div>
+
+    <div class="belief">
+      <img src="https://images.unsplash.com/photo-1601758124093-1a5a5b0323eb?auto=format&fit=crop&w=1200&q=80" alt="The Second Coming">
+      <div class="belief-content">
+        <h2>4. The Second Coming of Christ</h2>
+        <p>We look forward to the soon return of our Lord Jesus Christ — a glorious event when He will restore all things, bringing everlasting peace to His faithful followers.</p>
+      </div>
+    </div>
+
+    <div class="belief">
+      <img src="https://images.unsplash.com/photo-1493810329807-1f58b8abbdb0?auto=format&fit=crop&w=1200&q=80" alt="Christian Living">
+      <div class="belief-content">
+        <h2>5. Christian Living</h2>
+        <p>As followers of Christ, we are called to reflect His love through service, humility, and holiness — walking daily in grace and sharing the light of the gospel.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© 2025 Kisii University SDA | All Rights Reserved</p>
+    <p class="verse">“Let your light so shine before men, that they may see your good works and glorify your Father in heaven.” — Matthew 5:16</p>
+  </footer>
+</body>
+</html>

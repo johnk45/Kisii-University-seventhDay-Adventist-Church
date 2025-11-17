@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | KSUSDA</title>
+
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(120deg, #004e92, #000428);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      padding: 1rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h2 {
+      color: #ffd700;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 8%;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.85);
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    .about-section {
+      padding: 4rem 8%;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .about-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-intro h1 {
+      font-size: 2.2rem;
+      color: #ffd700;
+      margin-bottom: 1rem;
+    }
+
+    .about-intro p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .about-card {
+      background: #fff;
+      color: #000;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
+    }
+    .about-card img{
+      height:100px;width:200px;border-radius:25px;padding:10px;object-fit: cover;
+    }
+
+    .about-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .about-card h3 {
+      color: #004e92;
+      margin-bottom: 1rem;
+    }
+
+    .about-card p {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* ===== LEADERSHIP SECTION ===== */
+    .leaders {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .leaders h2 {
+      color: #ffd700;
+      margin-bottom: 1.5rem;
+    }
+
+    .leader-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .leader-card {
+      background: #fff;
+      color: #000;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
+    }
+
+    .leader-card:hover {
+      transform: scale(1.03);
+    }
+
+    .leader-card img ,video{
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .leader-card h4 {
+      color: #004e92;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .leader-card p {
+      font-size: 0.9rem;
+    }
+
+   about-footer {
+    background: linear-gradient(to right, #0a1a2f, #122d52);
+    color: #d6e4f0;
+    font-family: 'Poppins', sans-serif;
+    padding: 60px 20px 25px;
+  }
+
+  .about-footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .about-footer h3 {
+    color: #f4c542;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+  }
+
+  .about-intro p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #d6e4f0;
+  }
+
+  blockquote {
+    font-style: italic;
+    font-size: 14px;
+    color: #f4f6fb;
+    border-left: 3px solid #f4c542;
+    padding-left: 10px;
+    margin: 0;
+  }
+
+  blockquote span {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    color: #f4c542;
+  }
+
+  .about-links ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .about-links li {
+    margin-bottom: 8px;
+  }
+
+  .about-links a {
+    text-decoration: none;
+    color: #d6e4f0;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
+
+  .about-links a:hover {
+    color: #f4c542;
+  }
+
+  .about-footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 15px;
+    font-size: 13px;
+    color: #a8bedc;
+  }
+
+  @media (max-width: 700px) {
+    .about-footer-container {
+      text-align: center;
+    }
+
+    blockquote {
+      margin: 0 auto;
+    }
+  }
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>KSUSDA</h2>
+    <nav id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="ministries.html">Ministries</a>
+      <a href="sermons.html">Sermons</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+  </header>
+
+  <section class="about-section">
+
+    <div class="about-intro">
+      <h1>About Kisii University SDA Church (KSUSDA)</h1>
+     
+      <p>
+        Kisii University SDA Church (KSUSDA) is a Christ-centered community dedicated to spiritual growth, service, and excellence.  
+        Our mission is to nurture faith among students and staff through worship, evangelism, and service while preparing them to be lights of hope in the world.
+      </p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>Our Mission</h3>
+        <img src="image/3  angels messages.jpg" alt="men">
+        <p>
+          To proclaim the everlasting gospel of Jesus Christ to all members of the university community  
+          and to prepare disciples who live according to His Word through worship, fellowship, and service.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>Our Vision</h3>
+         <img src="image/Mega Church.jpeg" alt="church">
+        <p>
+          To be a spiritually empowered and united body of believers who reflect the character of Christ  
+          and serve the world with compassion, integrity, and faithfulness.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>Our Values</h3>
+         <img src="image/Mega Church.jpeg" alt="church">
+        <p>
+          We are guided by faith, love, unity, humility, and service.  
+          Our values inspire us to be good stewards of time, knowledge, and opportunities God provides.
+        </p>
+      </div>
+    </div>
+
+    <div class="leaders">
+      <h2>Community Impact</h2>
+      <p>Beyong the campus,KSUSDA members actively enganged in community service -  visiting Orphans,hospitals,helping need and mentoring students and conduct evangelsitic compaing.Through ths Program
+        ,We put Our Faith into action and share God's law in practical ways
+      </p>
+      <div class="leader-grid">
+        <div class="leader-card">
+          <img src="image/Life is not meant to be lived in isolation but in….jpeg" alt="Leader">
+          <h4>Vihiga Ivona Site</h4>
+          <p>Gospel Compaign</p>
+        </div>
+
+        <div class="leader-card">
+          <img src="image/Mega Church.jpeg" alt="Leader">
+          <h4>Kisima Boys</h4>
+          <p>Student Mentorship</p>
+        </div>
+
+        <div class="leader-card">
+          <video controls>
+            <source src="image/kisii.mp4" type="video/mp4">
+          </video>
+          <h4>Kisumu Ndogo</h4>
+          <p>Community Nurturing</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="about-footer">
+  <div class="about-footer-container">
+    <!-- Left Section -->
+    <div class="about-intro">
+      <h3>About KSUSDA</h3>
+      <p>Kisii University SDA Church is a place where faith meets purpose. We are dedicated to nurturing spiritual growth, fostering unity, and serving both campus and community through Christ-centered ministry.</p>
+    </div>
+
+    <!-- Middle Section - Scripture Highlight -->
+    <div class="about-scripture">
+      <h3>Our Guiding Verse</h3>
+      <blockquote>
+        “Let your light so shine before men, that they may see your good works and glorify your Father in heaven.”  
+        <span>– Matthew 5:16</span>
+      </blockquote>
+    </div>
+
+    <!-- Right Section - Quick Links -->
+    <div class="about-links">
+      <h3>Explore More</h3>
+      <ul>
+        <li><a href="ministries.html">Our Ministries</a></li>
+        <li><a href="sermons.html">Recent Sermons</a></li>
+        <li><a href="gallery.html">Photo Gallery</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="about-footer-bottom">
+    <p>&COPY; 2025 Kisii University SDA Church | Faith • Service • Fellowship          <span style="margin-left:50px;color:lime;font-weight: bold;font-family:  'Times New Roman', serif;font-size: 20px;">Developed By Jtech Softwares</span> </p>
+  </div>
+</footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navMenu');
+      nav.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
