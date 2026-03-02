@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Reports - Complete Learning Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 50px;
+            color: var(--primary-color);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin: 25px 0 15px;
+        }
+
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+        }
+
+        .example-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            .example-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .example-code, .example-output {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .example-output {
+            border: 2px solid var(--primary-color);
+        }
+
+        .demo-controls {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .report-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .report-table th, .report-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .report-table th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        .report-table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+        }
+
+        .highlight {
+            background: #fffacd;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .tip-box {
+            background: #e8f4fc;
+            border-left: 5px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .concept-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .concept-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .concept-card i {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .quiz-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .quiz-question {
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-option {
+            padding: 10px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--primary-color);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--primary-color);
+            background: #e8f4fc;
+        }
+
+        .quiz-feedback {
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .quiz-feedback.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .quiz-feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-chart-line"></i> JavaScript Reports Masterclass</h1>
+            <p class="subtitle">Learn to Create Dynamic Reports with Practical Examples</p>
+            <p>From basic data display to advanced PDF generation and visualization</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="basics">Report Basics</button>
+            <button class="tab-btn" data-tab="data">Data Processing</button>
+            <button class="tab-btn" data-tab="tables">Dynamic Tables</button>
+            <button class="tab-btn" data-tab="charts">Chart Reports</button>
+            <button class="tab-btn" data-tab="pdf">PDF Generation</button>
+            <button class="tab-btn" data-tab="quiz">Knowledge Quiz</button>
+        </div>
+
+        <!-- Report Basics Section -->
+        <section id="basics" class="content-section active">
+            <h2><i class="fas fa-book"></i> Report Fundamentals</h2>
+            
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <i class="fas fa-database"></i>
+                    <h4>What is a Report?</h4>
+                    <p>A structured presentation of data that helps users analyze information and make decisions.</p>
+                </div>
+                <div class="concept-card">
+                    <i class="fas fa-code"></i>
+                    <h4>Why JavaScript for Reports?</h4>
+                    <p>Dynamic, interactive reports that update in real-time without page reloads.</p>
+                </div>
+                <div class="concept-card">
+                    <i class="fas fa-layer-group"></i>
+                    <h4>Report Components</h4>
+                    <p>Data sources, processing logic, presentation layer, and export capabilities.</p>
+                </div>
+            </div>
+
+            <h3>Basic Report Structure</h3>
+            <div class="example-container">
+                <div class="example-code">
+                    <h4>JavaScript Code</h4>
+                    <div class="code-block">
+                        <pre><code>// 1. Define report data
+const reportData = [
+    { id: 1, name: 'Product A', sales: 1500, category: 'Electronics' },
+    { id: 2, name: 'Product B', sales: 2300, category: 'Clothing' },
+    { id: 3, name: 'Product C', sales: 1800, category: 'Electronics' }
+];
+
+// 2. Calculate totals
+function generateReport(data) {
+    const totalSales = data.reduce((sum, item) => sum + item.sales, 0);
+    const averageSales = totalSales / data.length;
+    
+    // 3. Return report object
+    return {
+        items: data,
+        summary: {
+            totalItems: data.length,
+            totalSales: totalSales,
+            averageSales: averageSales.toFixed(2)
+        }
+    };
+}
+
+// 4. Generate and display report
+const report = generateReport(reportData);
+console.log('Report Summary:', report.summary);</code></pre>
+                    </div>
+                </div>
+                <div class="example-output">
+                    <h4>Live Output</h4>
+                    <div id="basicReportOutput"></div>
+                    <div class="demo-controls">
+                        <button onclick="runBasicReport()">Generate Basic Report</button>
+                        <button onclick="clearBasicReport()">Clear</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <i class="fas fa-lightbulb"></i>
+                <strong>Key Concept:</strong> Every report needs data, processing logic, and presentation. Start with structuring your data properly.
+            </div>
+        </section>
+
+        <!-- Data Processing Section -->
+        <section id="data" class="content-section">
+            <h2><i class="fas fa-cogs"></i> Data Processing & Manipulation</h2>
+            
+            <h3>Common Data Operations</h3>
+            <div class="example-container">
+                <div class="example-code">
+                    <h4>JavaScript Code</h4>
+                    <div class="code-block">
+                        <pre><code>// Sample sales data
+const salesData = [
+    { date: '2023-01-01', product: 'Laptop', amount: 1200, region: 'North' },
+    { date: '2023-01-01', product: 'Phone', amount: 800, region: 'South' },
+    { date: '2023-01-02', product: 'Laptop', amount: 1500, region: 'North' },
+    { date: '2023-01-02', product: 'Tablet', amount: 600, region: 'East' }
+];
+
+// 1. Filtering
+const northSales = salesData.filter(item => item.region === 'North');
+
+// 2. Grouping by property
+function groupBy(array, key) {
+    return array.reduce((result, item) => {
+        const groupKey = item[key];
+        if (!result[groupKey]) result[groupKey] = [];
+        result[groupKey].push(item);
+        return result;
+    }, {});
+}
+
+// 3. Aggregation
+function aggregateSales(data) {
+    const byProduct = groupBy(data, 'product');
+    const summary = {};
+    
+    for (const product in byProduct) {
+        const items = byProduct[product];
+        summary[product] = {
+            totalSales: items.reduce((sum, item) => sum + item.amount, 0),
+            count: items.length,
+            average: items.reduce((sum, item) => sum + item.amount, 0) / items.length
+        };
+    }
+    
+    return summary;
+}</code></pre>
+                    </div>
+                </div>
+                <div class="example-output">
+                    <h4>Live Demo</h4>
+                    <div id="dataProcessingOutput"></div>
+                    <div class="demo-controls">
+                        <button onclick="filterNorthSales()">Filter North Region</button>
+                        <button onclick="aggregateByProduct()">Aggregate by Product</button>
+                        <button onclick="calculateStats()">Calculate Statistics</button>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Data Transformation Methods</h3>
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Purpose</th>
+                        <th>Example Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="highlight">.filter()</span></td>
+                        <td>Select specific items</td>
+                        <td>Get sales above $1000</td>
+                    </tr>
+                    <tr>
+                        <td><span class="highlight">.map()</span></td>
+                        <td>Transform each item</td>
+                        <td>Convert prices to different currencies</td>
+                    </tr>
+                    <tr>
+                        <td><span class="highlight">.reduce()</span></td>
+                        <td>Aggregate values</td>
+                        <td>Calculate total sales</td>
+                    </tr>
+                    <tr>
+                        <td><span class="highlight">.sort()</span></td>
+                        <td>Order items</td>
+                        <td>Sort by date or amount</td>
+                    </tr>
+                    <tr>
+                        <td><span class="highlight">.find()</span></td>
+                        <td>Find first match</td>
+                        <td>Find a specific transaction</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Dynamic Tables Section -->
+        <section id="tables" class="content-section">
+            <h2><i class="fas fa-table"></i> Dynamic Table Reports</h2>
+            
+            <h3>Creating Interactive Data Tables</h3>
+            <div class="example-container">
+                <div class="example-code">
+                    <h4>JavaScript Code</h4>
+                    <div class="code-block">
+                        <pre><code>// Employee data
+const employees = [
+    { id: 1, name: 'John Doe', department: 'Sales', salary: 50000, joinDate: '2020-01-15' },
+    { id: 2, name: 'Jane Smith', department: 'Marketing', salary: 60000, joinDate: '2019-03-22' },
+    { id: 3, name: 'Bob Johnson', department: 'Sales', salary: 55000, joinDate: '2021-06-10' }
+];
+
+// Function to create dynamic table
+function createReportTable(data, containerId) {
+    const container = document.getElementById(containerId);
+    
+    // Create table element
+    const table = document.createElement('table');
+    table.className = 'report-table';
+    
+    // Create table header
+    const thead = document.createElement('thead');
+    const headers = Object.keys(data[0]);
+    let headerRow = '<tr>';
+    headers.forEach(header => {
+        headerRow += `<th>${header.charAt(0).toUpperCase() + header.slice(1)}</th>`;
+    });
+    headerRow += '</tr>';
+    thead.innerHTML = headerRow;
+    
+    // Create table body
+    const tbody = document.createElement('tbody');
+    data.forEach(item => {
+        let row = '<tr>';
+        headers.forEach(header => {
+            row += `<td>${item[header]}</td>`;
+        });
+        row += '</tr>';
+        tbody.innerHTML += row;
+    });
+    
+    // Assemble table
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    container.innerHTML = '';
+    container.appendChild(table);
+}
+
+// Function to add sorting
+function addTableSorting(tableId) {
+    const table = document.getElementById(tableId);
+    const headers = table.querySelectorAll('th');
+    
+    headers.forEach((header, index) => {
+        header.style.cursor = 'pointer';
+        header.addEventListener('click', () => {
+            sortTable(table, index);
+        });
+    });
+}</code></pre>
+                    </div>
+                </div>
+                <div class="example-output">
+                    <h4>Employee Report Table</h4>
+                    <div id="tableReportOutput"></div>
+                    <div class="demo-controls">
+                        <button onclick="createEmployeeTable()">Generate Table</button>
+                        <button onclick="addSampleData()">Add More Data</button>
+                        <button onclick="exportToCSV()">Export to CSV</button>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Table Features to Implement</h3>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <i class="fas fa-sort"></i>
+                    <h4>Sorting</h4>
+                    <p>Click headers to sort ascending/descending</p>
+                </div>
+                <div class="concept-card">
+                    <i class="fas fa-filter"></i>
+                    <h4>Filtering</h4>
+                    <p>Search and filter rows by criteria</p>
+                </div>
+                <div class="concept-card">
+                    <i class="fas fa-file-export"></i>
+                    <h4>Export</h4>
+                    <p>Export to CSV, Excel, or PDF formats</p>
+                </div>
+                <div class="concept-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <h4>Summaries</h4>
+                    <p>Add totals, averages, and calculations</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chart Reports Section -->
+        <section id="charts" class="content-section">
+            <h2><i class="fas fa-chart-bar"></i> Visual Chart Reports</h2>
+            
+            <h3>Using Chart.js for Reports</h3>
+            <div class="example-container">
+                <div class="example-code">
+                    <h4>JavaScript Code</h4>
+                    <div class="code-block">
+                        <pre><code>// Sample sales data for charts
+const monthlySales = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    datasets: [{
+        label: 'Sales 2023',
+        data: [12000, 19000, 15000, 25000, 22000, 30000],
+        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 2
+    }]
+};
+
+// Create bar chart
+function createBarChart() {
+    const ctx = document.getElementById('salesChart').getContext('2d');
+    return new Chart(ctx, {
+        type: 'bar',
+        data: monthlySales,
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Monthly Sales Report 2023'
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `Sales: $${context.raw.toLocaleString()}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return '$' + value.toLocaleString();
+                        }
+                    }
+                }
+            }
+        }
+    });
+}</code></pre>
+                    </div>
+                </div>
+                <div class="example-output">
+                    <h4>Sales Chart Report</h4>
+                    <canvas id="salesChart" class="chart-container"></canvas>
+                    <div class="demo-controls">
+                        <button onclick="createChart()">Show Bar Chart</button>
+                        <button onclick="switchToLineChart()">Switch to Line Chart</button>
+                        <button onclick="addComparisonData()">Add 2022 Comparison</button>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Chart Types for Different Reports</h3>
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>Chart Type</th>
+                        <th>Best For</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="highlight">Bar Chart</span></td>
+                        <td>Comparing categories</td>
+                        <td>Monthly sales by product</td>
+                    </tr>
+                    <tr>
+                        <td><span class="highlight">Line Chart</span></td>
+                        <td>Trends over time</td>
+                        <td>Revenue growth</td>
+                    </tr>
+                    <tr>
+                        <td><span class="highlight">Pie Chart</span></td>
+                        <td>Percentage breakdown</td>
+                        <td>Market share</td>
+                    </tr>
+                    <tr>
+                        <td><span class="highlight">Scatter Plot</span></td>
+                        <td>Correlations</td>
+                        <td>Price vs Demand</td>
+                    </tr>
+                    <tr>
+                        <td><span class="highlight">Dashboard</span></td>
+                        <td>Multiple metrics</td>
+                        <td>Executive summary</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- PDF Generation Section -->
+        <section id="pdf" class="content-section">
+            <h2><i class="fas fa-file-pdf"></i> PDF Report Generation</h2>
+            
+            <h3>Using jsPDF for PDF Reports</h3>
+            <div class="example-container">
+                <div class="example-code">
+                    <h4>JavaScript Code</h4>
+                    <div class="code-block">
+                        <pre><code>// Generate PDF Report
+function generatePDFReport() {
+    // Create new PDF document
+    const pdf = new jsPDF();
+    
+    // Add title
+    pdf.setFontSize(20);
+    pdf.setTextColor(44, 62, 80);
+    pdf.text("Sales Report - Q1 2023", 105, 20, { align: 'center' });
+    
+    // Add date
+    pdf.setFontSize(12);
+    pdf.setTextColor(128, 128, 128);
+    pdf.text(`Generated: ${new Date().toLocaleDateString()}`, 105, 30, { align: 'center' });
+    
+    // Add table
+    pdf.autoTable({
+        startY: 40,
+        head: [['Product', 'Q1 Sales', 'Growth %', 'Region']],
+        body: [
+            ['Laptops', '$125,000', '+12%', 'North America'],
+            ['Phones', '$89,500', '+8%', 'Europe'],
+            ['Tablets', '$67,300', '+15%', 'Asia'],
+            ['Accessories', '$45,200', '+5%', 'Global']
+        ],
+        theme: 'striped',
+        headStyles: { fillColor: [52, 152, 219] },
+        margin: { left: 20, right: 20 }
+    });
+    
+    // Add summary
+    const finalY = pdf.lastAutoTable.finalY + 15;
+    pdf.setFontSize(14);
+    pdf.setTextColor(44, 62, 80);
+    pdf.text("Summary", 20, finalY);
+    
+    pdf.setFontSize(12);
+    pdf.setTextColor(0, 0, 0);
+    const summary = [
+        '• Total Q1 Sales: $327,000',
+        '• Average Growth: 10%',
+        '• Top Performing: Tablets (+15%)',
+        '• Regions: All showing positive growth'
+    ];
+    
+    summary.forEach((item, index) => {
+        pdf.text(item, 25, finalY + 10 + (index * 7));
+    });
+    
+    // Save the PDF
+    pdf.save('sales-report-q1-2023.pdf');
+}
+
+// Generate from HTML
+function generateFromHTML() {
+    const element = document.getElementById('reportContent');
+    html2canvas(element).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF();
+        pdf.addImage(imgData, 'PNG', 10, 10, 190, 0);
+        pdf.save('html-report.pdf');
+    });
+}</code></pre>
+                    </div>
+                </div>
+                <div class="example-output">
+                    <h4>PDF Report Preview</h4>
+                    <div id="pdfPreview" style="background: white; padding: 20px; border: 2px dashed #ccc; min-height: 300px;">
+                        <h3 style="color: #2c3e50; text-align: center;">Sales Report - Q1 2023</h3>
+                        <p style="color: #777; text-align: center;">Generated: <span id="currentDate"></span></p>
+                        
+                        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                            <thead style="background: #3498db; color: white;">
+                                <tr>
+                                    <th style="padding: 10px;">Product</th>
+                                    <th style="padding: 10px;">Q1 Sales</th>
+                                    <th style="padding: 10px;">Growth %</th>
+                                    <th style="padding: 10px;">Region</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid #eee;">
+                                    <td style="padding: 10px;">Laptops</td>
+                                    <td style="padding: 10px;">$125,000</td>
+                                    <td style="padding: 10px; color: green;">+12%</td>
+                                    <td style="padding: 10px;">North America</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #eee;">
+                                    <td style="padding: 10px;">Phones</td>
+                                    <td style="padding: 10px;">$89,500</td>
+                                    <td style="padding: 10px; color: green;">+8%</td>
+                                    <td style="padding: 10px;">Europe</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="demo-controls">
+                        <button onclick="generatePDF()">Generate PDF Report</button>
+                        <button onclick="downloadSamplePDF()">Download Sample</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Knowledge Quiz Section -->
+        <section id="quiz" class="content-section">
+            <h2><i class="fas fa-graduation-cap"></i> Knowledge Check Quiz</h2>
+            
+            <div class="quiz-section">
+                <div class="quiz-question" id="question1">
+                    1. Which JavaScript method is best for calculating the total of all values in an array?
+                </div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectAnswer(this, 'A')">
+                        A) .filter()
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, 'B')">
+                        B) .reduce()
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, 'C')">
+                        C) .map()
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, 'D')">
+                        D) .forEach()
+                    </div>
+                </div>
+                <div class="quiz-feedback" id="feedback1"></div>
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-question" id="question2">
+                    2. What is the purpose of the jsPDF library?
+                </div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectAnswer(this, 'A')">
+                        A) Create interactive charts
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, 'B')">
+                        B) Generate PDF documents
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, 'C')">
+                        C) Filter data arrays
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, 'D')">
+                        D) Create HTML tables
+                    </div>
+                </div>
+                <div class="quiz-feedback" id="feedback2"></div>
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-question" id="question3">
+                    3. Which chart type is best for showing trends over time?
+                </div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectAnswer(this, 'A')">
+                        A) Pie Chart
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, 'B')">
+                        B) Bar Chart
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, 'C')">
+                        C) Line Chart
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, 'D')">
+                        D) Scatter Plot
+                    </div>
+                </div>
+                <div class="quiz-feedback" id="feedback3"></div>
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-question" id="question4">
+                    4. What does this code do: <code>data.filter(item => item.sales > 1000)</code>?
+                </div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectAnswer(this, 'A')">
+                        A) Increases all sales by 1000
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, 'B')">
+                        B) Filters items with sales over 1000
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, 'C')">
+                        C) Calculates total sales
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, 'D')">
+                        D) Creates a sales chart
+                    </div>
+                </div>
+                <div class="quiz-feedback" id="feedback4"></div>
+            </div>
+
+            <div class="demo-controls" style="justify-content: center;">
+                <button onclick="checkAllAnswers()">Check All Answers</button>
+                <button onclick="resetQuiz()">Reset Quiz</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Include required libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <script>
+        // ========== TAB NAVIGATION ==========
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active tab button
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Show corresponding section
+                const tabId = button.getAttribute('data-tab');
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // ========== BASIC REPORT DEMO ==========
+        function runBasicReport() {
+            const reportData = [
+                { id: 1, name: 'Product A', sales: 1500, category: 'Electronics' },
+                { id: 2, name: 'Product B', sales: 2300, category: 'Clothing' },
+                { id: 3, name: 'Product C', sales: 1800, category: 'Electronics' }
+            ];
+
+            const totalSales = reportData.reduce((sum, item) => sum + item.sales, 0);
+            const averageSales = totalSales / reportData.length;
+
+            const output = `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h3 style="color: #2c3e50;">Basic Report Generated</h3>
+                    <table class="report-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Product Name</th>
+                                <th>Sales ($)</th>
+                                <th>Category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${reportData.map(item => `
+                                <tr>
+                                    <td>${item.id}</td>
+                                    <td>${item.name}</td>
+                                    <td>$${item.sales.toLocaleString()}</td>
+                                    <td>${item.category}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                    <div style="margin-top: 20px; padding: 15px; background: #3498db; color: white; border-radius: 5px;">
+                        <strong>Summary:</strong> Total Sales: $${totalSales.toLocaleString()} | 
+                        Average: $${averageSales.toLocaleString()} | 
+                        Items: ${reportData.length}
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('basicReportOutput').innerHTML = output;
+        }
+
+        function clearBasicReport() {
+            document.getElementById('basicReportOutput').innerHTML = '';
+        }
+
+        // ========== DATA PROCESSING DEMO ==========
+        const salesData = [
+            { date: '2023-01-01', product: 'Laptop', amount: 1200, region: 'North' },
+            { date: '2023-01-01', product: 'Phone', amount: 800, region: 'South' },
+            { date: '2023-01-02', product: 'Laptop', amount: 1500, region: 'North' },
+            { date: '2023-01-02', product: 'Tablet', amount: 600, region: 'East' },
+            { date: '2023-01-03', product: 'Phone', amount: 900, region: 'South' }
+        ];
+
+        function filterNorthSales() {
+            const northSales = salesData.filter(item => item.region === 'North');
+            displayDataProcessingOutput(northSales, 'North Region Sales');
+        }
+
+        function aggregateByProduct() {
+            const byProduct = salesData.reduce((result, item) => {
+                if (!result[item.product]) result[item.product] = { total: 0, count: 0 };
+                result[item.product].total += item.amount;
+                result[item.product].count++;
+                return result;
+            }, {});
+
+            let output = '<h4>Sales by Product</h4><ul>';
+            for (const product in byProduct) {
+                output += `<li><strong>${product}:</strong> $${byProduct[product].total} (${byProduct[product].count} sales)</li>`;
+            }
+            output += '</ul>';
+
+            document.getElementById('dataProcessingOutput').innerHTML = output;
+        }
+
+        function calculateStats() {
+            const total = salesData.reduce((sum, item) => sum + item.amount, 0);
+            const average = total / salesData.length;
+            const max = Math.max(...salesData.map(item => item.amount));
+            const min = Math.min(...salesData.map(item => item.amount));
+
+            const output = `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                    <h4>Sales Statistics</h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 15px;">
+                        <div style="background: white; padding: 15px; border-radius: 5px; text-align: center;">
+                            <div style="font-size: 1.5rem; color: #3498db; font-weight: bold;">$${total.toLocaleString()}</div>
+                            <div>Total Sales</div>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 5px; text-align: center;">
+                            <div style="font-size: 1.5rem; color: #2ecc71; font-weight: bold;">$${Math.round(average).toLocaleString()}</div>
+                            <div>Average Sale</div>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 5px; text-align: center;">
+                            <div style="font-size: 1.5rem; color: #e74c3c; font-weight: bold;">$${max.toLocaleString()}</div>
+                            <div>Maximum Sale</div>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 5px; text-align: center;">
+                            <div style="font-size: 1.5rem; color: #f39c12; font-weight: bold;">$${min.toLocaleString()}</div>
+                            <div>Minimum Sale</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('dataProcessingOutput').innerHTML = output;
+        }
+
+        function displayDataProcessingOutput(data, title) {
+            if (Array.isArray(data)) {
+                let output = `<h4>${title}</h4><table class="report-table"><thead><tr>`;
+                const headers = Object.keys(data[0]);
+                headers.forEach(header => {
+                    output += `<th>${header.charAt(0).toUpperCase() + header.slice(1)}</th>`;
+                });
+                output += '</tr></thead><tbody>';
+
+                data.forEach(item => {
+                    output += '<tr>';
+                    headers.forEach(header => {
+                        output += `<td>${item[header]}</td>`;
+                    });
+                    output += '</tr>';
+                });
+
+                output += '</tbody></table>';
+                document.getElementById('dataProcessingOutput').innerHTML = output;
+            }
+        }
+
+        // ========== DYNAMIC TABLES DEMO ==========
+        let employees = [
+            { id: 1, name: 'John Doe', department: 'Sales', salary: 50000, joinDate: '2020-01-15' },
+            { id: 2, name: 'Jane Smith', department: 'Marketing', salary: 60000, joinDate: '2019-03-22' },
+            { id: 3, name: 'Bob Johnson', department: 'Sales', salary: 55000, joinDate: '2021-06-10' }
+        ];
+
+        function createEmployeeTable() {
+            const container = document.getElementById('tableReportOutput');
+            container.innerHTML = '';
+
+            const table = document.createElement('table');
+            table.className = 'report-table';
+            table.id = 'employeeTable';
+
+            // Create header
+            const thead = document.createElement('thead');
+            const headers = ['ID', 'Name', 'Department', 'Salary', 'Join Date'];
+            let headerRow = '<tr>';
+            headers.forEach(header => {
+                headerRow += `<th>${header}</th>`;
+            });
+            headerRow += '</tr>';
+            thead.innerHTML = headerRow;
+
+            // Create body
+            const tbody = document.createElement('tbody');
+            employees.forEach(employee => {
+                let row = '<tr>';
+                row += `<td>${employee.id}</td>`;
+                row += `<td>${employee.name}</td>`;
+                row += `<td>${employee.department}</td>`;
+                row += `<td>$${employee.salary.toLocaleString()}</td>`;
+                row += `<td>${employee.joinDate}</td>`;
+                row += '</tr>';
+                tbody.innerHTML += row;
+            });
+
+            table.appendChild(thead);
+            table.appendChild(tbody);
+            container.appendChild(table);
+
+            // Add sorting
+            addTableSorting('employeeTable');
+        }
+
+        function addTableSorting(tableId) {
+            const table = document.getElementById(tableId);
+            const headers = table.querySelectorAll('th');
+            
+            headers.forEach((header, index) => {
+                header.style.cursor = 'pointer';
+                header.addEventListener('click', () => {
+                    sortTable(table, index);
+                });
+            });
+        }
+
+        function sortTable(table, columnIndex) {
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            const isAscending = table.dataset.sortColumn === columnIndex.toString() ? 
+                table.dataset.sortOrder !== 'asc' : true;
+            
+            rows.sort((a, b) => {
+                const aValue = a.children[columnIndex].textContent;
+                const bValue = b.children[columnIndex].textContent;
+                
+                // Handle numbers
+                if (!isNaN(aValue.replace(/[^0-9.-]+/g, ""))) {
+                    const aNum = parseFloat(aValue.replace(/[^0-9.-]+/g, ""));
+                    const bNum = parseFloat(bValue.replace(/[^0-9.-]+/g, ""));
+                    return isAscending ? aNum - bNum : bNum - aNum;
+                }
+                
+                // Handle dates
+                const dateA = new Date(aValue);
+                const dateB = new Date(bValue);
+                if (!isNaN(dateA) && !isNaN(dateB)) {
+                    return isAscending ? dateA - dateB : dateB - dateA;
+                }
+                
+                // Handle strings
+                return isAscending ? 
+                    aValue.localeCompare(bValue) : 
+                    bValue.localeCompare(aValue);
+            });
+            
+            // Clear and re-add sorted rows
+            tbody.innerHTML = '';
+            rows.forEach(row => tbody.appendChild(row));
+            
+            // Update sort indicators
+            table.dataset.sortColumn = columnIndex;
+            table.dataset.sortOrder = isAscending ? 'asc' : 'desc';
+            
+            // Update header text
+            const headers = table.querySelectorAll('th');
+            headers.forEach((header, index) => {
+                let text = header.textContent;
+                if (text.endsWith(' ▲') || text.endsWith(' ▼')) {
+                    text = text.slice(0, -2);
+                }
+                if (index === columnIndex) {
+                    text += isAscending ? ' ▲' : ' ▼';
+                }
+                header.textContent = text;
+            });
+        }
+
+        function addSampleData() {
+            const newEmployee = {
+                id: employees.length + 1,
+                name: `Employee ${employees.length + 1}`,
+                department: ['Sales', 'Marketing', 'IT', 'HR'][Math.floor(Math.random() * 4)],
+                salary: Math.floor(Math.random() * 50000) + 40000,
+                joinDate: `202${Math.floor(Math.random() * 4)}-${String(Math.floor(Math.random() * 12) + 1).padStart(2, '0')}-${String(Math.floor(Math.random() * 28) + 1).padStart(2, '0')}`
+            };
+            
+            employees.push(newEmployee);
+            createEmployeeTable();
+        }
+
+        function exportToCSV() {
+            let csv = 'ID,Name,Department,Salary,Join Date\n';
+            employees.forEach(employee => {
+                csv += `${employee.id},${employee.name},${employee.department},${employee.salary},${employee.joinDate}\n`;
+            });
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'employee-report.csv';
+            a.click();
+            
+            showMessage('CSV file downloaded!', 'success');
+        }
+
+        // ========== CHARTS DEMO ==========
+        let salesChart = null;
+
+        function createChart() {
+            const ctx = document.getElementById('salesChart').getContext('2d');
+            
+            if (salesChart) {
+                salesChart.destroy();
+            }
+            
+            salesChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Sales 2023',
+                        data: [12000, 19000, 15000, 25000, 22000, 30000],
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Monthly Sales Report 2023'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `Sales: $${context.raw.toLocaleString()}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function switchToLineChart() {
+            if (!salesChart) return;
+            
+            salesChart.config.type = 'line';
+            salesChart.update();
+            showMessage('Switched to Line Chart!', 'success');
+        }
+
+        function addComparisonData() {
+            if (!salesChart) return;
+            
+            salesChart.data.datasets.push({
+                label: 'Sales 2022',
+                data: [10000, 15000, 12000, 18000, 16000, 22000],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 2,
+                borderDash: [5, 5]
+            });
+            
+            salesChart.update();
+            showMessage('Added 2022 comparison data!', 'success');
+        }
+
+        // ========== PDF GENERATION DEMO ==========
+        function generatePDF() {
+            if (typeof jsPDF === 'undefined') {
+                showMessage('Please wait for jsPDF to load, or check your internet connection.', 'error');
+                return;
+            }
+            
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF();
+            
+            // Add title
+            pdf.setFontSize(20);
+            pdf.setTextColor(44, 62, 80);
+            pdf.text("Sales Report - Q1 2023", 105, 20, { align: 'center' });
+            
+            // Add date
+            pdf.setFontSize(12);
+            pdf.setTextColor(128, 128, 128);
+            pdf.text(`Generated: ${new Date().toLocaleDateString()}`, 105, 30, { align: 'center' });
+            
+            // Add table
+            pdf.autoTable({
+                startY: 40,
+                head: [['Product', 'Q1 Sales', 'Growth %', 'Region']],
+                body: [
+                    ['Laptops', '$125,000', '+12%', 'North America'],
+                    ['Phones', '$89,500', '+8%', 'Europe'],
+                    ['Tablets', '$67,300', '+15%', 'Asia'],
+                    ['Accessories', '$45,200', '+5%', 'Global'],
+                    ['Total', '$327,000', '+10%', 'All Regions']
+                ],
+                theme: 'striped',
+                headStyles: { fillColor: [52, 152, 219] },
+                margin: { left: 20, right: 20 }
+            });
+            
+            // Add summary
+            const finalY = pdf.lastAutoTable.finalY + 15;
+            pdf.setFontSize(14);
+            pdf.setTextColor(44, 62, 80);
+            pdf.text("Summary", 20, finalY);
+            
+            pdf.setFontSize(12);
+            pdf.setTextColor(0, 0, 0);
+            const summary = [
+                '• Total Q1 Sales: $327,000',
+                '• Average Growth: 10%',
+                '• Top Performing: Tablets (+15%)',
+                '• All regions showing positive growth',
+                '• Recommendation: Increase tablet inventory'
+            ];
+            
+            summary.forEach((item, index) => {
+                pdf.text(item, 25, finalY + 10 + (index * 7));
+            });
+            
+            // Add footer
+            pdf.setFontSize(10);
+            pdf.setTextColor(128, 128, 128);
+            pdf.text("Generated with JavaScript Reports Tutorial", 105, 280, { align: 'center' });
+            
+            // Save the PDF
+            pdf.save('javascript-report-demo.pdf');
+            showMessage('PDF report generated successfully!', 'success');
+        }
+
+        function downloadSamplePDF() {
+            showMessage('This would download a sample PDF. In a real app, this would generate a complete report.', 'warning');
+        }
+
+        // Update current date in PDF preview
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString();
+
+        // ========== QUIZ FUNCTIONS ==========
+        const quizAnswers = {
+            '1': 'B',
+            '2': 'B',
+            '3': 'C',
+            '4': 'B'
+        };
+
+        function selectAnswer(element, answer) {
+            // Remove selection from all options in this question
+            const questionContainer = element.closest('.quiz-section');
+            questionContainer.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Select this option
+            element.classList.add('selected');
+            
+            // Store the selected answer
+            const questionId = questionContainer.querySelector('.quiz-question').id.replace('question', '');
+            element.dataset.selectedAnswer = answer;
+        }
+
+        function checkAllAnswers() {
+            let score = 0;
+            const totalQuestions = Object.keys(quizAnswers).length;
+            
+            for (let i = 1; i <= totalQuestions; i++) {
+                const questionContainer = document.getElementById(`question${i}`).closest('.quiz-section');
+                const selectedOption = questionContainer.querySelector('.quiz-option.selected');
+                const feedback = document.getElementById(`feedback${i}`);
+                
+                if (selectedOption) {
+                    const selectedAnswer = selectedOption.dataset.selectedAnswer;
+                    const correctAnswer = quizAnswers[i];
+                    
+                    if (selectedAnswer === correctAnswer) {
+                        feedback.textContent = '✓ Correct! Well done.';
+                        feedback.className = 'quiz-feedback correct';
+                        feedback.style.display = 'block';
+                        score++;
+                    } else {
+                        feedback.textContent = `✗ Incorrect. The correct answer is ${correctAnswer}.`;
+                        feedback.className = 'quiz-feedback incorrect';
+                        feedback.style.display = 'block';
+                    }
+                } else {
+                    const feedback = document.getElementById(`feedback${i}`);
+                    feedback.textContent = 'Please select an answer first.';
+                    feedback.className = 'quiz-feedback incorrect';
+                    feedback.style.display = 'block';
+                }
+            }
+            
+            // Show overall score
+            const percentage = Math.round((score / totalQuestions) * 100);
+            showMessage(`Quiz Score: ${score}/${totalQuestions} (${percentage}%)`, 
+                       percentage >= 70 ? 'success' : 'warning');
+        }
+
+        function resetQuiz() {
+            // Clear all selections
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('selected');
+                delete option.dataset.selectedAnswer;
+            });
+            
+            // Hide all feedback
+            document.querySelectorAll('.quiz-feedback').forEach(feedback => {
+                feedback.style.display = 'none';
+            });
+            
+            showMessage('Quiz reset. Try again!', 'success');
+        }
+
+        // ========== UTILITY FUNCTIONS ==========
+        function showMessage(text, type) {
+            // Remove existing messages
+            const existingMessages = document.querySelectorAll('.message');
+            existingMessages.forEach(msg => msg.remove());
+            
+            // Create new message
+            const message = document.createElement('div');
+            message.className = `message ${type}`;
+            message.textContent = text;
+            message.style.position = 'fixed';
+            message.style.top = '20px';
+            message.style.right = '20px';
+            message.style.zIndex = '1000';
+            
+            document.body.appendChild(message);
+            
+            // Remove after 5 seconds
+            setTimeout(() => {
+                message.style.animation = 'slideIn 0.3s ease reverse';
+                setTimeout(() => message.remove(), 300);
+            }, 5000);
+        }
+
+        // Initialize the tutorial
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current date
+            document.getElementById('currentDate').textContent = new Date().toLocaleDateString();
+            
+            // Initialize charts tab with a chart
+            setTimeout(() => {
+                if (document.getElementById('charts').classList.contains('active')) {
+                    createChart();
+                }
+            }, 500);
+            
+            // Show welcome message
+            setTimeout(() => {
+                showMessage('Welcome to JavaScript Reports Tutorial! Click through tabs to learn.', 'success');
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 

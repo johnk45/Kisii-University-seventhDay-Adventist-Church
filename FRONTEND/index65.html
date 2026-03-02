@@ -3,10 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KSUSDA | Kisii University SDA Church</title>
+  <title>Kisii University Seventh-day Adventist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image|jpg" href="image/logo university.jpg">
+  <!-- Bootstrap 5.3.3 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap 5.3.3 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
   <style>
      :root {
      --primary: #2c3e50;
@@ -154,12 +162,7 @@
       color:var(--light-bg);
 
     }
-    .themeBtn{
-      padding:5px;
-      float:right;
-      top:0;
-      color:#1abc9c;
-    }
+   
     /* Make hero buttons sit inline and centered, with good spacing and responsive stacking 
     .hero a {
       display: inline-block;
@@ -173,88 +176,47 @@
     /* Replace float with inline styling for the specific button */
     
 .hero .heroBtn {
-  display: flex;
-  flex-wrap: wrap;            /* allow wrapping only when space is tight */
-  gap: 12px;
-  justify-content: center;
-  align-items: center;
+display:flex;
+
+flex-direction:row;
+justify-content: space-between;
+align-items: center;
 }
 
 .hero .heroBtn a {
-  display: inline-flex;       /* icon + text align */
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
+  width: 100%;              /* full width so they appear as a vertical column */
   padding: 0.85rem 1.1rem;
   border-radius: 12px;
   font-weight: 700;
   color: #fff;
   text-decoration: none;
   box-shadow: 0 6px 18px rgba(8,16,40,0.16);
-  flex: 0 0 auto;             /* keep inline-block behaviour */
-  min-width: 140px;
-  max-width: 280px;
-  white-space: nowrap;
+  background: linear-gradient(135deg,#0066cc 0%,#00a3ff 100%);
   transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
 }
 
-/* small decorative/icon container (use 1em so it matches text size) */
-.hero .heroBtn a::before {
-  content: "";
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  flex: 0 0 1em;
-  transform: translateY(0.05em);
+/* Optional: second button variant */
+.hero .heroBtn a + a { 
+  background: linear-gradient(135deg,#ff7a18 0%,#968a79 100%);
 }
 
-/* Two color variants (first and second button) */
-.hero .heroBtn a:nth-child(1) {
-  background: linear-gradient(135deg, #0066cc 0%, #00a3ff 100%);
-}
-.hero .heroBtn a:nth-child(2) {
-  background: linear-gradient(135deg, #ff7a18 0%, #ffb03b 100%);
-}
-.hero .heroBtn a:not(:nth-child(1)):not(:nth-child(2)) {
-  background: linear-gradient(135deg, #6b46c1 0%, #9f7aea 100%);
-}
-
+/* Hover / focus */
 .hero .heroBtn a:hover,
 .hero .heroBtn a:focus {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(8,16,40,0.22);
   opacity: 0.98;
 }
 
-/* Keep inline behavior on small screens but reduce size slightly */
+/* Small screens: keep column but tighten spacing */
 @media (max-width: 480px) {
-  .hero .heroBtn {
-    gap: 10px;
-  }
-  .hero .heroBtn a {
-    padding: 0.6rem 0.9rem;
-    min-width: 110px;
-    font-size: 0.95rem;
-  }
+  .hero .heroBtn { max-width: 340px; gap: 10px; padding: 0 10px; }
+  .hero .heroBtn a { padding: 0.7rem 1rem; font-size: 0.95rem; border-radius: 10px; }
 }
-
-/* Default button look (applies to all hero buttons) */
-.hero .heroBtn a {
-  display: inline-block;
-  padding: 0.75rem 1.25rem;
-  border-radius: 12px;
-  min-width: 120px;        /* keeps compact inline appearance */
-  text-align: center;
-  font-weight: 700;
-  color: #fff;
-  text-decoration: none;
-  background: linear-gradient(135deg,#1abc9c 0%,#16a085 100%);
-  box-shadow: 0 6px 18px rgba(8,16,40,0.12);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-.btn:hover, .btn:focus { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(8,16,40,0.18); }
 
     /* Small screens: stack buttons and center them */
     @media (max-width: 480px) {
@@ -557,6 +519,71 @@
   color: #38bdf8;
 }
 
+    /* Sign-in button (header) */
+.header-signin {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:#fff;
+  text-decoration:none;
+  padding:8px;
+  border-radius:8px;
+  transition: background .15s, transform .12s;
+  font-weight:600;
+}
+.header-signin svg { width:20px; height:20px; display:block; flex:0 0 20px; }
+.header-signin:hover { background: rgba(255,255,255,0.04); transform: translateY(-2px); }
+
+/* hide label on small screens to save space */
+.header-signin .signin-text{ display:inline-block; }
+@media (max-width: 768px) {
+  .header-signin .signin-text{ display:none; }
+}
+
+
+ .event-img {
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .event-caption {
+      background: rgba(0, 0, 0, 0.55);
+      padding: 15px;
+      border-radius: 12px;
+      backdrop-filter: blur(4px);
+      animation: fadeInUp 0.7s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .btn-event {
+      padding: 6px 15px;
+      border-radius: 50px;
+      font-size: 15px;
+    }
+
+    .btn-register {
+      background: #28a745;
+      color: white;
+    }
+
+    .btn-more {
+      background: #0d6efd;
+      color: white;
+    }
+
   </style>
 </head>
 <body>
@@ -611,6 +638,91 @@
       .loader-text p {
         color: #666;
       }
+
+       /* Countdown floating box */
+    .countdown-box {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #004d40;
+      color: white;
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    /* Daily Verse Popup */
+    .verse-popup {
+      display: none;
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      padding: 1.5rem;
+      width: 90%;
+      max-width: 400px;
+      z-index: 1000;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in;
+    }
+    .verse-popup h3 {color: #004d40; margin-bottom: 0.8rem;}
+    .verse-popup button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #004d40;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translate(-50%, -10%);}
+      to {opacity: 1; transform: translate(-50%, 0);}
+    }
+
+    @media (max-width: 600px) {
+      header h1 {font-size: 1.4rem;}
+      .hero h2 {font-size: 1rem; padding: 0.8rem;}
+      iframe {height: 200px;}
+      .countdown-box {font-size: 0.8rem; right: 10px; bottom: 10px;}
+    }
+    .notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #000428; /* Navy blue (church-themed) */
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.notification.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+
+.close-btn {
+  background: #000;
+  color: #1e3a8a;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
     </style>
     <div class="loader-ring"></div>
     <div class="loader-text">
@@ -619,7 +731,12 @@
     </div>
   </div>
 
- 
+ <!-- Notification Box -->
+<div id="notification" class="notification hidden">
+  <p id="notification-message"></p>
+  <button onclick="closeNotification()" class="close-btn">Close</button>
+</div>
+
 
   <header>
     <h1>KSUSDA</h1>
@@ -638,16 +755,25 @@
         <li><a href="contac.html">Contact</a></li>
       </ul>
     </nav>
+
+  <!-- Sign in (added) -->
+  <a href="signin.html" class="header-signin" title="Sign in">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M15 14l5-4-5-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 10H9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M13 18a4 4 0 1 0-8 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M5 14v1a3 3 0 0 0 3 3h.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="signin-text">Church Reports</span>
+  </a>
   </header>
 
   <section class="hero" id="home">
-    <button class="themeBtn" id="button">Change Theme</button>
+    
     <h2>Welcome to Kisii University SDA Church</h2>
     <p>A community of faith,hope, and love.Join us as we worship together and grow in Christ</p>
-    <div class="heroBtn">
-    <a href="About.html">Learn More </a>
-    <a href="contac.html">Plan a visit </a>
-    </div>
+  
+  
   </section>
 
   <section class="about" id="about">
@@ -675,6 +801,83 @@
       </div>
     </div>
   </section>
+
+
+  <div class="container mt-5">
+    <h2 class="text-center mb-4 fw-bold">Upcoming Church Events</h2>
+
+    <!-- Auto-Sliding Events Carousel -->
+    <div id="eventsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+
+      <div class="carousel-inner">
+
+        <!-- Event 1 -->
+        <div class="carousel-item active">
+          <div class="d-flex justify-content-center">
+            <img src="https://picsum.photos/900/400?random=11" class="event-img w-75" alt="">
+          </div>
+          <div class="carousel-caption event-caption">
+            <h4 class="fw-bold">Youth Revival Week</h4>
+            <p>Experience powerful worship, prayer, and spiritual revival for all young people.</p>
+            <div class="mt-3">
+              <a href="#" class="btn btn-event btn-register me-2">Register</a>
+              <a href="#" class="btn btn-event btn-more">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center">
+            <img src="image/congregration.jpg" class="event-img w-75" alt="">
+          </div>
+          <div class="carousel-caption event-caption">
+            <h4 class="fw-bold">Choir Weekend</h4>
+            <p>A weekend filled with heavenly gospel music, praise, and worship.</p>
+            <div class="mt-3">
+              <a href="#" class="btn btn-event btn-register me-2">Register</a>
+              <a href="#" class="btn btn-event btn-more">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center">
+            <img src="https://picsum.photos/900/400?random=13" class="event-img w-75" alt="">
+          </div>
+          <div class="carousel-caption event-caption">
+            <h4 class="fw-bold">Medical Camp</h4>
+            <p>Community medical mission offering free health checkups and services.</p>
+            <div class="mt-3">
+              <a href="#" class="btn btn-event btn-register me-2">Register</a>
+              <a href="#" class="btn btn-event btn-more">Read More</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#eventsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#eventsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Swipe Support for Mobile -->
+ <!--This is a button for viewing church reports-->
+
+<a href="church reports/index.php" class="btn btn-primary">Church Reports</a>
+
 
   <section id="events">
     <h2>Join Us in Our Upcoming Events</h2>
@@ -825,6 +1028,17 @@
     <p>&copy; 2025 KSUSDA | All Rights Reserved | Designed by <span>JTech Softwares</span></p>
   </div>
 </footer>
+
+<!--countdown box-->
+<div class="countdown-box" id="countdownBox">
+  Sabbath begins in:<br><span id="countdown"></span>
+</div>
+
+<!--Verse pop up-->
+<div class="verse-popup" id="versePopup">
+  <h3>Daily verse</h3><p id="verseText"></p>
+  <button onclick="document.getElementById('versePopup').style.display='none'">Close</button>
+</div>
 </body>
 </html>
 
@@ -842,60 +1056,91 @@
       }, 1500);
     });
   </script>
-
-  <script>
-(function (){
-  const BODY = document.body;
-  const THEME_KEY = 'ksusda_theme';
-  const themeBtn = document.getElementById('button');
-  const menuToggle =  document.getElementById('menu-toggle');
-  const navLinks = document.getElementById('nav-links');
-
-  //Aplly Theme state
-  function applyTheme(theme){
-    if(theme === 'dark'){
-      BODY.classList.add('highlight');
-      if(themeBtn) themeBtn.textContent = 'Light Theme';
-      BODY.setAttribute('data-theme','dark');
-    }else{
-      BODY.classList.remove('highlight');
-      if(themeBtn) themeBtn.textContent = 'Dark Theme';
-      BODY.setAttribute('data-theme','light');
-    }
+<script>
+  // ---- Sabbath Countdown ----
+  function getNextSabbath() {
+  const now = new Date();
+  let daysUntilFriday = (5- now.getDay() + 7) % 7;
+  if (daysUntilFriday === 0 && now.getHours() >= 18) daysUntilFriday = 7;
+  const sabbathStart = new Date(now);
+  sabbathStart.setDate(now.getDate() + daysUntilFriday);
+  sabbathStart.setHours(18, 0, 0, 0); // 6 PM Friday
+  return sabbathStart;
   }
-
-  //Load stored theme
-  try{
-    const stored = localStorage.getItem(THEME_KEY);
-    applyTheme(stored === 'dark' ? 'dark' : 'light');
-
-  }catch(e){
-    applyTheme('light');
-  }
-
-  //Theme toggle handler
-  if(themeBtm){
-    themeBtn.addEventListener('click',()=>{
-      const isNowDark = BODY.classList.toggle('highlight');
-      const newTheme = isNowDark ? 'dark' : 'light';
-      try{localStorage.setItem(THEME_KEY,newTheme);}catch(e){}
-      applyTheme(newTheme);
-
-      //accessibility
-      themeBtn.setAttribute('aria-pressed', isNowDark ? 'true':'falser');
-    });
-  }
-  //Mobile menu toggle(safe guards)
-  if(menuToggle && navLinks){
-    menuToggle.addEventListener('click',()=>{
-      navLinks.classList.toggle('active');
-      const expanded = navLinks.classList.contains('active');
-      navLinks.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-      menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-    });
-  }
-
-  //Preloader hide page  load
-})();
-  </script>
   
+  function updateCountdown() {
+  const now = new Date();
+  const sabbath = getNextSabbath();
+  const diff = sabbath - now;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+  document.getElementById("countdown").textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+  
+  // ---- Daily Verse Popup ----
+  const verses = [
+  "Philippians 4:13 – I can do all things through Christ who strengthens me.",
+  "Psalm 23:1 – The Lord is my shepherd; I shall not want.",
+  "Isaiah 40:31 – Those who hope in the Lord will renew their strength.",
+  "Romans 8:28 – All things work together for good to those who love God.",
+  "Matthew 5:14 – You are the light of the world."
+  ];
+  function showVerse() {
+  const verse = verses[Math.floor(Math.random() * verses.length)];
+  document.getElementById("verseText").textContent = verse;
+  document.getElementById("versePopup").style.display = "block";
+  }
+  setTimeout(showVerse, 5000);
+  </script>
+  <script>
+  // Show notification with custom message
+  function showNotification(message) {
+    const box = document.getElementById("notification");
+    const msg = document.getElementById("notification-message");
+    
+    msg.textContent = message;
+    box.classList.remove("hidden");
+
+    // Auto hide after 5 seconds
+    setTimeout(() => {
+      closeNotification();
+    }, 5000);
+  }
+
+  // Close notification manually
+  function closeNotification() {
+    document.getElementById("notification").classList.add("hidden");
+  }
+
+  // Example: Automatically show notification when page loads
+  window.addEventListener("load", () => {
+    showNotification("All members are highly encouraged to attend families bible study");
+    setTimeout(()=>{
+
+    },6000);
+  });
+</script>
+
+<!--This Js code is responsible for the swipping in the events-->
+
+ <script>
+    const carousel = document.querySelector('#eventsCarousel');
+    let startX = 0;
+
+    carousel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    carousel.addEventListener('touchend', (e) => {
+      let endX = e.changedTouches[0].clientX;
+      if (startX - endX > 50) {
+        bootstrap.Carousel.getInstance(carousel).next();
+      } else if (endX - startX > 50) {
+        bootstrap.Carousel.getInstance(carousel).prev();
+      }
+    });
+  </script>

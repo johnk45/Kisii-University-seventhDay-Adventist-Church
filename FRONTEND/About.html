@@ -1,413 +1,1677 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | KSUSDA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Kisii University SDA Church</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <style>
-    /* ===== RESET ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+    <link rel="icon" type="image/jpg" href="image/assetss/kisiilogo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background: linear-gradient(120deg, #004e92, #000428);
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+        :root {
+            --primary: #010a0e;
+            --primary-light: #00040c;
+            --secondary: rgb(27, 24, 43);
+            --accent: #247bc7;
+            --dark: #38bdf8;
+            --light: #f8f9fa;
+            --gray: #001f31;
+            --light-gray: #e9ecef;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
 
-    /* ===== HEADER ===== */
-    header {
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(10px);
-      padding: 1rem 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+              --primary: #2c3e50;
+      --accent: #00060a;
+      --light-bg: #f9f9f9;
+      --text: #333;
+      --btn-blue: #0b2036;
+      --btn-green: #000802;
+      --btn-orange: #fd7e14;
+      --btn-purple: #6f42c1;
+      --btn-red: #dc3545;
+      --btn-dark: #343a40;
+        }
 
-    header h2 {
-      color: #ffd700;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
+        body {
+          font-family: 'Poppins', sans-serif;
+          color: #222;
+          line-height: 1.6;
+          background: linear-gradient(-45deg, #e3f2fd, #cfd8dc, #bbdefb, #90caf9);
+         background-size: 400% 400%;
+        }
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #120202;
+            font-weight:700;
+            margin-bottom: 1rem;
+        }
 
-    nav a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      transition: 0.3s;
-    }
+        .container {
+            width:100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    nav a:hover {
-      color: #ffd700;
-    }
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #001f3f 0%, #0f172a 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+           
+        }
 
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
 
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background: #fff;
-    }
+        .church-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3a7ca5 0%, #ff9b42 50%, #2e8b57 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            
+        }
 
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        position: absolute;
-        top: 70px;
-        right: 8%;
-        flex-direction: column;
-        background: rgba(0, 0, 0, 0.85);
-        padding: 1rem;
-        border-radius: 8px;
-      }
+        .church-subtitle {
+            font-size: 0.85rem;
+            color: #f5f9f9;
+            margin-top: 2px;
+        }
 
-      nav.active {
-        display: flex;
-      }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
 
-      .menu-toggle {
-        display: flex;
-      }
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
 
-    /* ===== ABOUT SECTION ===== */
-    .about-section {
-      padding: 4rem 8%;
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-    }
+        .nav-links a:hover {
+            color: var(--dark);
+        }
 
-    .about-intro {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-    }
+        .nav-links a.active {
+          color:var(--dark);
+          text-decoration: underline;
+        }
 
-    .about-intro h1 {
-      font-size: 2.2rem;
-      color: #ffd700;
-      margin-bottom: 1rem;
-    }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -8px;
+            left: 0;
+            border-radius: 3px;
+        }
 
-    .about-intro p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-    }
+       
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
+        .btn {
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            display:flex;
+            float:left;
+            left:20px;
+        }
 
-    .about-card {
-      background: #fff;
-      color: #000;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      transition: 0.3s;
-    }
-    .about-card img{
-      height:100px;width:200px;border-radius:25px;padding:10px;object-fit: cover;
-    }
+        .btn-primary {
+            background-color: #3a7ca5;
+            color: white;
+        }
 
-    .about-card:hover {
-      transform: translateY(-5px);
-    }
+        .btn-primary:hover {
+            background-color: #5fa8d3;
+            transform: translateY(-2px);
+        }
 
-    .about-card h3 {
-      color: #004e92;
-      margin-bottom: 1rem;
-    }
+        .btn-accent {
+            background-color: #ff9b42;
+            color: #3a7ca5;
+            border: 2px solid #3a7ca5;
+        }
 
-    .about-card p {
-      font-size: 1rem;
-      line-height: 1.7;
-    }
+        .btn-accent:hover {
+            background-color: rgba(58, 124, 165, 0.05);
+transform:translateY(-2px);
+color:#fff;
+        }
 
-    /* ===== LEADERSHIP SECTION ===== */
-    .leaders {
-      margin-top: 2rem;
-      text-align: center;
-    }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+            ;
+        }
+        .logo-text{
+            display:flex;
+            flex-direction: column;
+            font-size:1.2rem;
+        }
 
-    .leaders h2 {
-      color: #ffd700;
-      margin-bottom: 1.5rem;
-    }
+        /* Hero Section */
+        .about-hero {
+background: linear-gradient(rgba(22, 66, 91, 0.85), rgba(22, 66, 91, 0.9)), url('image/ksusda1.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 0px;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            margin-bottom: 60px;
+            text-align: center;
+        }
 
-    .leader-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
+        .about-hero h1 {
+            font-size: 3.2rem;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+         .hero-content {
+            max-width: 800px;
+        }
+        .about-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
-    .leader-card {
-      background: #fff;
-      color: #000;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      transition: 0.3s;
-    }
+        /* About Intro */
+        .about-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+            align-items: center;
+            background-color: #ffffff;
+            padding:30px 40px;
+            border-radius: 8px;
+        }
 
-    .leader-card:hover {
-      transform: scale(1.03);
-    }
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
 
-    .leader-card img ,video{
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
+        .about-content p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 1.1rem;
+        }
 
-    .leader-card h4 {
-      color: #004e92;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
+        .about-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 400px;
+        }
 
-    .leader-card p {
-      font-size: 0.9rem;
-    }
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
 
-   about-footer {
-    background: linear-gradient(to right, #0a1a2f, #122d52);
-    color: #d6e4f0;
-    font-family: 'Poppins', sans-serif;
-    padding: 60px 20px 25px;
-  }
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
 
-  .about-footer-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: auto;
-  }
+        /* Mission & Vision */
+        .mission-vision {
+            margin-bottom: 80px;
+            font-size:1.2rem;
+        }
 
-  .about-footer h3 {
-    color: #f4c542;
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-  }
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-  .about-intro p {
-    font-size: 14px;
-    line-height: 1.7;
-    color: #d6e4f0;
-  }
+        .section-title {
+            font-size: 1rem;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
 
-  blockquote {
-    font-style: italic;
-    font-size: 14px;
-    color: #f4f6fb;
-    border-left: 3px solid #f4c542;
-    padding-left: 10px;
-    margin: 0;
-  }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
 
-  blockquote span {
-    display: block;
-    margin-top: 5px;
-    font-size: 13px;
-    color: #f4c542;
-  }
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 2.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
 
-  .about-links ul {
-    list-style: none;
-    padding: 0;
-  }
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
 
-  .about-links li {
-    margin-bottom: 8px;
-  }
+        .mv-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
 
-  .about-links a {
-    text-decoration: none;
-    color: #d6e4f0;
-    font-size: 14px;
-    transition: color 0.3s ease;
-  }
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
 
-  .about-links a:hover {
-    color: #f4c542;
-  }
+        .mv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--primary);
+        }
 
-  .about-footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 15px;
-    font-size: 13px;
-    color: #a8bedc;
-  }
+        .mv-icon {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(46, 90, 61, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--primary);
+        }
 
-  @media (max-width: 700px) {
-    .about-footer-container {
-      text-align: center;
-    }
+        .mv-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
 
-    blockquote {
-      margin: 0 auto;
-    }
-  }
-    
-  </style>
+        .mv-card p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .values-list {
+            text-align: left;
+            margin-top: 25px;
+        }
+
+        .values-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .values-list i {
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        /* Church History */
+        .church-history {
+            margin-bottom: 80px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+
+        .history-header {
+            background-color: #001f3f;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .history-header h2 {
+            color: #e3f2fd;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        .history-content {
+            padding: 20px;
+            font-size:1.2rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--light-gray);
+            top: 0;
+            bottom: 0;
+            left: 30px;
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+            padding-left: 80px;
+        }
+
+        .timeline-year {
+            position: absolute;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: rgb(254, 254, 254);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background-color: var(--light);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-content h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--btn-green);
+        }
+
+        /* Pastoral Team */
+        .pastoral-team {
+            margin-bottom: 80px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .team-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+            padding:1rem;
+        }
+
+        .team-card:hover .team-image img {
+            transform: scale(1.05);
+        }
+
+        .team-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .team-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .team-role {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .team-bio {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .team-contact {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .team-contact a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .team-contact a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Beliefs & Doctrines */
+        .beliefs {
+            margin-bottom: 80px;
+        }
+
+        .beliefs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .belief-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            transition: var(--transition);
+        }
+
+        .belief-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .belief-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(46, 90, 61, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-family:'Poppins', sans-serif;
+        }
+
+        .belief-card h3 {
+            font-size: 2.0rem;
+            margin-bottom: 40px;
+        }
+
+        .belief-card p {
+            color: #555;
+        }
+
+        /* Location & Contact */
+        .location-contact {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            margin-bottom: 60px;
+            max-width:1200px;
+            width:100%;
+            margin: 0 auto 60px;
+            font-family: 'Poppins', sans-serif;
+            
+        }
+
+        .lc-header {
+            background-color: #010a0e;
+            color: white;
+            padding: 10px 20px;
+            text-align:center;
+        }
+
+        .lc-header h2 {
+            color: white;
+            font-size:1.8rem;
+        }
+
+        .lc-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .map-container {
+            height: 400px;
+            background-color: var(--light-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .map-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .map-placeholder h3 {
+            color: rgb(34, 6, 6);
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .contact-info {
+            padding: 40px;
+            background-color: #f9f9f9;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(46, 90, 61, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+            font-size: 1.3rem;
+        }
+
+        .contact-text h4 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .contact-text p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .service-times {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .service-times h4 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--light-gray);
+            font-size: 0.95rem;
+        }
+
+        .service-name {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .service-time {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /*footer */
+         .footer {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 60px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer h2 {
+  color: #38bdf8;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+   font-family: 'Poppins', sans-serif;
+}
+
+.footer h3 {
+  color: #38bdf8;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+   font-family: 'Poppins', sans-serif;
+}
+
+.footer-about p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #cbd5e1;
+}
+
+.footer-links ul,
+.footer-resources ul,
+.social-icons {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li,
+.footer-resources li {
+  margin-bottom: 8px;
+}
+
+.footer a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.3s ease;   
+}
+
+.footer a:hover {
+  color: #38bdf8;
+}
+
+.social-icons ul {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+.social-icons img {
+  transition: transform 0.3s ease;
+
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 14px;
+  color: #94a3b8;
+  margin-top: 30px;
+}
+
+
+.footer-legal {
+  color: #38bdf8;
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+.footer-legal:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom span {
+  color: #38bdf8;
+}
+
+       
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-intro, .lc-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .mv-grid, .beliefs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                height: 300px;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body{
+                font-size:1rem;
+            }
+            h1,h2,h3{
+                font-size: 1.3rem;
+            }
+            .header-actions{
+                display:none;
+            }
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .nav-links {
+                order: 3;
+                width: 100%;
+                margin-top: 20px;
+                display: none;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                margin-top:2rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-actions {
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                width:100%;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .timeline::before {
+                left: 25px;
+            }
+            
+            .timeline-item {
+                padding-left: 70px;
+            }
+            
+            .timeline-year {
+                width: 50px;
+                height: 50px;
+                font-size: 1rem;
+            }
+            .lc-content {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .map-container {
+                height: 350px;
+            }
+
+            .map-placeholder {
+                padding: 15px;
+            }
+
+            .map-placeholder i {
+                font-size: 2.5rem;
+            }
+
+            .map-placeholder h3 {
+                font-size: 1.1rem;
+            }
+
+            .contact-info {
+                padding: 30px;
+            }
+
+            .contact-item {
+                gap: 12px;
+            }
+
+            .contact-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .contact-text h4 {
+                font-size: 1.2rem;
+                font-family:'Poppins', sans-serif;
+                font-weight: 700;
+                line-height: 1.6;
+            }
+
+            .contact-text p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-hero {
+                padding: 70px 0;
+            }
+            
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            .history-header{padding:2px;}
+            .history-content{padding:2px;}
+            .timeline{width:100%;}
+            .timeline-year{width:40px;height:40px;font-size:1 rem;}
+            .timeline-content{padding:10px;}
+            
+            .mv-card, .belief-card, .history-content {
+                padding: 25px;
+            }
+            
+            .map-container {
+                height: 280px;
+            }
+
+            .map-placeholder i {
+                font-size: 2rem;
+            }
+
+            .map-placeholder h3 {
+                font-size: 0.95rem;
+            }
+
+            .map-placeholder p {
+                font-size: 0.85rem;
+            }
+            
+            .contact-info {
+                padding: 20px;
+            }
+
+            .contact-item {
+                gap: 10px;
+                padding: 10px 0;
+            }
+
+            .contact-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .contact-text h4 {
+                font-size: 0.95rem;
+            }
+
+            .contact-text p {
+                font-size: 0.85rem;
+            }
+
+            .service-times {
+                margin-top: 20px;
+                padding-top: 20px;
+            }
+
+            .service-times h4 {
+                font-size: 1rem;
+            }
+
+            .service-item {
+                font-size: 0.85rem;
+                margin-bottom: 8px;
+                padding-bottom: 8px;
+            }
+
+            .footer-links{
+                font-size: 0.9rem;
+            }
+            .social-icons img{
+                height:20px;
+                width:20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .mv-card, .team-card, .belief-card, .timeline-item {
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .mv-card:nth-child(1) { animation-delay: 0.1s; }
+        .mv-card:nth-child(2) { animation-delay: 0.2s; }
+        .team-card:nth-child(1) { animation-delay: 0.1s; }
+        .team-card:nth-child(2) { animation-delay: 0.2s; }
+        .team-card:nth-child(3) { animation-delay: 0.3s; }
+        .belief-card:nth-child(1) { animation-delay: 0.1s; }
+        .belief-card:nth-child(2) { animation-delay: 0.2s; }
+        .belief-card:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+
+        /* Loading State */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                    <div class="logo-text">
+                        <div class="church-name">KSUSDA</div>
+                    </div>                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="nav-links" id="navLinks">
+                    <a href="#">Home</a>
+                    <a href="#">Sermons</a>
+                    <a href="#">Events</a>
+                    <a href="#">Ministries</a>
+                    <a href="#" class="active">About</a>
+                    <a href="#">Contact</a>
+                </nav>
+                
+            </div>
+        </div>
+    </header>
 
-  <header>
-    <h2>KSUSDA</h2>
-    <nav id="navMenu">
-      <a href="index.html">Home</a>
-      <a href="ministries.html">Ministries</a>
-      <a href="sermons.html">Sermons</a>
-      <a href="about.html" class="active">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <div></div><div></div><div></div>
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="hero-content">
+            <h1>About Kisii University SDA Church</h1>
+            <p>Welcome to our community of faith, hope, and love. Discover our story, mission, and the vibrant spiritual family at KSUSDA.</p>
+            <div class="hero-actions">
+                <button class="btn btn-accent" id="visitUsBtn">Plan Your Visit</button>
+                <button class="btn btn-primary" id="ourBeliefsBtn">Our Beliefs</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- About Intro -->
+        <section class="about-intro">
+            <div class="about-content">
+                <h2>Our Story & Community</h2>
+                <p>Kisii University SDA Church (KSUSDA) was established in 2005 as a spiritual home for Seventh-day Adventist students, staff, and community members around Kisii University. What began as a small fellowship has grown into a vibrant, diverse congregation that welcomes all who seek to worship and serve God.</p>
+                <p>Located within the Kisii University campus, our church serves as both a place of worship and a center for community engagement. We are committed to nurturing spiritual growth, fostering meaningful relationships, and serving our local community with Christ's love.</p>
+                <p>As a Seventh-day Adventist congregation, we uphold Biblical teachings while embracing the unique opportunities of our university setting to engage young minds in faith exploration and service.</p>
+                <button class="btn btn-primary" id="learnMoreBtn">Learn More About Our History</button>
+            </div>
+            <div class="about-image">
+                <img src="image/ksusda home page.jpeg" alt="KSUSDA Church Gathering">
+            </div>
+        </section>
+
+        <!-- Mission & Vision -->
+        <section class="mission-vision">
+            <div class="section-header">
+                <h2 class="section-title">Our Mission & Vision</h2>
+                <p class="section-subtitle">Guiding principles that shape our ministry and community engagement</p>
+            </div>
+            
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 style="color:#000">Our Mission</h3>
+                    <p>To make disciples of Jesus Christ who worship passionately, grow spiritually, serve faithfully, and share God's love within the university community and beyond.</p>
+                    <div class="values-list">
+                        <h4>Core Values</h4>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> <span>Christ-Centered Worship</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Biblical Teaching</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Authentic Community</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Compassionate Service</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Intentional Outreach</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 style="color:black;">Our Vision</h3>
+                    <p>To be a transformative spiritual community where every student, staff member, and local resident encounters Jesus Christ, experiences authentic fellowship, and discovers their God-given purpose.</p>
+                    <div class="values-list">
+                        <h4>Vision Focus Areas</h4>
+                        <ul>
+                            <li><i class="fas fa-graduation-cap"></i> <span>Student Spiritual Formation</span></li>
+                            <li><i class="fas fa-hands-helping"></i> <span>Community Impact</span></li>
+                            <li><i class="fas fa-pray"></i> <span>Prayer & Discipleship</span></li>
+                            <li><i class="fas fa-music"></i> <span>Vibrant Worship</span></li>
+                            <li><i class="fas fa-globe-africa"></i> <span>Global Mission Awareness</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Church History -->
+        <section class="church-history">
+            <div class="history-header">
+                <h2>Our Journey Through Time</h2>
+                <p>Milestones in the growth of KSUSDA</p>
+            </div>
+            <div class="history-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2005</div>
+                        <div class="timeline-content">
+                            <h4>Foundation of KSUSDA</h4>
+                            <p>The church was officially established as a fellowship group for Adventist students at Kisii University, holding services in a small campus classroom with 15 regular attendees.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2008</div>
+                        <div class="timeline-content">
+                            <h4>First Church Building</h4>
+                            <p>With growing membership, KSUSDA moved to its first dedicated worship space on campus, accommodating up to 100 worshippers and establishing formal church leadership.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2012</div>
+                        <div class="timeline-content">
+                            <h4>Expansion & Community Outreach</h4>
+                            <p>The church launched its community service programs, including health clinics, tutoring for local children, and environmental clean-up initiatives, expanding its impact beyond campus.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2016</div>
+                        <div class="timeline-content">
+                            <h4>New Sanctuary Dedication</h4>
+                            <p>The current sanctuary was completed and dedicated, providing seating for 300+ worshippers and modern facilities for various ministries and community activities.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-content">
+                            <h4>Digital Ministry Launch</h4>
+                            <p>KSUSDA embraced digital ministry with live-streamed services, online Bible studies, and virtual prayer meetings, expanding reach during the pandemic and beyond.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-content">
+                            <h4>Current Ministry Focus</h4>
+                            <p>Today, KSUSDA serves over 400 regular attendees with diverse ministries for students, youth, families, and community members, continuing our mission of faith, service, and fellowship.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pastoral Team -->
+        <section class="pastoral-team">
+            <div class="section-header">
+                <h2 class="section-title">Our Pastoral Team</h2>
+                <p class="section-subtitle">Meet the dedicated leaders guiding our spiritual journey</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="image/aloe vera.jpg" alt="Pastor David Omondi">
+                    </div>
+                    <div class="team-content">
+                        <h3>Pastor David Omondi</h3>
+                        <div class="team-role">Senior Pastor</div>
+                        <p class="team-bio">With over 15 years of pastoral ministry, Pastor David provides visionary leadership and spiritual guidance to KSUSDA. He holds a Master of Divinity from the Adventist University of Africa.</p>
+                        <div class="team-contact">
+                            <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="#" title="Call"><i class="fas fa-phone"></i></a>
+                            <a href="#" title="Message"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="image/IMG_20250714_173627_539.jpg" alt="Pastor Sarah Mwangi">
+                    </div>
+                    <div class="team-content">
+                        <h3>Pastor Sarah Mwangi</h3>
+                        <div class="team-role">Associate Pastor & Youth Director</div>
+                        <p class="team-bio">Pastor Sarah leads our vibrant youth and campus ministries. She is passionate about discipling young adults and creating spaces for authentic spiritual exploration.</p>
+                        <div class="team-contact">
+                            <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="#" title="Call"><i class="fas fa-phone"></i></a>
+                            <a href="#" title="Message"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="image/victor.jpg" alt="Elder James Otieno">
+                    </div>
+                    <div class="team-content">
+                        <h3>Elder James Otieno</h3>
+                        <div class="team-role">Head Elder & Community Service Director</div>
+                        <p class="team-bio">Elder James has served KSUSDA for over 12 years, providing spiritual leadership and overseeing our community outreach programs that serve the Kisii region.</p>
+                        <div class="team-contact">
+                            <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="#" title="Call"><i class="fas fa-phone"></i></a>
+                            <a href="#" title="Message"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beliefs & Doctrines -->
+        <section class="beliefs" style="margin-bottom:40px;">
+            <div class="section-header">
+                <h2 class="section-title">Our Beliefs</h2>
+                <p class="section-subtitle">Fundamental beliefs that guide our faith and practice as Seventh-day Adventists</p>
+            </div>
+            
+            <div class="beliefs-grid">
+                <div class="belief-card">
+                    <div class="belief-icon">
+                        <i class="fas fa-bible"></i>
+                    </div>
+                    <h3>The Bible</h3>
+                    <p>We believe the Bible is the inspired Word of God and the ultimate authority for faith and practice. It reveals God's plan for salvation and provides guidance for daily living.</p>
+                </div>
+                
+                <div class="belief-card">
+                    <div class="belief-icon">
+                        <i class="fas fa-cross"></i>
+                    </div>
+                    <h3>Salvation in Christ</h3>
+                    <p>We believe salvation comes through faith in Jesus Christ alone - His life, death, and resurrection. Through grace, we are saved from sin and receive eternal life.</p>
+                </div>
+                
+                <div class="belief-card">
+                    <div class="belief-icon">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <h3>The Sabbath</h3>
+                    <p>We believe the seventh-day Sabbath (Saturday) is a holy day of rest, worship, and fellowship established by God at creation and reaffirmed in the Ten Commandments.</p>
+                </div>
+                
+                <div class="belief-card">
+                    <div class="belief-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>The Church</h3>
+                    <p>We believe the church is the community of believers who accept Jesus as Lord and Savior. We are called to fellowship, worship, service, and proclaiming the gospel.</p>
+                </div>
+                
+                <div class="belief-card">
+                    <div class="belief-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Holistic Health</h3>
+                    <p>We believe in caring for our bodies as temples of the Holy Spirit, practicing principles of healthful living that honor God and promote wellbeing.</p>
+                </div>
+                
+                <div class="belief-card">
+                    <div class="belief-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Christ's Return</h3>
+                    <p>We believe in the soon return of Jesus Christ, which will bring an end to sin and suffering, and establish God's eternal kingdom of peace and righteousness.</p>
+                </div>
+            </div>
+            
+            <div style="margin:0 auto 60px;text-align:center;">
+                <a href=".belief-grid" class="btn btn-primary" style="margin:20px 20px 20px 20px;">Explore All 28 Fundamental Beliefs</a>
+            </div>
+        </section>
+
+        <!-- Location & Contact -->
+        <section class="location-contact" style="margin-top:40px;">
+            <div class="lc-header">
+                <h2>Visit Us</h2>
+                <p>Join us for worship and fellowship</p>
+            </div>
+            <div class="lc-content">
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Kisii University SDA Church</h3>
+                        <p>Located within Kisii University Campus</p>
+
+                     <div>
+      <iframe src="https://www.google.com/maps?q=kisii%20university&output=embed" width="100%" height="250" style="border:0;" allowfullscreen></iframe>
+      </div>
     </div>
-  </header>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Our Location</h4>
+                                <p>Kisii University SDA Church<br>
+                                Kisii University Campus<br>
+                                Kisii, Kenya</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Contact Us</h4>
+                                <p>Phone: +254 791302316<br>
+                                Email: info@ksusda.org<br>
+                                Emergency: +254 791302316</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Church Office Hours</h4>
+                                <p>Monday - Thursday: 8:00 AM - 5:00 PM<br>
+                                Friday: 8:00 AM - 12:00 PM<br>
+                                Sunday: 2:00 PM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-times">
+                        <h4>Service Times</h4>
+                        <div class="service-item">
+                            <span class="service-name">Sabbath School</span>
+                            <span class="service-time">9:30 AM</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Divine Worship</span>
+                            <span class="service-time">11:00 AM</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Youth Service</span>
+                            <span class="service-time">4:00 PM</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Wednesday Prayer Meeting</span>
+                            <span class="service-time">6:30 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-  <section class="about-section">
-
-    <div class="about-intro">
-      <h1>About Kisii University SDA Church (KSUSDA)</h1>
-     
+    <!-- Footer -->
+    <footer class="footer">
+  <div class="footer-container">
+    <!-- About Section -->
+    <div class="footer-about">
+      <h2>KSUSDA</h2>
       <p>
-        Kisii University SDA Church (KSUSDA) is a Christ-centered community dedicated to spiritual growth, service, and excellence.  
-        Our mission is to nurture faith among students and staff through worship, evangelism, and service while preparing them to be lights of hope in the world.
+        Kisii University SDA Church - A community of faith, hope, and service. 
+        Growing in Christ and preparing for His soon return. We welcome everyone to worship, grow, and serve with us.
       </p>
     </div>
 
-    <div class="about-grid">
-      <div class="about-card">
-        <h3>Our Mission</h3>
-        <img src="image/3  angels messages.jpg" alt="men">
-        <p>
-          To proclaim the everlasting gospel of Jesus Christ to all members of the university community  
-          and to prepare disciples who live according to His Word through worship, fellowship, and service.
-        </p>
-      </div>
-
-      <div class="about-card">
-        <h3>Our Vision</h3>
-         <img src="image/Mega Church.jpeg" alt="church">
-        <p>
-          To be a spiritually empowered and united body of believers who reflect the character of Christ  
-          and serve the world with compassion, integrity, and faithfulness.
-        </p>
-      </div>
-
-      <div class="about-card">
-        <h3>Our Values</h3>
-         <img src="image/Mega Church.jpeg" alt="church">
-        <p>
-          We are guided by faith, love, unity, humility, and service.  
-          Our values inspire us to be good stewards of time, knowledge, and opportunities God provides.
-        </p>
-      </div>
-    </div>
-
-    <div class="leaders">
-      <h2>Community Impact</h2>
-      <p>Beyong the campus,KSUSDA members actively enganged in community service -  visiting Orphans,hospitals,helping need and mentoring students and conduct evangelsitic compaing.Through ths Program
-        ,We put Our Faith into action and share God's law in practical ways
-      </p>
-      <div class="leader-grid">
-        <div class="leader-card">
-          <img src="image/Life is not meant to be lived in isolation but in….jpeg" alt="Leader">
-          <h4>Vihiga Ivona Site</h4>
-          <p>Gospel Compaign</p>
-        </div>
-
-        <div class="leader-card">
-          <img src="image/Mega Church.jpeg" alt="Leader">
-          <h4>Kisima Boys</h4>
-          <p>Student Mentorship</p>
-        </div>
-
-        <div class="leader-card">
-          <video controls>
-            <source src="image/kisii.mp4" type="video/mp4">
-          </video>
-          <h4>Kisumu Ndogo</h4>
-          <p>Community Nurturing</p>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <footer class="about-footer">
-  <div class="about-footer-container">
-    <!-- Left Section -->
-    <div class="about-intro">
-      <h3>About KSUSDA</h3>
-      <p>Kisii University SDA Church is a place where faith meets purpose. We are dedicated to nurturing spiritual growth, fostering unity, and serving both campus and community through Christ-centered ministry.</p>
-    </div>
-
-    <!-- Middle Section - Scripture Highlight -->
-    <div class="about-scripture">
-      <h3>Our Guiding Verse</h3>
-      <blockquote>
-        “Let your light so shine before men, that they may see your good works and glorify your Father in heaven.”  
-        <span>– Matthew 5:16</span>
-      </blockquote>
-    </div>
-
-    <!-- Right Section - Quick Links -->
-    <div class="about-links">
-      <h3>Explore More</h3>
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
       <ul>
-        <li><a href="ministries.html">Our Ministries</a></li>
-        <li><a href="sermons.html">Recent Sermons</a></li>
-        <li><a href="gallery.html">Photo Gallery</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="sermon.html">Sermons</a></li>
+        <li><a href="donate.html">Donations</a></li>
+        <li><a href="ministr.html">Ministries</a></li>
+        <li><a href="prayerrequest.html">Prayer Request</a></li>
       </ul>
     </div>
+
+    <!-- Resources -->
+    <div class="footer-resources">
+      <h3>Ministries</h3>
+      <ul>
+        <li><a href="Ministry.html">Personal Ministry</a></li>
+        <li><a href="Ministry.html">Children Ministry</a></li>
+        <li><a href="Ministry.html">First Fruit Ministry</a></li>
+        <li><a href="Ministry.html">New Zion Ministry</a></li>
+        <li><a href="Ministry.html">Christ Messagers</a></li>
+      </ul>
+    </div>
+
+    <!-- Follow Us -->
+    <div class="footer-social">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <ul>
+        <li>
+      <a href="https://facebook.com" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="30">
+        </li>
+             <li> 
+ <a href="https://www.youtube.com" target="_blank" title="YouTube">
+  <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="30">
+
+</a>
+</li>
+ <li>
+       <a href="https://x.com" target="_blank" title="Follow us on X">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" 
+       alt="X Icon" width="40" style="filter: brightness(0) invert(1);"><!--It make the color white even f the icon is b;ack-->
+</a>
+    
+       </li>
+       <li>
+ <a href="https://x.com/yourProfile" target="_blank" title="Follow us on X">
+  <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/x-social-media-white-icon.svg"
+       alt="X logo" width="40">
+</a>
+
+</li>
+<li>
+        <a href="https://t.me" target="_blank" title="Join us on Telegram">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111644.png" 
+           alt="Telegram Icon" width="35">
+    </a>
+       <li>
+          <a href="https://instagram.com" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="40">
+    </a>
+  </li>
+  </li>
+  </ul>
+      <p>Email: info@ksusda.org</p>
+      <p>Phone: +254 791302316</p>
+    </div>
   </div>
 
-  <div class="about-footer-bottom">
-    <p>&COPY; 2025 Kisii University SDA Church | Faith • Service • Fellowship          <span style="margin-left:50px;color:lime;font-weight: bold;font-family:  'Times New Roman', serif;font-size: 20px;">Developed By Jtech Softwares</span> </p>
+ </div>
+
+  <!-- Legal Info -->
+  <div class="footer-bottom">
+    <p>
+      <a href="#" class="footer-legal">Privacy Policy</a> |
+      <a href="#" class="footer-legal">Terms of Service</a>
+    </p>
+    <p>&copy; 2025 KSUSDA | All Rights Reserved | Designed by <span>JTech Softwares</span></p>
   </div>
-</footer>
+  </footer>
 
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById('navMenu');
-      nav.classList.toggle('active');
-    }
-  </script>
 
+    <script>
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const visitUsBtn = document.getElementById('visitUsBtn');
+        const ourBeliefsBtn = document.getElementById('ourBeliefsBtn');
+        const learnMoreBtn = document.getElementById('learnMoreBtn');
+        const getDirectionsBtn = document.getElementById('getDirectionsBtn');
+        
+        // Initialize the page
+        function init() {
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Button actions
+            visitUsBtn.addEventListener('click', function() {
+                // Scroll to location section
+                document.querySelector('.location-contact').scrollIntoView({ behavior: 'smooth' });
+                
+                // Highlight service times
+                const serviceTimes = document.querySelector('.service-times');
+                serviceTimes.style.backgroundColor = 'rgba(46, 90, 61, 0.05)';
+                serviceTimes.style.padding = '20px';
+                serviceTimes.style.borderRadius = '10px';
+                serviceTimes.style.transition = 'all 0.3s ease';
+                
+                setTimeout(() => {
+                    serviceTimes.style.backgroundColor = '';
+                    serviceTimes.style.padding = '';
+                    serviceTimes.style.borderRadius = '';
+                }, 3000);
+                
+                alert("We'd love to have you join us for worship! Check our service times above.");
+            });
+            
+            ourBeliefsBtn.addEventListener('click', function() {
+                // Scroll to beliefs section
+                document.querySelector('.beliefs').scrollIntoView({ behavior: 'smooth' });
+                
+                // Briefly highlight all belief cards
+                document.querySelectorAll('.belief-card').forEach(card => {
+                    card.style.boxShadow = '0 0 0 3px var(--secondary)';
+                    setTimeout(() => {
+                        card.style.boxShadow = '';
+                    }, 2000);
+                });
+            });
+            
+            learnMoreBtn.addEventListener('click', function() {
+                // Scroll to history section
+                document.querySelector('.church-history').scrollIntoView({ behavior: 'smooth' });
+                
+                // Animate timeline
+                const timelineItems = document.querySelectorAll('.timeline-item');
+                timelineItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.transform = 'scale(1.02)';
+                        item.style.backgroundColor = 'rgba(46, 90, 61, 0.02)';
+                        item.style.padding = '10px';
+                        item.style.borderRadius = '10px';
+                        
+                        setTimeout(() => {
+                            item.style.transform = '';
+                            item.style.backgroundColor = '';
+                            item.style.padding = '';
+                            item.style.borderRadius = '';
+                        }, 1000);
+                    }, index * 300);
+                });
+            });
+            
+            getDirectionsBtn.addEventListener('click', function() {
+                // In a real implementation, this would open Google Maps
+                alert("Opening directions to Kisii University SDA Church...\n\nIn a real implementation, this would open Google Maps with our location.");
+                
+                // Simulate opening directions
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading Directions...';
+                this.disabled = true;
+                
+                setTimeout(() => {
+                    this.innerHTML = 'Directions Loaded!';
+                    this.style.backgroundColor = 'var(--primary)';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = 'Get Directions';
+                        this.disabled = false;
+                        this.style.backgroundColor = '';
+                    }, 2000);
+                }, 1500);
+            });
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+            
+            // Add hover effects to team cards
+            document.querySelectorAll('.team-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const image = this.querySelector('.team-image img');
+                    image.style.transform = 'scale(1.05)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const image = this.querySelector('.team-image img');
+                    image.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Add click effects to belief cards
+            document.querySelectorAll('.belief-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const title = this.querySelector('h3').textContent;
+                    const description = this.querySelector('p').textContent;
+                    
+                    // Show more information about the belief
+                    alert(`KSUSDA Belief: ${title}\n\n${description}\n\nFor more detailed information about this belief, please visit our beliefs page or speak with one of our pastors.`);
+                });
+            });
+            
+            // Initialize tooltips for contact buttons
+            document.querySelectorAll('.team-contact a').forEach(btn => {
+                btn.addEventListener('mouseover', function() {
+                    const title = this.getAttribute('title');
+                    // In a real implementation, you might want to add a proper tooltip library
+                });
+            });
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
 </body>
 </html>

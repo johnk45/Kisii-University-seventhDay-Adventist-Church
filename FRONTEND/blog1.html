@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sermon Blog | Kisii University SDA Church</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/jpg" href="image/assetss/kisiilogo.png">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+           
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), 
+                        url('https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        
+        }
+        
+        /* Blog Content */
+        .blog-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Main Blog Post */
+        .blog-post {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .post-header {
+            padding: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .post-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .post-meta i {
+            margin-right: 5px;
+            color: var(--secondary);
+        }
+        
+        .post-content {
+            padding: 30px;
+        }
+        
+        .post-content h3 {
+            color: var(--primary);
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .post-content p {
+            margin-bottom: 20px;
+        }
+        
+        .scripture-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--secondary);
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+        }
+        
+        /* Like and Share Section */
+        .post-actions {
+            padding: 20px 30px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .like-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .like-btn {
+            background: none;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .like-btn:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .like-btn.liked {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+        
+        .like-count {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .share-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .share-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #f8f9fa;
+            border: none;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .share-btn:hover {
+            background-color: #e9ecef;
+        }
+        
+        /* Comments Section */
+        .comments-section {
+            padding: 30px;
+        }
+        
+        .comments-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .comment-form {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Comments List */
+        .comments-list {
+            margin-top: 30px;
+        }
+        
+        .comment {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-left: 3px solid var(--secondary);
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .comment-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .comment-content {
+            line-height: 1.5;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .sidebar-widget {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .widget-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .recent-sermons {
+            list-style: none;
+        }
+        
+        .recent-sermons li {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .recent-sermons li:last-child {
+            border-bottom: none;
+        }
+        
+        .sermon-link {
+            text-decoration: none;
+            color: var(--dark);
+            display: block;
+            transition: color 0.3s;
+        }
+        
+        .sermon-link:hover {
+            color: var(--secondary);
+        }
+        
+        .sermon-date {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+        
+        .categories {
+            list-style: none;
+        }
+        
+        .categories li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .categories li:last-child {
+            border-bottom: none;
+        }
+        
+        .category-count {
+            background-color: #f0f0f0;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .subscribe-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .subscribe-form input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            body{
+                font-size:0.85rem;
+            }
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .post-title {
+                font-size: 1.6rem;
+            }
+        }
+        
+        /* Word Count Indicator */
+        .word-count {
+            background-color: #f0f8ff;
+            padding: 10px 15px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    
+                    <h1>Kisii Uni SDA <span>Blog</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index45.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="sermonii.html"><i class="fas fa-book-bible"></i> Sermons</a></li>
+                        <li><a href="eventht.html"><i class="fas fa-calendar"></i> Events</a></li>
+                        <li><a href="prayerrequest.html"><i class="fas fa-pray"></i> Prayer</a></li>
+                        <li><a href="contact32.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Weekly Sermon Blog</h2>
+            <p>Deep dive into God's word with our weekly sermon summaries. Read, reflect, and join the conversation.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container blog-container">
+        <!-- Main Blog Content -->
+        <div class="main-content">
+            <!-- Blog Post -->
+            <article class="blog-post">
+                <div class="post-header">
+                    <h1 class="post-title">Finding Hope in Uncertain Times: A Study of Jeremiah 29:11</h1>
+                    <div class="post-meta">
+                        <span><i class="fas fa-user"></i> Pastor Samuel Ochieng</span>
+                        <span><i class="fas fa-calendar"></i> April 12, 2025</span>
+                        <span><i class="fas fa-book"></i> Jeremiah 29:11</span>
+                        <span><i class="fas fa-clock"></i> Reading Time: 15 mins</span>
+                    </div>
+                    <div class="word-count">
+                        <i class="fas fa-file-alt"></i> Sermon Summary: Approximately 3,000 words
+                    </div>
+                </div>
+                
+                <div class="post-content">
+                    <h3>Introduction</h3>
+                    <p>In today's world, uncertainty seems to be the only constant. From global economic shifts to personal challenges, many find themselves questioning the future. It's in this context that Jeremiah 29:11 speaks with profound relevance: "For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future."</p>
+                    
+                    <div class="scripture-box">
+                        "For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future." - Jeremiah 29:11 (NIV)
+                    </div>
+                    
+                    <h3>Context of the Promise</h3>
+                    <p>To fully appreciate this promise, we must understand its original context. Jeremiah spoke these words to Israelites in exile—people who had lost everything: their homes, their temple, their nation. They were living as captives in Babylon, a foreign land with foreign gods. It was in this place of displacement and despair that God's promise came.</p>
+                    
+                    <p>The exiles were tempted to believe that God had abandoned them. False prophets were declaring that their exile would be short, but Jeremiah delivered the hard truth: they would be in Babylon for 70 years. Yet, within that difficult message came this incredible promise of hope and future.</p>
+                    
+                    <h3>Three Dimensions of God's Plan</h3>
+                    <p><strong>1. God's Knowledge:</strong> "I know the plans I have for you." The Hebrew word for "know" here (yada) implies intimate, personal knowledge. God isn't making arbitrary plans; He knows us personally and plans accordingly.</p>
+                    
+                    <p><strong>2. God's Purpose:</strong> "Plans to prosper you and not to harm you." The prosperity mentioned here isn't merely material. The Hebrew word "shalom" encompasses wholeness, completeness, peace, and wellbeing in every dimension of life.</p>
+                    
+                    <p><strong>3. God's Promise:</strong> "Plans to give you hope and a future." Hope in biblical terms isn't wishful thinking but confident expectation based on God's character and promises.</p>
+                    
+                    <h3>Application for Today</h3>
+                    <p>How do we apply this ancient promise to our modern lives? First, we must recognize that God's plans often unfold in unexpected ways. The Israelites had to settle in Babylon—build homes, plant gardens, and seek the welfare of the city (Jeremiah 29:5-7). Their hope wasn't in immediate escape but in God's faithfulness over time.</p>
+                    
+                    <p>Similarly, we're called to bloom where we're planted, even when our circumstances aren't what we hoped for. God's plans for our prosperity might look different than our expectations. Sometimes prosperity comes through character refined by trials rather than through comfortable circumstances.</p>
+                    
+                    <h3>Finding Hope in Our Babylon</h3>
+                    <p>Each of us faces our own "Babylon"—situations that feel like exile from our dreams and plans. It might be a difficult job, a strained relationship, health challenges, or financial pressures. Jeremiah's message reminds us that even in Babylon, God is at work.</p>
+                    
+                    <p>The promise of Jeremiah 29:11 isn't a guarantee of trouble-free living. Rather, it's an assurance that God is working all things together for good for those who love Him (Romans 8:28). Our hope isn't in changed circumstances but in the unchanging character of God.</p>
+                    
+                    <h3>Conclusion</h3>
+                    <p>As we navigate uncertain times, let us hold fast to the promise that God knows the plans He has for us. These plans are for our ultimate good and His glory. They include hope and a future that transcends our current circumstances. Like the Israelites in Babylon, we're called to seek God diligently, trusting that He will be found by us when we seek Him with all our hearts (Jeremiah 29:13).</p>
+                    
+                    <p>May this truth anchor our souls: The same God who had plans for exiled Israelites has plans for us today. Plans born of love, crafted in wisdom, and guaranteed by His faithfulness. In every uncertainty, we can trust the Planner.</p>
+                </div>
+                
+                <!-- Like and Share Section -->
+                <div class="post-actions">
+                    <div class="like-section">
+                        <button class="like-btn" id="likeBtn">
+                            <i class="far fa-thumbs-up"></i> Like
+                        </button>
+                        <div class="like-count">
+                            <span id="likeCount">127</span> people liked this sermon
+                        </div>
+                    </div>
+                    
+                    <div class="share-section">
+                        <button class="share-btn" onclick="shareOnFacebook()">
+                            <i class="fab fa-facebook"></i> Share
+                        </button>
+                        <button class="share-btn" onclick="shareOnTwitter()">
+                            <i class="fab fa-twitter"></i> Tweet
+                        </button>
+                        <button class="share-btn" onclick="shareOnWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> Share
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Comments Section -->
+                <div class="comments-section">
+                    <h2 class="comments-title">
+                        <i class="fas fa-comments"></i> Comments (24)
+                    </h2>
+                    
+                    <!-- Comment Form -->
+                    <div class="comment-form">
+                        <h3>Leave a Comment</h3>
+                        <form id="commentForm">
+                            <div class="form-group">
+                                <label for="name">Your Name *</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="comment">Your Comment *</label>
+                                <textarea id="comment" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i> Post Comment
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Comments List -->
+                    <div class="comments-list" id="commentsList">
+                        <!-- Comment 1 -->
+                        <div class="comment">
+                            <div class="comment-header">
+                                <div class="comment-author">Sarah M.</div>
+                                <div class="comment-date">April 14, 2025</div>
+                            </div>
+                            <div class="comment-content">
+                                This sermon spoke directly to my current situation. I've been feeling like I'm in my own Babylon at work, and this reminded me that God is still in control. Thank you for this timely message!
+                            </div>
+                        </div>
+                        
+                        <!-- Comment 2 -->
+                        <div class="comment">
+                            <div class="comment-header">
+                                <div class="comment-author">James O.</div>
+                                <div class="comment-date">April 13, 2025</div>
+                            </div>
+                            <div class="comment-content">
+                                I never understood the context of Jeremiah 29:11 until now. Knowing it was written to people in exile makes the promise even more powerful. God's plans for us aren't dependent on perfect circumstances.
+                            </div>
+                        </div>
+                        
+                        <!-- Comment 3 -->
+                        <div class="comment">
+                            <div class="comment-header">
+                                <div class="comment-author">Mary W.</div>
+                                <div class="comment-date">April 12, 2025</div>
+                            </div>
+                            <div class="comment-content">
+                                The point about "shalom" being more than material prosperity really struck me. True prosperity is peace with God, regardless of our external situation. Thank you Pastor!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Recent Sermons -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Recent Sermons</h3>
+                <ul class="recent-sermons">
+                    <li>
+                        <a href="#" class="sermon-link">The Power of Resurrection Hope</a>
+                        <div class="sermon-date">April 5, 2025</div>
+                    </li>
+                    <li>
+                        <a href="#" class="sermon-link">Walking in Faith: Lessons from Abraham</a>
+                        <div class="sermon-date">March 29, 2025</div>
+                    </li>
+                    <li>
+                        <a href="#" class="sermon-link">The Fruit of the Spirit in Daily Life</a>
+                        <div class="sermon-date">March 22, 2025</div>
+                    </li>
+                    <li>
+                        <a href="#" class="sermon-link">Overcoming Fear with Perfect Love</a>
+                        <div class="sermon-date">March 15, 2025</div>
+                    </li>
+                    <li>
+                        <a href="#" class="sermon-link">The Blessedness of Giving</a>
+                        <div class="sermon-date">March 8, 2025</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Categories -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Sermon Categories</h3>
+                <ul class="categories">
+                    <li>Hope & Encouragement <span class="category-count">12</span></li>
+                    <li>Faith & Trust <span class="category-count">8</span></li>
+                    <li>Love & Relationships <span class="category-count">6</span></li>
+                    <li>Prayer & Worship <span class="category-count">10</span></li>
+                    <li>Christian Living <span class="category-count">15</span></li>
+                    <li>Prophecy & End Times <span class="category-count">5</span></li>
+                </ul>
+            </div>
+            
+            <!-- Subscribe -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Subscribe to Blog</h3>
+                <p>Get weekly sermon summaries delivered to your email.</p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="submit-btn">Subscribe</button>
+                </form>
+            </div>
+            
+            <!-- About -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">About This Blog</h3>
+                <p>This blog contains weekly sermon summaries from Kisii University Seventh-day Adventist Church. Each post is approximately 3,000 words and includes key points, scriptures, and applications.</p>
+                <p style="margin-top: 15px;">We encourage you to read, reflect, and join the conversation through comments.</p>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kisii University SDA Church</h3>
+                    <p>Sharing God's word through weekly sermon summaries. Join us every Sabbath for worship and fellowship.</p>
+                    <p style="margin-top: 15px;">
+                        <i class="fas fa-map-marker-alt"></i> Kisii University Campus<br>
+                        Kisii, Kenya
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#" style="color: #ddd; text-decoration: none;">Home</a></li>
+                        <li><a href="#" style="color: #ddd; text-decoration: none;">Sermon Archive</a></li>
+                        <li><a href="#" style="color: #ddd; text-decoration: none;">Live Streaming</a></li>
+                        <li><a href="#" style="color: #ddd; text-decoration: none;">Prayer Requests</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div style="display: flex; gap: 15px; margin-top: 15px;">
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 Kisii University SDA Church Blog. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Like functionality
+        const likeBtn = document.getElementById('likeBtn');
+        const likeCount = document.getElementById('likeCount');
+        let liked = false;
+        let count = parseInt(likeCount.textContent);
+        
+        likeBtn.addEventListener('click', function() {
+            if (!liked) {
+                count++;
+                likeCount.textContent = count;
+                this.innerHTML = '<i class="fas fa-thumbs-up"></i> Liked';
+                this.classList.add('liked');
+                liked = true;
+                
+                // Show notification
+                showNotification('Thanks for liking this sermon!');
+            } else {
+                count--;
+                likeCount.textContent = count;
+                this.innerHTML = '<i class="far fa-thumbs-up"></i> Like';
+                this.classList.remove('liked');
+                liked = false;
+            }
+        });
+        
+        // Comment functionality
+        const commentForm = document.getElementById('commentForm');
+        const commentsList = document.getElementById('commentsList');
+        
+        commentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+            
+            if (name && comment) {
+                // Create new comment element
+                const newComment = document.createElement('div');
+                newComment.className = 'comment';
+                
+                const date = new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                newComment.innerHTML = `
+                    <div class="comment-header">
+                        <div class="comment-author">${name}</div>
+                        <div class="comment-date">${date}</div>
+                    </div>
+                    <div class="comment-content">${comment}</div>
+                `;
+                
+                // Add new comment to the top of the list
+                commentsList.insertBefore(newComment, commentsList.firstChild);
+                
+                // Reset form
+                commentForm.reset();
+                
+                // Show notification
+                showNotification('Thank you for your comment!');
+                
+                // Update comment count in title
+                const commentsTitle = document.querySelector('.comments-title');
+                const currentCount = parseInt(commentsTitle.textContent.match(/\d+/)[0]);
+                commentsTitle.innerHTML = `<i class="fas fa-comments"></i> Comments (${currentCount + 1})`;
+            }
+        });
+        
+        // Share functionality
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${title}`, 'facebook-share', 'width=600,height=400');
+        }
+        
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("Check out this sermon from Kisii University SDA Church");
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, 'twitter-share', 'width=600,height=400');
+        }
+        
+        function shareOnWhatsApp() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("Check out this sermon: ");
+            window.open(`https://wa.me/?text=${text}${url}`, 'whatsapp-share', 'width=600,height=400');
+        }
+        
+        // Notification function
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: var(--secondary);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 8px;
+                z-index: 1000;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                animation: slideIn 0.3s ease;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        
+        // Add CSS for animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Access | Secure Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .auth-container {
+            width: 100%;
+            display: flex;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            min-height: 600px;
+        }
+
+        .form-container {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-container h2 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .form-container p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-toggle {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 15px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #777;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .toggle-btn.active {
+            color: #2575fc;
+        }
+
+        .toggle-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #2575fc;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .form {
+            display: none;
+        }
+
+        .form.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
+            font-size: 0.95rem;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: #2575fc;
+            box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.1);
+            outline: none;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 40px;
+            color: #777;
+            font-size: 1.1rem;
+        }
+
+        .user-type-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .user-type-option {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .user-type-option:hover {
+            background-color: #f5f9ff;
+        }
+
+        .user-type-option.selected {
+            background-color: #e8f0fe;
+            border-color: #2575fc;
+            color: #2575fc;
+        }
+
+        .user-type-option i {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .remember input {
+            width: 18px;
+            height: 18px;
+        }
+
+        .forgot {
+            color: #2575fc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .forgot:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(37, 117, 252, 0.2);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 25px 0;
+            color: #999;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background: #eee;
+        }
+
+        .divider::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background: #eee;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-btn:hover {
+            background: #f5f5f5;
+        }
+
+        .social-btn.google {
+            color: #DB4437;
+        }
+
+        .social-btn.facebook {
+            color: #4267B2;
+        }
+
+        .terms {
+            font-size: 0.85rem;
+            color: #777;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .terms a {
+            color: #2575fc;
+            text-decoration: none;
+        }
+
+        .visual-side {
+            flex: 1;
+            background: linear-gradient(rgba(37, 117, 252, 0.8), rgba(106, 17, 203, 0.8)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .visual-side h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .visual-side p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .features {
+            list-style: none;
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features i {
+            color: #6a11cb;
+            background: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            cursor: pointer;
+            color: #777;
+        }
+
+        @media (max-width: 900px) {
+            .auth-container {
+                flex-direction: column;
+                max-width: 600px;
+            }
+            
+            .visual-side {
+                order: -1;
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 25px;
+            }
+            
+            .visual-side {
+                padding: 25px;
+            }
+            
+            .social-login {
+                flex-direction: column;
+            }
+            
+            .user-type-options {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Secure Account Portal</h1>
+            <p>Access your account or create a new one to get started</p>
+        </div>
+        
+        <div class="auth-container">
+            <div class="form-container">
+                <div class="form-toggle">
+                    <button class="toggle-btn active" id="login-toggle">Sign In</button>
+                    <button class="toggle-btn" id="register-toggle">Create Account</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form class="form active" id="login-form">
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to your account to continue</p>
+                    
+                    <div class="input-group">
+                        <label for="login-identifier">Username or Email</label>
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" id="login-identifier" placeholder="Enter username or email" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="login-password">Password</label>
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                        <span class="password-toggle" id="login-password-toggle">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="remember-forgot">
+                        <div class="remember">
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <a href="#" class="forgot">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn">
+                        <i class="fas fa-sign-in-alt"></i> Sign In
+                    </button>
+                    
+                    <div class="divider">or continue with</div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="social-btn google">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button type="button" class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </button>
+                    </div>
+                    
+                    <p class="terms">
+                        By signing in, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                    </p>
+                </form>
+                
+                <!-- Registration Form -->
+                <form class="form" id="register-form">
+                    <h2>Create Account</h2>
+                    <p>Fill in your details to create a new account</p>
+                    
+                    <div class="input-group">
+                        <label for="fullname">Full Name</label>
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" id="fullname" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="username">Username</label>
+                        <i class="fas fa-at input-icon"></i>
+                        <input type="text" id="username" placeholder="Choose a username" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="phone">Phone Number</label>
+                        <i class="fas fa-phone input-icon"></i>
+                        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Account Type</label>
+                        <div class="user-type-options">
+                            <div class="user-type-option selected" data-value="student">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Student</span>
+                            </div>
+                            <div class="user-type-option" data-value="associate">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Associate</span>
+                            </div>
+                            <div class="user-type-option" data-value="other">
+                                <i class="fas fa-user-tie"></i>
+                                <span>Other</span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="user-type" value="student" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="register-password">Password</label>
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="register-password" placeholder="Create a strong password" required>
+                        <span class="password-toggle" id="register-password-toggle">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="confirm-password" placeholder="Re-enter your password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn">
+                        <i class="fas fa-user-plus"></i> Create Account
+                    </button>
+                    
+                    <p class="terms">
+                        By creating an account, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                    </p>
+                </form>
+            </div>
+            
+            <div class="visual-side">
+                <h3>Join Our Community</h3>
+                <p>Access exclusive content, connect with peers, and manage your profile all in one place.</p>
+                
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Secure & encrypted data protection</li>
+                    <li><i class="fas fa-check"></i> Access from any device, anywhere</li>
+                    <li><i class="fas fa-check"></i> Personalized experience based on your profile</li>
+                    <li><i class="fas fa-check"></i> 24/7 customer support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const loginToggle = document.getElementById('login-toggle');
+        const registerToggle = document.getElementById('register-toggle');
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+        const userTypeOptions = document.querySelectorAll('.user-type-option');
+        const userTypeInput = document.getElementById('user-type');
+        const passwordToggles = document.querySelectorAll('.password-toggle');
+        
+        // Form Toggle Functionality
+        loginToggle.addEventListener('click', () => {
+            loginToggle.classList.add('active');
+            registerToggle.classList.remove('active');
+            loginForm.classList.add('active');
+            registerForm.classList.remove('active');
+        });
+        
+        registerToggle.addEventListener('click', () => {
+            registerToggle.classList.add('active');
+            loginToggle.classList.remove('active');
+            registerForm.classList.add('active');
+            loginForm.classList.remove('active');
+        });
+        
+        // User Type Selection
+        userTypeOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                userTypeOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                userTypeInput.value = option.getAttribute('data-value');
+            });
+        });
+        
+        // Password Toggle Visibility
+        passwordToggles.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const passwordInput = this.previousElementSibling;
+                const icon = this.querySelector('i');
+                
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        });
+        
+        // Form Submission Handling
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const identifier = document.getElementById('login-identifier').value;
+            const password = document.getElementById('login-password').value;
+            const remember = document.getElementById('remember').checked;
+            
+            // Simple validation
+            if (!identifier || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // In a real application, this would be an API call
+            console.log('Login attempt:', { identifier, password, remember });
+            
+            // Simulate login process
+            const submitBtn = this.querySelector('.btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing In...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert(`Login successful! Welcome back, ${identifier}`);
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Reset form
+                this.reset();
+            }, 1500);
+        });
+        
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const fullname = document.getElementById('fullname').value;
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const userType = userTypeInput.value;
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            // Validation
+            if (!fullname || !username || !email || !phone || !password || !confirmPassword) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long');
+                return;
+            }
+            
+            // In a real application, this would be an API call
+            const userData = {
+                fullname,
+                username,
+                email,
+                phone,
+                userType,
+                password // In reality, this would be hashed
+            };
+            
+            console.log('Registration data:', userData);
+            
+            // Simulate registration process
+            const submitBtn = this.querySelector('.btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating Account...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert(`Account created successfully! Welcome ${fullname}. Please check your email to verify your account.`);
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Reset form and switch to login
+                this.reset();
+                userTypeOptions[0].click(); // Reset to student selection
+                loginToggle.click();
+            }, 2000);
+        });
+        
+        // Social Login Buttons
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const provider = this.classList.contains('google') ? 'Google' : 'Facebook';
+                alert(`Redirecting to ${provider} authentication...`);
+                // In a real app, this would redirect to OAuth flow
+            });
+        });
+        
+        // Forgot Password Link
+        document.querySelector('.forgot').addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = prompt('Please enter your email to reset password:');
+            if (email) {
+                alert(`Password reset instructions have been sent to ${email}`);
+            }
+        });
+    </script>
+</body>
+</html>

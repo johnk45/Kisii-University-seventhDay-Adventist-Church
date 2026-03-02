@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KUSDA Music & Video</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="image/assetss/kisiilogo.png">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-[#0f172a] text-white p-5 text-center text-2xl font-bold">
+    KSUSDA Music & Videos
+  </header>
+
+  <!-- Container -->
+  <div class="max-w-4xl mx-auto mt-10 p-4">
+
+    <!-- Dynamic Content -->
+    <div id="mediaContainer" class="grid grid-cols-2 md:grid-cols-3 gap-6"></div>
+
+  </div>
+
+
+<script>
+  // Load Music & Video Items from JSON
+  fetch("music.json")
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById("mediaContainer");
+
+      data.forEach(item => {
+        let card = `
+          <div class="bg-white shadow-lg rounded-xl p-4">
+            <h2 class="text-xl font-semibold mb-2">${item.title}</h2>
+            <p class="text-sm text-gray-600 mb-3">${item.description}</p>
+        `;
+
+        if (item.type === "audio") {
+          card += `
+            <audio controls class="w-full mb-3">
+              <source src="${item.file}" type="audio/mpeg">
+            </audio>
+          `;
+        }
+
+        if (item.type === "video") {
+          card += `
+            <video controls class="w-full rounded mb-3">
+              <source src="${item.file}" type="video/mp4">
+            </video>
+          `;
+        }
+
+        card += `
+            <a href="${item.file}" download class="bg-blue-700 text-white px-4 py-2 rounded">
+              Download
+            </a>
+          </div>
+        `;
+
+        container.innerHTML += card;
+      });
+    });
+
+    
+</script>
+
+</body>
+</html>

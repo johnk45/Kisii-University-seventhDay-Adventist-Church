@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Announcements | Kisii University SDA Church</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/jpg" href="image/assetss/kisiilogo.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+<style>
+        :root {
+            --sda-blue: #0056a6;
+             --sda-purple: #37337d;
+            --sda-gold: #0b2036;
+            --sda-green: #2e7d32;
+            --light-blue: #e3f2fd;
+            --light-gray: #f5f5f5;
+            --dark-text: #212121;
+            --accent-red: #d32f2f;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {margin: 0;padding: 0;box-sizing: border-box;}
+        
+        body {
+          font-family: 'Poppins', sans-serif;
+          color: #222;
+          line-height: 1.6;
+          background: linear-gradient(-45deg, #e3f2fd, #cfd8dc, #bbdefb, #90caf9);
+         background-size: 400% 400%;
+        }
+        
+         h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #120202;
+            margin-bottom: 1rem;
+           
+        }
+
+        .container {
+            width:100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #001f3f 0%, #0f172a 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+           
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .church-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3a7ca5 0%, #ff9b42 50%, #2e8b57 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+            font-weight:700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        .church-subtitle {
+            font-size: 0.85rem;
+            color: #f5f9f9;
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark);
+        }
+
+        .nav-links a.active {
+          color:var(--dark);
+          text-decoration: underline;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -8px;
+            left: 0;
+            border-radius: 3px;
+        }
+
+       
+
+        .btn {
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            display:flex;
+            float:left;
+            left:20px;
+        }
+
+        .btn-primary {
+            background-color: #3a7ca5;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #5fa8d3;
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background-color: #ff9b42;
+            color: #3a7ca5;
+            border: 2px solid #3a7ca5;
+        }
+
+        .btn-accent:hover {
+            background-color: rgba(58, 124, 165, 0.05);
+transform:translateY(-2px);
+color:#fff;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+            
+        }
+        .logo-text{
+            display:flex;
+            flex-direction: column;
+            font-size:1.2rem;
+        }
+       
+
+        
+        /* Page Header */
+        .page-header {
+            background-color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--sda-purple);
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            color: var(--sda-purple);
+            margin-bottom: 10px;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Sabbath Alert */
+        .sabbath-alert {
+            background: linear-gradient(to right, var(--sda-blue), var(--sda-purple));
+            color: white;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 25px auto;
+            max-width: 800px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .sabbath-alert i {
+            font-size: 1.8rem;
+        }
+        
+        /* Content Layout */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+     
+        
+        @media (max-width: 992px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Main Content */
+        .main-content {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--light-blue);
+        }
+        
+        .section-title i {
+            color: var(--sda-gold);
+            font-size: 1.5rem;
+        }
+        
+        /* Bulletin Section */
+        .bulletin-card {
+            background-color: var(--light-blue);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--sda-blue);
+        }
+        
+        .bulletin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .bulletin-date {
+            background-color: var(--sda-purple);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .bulletin-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--sda-blue);
+            color: white;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .btn:hover {
+            background-color: var(--sda-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--sda-blue);
+            color: var(--sda-blue);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--sda-blue);
+            color: white;
+        }
+        
+        .bulletin-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .bulletin-item {
+            padding: 15px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .bulletin-item h4 {
+            color: var(--sda-green);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Announcements Grid */
+        .announcements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .announcement-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--sda-gold);
+        }
+        
+        .announcement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .announcement-priority {
+            padding: 8px 15px;
+            background-color: var(--accent-red);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            border-radius: 0 0 8px 0;
+        }
+        
+        .announcement-content {
+            padding: 20px;
+        }
+        
+        .announcement-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        /* Community News */
+        .community-news {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .community-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .community-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .community-content {
+            padding: 20px;
+        }
+        
+        .community-category {
+            display: inline-block;
+            background-color: var(--sda-green);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Prayer Section */
+        .prayer-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .prayer-form, .prayer-wall {
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: 25px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .prayer-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--sda-purple);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .prayer-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .prayer-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .pray-count {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--sda-green);
+            font-weight: 600;
+        }
+        
+        .answered-prayer {
+            background-color: #e8f5e9;
+            border-left-color: var(--sda-green);
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .sidebar-widget {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .widget-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-blue);
+        }
+        
+        .widget-title i {
+            color: var(--sda-gold);
+        }
+        
+        .event-list {
+            list-style: none;
+        }
+        
+        .event-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .event-item:last-child {
+            border-bottom: none;
+        }
+        
+        .event-date {
+            font-weight: 600;
+            color: var(--sda-purple);
+            margin-bottom: 5px;
+        }
+        
+        .event-time {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .subscription-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .scripture-widget {
+            background: linear-gradient(to right, var(--sda-blue), var(--sda-purple));
+            color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+        }
+        
+        .scripture-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .scripture-ref {
+            text-align: right;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        /* Footer */
+        .footer {
+           background: #0f172a;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color:  #38bdf8;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--sda-gold);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container{
+                display:flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                glyph-orientation-horizontal: 0turn;
+            }
+            body{
+                font-size: 0.85rem;
+            }
+                
+            .nav-links {
+                order: 3;
+                width: 100%;
+                margin-top: 20px;
+                display: none;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                margin-top:2rem;
+                float:right;
+                width:120px;
+                background:navy;
+                padding:10px 10px;
+                border-radius:5px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            .footer-content{
+                display:grid;
+                grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+                gap:10px;              
+            }
+            .church-name{
+                font-size: 1.2rem;
+                top:2rem;
+                left:2rem;
+                position:sticky;
+            }
+            h1,h2,h3{
+                font-size: 1rem;
+            }
+            .footer-section h3{
+                font-size:1rem;
+            }
+            .footer p{
+                font-size: 0.85rem;
+            }
+            .footer-links a{
+                font-size: 0.85rem;
+            }
+            .church-name {
+                font-size: 1.8rem;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .bulletin-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .bulletin-actions {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            overflow-x: auto;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .tab-btn {
+            padding: 15px 25px;
+            background: none;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #666;
+            cursor: pointer;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .tab-btn:hover {
+            color: var(--sda-blue);
+        }
+        
+        .tab-btn.active {
+            color: var(--sda-purple);
+            border-bottom: 3px solid var(--sda-gold);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+           @media(max-width:768px){
+            .container{
+                grid-template-columns: 1fr;
+            }
+            .main-content{
+                display:grid;
+                grid-template-columns: 1fr;
+                gap:1rem;
+            }
+            .church-header{
+                font-size:1.2rem;
+                padding:10px;
+            }
+            .bulletin-header{
+                display:grid;
+                grid-template-columns: 1fr;
+                gap:10px;
+            }
+        }
+    </style>
+</head>
+<body>
+   <header>
+        <div class="container">
+            <div class="header-content">
+                    <div class="logo-text">
+                        <div class="church-name">KSUSDA</div>
+                    </div>                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="nav-links" id="navLinks">
+                    <a href="index45.html">Home</a>
+                       <a href="ann.html" class="active">Announcement</a>
+                    <a href="serm.html">Sermons</a>
+                    <a href="eventht.html">Events</a>
+                    <a href="Ministry.html">Ministries</a>
+                    <a href="gallery.html">Gallery</a>
+                </nav>
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h2 class="page-title"><marquee>Church News & Announcements</marquee></h2>
+            <p class="page-subtitle">Stay connected with our church family. Find weekly bulletins, important updates, community news, and prayer requests.</p>
+        </div>
+    </div>
+
+    <!-- Sabbath Alert -->
+    <div class="container">
+        <div class="sabbath-alert">
+            <i class="fas fa-star"></i>
+            <div>
+                <strong>Sabbath Service This Week:</strong> Saturday, April 12, 2025 • Sabbath School: 9:30 AM • Divine Service: 11:00 AM • Venue: Dr. Sagini Hall
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container content-wrapper">
+        <!-- Left Column: Main Content -->
+        <div class="main-content">
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="bulletin">
+                    <i class="fas fa-bullhorn"></i> Weekly Bulletin
+                </button>
+                <button class="tab-btn" data-tab="updates">
+                    <i class="fas fa-exclamation-circle"></i> Important Updates
+                </button>
+                <button class="tab-btn" data-tab="community">
+                    <i class="fas fa-users"></i> Community News
+                </button>
+                <button class="tab-btn" data-tab="prayer">
+                    <i class="fas fa-pray"></i> Prayer Requests
+                </button>
+            </div>
+
+            <!-- Bulletin Tab -->
+            <div id="bulletin" class="tab-content active">
+                <div class="section-title">
+                    <i class="fas fa-newspaper"></i>
+                    <h3>This Week's Church Bulletin</h3>
+                </div>
+
+                <div class="bulletin-card">
+                    <div class="bulletin-header">
+                        <div>
+                            <h4>Sabbath Service - April 12, 2026</h4>
+                            <div class="bulletin-date">Theme: "Faith in Times of Uncertainty"</div>
+                        </div>
+                        <div class="bulletin-actions">
+                            <a href="pdfs/COMP 102 DISCRETE MATHEATICS  ASSIGN 2.pdf" class="btn"><i class="fas fa-download"></i> Download PDF</a>
+                            <a href="#" class="btn btn-outline"><i class="fas fa-print"></i> Print</a>
+                        </div>
+                    </div>
+
+                    <div class="bulletin-content">
+                        <div class="bulletin-item">
+                            <h4><i class="fas fa-user"></i> Presiding Elder</h4>
+                            <p>Elder James Omondi</p>
+                        </div>
+                        <div class="bulletin-item">
+                            <h4><i class="fas fa-microphone"></i> Sermon Speaker</h4>
+                            <p>Pastor Sarah Mwangi</p>
+                            <p><strong>Title:</strong> "Anchored in Hope"</p>
+                        </div>
+                        <div class="bulletin-item">
+                            <h4><i class="fas fa-music"></i> Special Music</h4>
+                            <p>University Choir - "Great Is Thy Faithfulness"</p>
+                        </div>
+                        <div class="bulletin-item">
+                            <h4><i class="fas fa-calendar-check"></i> This Week's Schedule</h4>
+                            <ul style="padding-left: 20px; margin-top: 8px;">
+                                <li>Wed: Prayer Meeting (6:00 PM)</li>
+                                <li>Fri: Vespers (5:30 PM)</li>
+                                <li>Sat: Sabbath Services</li>
+                                <li>Sun: Community Service (9:00 AM)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-title">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <h3>Weekly Newsletter</h3>
+                </div>
+                
+                <div style="background-color: var(--light-gray); padding: 25px; border-radius: var(--border-radius);">
+                    <p style="margin-bottom: 20px;">Subscribe to our weekly email newsletter for devotionals, announcements, and church updates delivered to your inbox every Thursday.</p>
+                    <a href="#" class="btn"><i class="fas fa-envelope"></i> Subscribe Now</a>
+                </div>
+            </div>
+
+            <!-- Important Updates Tab -->
+            <div id="updates" class="tab-content">
+                <div class="section-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Important Updates & Alerts</h3>
+                </div>
+
+                <div class="announcements-grid">
+                    <div class="announcement-card">
+                        <div class="announcement-priority">Urgent</div>
+                        <div class="announcement-content">
+                            <div class="announcement-meta">
+                                <span>April 10, 2025</span>
+                                <span><i class="fas fa-clock"></i> Immediate</span>
+                            </div>
+                            <h4>Church Building Fund Meeting</h4>
+                            <p>All members are requested to attend a special meeting on Sunday, April 20th at 2:00 PM to discuss the new church building project. Your input is vital!</p>
+                            <a href="#" style="display: inline-block; margin-top: 15px; color: var(--sda-blue); font-weight: 600;">More Details →</a>
+                        </div>
+                    </div>
+
+                    <div class="announcement-card">
+                        <div class="announcement-content">
+                            <div class="announcement-meta">
+                                <span>April 8, 2025</span>
+                                <span><i class="fas fa-clock"></i> Deadline: April 30</span>
+                            </div>
+                            <h4>Pathfinder Club Registration</h4>
+                            <p>Registration for the 2025 Pathfinder Club is now open! Children ages 10-15 are invited to join. Register by April 30th to secure a spot.</p>
+                            <a href="#" style="display: inline-block; margin-top: 15px; color: var(--sda-blue); font-weight: 600;">Register Now →</a>
+                        </div>
+                    </div>
+
+                    <div class="announcement-card">
+                        <div class="announcement-content">
+                            <div class="announcement-meta">
+                                <span>April 5, 2025</span>
+                                <span><i class="fas fa-clock"></i> New</span>
+                            </div>
+                            <h4>New Bible Study Group</h4>
+                            <p>A new young adults Bible study group will begin meeting on Tuesday evenings starting April 22nd. Focus: "Revelation for Today's World."</p>
+                            <a href="#" style="display: inline-block; margin-top: 15px; color: var(--sda-blue); font-weight: 600;">Join Group →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community News Tab -->
+            <div id="community" class="tab-content">
+                <div class="section-title">
+                    <i class="fas fa-heart"></i>
+                    <h3>Community News & Stories</h3>
+                </div>
+
+                <div class="community-news">
+                    <div class="community-card">
+                        <div class="community-image" style="background-image: url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="community-content">
+                            <div class="community-category">Welcome</div>
+                            <h4>New Members Joining</h4>
+                            <p>Welcome to 15 new members who joined our church family last Sabbath! We're excited to have you as part of our community.</p>
+                            <div style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                                <i class="fas fa-user-friends"></i> 15 new members
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="community-card">
+                        <div class="community-image" style="background-image: url('https://images.unsplash.com/photo-1545231027-637d2f6210f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="community-content">
+                            <div class="community-category">Ministry</div>
+                            <h4>Health Ministry Seminar Success</h4>
+                            <p>Our "Temperance and Healthy Living" seminar reached over 200 community members last weekend. Thanks to all volunteers!</p>
+                            <div style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                                <i class="fas fa-users"></i> 200+ attendees
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="community-card">
+                        <div class="community-image" style="background-image: url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                        <div class="community-content">
+                            <div class="community-category">Education</div>
+                            <h4>University Bible Study Growth</h4>
+                            <p>The Kisii University SDA Students Association now has 45 regular attendees at weekly campus Bible studies. Praise God!</p>
+                            <div style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                                <i class="fas fa-graduation-cap"></i> 45 students
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prayer Requests Tab -->
+            <div id="prayer" class="tab-content">
+                <div class="section-title">
+                    <i class="fas fa-hands-praying"></i>
+                    <h3>Prayer Requests</h3>
+                </div>
+
+                <p style="margin-bottom: 25px; padding: 15px; background-color: #fff8e1; border-radius: var(--border-radius);">
+                    <i class="fas fa-info-circle" style="color: var(--sda-gold);"></i> All prayer requests are confidential. Our prayer team meets every Wednesday at 6:00 PM.
+                </p>
+
+                <div class="prayer-section">
+                    <!-- Prayer Form -->
+                    <div class="prayer-form">
+                        <h4 style="margin-bottom: 20px;">Submit a Prayer Request</h4>
+                        <form id="prayerForm">
+                            <div class="form-group">
+                                <label class="form-label">Your Name (Optional)</label>
+                                <input type="text" class="form-control" placeholder="First name is fine">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Prayer Request *</label>
+                                <textarea class="form-control" placeholder="Please share your prayer need..." required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">How should we share this request?</label>
+                                <div class="radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" id="private" name="privacy" checked>
+                                        <label for="private">With pastoral team only (confidential)</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="anonymous" name="privacy">
+                                        <label for="anonymous">Share anonymously on prayer wall</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="public" name="privacy">
+                                        <label for="public">Share with my first name</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i> Submit Request
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Prayer Wall -->
+                    <div class="prayer-wall">
+                        <h4 style="margin-bottom: 20px;">Recent Prayer Requests</h4>
+                        
+                        <div class="prayer-item">
+                            <div class="prayer-header">
+                                <span><i class="fas fa-user-secret"></i> Anonymous</span>
+                                <span>April 9, 2025</span>
+                            </div>
+                            <p>Please pray for my mother who was diagnosed with cancer. She starts treatment next week. Pray for healing and strength for our family.</p>
+                            <div class="prayer-actions">
+                                <button class="btn" style="padding: 8px 15px; font-size: 0.9rem;">
+                                    <i class="fas fa-hands-praying"></i> I Prayed
+                                </button>
+                                <div class="pray-count">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>18 prayed</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prayer-item">
+                            <div class="prayer-header">
+                                <span><i class="fas fa-user"></i> Samuel</span>
+                                <span>April 7, 2025</span>
+                            </div>
+                            <p>Pray for my final exams at Kisii University this month. I need God's wisdom and peace as I prepare and write my papers.</p>
+                            <div class="prayer-actions">
+                                <button class="btn" style="padding: 8px 15px; font-size: 0.9rem;">
+                                    <i class="fas fa-hands-praying"></i> I Prayed
+                                </button>
+                                <div class="pray-count">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>24 prayed</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prayer-item">
+                            <div class="prayer-header">
+                                <span><i class="fas fa-user"></i> Grace</span>
+                                <span>April 5, 2025</span>
+                            </div>
+                            <p>Thank you for praying for my job interview! I got the position! God is faithful. Please continue praying as I transition to this new role.</p>
+                            <div class="answered-prayer">
+                                <i class="fas fa-star" style="color: var(--sda-gold);"></i>
+                                <strong>Answered Prayer!</strong> Praise report from previous request.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Sidebar -->
+        <div class="sidebar">
+            <!-- Upcoming Events -->
+            <div class="sidebar-widget">
+                <div class="widget-title">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h4>Upcoming Events</h4>
+                </div>
+                <ul class="event-list">
+                    <li class="event-item">
+                        <div class="event-date">April 16, 2025</div>
+                        <div>Midweek Prayer Meeting</div>
+                        <div class="event-time">6:00 PM | Fellowship Hall</div>
+                    </li>
+                    <li class="event-item">
+                        <div class="event-date">April 18, 2025</div>
+                        <div>Vespers Service</div>
+                        <div class="event-time">5:30 PM | Church Grounds</div>
+                    </li>
+                    <li class="event-item">
+                        <div class="event-date">April 19, 2025</div>
+                        <div>Sabbath Services</div>
+                        <div class="event-time">9:30 AM | Main Sanctuary</div>
+                    </li>
+                    <li class="event-item">
+                        <div class="event-date">April 20, 2025</div>
+                        <div>Community Outreach</div>
+                        <div class="event-time">9:00 AM | Kisii Town</div>
+                    </li>
+                    <li class="event-item">
+                        <div class="event-date">April 25-27, 2025</div>
+                        <div>Youth Camp Meeting</div>
+                        <div class="event-time">All Day | Conference Center</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Weekly Scripture -->
+            <div class="scripture-widget">
+                <div class="widget-title" style="border-bottom-color: rgba(255,255,255,0.3);">
+                    <i class="fas fa-bible"></i>
+                    <h4 style="color: white;">Weekly Scripture</h4>
+                </div>
+                <p class="scripture-text">"But they who wait for the Lord shall renew their strength; they shall mount up with wings like eagles; they shall run and not be weary; they shall walk and not faint."</p>
+                <p class="scripture-ref">Isaiah 40:31 (ESV)</p>
+            </div>
+
+            <!-- Subscription -->
+            <div class="sidebar-widget">
+                <div class="widget-title">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Stay Updated</h4>
+                </div>
+                <p style="margin-bottom: 15px;">Get church news and devotionals in your inbox.</p>
+                <div class="subscription-form">
+                    <input type="email" class="form-control" placeholder="Your email address">
+                    <button class="btn">Subscribe</button>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="sidebar-widget">
+                <div class="widget-title">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Contact Us</h4>
+                </div>
+                <p style="margin-bottom: 15px;">
+                    <strong>Church Office:</strong> +254 712 345 678<br>
+                    <strong>Pastor's Line:</strong> +254 723 456 789<br>
+                    <strong>Email:</strong> info@kisiisda.org
+                </p>
+                <p>
+                    <strong>Location:</strong> Kisii University Campus<br>
+                    Near Administration Block
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kisii University SDA Church</h3>
+                    <p>Seventh-day Adventist Church serving the Kisii University community and surrounding area since 2010.</p>
+                    <p style="margin-top: 15px;">
+                        <i class="fas fa-map-marker-alt"></i> Kisii University Campus, Kisii, Kenya
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index45.html">Home</a></li>
+                        <li><a href="about">About Us</a></li>
+                        <li><a href="serm.html">Sermons</a></li>
+                       <li><a href="ann.html">Announcements</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div style="display: flex; gap: 15px; margin-top: 15px;">
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white; font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p style="margin-top: 20px;">
+                        <strong>Sabbath Services:</strong><br>
+                        Sabbath School: 9:30 AM<br>
+                        Divine Service: 11:00 AM
+                    </p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Kisii University Seventh-day Adventist Church. All Rights Reserved.</p>
+                <p style="margin-top: 5px;">Seventh-day Adventist® and Adventist® are registered trademarks of the General Conference of Seventh-day Adventists.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+  
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+        
+
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Show corresponding tab content
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Prayer button functionality
+            const prayButtons = document.querySelectorAll('.prayer-actions .btn');
+            prayButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const prayerItem = this.closest('.prayer-item');
+                    const prayCount = prayerItem.querySelector('.pray-count span');
+                    
+                    // Extract current count
+                    let currentCount = parseInt(prayCount.textContent);
+                    if (isNaN(currentCount)) currentCount = 0;
+                    
+                    // Update count
+                    prayCount.textContent = (currentCount + 1) + ' prayed';
+                    
+                    // Change button appearance
+                    this.innerHTML = '<i class="fas fa-check"></i> Thank You!';
+                    this.style.backgroundColor = 'var(--sda-green)';
+                    this.disabled = true;
+                    
+                    // Show confirmation message
+                    const confirmation = document.createElement('div');
+                    confirmation.innerHTML = '<i class="fas fa-check-circle"></i> Thank you for praying!';
+                    confirmation.style.cssText = 'position: fixed; bottom: 20px; right: 20px; background: var(--sda-green); color: white; padding: 12px 20px; border-radius: 8px; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.2);';
+                    document.body.appendChild(confirmation);
+                    
+                    setTimeout(() => {
+                        confirmation.remove();
+                    }, 3000);
+                });
+            });
+            
+            // Form submission
+            const prayerForm = document.getElementById('prayerForm');
+            if (prayerForm) {
+                prayerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show success message
+                    const successMsg = document.createElement('div');
+                    successMsg.innerHTML = '<i class="fas fa-pray"></i> Your prayer request has been submitted. Our prayer team will lift it up.';
+                    successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--sda-blue); color: white; padding: 15px 25px; border-radius: 8px; z-index: 1000; max-width: 400px; box-shadow: 0 6px 15px rgba(0,0,0,0.2);';
+                    document.body.appendChild(successMsg);
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    setTimeout(() => {
+                        successMsg.remove();
+                    }, 5000);
+                });
+            }
+            
+            // Update year dynamically
+            const currentYear = new Date().getFullYear();
+            const yearElements = document.querySelectorAll('.church-location');
+            if (yearElements.length > 0 && currentYear > 2025) {
+                // If we're past 2025, update the year
+                yearElements[0].textContent = yearElements[0].textContent.replace('2025', currentYear);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Remedies - Herbal Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f9f0;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2d5c3d;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1:after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #4a9c5f, transparent);
+            bottom: -10px;
+            left: 15%;
+        }
+
+        .subtitle {
+            color: #5a7d5a;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 20px auto 0;
+        }
+
+        .remedies-section {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .section-title {
+            color: #2d5c3d;
+            font-size: 1.8rem;
+        }
+
+        .carousel-controls {
+            display: flex;
+            gap: 15px;
+        }
+
+        .carousel-btn {
+            background-color: #e9f4e9;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #4a9c5f;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-btn:hover {
+            background-color: #4a9c5f;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 25px;
+        }
+
+        .remedy-card {
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            flex: 0 0 calc(33.333% - 17px);
+            min-width: calc(33.333% - 17px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .remedy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .remedy-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            color: #2d5c3d;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            color: #5a5a5a;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .benefit-tag {
+            background-color: #f0f7f0;
+            color: #4a9c5f;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .card-type {
+            color: #7a9c7a;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .card-rating {
+            color: #ffc107;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #d0e6d0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .indicator.active {
+            background-color: #4a9c5f;
+        }
+
+        footer {
+            text-align: center;
+            color: #7a9c7a;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 992px) {
+            .remedy-card {
+                flex: 0 0 calc(50% - 12.5px);
+                min-width: calc(50% - 12.5px);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .remedies-section {
+                padding: 20px;
+            }
+            
+            .remedy-card {
+                flex: 0 0 100%;
+                min-width: 100%;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .carousel-controls {
+                align-self: center;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .card-content {
+                padding: 20px;
+            }
+            
+            .carousel-btn {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        /* Animation for card appearance */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .remedy-card {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .remedy-card:nth-child(1) { animation-delay: 0.1s; }
+        .remedy-card:nth-child(2) { animation-delay: 0.2s; }
+        .remedy-card:nth-child(3) { animation-delay: 0.3s; }
+        .remedy-card:nth-child(4) { animation-delay: 0.4s; }
+        .remedy-card:nth-child(5) { animation-delay: 0.5s; }
+        .remedy-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Natural Remedies</h1>
+            <p class="subtitle">Discover traditional herbal solutions that have been used for centuries to promote wellness, relieve common ailments, and support holistic health.</p>
+        </header>
+
+        <section class="remedies-section">
+            <div class="section-header">
+                <h2 class="section-title">Popular Herbal Remedies</h2>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" aria-label="Previous remedies">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next-btn" aria-label="Next remedies">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Cards will be inserted here by JavaScript -->
+                </div>
+            </div>
+
+            <div class="carousel-indicators">
+                <!-- Indicators will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <footer>
+            <p>Natural Remedies Section &copy; 2025 | For educational purposes only. Consult a healthcare professional before using any remedies.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Remedies data
+        const remedies = [
+            {
+                id: 1,
+                name: "Ginger Tea",
+                description: "Fresh ginger root steeped in hot water creates a warming tea that aids digestion, reduces nausea, and helps fight inflammation.",
+                image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Digestion", "Nausea Relief", "Anti-inflammatory"],
+                type: "Digestive Aid",
+                rating: 4.8
+            },
+            {
+                id: 2,
+                name: "Honey & Lemon",
+                description: "A classic combination that soothes sore throats, suppresses coughs, and provides immune-boosting vitamins and antioxidants.",
+                image: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Sore Throat", "Cough Relief", "Immune Boost"],
+                type: "Respiratory",
+                rating: 4.7
+            },
+            {
+                id: 3,
+                name: "Turmeric Milk",
+                description: "Known as 'golden milk', this ancient remedy combines turmeric with warm milk to reduce inflammation and promote healing.",
+                image: "https://images.unsplash.com/photo-1607878157383-87878e5bfb6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Anti-inflammatory", "Pain Relief", "Antioxidant"],
+                type: "Anti-inflammatory",
+                rating: 4.9
+            },
+            {
+                id: 4,
+                name: "Peppermint Oil",
+                description: "Essential oil from peppermint leaves used to relieve headaches, improve mental focus, and soothe digestive issues.",
+                image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Headache Relief", "Mental Clarity", "Digestion"],
+                type: "Aromatherapy",
+                rating: 4.5
+            },
+            {
+                id: 5,
+                name: "Chamomile Tea",
+                description: "Gentle floral tea known for its calming properties, promoting better sleep and reducing anxiety and stress.",
+                image: "https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Relaxation", "Sleep Aid", "Stress Relief"],
+                type: "Calming",
+                rating: 4.6
+            },
+            {
+                id: 6,
+                name: "Aloe Vera Gel",
+                description: "The clear gel from aloe vera leaves is applied topically to soothe burns, moisturize skin, and promote healing.",
+                image: "https://images.unsplash.com/photo-1599302592893-15f3d2c5c0b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Skin Healing", "Sunburn Relief", "Moisturizing"],
+                type: "Topical",
+                rating: 4.7
+            },
+            {
+                id: 7,
+                name: "Eucalyptus Steam",
+                description: "Inhaling steam infused with eucalyptus oil helps clear nasal passages, relieve sinus pressure, and ease breathing.",
+                image: "https://images.unsplash.com/photo-1584305574647-8f0be08a5d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Congestion Relief", "Sinus Pressure", "Respiratory"],
+                type: "Inhalation",
+                rating: 4.4
+            },
+            {
+                id: 8,
+                name: "Garlic Infusion",
+                description: "Raw or lightly cooked garlic is known for its antimicrobial properties and ability to support cardiovascular health.",
+                image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b52b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                benefits: ["Antimicrobial", "Heart Health", "Immune Support"],
+                type: "Preventive",
+                rating: 4.3
+            }
+        ];
+
+        // DOM elements
+        const carouselTrack = document.querySelector('.carousel-track');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const indicatorsContainer = document.querySelector('.carousel-indicators');
+
+        // Carousel state
+        let currentSlide = 0;
+        let cardsPerView = 3;
+        
+        // Initialize the carousel
+        function initCarousel() {
+            // Determine how many cards to show based on screen width
+            updateCardsPerView();
+            
+            // Create and insert remedy cards
+            remedies.forEach((remedy, index) => {
+                const card = document.createElement('div');
+                card.className = 'remedy-card';
+                card.setAttribute('data-index', index);
+                
+                // Generate star rating HTML
+                const stars = '★'.repeat(Math.floor(remedy.rating)) + '☆'.repeat(5 - Math.floor(remedy.rating));
+                
+                card.innerHTML = `
+                    <div class="card-image">
+                        <img src="${remedy.image}" alt="${remedy.name}">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">${remedy.name}</h3>
+                        <p class="card-description">${remedy.description}</p>
+                        <div class="card-benefits">
+                            ${remedy.benefits.map(benefit => `<span class="benefit-tag">${benefit}</span>`).join('')}
+                        </div>
+                        <div class="card-footer">
+                            <span class="card-type">${remedy.type}</span>
+                            <div class="card-rating" title="${remedy.rating}/5">${stars}</div>
+                        </div>
+                    </div>
+                `;
+                
+                carouselTrack.appendChild(card);
+            });
+            
+            // Create indicators
+            createIndicators();
+            
+            // Update carousel position
+            updateCarousel();
+            
+            // Add event listeners
+            prevBtn.addEventListener('click', showPrevSlide);
+            nextBtn.addEventListener('click', showNextSlide);
+            
+            // Add window resize listener
+            window.addEventListener('resize', handleResize);
+            
+            // Add click event to indicators
+            indicatorsContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('indicator')) {
+                    const index = parseInt(e.target.getAttribute('data-index'));
+                    goToSlide(index);
+                }
+            });
+        }
+        
+        // Update cards per view based on screen size
+        function updateCardsPerView() {
+            if (window.innerWidth <= 768) {
+                cardsPerView = 1;
+            } else if (window.innerWidth <= 992) {
+                cardsPerView = 2;
+            } else {
+                cardsPerView = 3;
+            }
+        }
+        
+        // Create indicators based on number of slides
+        function createIndicators() {
+            indicatorsContainer.innerHTML = '';
+            const totalSlides = Math.ceil(remedies.length / cardsPerView);
+            
+            for (let i = 0; i < totalSlides; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = `indicator ${i === 0 ? 'active' : ''}`;
+                indicator.setAttribute('data-index', i);
+                indicator.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                indicatorsContainer.appendChild(indicator);
+            }
+        }
+        
+        // Update carousel position
+        function updateCarousel() {
+            const cardWidth = carouselTrack.children[0].offsetWidth + 25; // card width + gap
+            const translateX = -currentSlide * cardWidth * cardsPerView;
+            carouselTrack.style.transform = `translateX(${translateX}px)`;
+            
+            // Update button states
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide >= Math.ceil(remedies.length / cardsPerView) - 1;
+            
+            // Update indicators
+            document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        // Show previous slide
+        function showPrevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateCarousel();
+            }
+        }
+        
+        // Show next slide
+        function showNextSlide() {
+            const maxSlide = Math.ceil(remedies.length / cardsPerView) - 1;
+            if (currentSlide < maxSlide) {
+                currentSlide++;
+                updateCarousel();
+            }
+        }
+        
+        // Go to specific slide
+        function goToSlide(slideIndex) {
+            const maxSlide = Math.ceil(remedies.length / cardsPerView) - 1;
+            if (slideIndex >= 0 && slideIndex <= maxSlide) {
+                currentSlide = slideIndex;
+                updateCarousel();
+            }
+        }
+        
+        // Handle window resize
+        function handleResize() {
+            const oldCardsPerView = cardsPerView;
+            updateCardsPerView();
+            
+            // If cards per view changed, reset carousel
+            if (oldCardsPerView !== cardsPerView) {
+                currentSlide = 0;
+                createIndicators();
+                updateCarousel();
+            }
+        }
+        
+        // Initialize the carousel when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initCarousel);
+    </script>
+</body>
+</html>

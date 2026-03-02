@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Missionary Health Resources | KSUSDA</title>
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="image/assetss/kisiilogo.png" alt="sda logo">
+<link rel="stylesheet" href="image/assetss/style.css">
+<style>
+:root {
+    --primary-color: #181b1e;
+    --primary-dark: #3f494b;
+    --primary-light: #051208;
+    --accent-color: #aaa;
+    --accent-light: #cccccc;
+    --bg-light: #f8f9fa;
+    --text-dark: #2c3e50;
+    --text-light: #5d6d7e;
+    --card-bg: #ffffff;
+    --success: #444748;
+    --warning: #f39d1224;
+    --info: #9d9d9e;
+    --border-radius: 10px;
+    --box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.7;
+    transition: var(--transition);
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+/* Eight Laws Section */
+.eight-laws-section {
+    padding: 80px 0;
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+}
+
+.eight-laws-section .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.eight-laws-section .section-title h2 {
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+}
+
+.eight-laws-section .section-title p {
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+.eight-laws-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.law-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.law-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.law-image {
+    height: 220px;
+    overflow: hidden;
+}
+
+.law-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.law-card:hover .law-image img {
+    transform: scale(1.05);
+}
+
+.law-content {
+    padding: 25px;
+}
+
+.law-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.law-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--primary-dark);
+    line-height: 1.4;
+}
+
+.law-description {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.law-details {
+    background: rgba(44, 120, 115, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.law-details h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.law-details ul {
+    padding-left: 20px;
+    color: var(--text-light);
+}
+
+.law-details li {
+    margin-bottom: 8px;
+}
+
+.meal-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.meal-example {
+    text-align: center;
+}
+
+.meal-example img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.meal-example p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* Main Content */
+.main-content {
+    padding: 40px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+}
+
+/* Controls */
+.controls-container {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 40px;
+}
+
+.search-container {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+    border: 2px solid var(--primary-light);
+    border-radius: 8px;
+    font-size: 16px;
+    background: var(--card-bg);
+    color: var(--text-dark);
+    transition: var(--transition);
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(44, 120, 115, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+}
+
+.category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 2px solid var(--primary-light);
+    background: transparent;
+    color: var(--primary-color);
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.filter-btn:hover:not(.active) {
+    background: rgba(44, 120, 115, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Blog Grid */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.blog-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 15px;
+    background: var(--primary-light);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    width: fit-content;
+}
+
+.category-badge.heart { background: #e74c3c; }
+.category-badge.diet { background: #27ae60; }
+.category-badge.mental { background: #9b59b6; }
+.category-badge.exercise { background: #3498db; }
+.category-badge.prevention { background: #e67e22; }
+.category-badge.remedies { background: #16a085; }
+.category-badge.children { background: #f39c12; }
+.category-badge.women { background: #d35400; }
+.category-badge.elderly { background: #7f8c8d; }
+.category-badge.immune { background: #2980b9; }
+
+.card-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-dark);
+    line-height: 1.4;
+}
+
+.card-description {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.card-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    width: fit-content;
+}
+
+.read-more-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.pagination button {
+    padding: 10px 25px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pagination button:disabled {
+    background: var(--text-light);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.pagination button:hover:not(:disabled) {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.page-info {
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    animation: slideUp 0.4s ease;
+}
+
+.modal-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    transform: scale(1.2);
+}
+
+.modal-body {
+    padding: 30px;
+    overflow-y: auto;
+    max-height: 65vh;
+}
+
+.article-section {
+    margin-bottom: 30px;
+}
+
+.article-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--primary-light);
+    padding-bottom: 8px;
+}
+
+.key-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.key-point {
+    background: rgba(44, 120, 115, 0.08);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.key-point h5 {
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-footer {
+    padding: 20px 30px;
+    background: rgba(0,0,0,0.03);
+    border-top: 1px solid rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.share-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.share-btn.whatsapp { background: #25D366; }
+.share-btn.facebook { background: #3b5998; }
+.share-btn.twitter { background: #1DA1F2; }
+.share-btn.email { background: var(--accent-color); }
+
+/* Theme Toggle */
+.theme-toggle {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+/* Stats Banner */
+.stats-banner {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    padding: 40px 0;
+    margin: 40px 0;
+    border-radius: var(--border-radius);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.stat-item p {
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+/* Resource Section */
+.resource{
+    background:#f9f9f9;
+    padding:10px 20px;
+    align-items: center;
+    
+
+}
+.resource h2{
+  font-family: 'Montserrat', sans-serif;
+ font-weight: 700;
+color: var(--primary-light);
+text-align:center;
+text-decoration: underline;
+
+}
+
+/* Footer */
+.site-footer {
+    background: var(--primary-dark);
+    color: white;
+    padding: 50px 0 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h4 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section ul li a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.blog-card, .law-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .blog-grid, .eight-laws-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-filters {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .eight-laws-section .section-title h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text h1 {
+        font-size: 1.5rem;
+    }
+    
+    .logo-text p {
+        font-size: 0.8rem;
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+    
+    .eight-laws-section .section-title h2 {
+        font-size: 1.8rem;
+    }
+    
+    .card-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .law-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .card-description, .law-description {
+        font-size: 0.9rem;
+    }
+    
+    .card-content, .law-content {
+        padding: 20px;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .article-section h4 {
+        font-size: 1.1rem;
+    }
+    
+    .key-point h5 {
+        font-size: 1rem;
+    }
+    
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+    
+    .stat-item p {
+        font-size: 0.8rem;
+    }
+    
+    .footer-section h4 {
+        font-size: 1.1rem;
+    }
+    
+    .copyright p {
+        font-size: 0.8rem;
+    }
+}
+</style>
+</head>
+
+<body>
+<header>
+        <div class="header-container">
+            <div class="logo">
+                <image src="image/assetss/kisiilogo-removebg-preview.png" alt="KSUSDA church" height="80" width="80"></image>
+               <h2 style="color:#1e90ff;font-weight: 700;">KSUSDA <span style="color:#1a6370;">MM</span><span style="color:#e74c3c;">Health Center </span></h2>
+               
+               
+            </div>
+            
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                
+                <ul id="navMenu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#remedies">Remedies</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="healthyblog.html">Blog</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                 
+               
+                </ul>
+            </nav>
+        </div>
+    </header>
+     
+
+<main class="main-content">
+    <div class="container">
+        <section class="eight-laws-section">
+            <div class="section-title">
+                <h2>The Eight Laws of Health (NEWSTART)</h2>
+                <p>Comprehensive guide to the eight natural remedies that form the foundation of medical missionary work and holistic health.</p>
+            </div>
+            
+            <div class="eight-laws-grid" id="eightLawsContainer">
+                <!-- Eight Laws will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <div class="section-title">
+            <h2>Natural Disease Remedies</h2>
+            <p class="subtitle">Evidence-based natural treatments for common diseases using medical missionary principles. Holistic approaches to healing and recovery.</p>
+        </div>
+
+        <!-- Stats Banner -->
+        <div class="stats-banner">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>15+</h3>
+                        <p>Natural Remedies</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>4</h3>
+                        <p>Disease Categories</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Plant-Based Solutions</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>Resource Access</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-container">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search disease remedies, natural treatments, herbal cures...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            
+            <div class="category-filters">
+                <button class="filter-btn active" onclick="filterCategory('all')">
+                    <i class="fas fa-th-large"></i> All Remedies
+                </button>
+                <button class="filter-btn" onclick="filterCategory('malaria')">
+                    <i class="fas fa-bug"></i> Malaria
+                </button>
+                <button class="filter-btn" onclick="filterCategory('respiratory')">
+                    <i class="fas fa-lungs"></i> Respiratory
+                </button>
+                <button class="filter-btn" onclick="filterCategory('heart')">
+                    <i class="fas fa-heart"></i> Blood Pressure
+                </button>
+                <button class="filter-btn" onclick="filterCategory('remedies')">
+                    <i class="fas fa-leaf"></i> Natural Remedies
+                </button>
+                <button class="filter-btn" onclick="filterCategory('diet')">
+                    <i class="fas fa-apple-alt"></i> Diet Therapy
+                </button>
+            </div>
+        </div>
+
+        <div id="blogContainer" class="blog-grid"></div>
+
+        <div class="pagination">
+            <button id="prevBtn" onclick="prevPage()" disabled>
+                <i class="fas fa-arrow-left"></i> Previous
+            </button>
+            <span class="page-info">Page <span id="currentPage">1</span> of <span id="totalPages">1</span></span>
+            <button id="nextBtn" onclick="nextPage()">
+                Next <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</main>
+
+<!-- Modal -->
+<div class="modal" id="modalBox">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modalTitle"></h3>
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+        <div class="modal-footer">
+            <div class="share-buttons">
+                <a href="#" class="share-btn whatsapp" id="whatsappShare" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="share-btn facebook" id="facebookShare" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="share-btn twitter" id="xShare" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="share-btn email" id="emailShare">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <a href="#" class="download-btn" id="downloadBtn" onclick="download()">
+                <i class="fas fa-download"></i> Download Guide (PDF)
+            </a>
+        </div>
+    </div>
+</div>
+<!--Health Resource Section-->
+<div class="resource">
+    <h2>Health Resources</h2>
+    <p>Download and access our collection of health guides and resources.</p>
+    <div class="resource-pdf">
+        
+    <ol>
+        <li><a href="pdfs/hydotherapy-compressed.pdf" target="_blank">Hydrotherapy Guide</a></li>
+        <li><a href="pdfs/Sermon Title.pdf" target="_blank">Nutrition Guide</a></li>
+    </ol>
+    </div>
+
+</div>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Medical Missionary Department</h4>
+                <p>Providing evidence-based natural health resources and education since 2023. Inspired by Ellen G. White's health principles.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Health Courses</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Health Categories</h4>
+                <ul>
+                    <li><a href="#">Natural Remedies</a></li>
+                    <li><a href="#">Herbal Treatments</a></li>
+                    <li><a href="pdfs/hydotherapy-compressed.pdf">Hydrotherapy</a></li>
+                    <li><a href="#">Diet Therapy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-envelope"></i> health@ksusda.org</p>
+                <p><i class="fas fa-phone"></i> +254 791 302 316</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; <script>document.write(new Date().getFullYear());</script>KSUSDA Medical Missionary Health Center. All rights reserved.</p>
+            <p>Inspired by: "True religion and the laws of health go hand in hand." - Ellen G. White</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+
+ // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.getElementById('navMenu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('#navMenu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+
+
+// Eight Laws of Health Data
+const eightLaws = [
+    {
+        name: "Nutrition",
+        icon: "fas fa-apple-alt",
+        image: "https://plus.unsplash.com/premium_photo-1733342485605-42058eb2daf3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmFsYW5jZSUyMGRpZXR8ZW58MHx8MHx8fDA%3D",
+        description: "A plant-based diet rich in fruits, vegetables, whole grains, nuts, and legumes provides essential nutrients for optimal health.",
+        details: `<p>Emphasize whole, unprocessed foods and avoid refined sugars, processed oils, and artificial additives.</p>
+                  <h4>Example Nutritious Meals:</h4>
+                  <div class="meal-examples">
+                    <div class="meal-example">
+                      <img src="https://media.istockphoto.com/id/859567350/photo/ready-to-eat-oatmeal-with-fresh-raspberries-and-black-currants.jpg?s=612x612&w=0&k=20&c=ua1yOcTRv4n34eqFBjC3Vw-Hi7IRcilDbBONhA6UL0s=" alt="Breakfast">
+                      <p><strong>Breakfast:</strong> Oatmeal with berries, nuts, and chia seeds</p>
+                    </div>
+                    <div class="meal-example">
+                      <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Lunch">
+                      <p><strong>Lunch:</strong> Quinoa salad with mixed vegetables and chickpeas</p>
+                    </div>
+                    <div class="meal-example">
+                      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dinner">
+                      <p><strong>Dinner:</strong> Lentil stew with sweet potatoes and kale</p>
+                    </div>
+                  </div>`
+    },
+    {
+        name: "Exercise",
+        icon: "fas fa-running",
+        image: "https://images.unsplash.com/photo-1551357176-3158cabfc336?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBoeXNpY2FsJTIwZXhlcmNpc2UlMjBpbiUyMGFmcmljYXxlbnwwfHwwfHx8MA%3D%3D",
+        description: "Regular physical activity improves cardiovascular health, strengthens muscles, boosts mood, and enhances overall vitality.",
+        details: `<p>Aim for 150 minutes of moderate exercise or 75 minutes of vigorous activity weekly.</p>
+                  <h4>Recommended Activities:</h4>
+                  <ul>
+                    <li>Brisk walking for 30 minutes daily</li>
+                    <li>Strength training 2-3 times weekly</li>
+                    <li>Stretching and flexibility exercises</li>
+                    <li>Outdoor activities like gardening and hiking</li>
+                  </ul>`
+    },
+    {
+        name: "Water",
+        icon: "fas fa-tint",
+        image: "https://media.istockphoto.com/id/2163514261/photo/boy-drinking-water-from-a-bottle-on-a-sunny-hot-day.webp?a=1&b=1&s=612x612&w=0&k=20&c=ADC9cFwz86iJURgop2ZiYNJJ_0JZLkRr6Hp99P95DGc=",
+        description: "Adequate hydration supports digestion, detoxification, temperature regulation, and overall cellular function.",
+        details: `<p>Drink 8-10 glasses of pure water daily. Increase intake during exercise or hot weather.</p>
+                  <h4>Hydration Tips:</h4>
+                  <ul>
+                    <li>Start your day with a glass of warm lemon water</li>
+                    <li>Carry a reusable water bottle</li>
+                    <li>Eat water-rich fruits and vegetables</li>
+                    <li>Monitor urine color (pale yellow indicates proper hydration)</li>
+                  </ul>`
+    },
+    {
+        name: "Sunlight",
+        icon: "fas fa-sun",
+        image: "https://plus.unsplash.com/premium_photo-1682097476353-5dd9c79451a3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bW9ybmluZyUyMHN1bmxpZ2h0fGVufDB8fDB8fHww",
+        description: "Morning sunlight exposure regulates circadian rhythms, boosts vitamin D production, and improves mood and sleep quality.",
+        details: `<p>Aim for 10-30 minutes of morning sun exposure (before 10 AM) several times weekly.</p>
+                  <h4>Benefits Include:</h4>
+                  <ul>
+                    <li>Vitamin D synthesis for bone health</li>
+                    <li>Improved circadian rhythm regulation</li>
+                    <li>Enhanced mood and reduced depression risk</li>
+                    <li>Boosted immune system function</li>
+                  </ul>`
+    },
+    {
+        name: "Temperance",
+        icon: "fas fa-ban",
+        image: "https://media.istockphoto.com/id/2183304814/photo/farmers-enjoying-wine-and-food-after-olive-harvest-in-scenic-orchard.jpg?s=612x612&w=0&k=20&c=ZLg8Mf2EpvqJLZDQR_RIZK9xiKbZF_esb5xQmXd_hSA=",
+        description: "Abstinence from harmful substances and moderation in all beneficial things promotes clear thinking and physical wellbeing.",
+        details: `<p>Avoid tobacco, alcohol, and recreational drugs. Limit caffeine and practice moderation in all areas of life.</p>
+                  <h4>Areas of Application:</h4>
+                  <ul>
+                    <li>Complete abstinence from harmful substances</li>
+                    <li>Moderation in work, recreation, and eating</li>
+                    <li>Balanced lifestyle with proper priorities</li>
+                    <li>Self-control in thoughts, words, and actions</li>
+                  </ul>`
+    },
+    {
+        name: "Air",
+        icon: "fas fa-wind",
+        image: "https://media.istockphoto.com/id/2202102631/photo/woman-and-teenager-sharing-snacks-sitting-on-grass-in-park.jpg?s=612x612&w=0&k=20&c=lx68n3SsSSlRx0BFu84xT_1NzKtzqTZZ0Yx8o0quV8E=",
+        description: "Fresh air improves oxygenation, supports respiratory health, and enhances mental clarity and energy levels.",
+        details: `<p>Ensure proper ventilation in living spaces and spend time outdoors daily for optimal air quality.</p>
+                  <h4>Breathing Techniques:</h4>
+                  <ul>
+                    <li>Practice deep diaphragmatic breathing</li>
+                    <li>Try the 4-7-8 technique for relaxation</li>
+                    <li>Incorporate outdoor walks in natural settings</li>
+                    <li>Use indoor plants to improve air quality</li>
+                  </ul>`
+    },
+    {
+        name: "Rest",
+        icon: "fas fa-bed",
+        image: "https://media.istockphoto.com/id/147301794/photo/young-man-relaxing.webp?a=1&b=1&s=612x612&w=0&k=20&c=y30wptWE5YymLq10uwj4yu17RcVfr6bjI4mMyccK2ak=",
+        description: "Adequate sleep and regular rest periods are essential for physical repair, mental rejuvenation, and immune function.",
+        details: `<p>Aim for 7-9 hours of quality sleep nightly and incorporate rest periods throughout your day.</p>
+                  <h4>Sleep Hygiene Tips:</h4>
+                  <ul>
+                    <li>Maintain consistent sleep schedule</li>
+                    <li>Create a dark, quiet, cool sleep environment</li>
+                    <li>Avoid screens 1-2 hours before bedtime</li>
+                    <li>Practice relaxation techniques before sleep</li>
+                  </ul>`
+    },
+    {
+        name: "Trust in Divine Power",
+        icon: "fas fa-hands-praying",
+        image: "https://images.unsplash.com/photo-1497621122273-f5cfb6065c56?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmlibGV8ZW58MHx8MHx8fDA%3D",
+        description: "Spiritual connection and faith in God provide peace, purpose, and strength that positively impact physical and mental health.",
+        details: `<p>Regular prayer, meditation on Scripture, and trust in God's care reduce stress and promote holistic wellbeing.</p>
+                  <h4>Spiritual Practices:</h4>
+                  <ul>
+                    <li>Daily prayer and meditation</li>
+                    <li>Scripture reading and reflection</li>
+                    <li>Participation in faith community</li>
+                    <li>Practicing gratitude and forgiveness</li>
+                  </ul>`
+    }
+];
+
+// Health Resources Array - 4 specific disease remedy articles
+const resources = [
+    {
+        title: "Natural Treatment for Malaria",
+        category: "malaria",
+        img: "https://media.istockphoto.com/id/2207657687/photo/wild-horse-sorrel-rumex-confertus-perennial-herbaceous-plant-close-up.jpg?s=612x612&w=0&k=20&c=lCp9FJZwVHntuTN0r5sNlFK9Bn31oxJ_Ya9vsQWPX7o=",
+        desc: "Complete guide to treating malaria naturally using herbal remedies, hydrotherapy, and dietary interventions.",
+        fullContent: `
+            <div class="article-section">
+                <h4>Understanding Malaria</h4>
+                <p>Malaria is a mosquito-borne disease caused by Plasmodium parasites. While conventional treatment is essential, natural remedies can support recovery and strengthen immunity.</p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h5><i class="fas fa-leaf"></i> Herbal Remedies</h5>
+                        <p><strong>Artemisia annua (Sweet Wormwood):</strong> Contains artemisinin, proven effective against malaria parasites. Take as tea 3 times daily.</p>
+                        <p><strong>Neem leaves:</strong> Boil 10-15 fresh neem leaves in water for 10 minutes. Drink 1 cup 3 times daily.</p>
+                        <p><strong>Papaya leaf extract:</strong> Crush fresh papaya leaves to extract juice. Take 2 tablespoons 3 times daily to increase platelet count.</p>
+                    </div>
+                    <div class="key-point">
+                        <h5><i class="fas fa-tint"></i> Hydrotherapy</h5>
+                        <p><strong>Cold compress for fever:</strong> Apply cold compress to forehead, wrists, and calves to reduce fever.</p>
+                        <p><strong>Wet sheet pack:</strong> Wrap in wet sheet covered with dry blanket for 45 minutes to break fever.</p>
+                        <p><strong>Frequent sponge bath:</strong> Use lukewarm water to reduce body temperature gently.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="article-section">
+                <h4>Dietary Management</h4>
+                <p><strong>During fever:</strong> Liquid diet only - vegetable broths, herbal teas, fresh fruit juices diluted with water.</p>
+                <p><strong>Recovery phase:</strong> Soft, easily digestible foods - mashed potatoes, cooked vegetables, porridge.</p>
+                <p><strong>Avoid:</strong> Heavy proteins, fried foods, dairy products, sugar, and caffeine.</p>
+                
+                <h4>Prevention Strategies</h4>
+                <ul>
+                    <li>Use mosquito nets treated with neem oil</li>
+                    <li>Burn neem leaves or citronella to repel mosquitoes</li>
+                    <li>Eat garlic regularly to make skin less attractive to mosquitoes</li>
+                    <li>Maintain clean surroundings to eliminate breeding sites</li>
+                </ul>
+                <p style="color:tomato;"><strong style="color:red;">Important:</strong> Malaria can be life-threatening. Always seek medical attention for proper diagnosis and treatment. Natural remedies should complement, not replace, conventional care.
+            </div>
+        `,
+        readTime: "18 min read",
+        author: "Dr. Herbal Medicine Specialist"
+    },
+    {
+        title: "Natural Remedies for Pneumonia",
+        category: "respiratory",
+        img: "https://images.unsplash.com/photo-1471943311424-646960669fbc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z2FybGljJTIwYW5kJTIwaG9uZXl8ZW58MHx8MHx8fDA%3D",
+        desc: "Herbal treatments, breathing exercises, and natural therapies to support recovery from pneumonia.",
+        fullContent: `
+            <div class="article-section">
+                <h4>Pneumonia Natural Management</h4>
+                <p>Pneumonia is an infection that inflames the air sacs in one or both lungs. Natural remedies can complement medical treatment and speed recovery.</p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h5><i class="fas fa-leaf"></i> Herbal Expectorants</h5>
+                        <p><strong>Thyme tea:</strong> Steep 2 teaspoons dried thyme in hot water. Drink 3 cups daily to loosen mucus.</p>
+                        <p><strong>Garlic and honey syrup:</strong> Crush 3 garlic cloves mixed with 1 tablespoon honey. Take 1 teaspoon 3 times daily.</p>
+                        <p><strong>Eucalyptus steam inhalation:</strong> Add 5 drops eucalyptus oil to hot water. Inhale steam for 10 minutes, 2-3 times daily.</p>
+                    </div>
+                    <div class="key-point">
+                        <h5><i class="fas fa-lungs"></i> Breathing Exercises</h5>
+                        <p><strong>Deep breathing:</strong> Inhale deeply through nose, hold 3 seconds, exhale slowly through pursed lips. Repeat 10 times hourly.</p>
+                        <p><strong>Postural drainage:</strong> Lie with chest lower than hips to help drain lung secretions.</p>
+                        <p><strong>Percussion therapy:</strong> Gentle tapping on chest and back to loosen mucus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="article-section">
+                <h4>Nutritional Support</h4>
+                <p><strong>Anti-inflammatory foods:</strong> Turmeric, ginger, pineapple (contains bromelain).</p>
+                <p><strong>Immune boosters:</strong> Vitamin C-rich foods (oranges, bell peppers, kiwi).</p>
+                <p><strong>Hydration:</strong> Drink warm fluids - herbal teas, broths, warm water with lemon.</p>
+                
+                <h4>Hydrotherapy Applications</h4>
+                <ul>
+                    <li>Chest compress: Apply warm, moist cloth to chest for 20 minutes, 3 times daily</li>
+                    <li>Alternating hot and cold foot baths to improve circulation</li>
+                    <li>Full body sponge with cool water for fever reduction</li>
+                </ul>
+                <p style="tomato;"><strong>Note:</strong> Always consult a healthcare professional for pneumonia treatment. Natural remedies should complement, not replace, medical care.
+            </div>
+        `,
+        readTime: "15 min read",
+        author: "Respiratory Health Expert"
+    },
+    {
+        title: "Natural Blood Pressure Management",
+        category: "heart",
+        img: "https://images.unsplash.com/photo-1634934044791-44efcd71ac04?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D",
+        desc: "Dietary changes, herbal supplements, and lifestyle modifications to manage hypertension naturally.",
+        fullContent: `
+            <div class="article-section">
+                <h4>Understanding Hypertension</h4>
+                <p>High blood pressure is often called the "silent killer" because it typically has no symptoms. Natural approaches can effectively lower blood pressure.</p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h5><i class="fas fa-apple-alt"></i> Dietary Interventions</h5>
+                        <p><strong>DASH Diet:</strong> Focus on fruits, vegetables, whole grains, and low-fat dairy.</p>
+                        <p><strong>Reduce sodium:</strong> Limit to 1,500-2,300 mg daily. Avoid processed foods.</p>
+                        <p><strong>Increase potassium:</strong> Bananas, sweet potatoes, spinach, avocados.</p>
+                        <p><strong>Garlic:</strong> Consume 1-2 raw cloves daily or take aged garlic extract.</p>
+                    </div>
+                    <div class="key-point">
+                        <h5><i class="fas fa-leaf"></i> Herbal Remedies</h5>
+                        <p><strong>Hibiscus tea:</strong> Drink 3 cups daily - studies show it can lower systolic BP by 7-10 points.</p>
+                        <p><strong>Celery seed extract:</strong> Acts as natural diuretic and vasodilator.</p>
+                        <p><strong>Hawthorn berry:</strong> Supports heart function and lowers blood pressure.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="article-section">
+                <h4>Lifestyle Modifications</h4>
+                <p><strong>Exercise:</strong> 30 minutes moderate activity most days (walking, cycling, swimming).</p>
+                <p><strong>Stress management:</strong> Daily meditation, deep breathing exercises, prayer.</p>
+                <p><strong>Weight management:</strong> Lose 5-10% of body weight if overweight.</p>
+                <p><strong>Sleep:</strong> Aim for 7-8 hours quality sleep nightly.</p>
+                
+                <h4>Hydrotherapy Techniques</h4>
+                <ul>
+                    <li>Alternating hot and cold showers to improve circulation</li>
+                    <li>Warm foot baths with Epsom salt before bedtime</li>
+                    <li>Neutral bath (body temperature) for 20-30 minutes to calm nervous system</li>
+                </ul>
+                <p style="color:tomato;"><strong style="color:red;">Note:</strong> Always consult a healthcare professional for hypertension management. Natural remedies should complement, not replace, medical care.
+            </div>
+        `,
+        readTime: "20 min read",
+        author: "Cardiologist Dr. James Wilson"
+    },
+    {
+        title: "Natural Diabetes Management",
+        category: "diet",
+        img: "https://media.istockphoto.com/id/1053220456/photo/mixed-dried-legumes-and-cereals-isolated-on-white-background-top-view.jpg?s=612x612&w=0&k=20&c=iUvROAbGBsrwYltS5dnJZ7wMCivfUYaWbOz8d_fHV2A=",
+        desc: "Dietary strategies, herbal treatments, and lifestyle changes to manage blood sugar levels naturally.",
+        fullContent: `
+            <div class="article-section">
+                <h4>Managing Diabetes Naturally</h4>
+                <p>Type 2 diabetes can often be controlled and sometimes reversed through natural lifestyle interventions.</p>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h5><i class="fas fa-utensils"></i> Dietary Management</h5>
+                        <p><strong>Low glycemic index foods:</strong> Whole grains, legumes, non-starchy vegetables.</p>
+                        <p><strong>Fenugreek seeds:</strong> Soak 2 tablespoons overnight, drink water and eat seeds in morning.</p>
+                        <p><strong>Cinnamon:</strong> 1-2 teaspoons daily can improve insulin sensitivity.</p>
+                        <p><strong>Bitter melon:</strong> Juice or cooked vegetable helps lower blood sugar.</p>
+                    </div>
+                    <div class="key-point">
+                        <h5><i class="fas fa-running"></i> Lifestyle Interventions</h5>
+                        <p><strong>Regular exercise:</strong> 150 minutes weekly of aerobic activity plus strength training.</p>
+                        <p><strong>Weight loss:</strong> 5-10% reduction significantly improves insulin sensitivity.</p>
+                        <p><strong>Stress reduction:</strong> Chronic stress raises blood sugar through cortisol.</p>
+                        <p><strong>Sleep optimization:</strong> Poor sleep affects glucose metabolism.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="article-section">
+                <h4>Herbal and Natural Supplements</h4>
+                <p><strong>Berberine:</strong> From various plants, works similarly to metformin.</p>
+                <p><strong>Gymnema Sylvestre:</strong> "Sugar destroyer" - reduces sugar absorption.</p>
+                <p><strong>Alpha-lipoic acid:</strong> Antioxidant that improves insulin sensitivity.</p>
+                <p><strong>Chromium:</strong> Mineral that enhances insulin action.</p>
+                
+                <h4>Hydrotherapy Applications</h4>
+                <ul>
+                    <li>Contrast baths for feet to improve circulation</li>
+                    <li>Wet sheet pack to improve insulin sensitivity</li>
+                    <li>Constitutional hydrotherapy (alternating hot and cold applications)</li>
+                </ul>
+                <p style="color:tomato;"><strong style="color:red;">Note:</strong> Always consult a healthcare professional for diabetes management. Natural remedies should complement, not replace, medical care.
+            </div>
+        `,
+        readTime: "22 min read",
+        author: "Diabetes Nutrition Specialist"
+    },
+ {
+        title: "Natural Teeth Management",
+        category: "Teeth",
+        img: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dGVldGh8ZW58MHx8MHx8fDA%3D",
+        desc: "Natural remedies and preventive care for maintaining healthy teeth and gums.",
+        fullContent: `
+            <div class="article-section">
+                <h4>Managing Teeth Naturally</h4>
+                <p>A toothache is mild to severe pain in or around your teeth and jaws. It may indicate that you have a tooth or gum concern.
+
+If you have a toothache, it’s important to figure out what’s at the root of your discomfort. From there, you can determine how to best relieve any pain, swelling, or other symptoms.
+
+A regular salt water rinse and cold compress application can typically remedy minor irritation, but more serious toothaches may require a dentist’s intervention.
+
+<span style="red;">If your symptoms persist for more than a day or two, see your dentist</span>. They can provide guidance on how to relieve your symptoms and prevent future pain.
+
+<strong style="color:red;">You should also talk with your dentist before using any of the following remedies if you're pregnant, breastfeeding, or have any medical condition that may be impacted by herbal ingredients.</p></strong>
+                
+                <div class="key-points">
+                    <div class="key-point">
+                        <h5><i class="fas fa-tooth"></i> Teeth Management</h5>
+                        <p><strong>Salt Water Rinse:</strong> For many people, a saltwater rinse is an effective first-line treatment. Salt water is a natural disinfectant, and it can help loosen food particles and debris that may be stuck in between your teeth.
+Treating a toothache with salt water.Trusted Source can also help reduce inflammation and heal any oral wounds.
+To use this approach, mix 1/2 teaspoon (tsp) of salt into a glass of warm water and use it as a<span style="color:teal"> mouthwash.</p>
+
+                        <p><strong>Hydrogen Peroxide Rinse</strong><span style="color:teal"> A hydrogen peroxide rinse</span> may also help to relieve pain and inflammation. In addition to killing bacteria, <span style="color:teal">hydrogen peroxide can reduce plaque and heal bleeding gums.<br>
+
+Make sure you properly dilute the hydrogen peroxide. To do this, mix 3-percent hydrogen peroxide with equal parts water, and use it as a mouthwash. <strong style ="color:red">Don't swallow it.</strong></p>
+                        <p><strong>Cold Compress</strong> 
+                            You can use a cold compress to relieve any pain you're experiencing, especially if any type of trauma has caused your toothache.
+
+When you apply a <span style:color:teal">cold compress,</span> it causes the blood vessels in the area to constrict. This makes pain less severe. The cold can also reduce any swelling and inflammation.
+
+To use this approach, hold a towel-wrapped bag of ice to the affected area for 20 minutes at a time. You can repeat this every few hours.</p>
+
+                        <p><strong>Peppermint tea bags</strong> Peppermint tea bags can be used to numb pain and soothe sensitive gums.
+
+Allow a used tea bag to cool down a little before applying it to the affected area. It should still be slightly warm.
+
+You can also use this method to cool, rather than warm, the area. To do this, put a used tea bag in the freezer for a couple of minutes to chill it and then apply the bag to your tooth. Learn more about the health benefits of peppermint.</p>
+
+                    </div>
+                    <div class="key-point">
+                        <h5><i class="fas fa-garlic"></i>Garlic</h5>
+                        <p><strong>use of garlic</strong> For thousands of years, garlic has been recognized and used for its medicinal properties. It also has antibacterialTrusted Source properties. Not only can it kill harmful bacteriaTrusted Source that cause dental plaque, but it can also act as a pain reliever.
+
+To use garlic on a toothache, crush a garlic clove to create a paste and apply it to the affected area. You may wish to add a tiny bit of salt. Alternatively, you can slowly chew a clove of fresh garlic.</p>
+                        <p><strong>Thymestrong> Thyme also has powerful antibacterial and antioxidant propertiesTrusted Source that can help to treat toothaches. It can even help fight bacteriaTrusted Source that contribute to tooth decay.
+
+To use this, dilute thyme essential oil with a carrier oil, and then apply it to the affected area.
+
+You can also add a drop of the oil to a small glass of water and make a mouthwash.</p>
+                      
+                    </div>
+                </div>
+            </div>
+            
+            <div class="article-section">
+               
+                
+                <h4>Possible Causes</h4>
+                <ul>
+                   <li> Dental decay: </li>
+<li><strong>Abscess:</strong> A dental abscess is a tooth infection that can occur if a cavity goes untreated. If you have an abscess, your dentist may prescribe antibiotics, perform a root canal, or extract your tooth.</li>
+<li><strong>Teeth grinding (bruxism):</strong> If grinding or clenching your teeth is causing pain, your dentist may recommend a mouthguard.</li>
+<li><strong>Periodontal disease:</strong> When plaque buildup leads to gingivitis, it's possible for you to develop periodontal disease. This gum infection needs professional attention to remove tartar from your teeth and slow disease progression.</li>
+
+
+<h5>Some foods can especially cause plaque buildup, including:</h5>
+<ul>
+<li>citrus</li><li>bread</li><li>sour candies</li><li>potato chips</li><li>dried fruits</li><li>carbonated drinks</li><li>alcohol</li><li>ice</li>
+<p style="color:teal">Brush and floss after eating these foods to help prevent plaque buildup, or consider limiting them in your diet</p>
+                </ul>
+                <p style="color:tomato;"><strong style="color:red;">Note:</strong> Always consult a healthcare professional for diabetes management. Natural remedies should complement, not replace, medical care.
+            </div>
+        `,
+        readTime: "28 min read",
+        author: "Medically reviewed by Olivia Sugimoto, D.M.D. — Written by Emily Cronkleton"
+    }
+];
+
+let filteredData = [...resources];
+let currentPage = 1;
+const itemsPerPage = 9;
+
+// Initialize display
+function displayResources() {
+    const container = document.getElementById('blogContainer');
+    container.innerHTML = '';
+    
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const pageItems = filteredData.slice(startIndex, endIndex);
+    
+    pageItems.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'blog-card';
+        card.style.animationDelay = `${index * 0.1}s`;
+        
+        card.innerHTML = `
+            <div class="card-image">
+                <img src="${item.img}" alt="${item.title}" loading="lazy">
+            </div>
+            <div class="card-content">
+                <span class="category-badge ${item.category}">
+                    <i class="${getCategoryIcon(item.category)}"></i>
+                    ${getCategoryName(item.category)}
+                </span>
+                <h3>${item.title}</h3>
+                <p class="card-description">${item.desc}</p>
+                <button class="read-more-btn" onclick="openModal(${startIndex + index})">
+                    <i class="fas fa-book-open"></i> Read Remedy Guide
+                </button>
+                <div class="card-meta">
+                    <span><i class="far fa-clock"></i> ${item.readTime}</span>
+                    <span><i class="far fa-user"></i> ${item.author.split(',')[0]}</span>
+                </div>
+            </div>
+        `;
+        
+        container.appendChild(card);
+    });
+    
+    updatePagination();
+}
+
+// Display Eight Laws
+function displayEightLaws() {
+    const container = document.getElementById('eightLawsContainer');
+    container.innerHTML = '';
+    
+    eightLaws.forEach((law, index) => {
+        const card = document.createElement('div');
+        card.className = 'law-card';
+        card.style.animationDelay = `${index * 0.1}s`;
+        
+        card.innerHTML = `
+            <div class="law-image">
+                <img src="${law.image}" alt="${law.name}" loading="lazy">
+            </div>
+            <div class="law-content">
+                <span class="law-badge">
+                    <i class="${law.icon}"></i>
+                    ${law.name}
+                </span>
+                <h3>${law.name}</h3>
+                <p class="law-description">${law.description}</p>
+                <div class="law-details">
+                    ${law.details}
+                </div>
+            </div>
+        `;
+        
+        container.appendChild(card);
+    });
+}
+
+function getCategoryIcon(category) {
+    const icons = {
+        'heart': 'fas fa-heart',
+        'diet': 'fas fa-apple-alt',
+        'malaria': 'fas fa-bug',
+        'respiratory': 'fas fa-lungs',
+        'remedies': 'fas fa-leaf',
+        'prevention': 'fas fa-shield-alt',
+        'teeth': 'fas fa-hospital'
+    };
+    return icons[category] || 'fas fa-file-alt';
+}
+
+function getCategoryName(category) {
+    const names = {
+        'heart': 'Blood Pressure',
+        'diet': 'Diet Therapy',
+        'malaria': 'Malaria',
+        'respiratory': 'Respiratory',
+        'remedies': 'Natural Remedies',
+        'prevention': 'Prevention'
+    };
+    return names[category] || category.charAt(0).toUpperCase() + category.slice(1);
+}
+
+function filterCategory(cat) {
+    // Update active button
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    // Filter data
+    filteredData = cat === 'all' ? [...resources] : resources.filter(item => item.category === cat);
+    currentPage = 1;
+    displayResources();
+}
+
+function updatePagination() {
+    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+    document.getElementById('currentPage').textContent = currentPage;
+    document.getElementById('totalPages').textContent = totalPages;
+    
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+}
+
+function nextPage() {
+    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+    if (currentPage < totalPages) {
+        currentPage++;
+        displayResources();
+        window.scrollTo({ top: 800, behavior: 'smooth' });
+    }
+}
+
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        displayResources();
+        window.scrollTo({ top: 800, behavior: 'smooth' });
+    }
+}
+
+// Search functionality
+document.getElementById('searchInput').addEventListener('input', function(e) {
+    const searchTerm = e.target.value.toLowerCase();
+    
+    filteredData = resources.filter(item => 
+        item.title.toLowerCase().includes(searchTerm) ||
+        item.desc.toLowerCase().includes(searchTerm) ||
+        item.author.toLowerCase().includes(searchTerm) ||
+        item.category.toLowerCase().includes(searchTerm)
+    );
+    
+    currentPage = 1;
+    displayResources();
+});
+
+// Modal functions
+function openModal(index) {
+    const item = filteredData[index];
+    const modal = document.getElementById('modalBox');
+    
+    document.getElementById('modalTitle').textContent = item.title;
+    document.getElementById('modalBody').innerHTML = item.fullContent;
+    
+    // Update share links
+    const shareText = encodeURIComponent(`Check out this natural remedy: "${item.title}" - ${item.desc}`);
+    const shareUrl = encodeURIComponent(window.location.href);
+    
+    document.getElementById('whatsappShare').href = `https://wa.me/?text=${shareText}`;
+    document.getElementById('facebookShare').href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+    document.getElementById('xShare').href = `https://twitter.com/intent/tweet?text=${shareText}`;
+    document.getElementById('emailShare').href = `mailto:?subject=${encodeURIComponent(item.title)}&body=${shareText}`;
+    
+    modal.style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('modalBox').style.display = 'none';
+}
+
+
+
+// Close modal when clicking outside
+window.addEventListener('click', function(e) {
+    const modal = document.getElementById('modalBox');
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+// Initialize
+displayEightLaws();
+displayResources();
+</script>
+</body>
+</html>

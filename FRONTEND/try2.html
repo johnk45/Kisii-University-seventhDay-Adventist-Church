@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Business Homepage</title>
+
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --dark: #0f172a;
+      --muted: #64748b;
+      --light: #f8fafc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    header {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    /* Hero */
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 5rem 1rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: auto;
+      margin-bottom: 2rem;
+    }
+
+    .hero .actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    /* Services */
+    .services {
+      background: white;
+      padding: 4rem 1rem;
+    }
+
+    .services .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .services h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2rem;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 14px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .service-card i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    /* Stats */
+    .stats {
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, #e0e7ff, #f8fafc);
+    }
+
+    .stats-grid {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .stat h3 {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+
+    /* CTA */
+    .cta {
+      background: var(--dark);
+      color: white;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .cta h2 { margin-bottom: 1rem; }
+
+    /* Footer */
+    footer {
+      background: #020617;
+      color: #94a3b8;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    @media(max-width: 768px) {
+      .nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="nav">
+      <div class="logo"><i class='bx bx-briefcase'></i> JTECH Softwares</div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Innovative Software Solutions for Modern Businesses</h1>
+    <p>JTECH Softwares delivers secure, scalable, and high‑performance software tailored to your business needs.</p>
+    <div class="actions">
+      <a href="#contact" class="btn btn-primary"><i class='bx bx-rocket'></i> Get Started</a>
+      <a href="#contact" class="btn btn-outline"><i class='bx bx-envelope'></i> Contact Us</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="service-grid">
+        <div class="service-card">
+          <i class='bx bx-code-alt'></i>
+          <h3>Web Development</h3>
+          <p>Custom websites and web applications using modern technologies.</p>
+        </div>
+        <div class="service-card">
+          <i class='bx bx-mobile-alt'></i>
+          <h3>Mobile App Development</h3>
+          <p>Android and cross‑platform mobile apps built for performance.</p>
+        </div>
+        <div class="service-card">
+          <i class='bx bx-data'></i>
+          <h3>Software Systems</h3>
+          <p>Enterprise systems, management software, and automation tools.</p>
+        </div>
+        <div class="service-card">
+          <i class='bx bx-cloud'></i>
+          <h3>Cloud Solutions</h3>
+          <p>Deployment, hosting, and cloud‑based application solutions.</p>
+        </div>
+        <div class="service-card">
+          <i class='bx bx-shield-quarter'></i>
+          <h3>Cybersecurity</h3>
+          <p>Secure systems, data protection, and vulnerability management.</p>
+        </div>
+        <div class="service-card">
+          <i class='bx bx-support'></i>
+          <h3>IT Support & Maintenance</h3>
+          <p>Ongoing support, updates, and system optimization.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat">
+        <h3>500+</h3>
+        <p>Clients Served</p>
+      </div>
+      <div class="stat">
+        <h3>98%</h3>
+        <p>Satisfaction Rate</p>
+      </div>
+      <div class="stat">
+        <h3>10+</h3>
+        <p>Years Experience</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Ready to take your business to the next level?</h2>
+    <a href="#" class="btn btn-primary"><i class='bx bx-send'></i> Talk to Us</a>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="services">
+    <div class="container">
+      <h2>Contact JTECH Softwares</h2>
+      <form style="max-width:600px;margin:auto;display:grid;gap:1rem;">
+        <input type="text" placeholder="Your Name" required style="padding:0.8rem;border-radius:8px;border:1px solid #ccc;">
+        <input type="email" placeholder="Your Email" required style="padding:0.8rem;border-radius:8px;border:1px solid #ccc;">
+        <input type="text" placeholder="Subject" style="padding:0.8rem;border-radius:8px;border:1px solid #ccc;">
+        <textarea rows="4" placeholder="Your Message" style="padding:0.8rem;border-radius:8px;border:1px solid #ccc;"></textarea>
+        <button class="btn btn-primary" type="submit"><i class='bx bx-send'></i> Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 JTECH Softwares. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

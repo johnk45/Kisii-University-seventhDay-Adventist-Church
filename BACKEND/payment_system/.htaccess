@@ -1,0 +1,28 @@
+# Enable rewrite engine
+RewriteEngine On
+
+# API endpoints
+RewriteRule ^api/initiate$ api/initiate.php [L,QSA]
+RewriteRule ^api/status/([^/]+)$ api/status.php?id=$1 [L,QSA]
+RewriteRule ^api/mpesa-callback$ api/mpesa-callback.php [L,QSA]
+RewriteRule ^api/airtel-callback$ api/airtel-callback.php [L,QSA]
+
+# Security headers
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-XSS-Protection "1; mode=block"
+
+# Prevent directory listing
+Options -Indexes
+
+# Protect config files
+<FilesMatch "^\.htaccess|config\.php|constants\.php">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Set PHP settings
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 300
+php_value max_input_time 300

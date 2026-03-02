@@ -1,0 +1,52 @@
+[
+  {
+    "title": "KSUSDA Choir - I Will Sing",
+    "description": "A powerful worship song by KUSDA Choir.",
+    "type": "audio",
+    "file":"image/assetss/asubuhi ni karibu.mp3"
+  },
+  {
+    "title": "KSUSDA Choir - Lift Him Up",
+    "description": "Praise worship song.",
+    "type": "audio",
+    "file": "image/Blue and White Modern Esport Game Presentation (1).mp4"
+  },
+  {
+"title": "KSUSDA -Trusting God",
+"description": "Powerful song by KSUSDA choir",
+"type": "audio",
+"file":""
+  },
+  {
+    "title": "KSUSDA Sabbath Live Recording",
+    "description": "A blessing video from last Sabbath.",
+    "type": "video",
+    "file": "image/Blue and White Modern Esport Game Presentation (1).mp4"
+  },
+  {
+    "title": "KSUSDA Sabbath Live Recording",
+    "description": "A blessing video from last Sabbath.",
+    "type": "video",
+    "file": "https://sabbathsermons.com/wp-content/uploads/2023/12/20231223-Is-It-Well-With-Your-Soul-MB.mp3"
+  },
+  {
+    "title": "Tis Almost Time for the Lord to Come",
+    "description": "A blessing video from last Sabbath.",
+    "type": "audio",
+    "file": "http://sdahymnals.com/Hymnal/mp3/212%20%E2%80%93%20'Tis%20Almost%20Time%20for%20the%20Lord%20to%20Come.mp3"
+  }
+  ,
+  {
+    "title": "518 – Standing on the Promises",
+    "description": "A blessing video from last Sabbath.",
+    "type": "audio",
+    "file": "http://sdahymnals.com/Hymnal/mp3/518%20%E2%80%93%20Standing%20on%20the%20Promises.mp3"
+  },
+   {
+    "title": "618 – Stand Up! Stand Up for Jesus!",
+    "description": "A blessing video from last Sabbath.",
+    "type": "audio",
+    "file": "http://sdahymnals.com/Hymnal/mp3/618%20%E2%80%93%20Stand%20Up!%20Stand%20Up%20for%20Jesus!.mp3"
+  }
+  
+]

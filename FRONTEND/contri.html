@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give Generously - KUSDA Church</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2a6e3f;
+            --primary-light: #3a8e4f;
+            --secondary-color: #1a4b2a;
+            --accent-color: #32CD32; /* M-Pesa green */
+            --mpesa-green: #32CD32;
+            --airtel-red: #ED1C24;
+            --orange: #FF6600;
+            --light-color: #f8f9fa;
+            --gray-color: #6c757d;
+            --dark-color: #343a40;
+            --border-radius: 10px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: white;
+            position: relative;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        /* Donation Type Selector */
+        .donation-type-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .donation-type-btn {
+            flex: 1;
+            padding: 18px 25px;
+            text-align: center;
+            background-color: white;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .donation-type-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .donation-type-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Payment Method Selector */
+        .payment-method-selector {
+            margin: 30px 0;
+        }
+
+        .payment-method-selector h3 {
+            margin-bottom: 20px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .payment-method {
+            padding: 25px 20px;
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .payment-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .payment-method.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(42, 110, 63, 0.05);
+            position: relative;
+        }
+
+        .payment-method.selected:after {
+            content: '✓';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .payment-method.mpesa {
+            border-color: var(--mpesa-green);
+        }
+
+        .payment-method.mpesa.selected {
+            background-color: rgba(50, 205, 50, 0.1);
+            border-color: var(--mpesa-green);
+        }
+
+        .payment-method.airtel {
+            border-color: var(--airtel-red);
+        }
+
+        .payment-method.airtel.selected {
+            background-color: rgba(237, 28, 36, 0.1);
+            border-color: var(--airtel-red);
+        }
+
+        .payment-method.paypal {
+            border-color: #003087;
+        }
+
+        .payment-method.paypal.selected {
+            background-color: rgba(0, 48, 135, 0.1);
+            border-color: #003087;
+        }
+
+        .payment-method-icon {
+            font-size: 2.5rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mpesa-icon {
+            color: var(--mpesa-green);
+            font-size: 2.8rem;
+        }
+
+        .airtel-icon {
+            color: var(--airtel-red);
+        }
+
+        .paypal-icon {
+            color: #003087;
+        }
+
+        .card-icon {
+            color: var(--primary-color);
+        }
+
+        .bank-icon {
+            color: #6c757d;
+        }
+
+        /* Form Containers */
+        .form-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+            margin-bottom: 40px;
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Payment Forms */
+        .payment-form {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .payment-form.active {
+            display: block;
+        }
+
+        /* M-Pesa Specific Styles */
+        .mpesa-instructions {
+            background-color: rgba(50, 205, 50, 0.1);
+            border-left: 4px solid var(--mpesa-green);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+        }
+
+        .mpesa-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .mpesa-step {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid #e9ecef;
+        }
+
+        .mpesa-step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: var(--mpesa-green);
+            color: white;
+            border-radius: 50%;
+            line-height: 30px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Airtel Money Specific */
+        .airtel-instructions {
+            background-color: rgba(237, 28, 36, 0.1);
+            border-left: 4px solid var(--airtel-red);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .phone-input-group {
+            display: flex;
+            align-items: center;
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .phone-prefix {
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-right: 2px solid #ddd;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .phone-input {
+            flex: 1;
+            border: none;
+            padding: 15px;
+            font-size: 1rem;
+        }
+
+        .phone-input:focus {
+            outline: none;
+        }
+
+        /* Amount Selection */
+        .donation-amount-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .amount-btn {
+            padding: 18px 10px;
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            background-color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .amount-btn:hover {
+            border-color: var(--primary-color);
+            background-color: #f8fff9;
+        }
+
+        .amount-btn.selected {
+            border-color: var(--primary-color);
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .custom-amount {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            gap: 10px;
+        }
+
+        .currency-symbol {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        #customAmount {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Recurring Options */
+        .recurring-options {
+            display: flex;
+            gap: 15px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .recurring-option {
+            flex: 1;
+            min-width: 120px;
+            padding: 15px 10px;
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            background-color: white;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .recurring-option:hover {
+            border-color: var(--primary-color);
+        }
+
+        .recurring-option.selected {
+            border-color: var(--primary-color);
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Security Badges */
+        .security-badges {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .security-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            color: var(--gray-color);
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 16px 30px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(42, 110, 63, 0.3);
+        }
+
+        .btn-mpesa {
+            background-color: var(--mpesa-green);
+            color: white;
+        }
+
+        .btn-mpesa:hover {
+            background-color: #2db82d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(50, 205, 50, 0.3);
+        }
+
+        .btn-airtel {
+            background-color: var(--airtel-red);
+            color: white;
+        }
+
+        .btn-airtel:hover {
+            background-color: #d11a21;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(237, 28, 36, 0.3);
+        }
+
+        /* Material Donation */
+        .material-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .material-category {
+            padding: 20px 15px;
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .material-category:hover {
+            border-color: var(--primary-color);
+            background-color: #f8fff9;
+        }
+
+        .material-category.selected {
+            border-color: var(--primary-color);
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Success Messages */
+        .success-message {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .success-message i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #28a745;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Footer Info */
+        .footer-info {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .info-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .form-container {
+                padding: 25px;
+            }
+            
+            .donation-type-selector {
+                flex-direction: column;
+            }
+            
+            .payment-methods {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .mpesa-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+            
+            .donation-amount-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Partner with KUSDA Ministry</h1>
+            <p>Your generosity enables us to share the Gospel, disciple believers, and serve our community. Every gift makes a difference!</p>
+            <p><i class="fas fa-lock"></i> Secure & Encrypted Giving | Multiple Payment Options</p>
+        </header>
+
+        <!-- Donation Type Selector -->
+        <div class="donation-type-selector">
+            <button class="donation-type-btn active" id="financialBtn" data-type="financial">
+                <i class="fas fa-donate"></i> Financial Gift
+            </button>
+            <button class="donation-type-btn" id="materialBtn" data-type="material">
+                <i class="fas fa-box-open"></i> Material Donation
+            </button>
+        </div>
+
+        <!-- Financial Donation Form -->
+        <div class="form-container active" id="financialForm">
+            <h2><i class="fas fa-hand-holding-usd"></i> Make a Financial Donation</h2>
+            <p>Select your preferred payment method. All options are secure and encrypted.</p>
+            
+            <!-- Amount Selection -->
+            <div class="form-group">
+                <label>Donation Amount (KES)</label>
+                <div class="donation-amount-options">
+                    <button class="amount-btn" data-amount="100">KES 100</button>
+                    <button class="amount-btn" data-amount="500">KES 500</button>
+                    <button class="amount-btn selected" data-amount="1000">KES 1,000</button>
+                    <button class="amount-btn" data-amount="2000">KES 2,000</button>
+                    <button class="amount-btn" data-amount="5000">KES 5,000</button>
+                    <button class="amount-btn" data-amount="10000">KES 10,000</button>
+                </div>
+                <div class="custom-amount">
+                    <span class="currency-symbol">KES</span>
+                    <input type="number" id="customAmount" placeholder="Other Amount" min="1" step="1">
+                </div>
+            </div>
+
+            <!-- Donation Frequency -->
+            <div class="form-group">
+                <label>Donation Frequency</label>
+                <div class="recurring-options">
+                    <div class="recurring-option selected" data-frequency="one-time">One-Time Gift</div>
+                    <div class="recurring-option" data-frequency="weekly">Weekly</div>
+                    <div class="recurring-option" data-frequency="monthly">Monthly</div>
+                    <div class="recurring-option" data-frequency="quarterly">Quarterly</div>
+                </div>
+            </div>
+
+            <!-- Fund Designation -->
+            <div class="form-group">
+                <label>Designate Your Gift (Optional)</label>
+                <select class="form-control" id="fundSelect">
+                    <option value="general">General Fund (Tithes & Offerings)</option>
+                    <option value="missions">Missions & Outreach</option>
+                    <option value="youth">Youth & Children's Ministry</option>
+                    <option value="building">Building/Mortgage Fund</option>
+                    <option value="benevolence">Benevolence Fund</option>
+                    <option value="pastors">Pastors' Support</option>
+                </select>
+            </div>
+
+            <!-- Payment Method Selection -->
+            <div class="payment-method-selector">
+                <h3><i class="fas fa-credit-card"></i> Select Payment Method</h3>
+                <div class="payment-methods">
+                    <div class="payment-method mpesa selected" data-method="mpesa">
+                        <div class="payment-method-icon">
+                            <i class="fas fa-mobile-alt mpesa-icon"></i>
+                        </div>
+                        <div>
+                            <h4>M-Pesa</h4>
+                            <small>Mobile Money</small>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method airtel" data-method="airtel">
+                        <div class="payment-method-icon">
+                            <i class="fas fa-mobile airtel-icon"></i>
+                        </div>
+                        <div>
+                            <h4>Airtel Money</h4>
+                            <small>Mobile Money</small>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method" data-method="card">
+                        <div class="payment-method-icon">
+                            <i class="far fa-credit-card card-icon"></i>
+                        </div>
+                        <div>
+                            <h4>Credit/Debit Card</h4>
+                            <small>Visa, MasterCard</small>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method" data-method="bank">
+                        <div class="payment-method-icon">
+                            <i class="fas fa-university bank-icon"></i>
+                        </div>
+                        <div>
+                            <h4>Bank Transfer</h4>
+                            <small>Direct to Account</small>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method paypal" data-method="paypal">
+                        <div class="payment-method-icon">
+                            <i class="fab fa-paypal paypal-icon"></i>
+                        </div>
+                        <div>
+                            <h4>PayPal</h4>
+                            <small>International</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- M-Pesa Payment Form -->
+            <div class="payment-form active" id="mpesaForm">
+                <div class="mpesa-instructions">
+                    <h4><i class="fas fa-info-circle"></i> How to give via M-Pesa</h4>
+                    <p>Enter your M-Pesa registered phone number below. You'll receive a payment request on your phone to complete the transaction.</p>
+                </div>
+                
+                <div class="mpesa-steps">
+                    <div class="mpesa-step">
+                        <div class="mpesa-step-number">1</div>
+                        <p>Enter your phone number</p>
+                    </div>
+                    <div class="mpesa-step">
+                        <div class="mpesa-step-number">2</div>
+                        <p>Click "Pay with M-Pesa"</p>
+                    </div>
+                    <div class="mpesa-step">
+                        <div class="mpesa-step-number">3</div>
+                        <p>Enter PIN on your phone</p>
+                    </div>
+                    <div class="mpesa-step">
+                        <div class="mpesa-step-number">4</div>
+                        <p>Receive confirmation</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>M-Pesa Phone Number</label>
+                    <div class="phone-input-group">
+                        <div class="phone-prefix">+254</div>
+                        <input type="tel" class="phone-input" id="mpesaPhone" placeholder="7XX XXX XXX" maxlength="9">
+                    </div>
+                    <small>Enter your M-Pesa registered number without the leading 0</small>
+                </div>
+
+                <div class="policy-check">
+                    <div class="checkbox-group" style="display: flex; align-items: flex-start; gap: 10px; margin: 20px 0;">
+                        <input type="checkbox" id="mpesaTerms" required style="margin-top: 4px;">
+                        <label for="mpesaTerms">I authorize KUSDA Church to initiate an M-Pesa transaction from my phone number for the amount specified above. Standard M-Pesa charges apply.</label>
+                    </div>
+                </div>
+
+                <button class="btn btn-mpesa" id="payWithMpesa">
+                    <i class="fas fa-mobile-alt"></i> Pay with M-Pesa
+                </button>
+            </div>
+
+            <!-- Airtel Money Payment Form -->
+            <div class="payment-form" id="airtelForm">
+                <div class="airtel-instructions">
+                    <h4><i class="fas fa-info-circle"></i> How to give via Airtel Money</h4>
+                    <p>Enter your Airtel Money registered phone number below. You'll receive a payment request to complete the transaction.</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Airtel Money Phone Number</label>
+                    <div class="phone-input-group">
+                        <div class="phone-prefix">+254</div>
+                        <input type="tel" class="phone-input" id="airtelPhone" placeholder="7XX XXX XXX" maxlength="9">
+                    </div>
+                </div>
+
+                <button class="btn btn-airtel" id="payWithAirtel">
+                    <i class="fas fa-mobile"></i> Pay with Airtel Money
+                </button>
+            </div>
+
+            <!-- Card Payment Form -->
+            <div class="payment-form" id="cardForm">
+                <div class="form-group">
+                    <label>Name on Card</label>
+                    <input type="text" class="form-control" id="cardName" placeholder="John Smith">
+                </div>
+
+                <div class="form-group">
+                    <label>Card Number</label>
+                    <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label>Expiry Date</label>
+                        <input type="text" class="form-control" id="cardExpiry" placeholder="MM/YY" maxlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label>CVV</label>
+                        <input type="text" class="form-control" id="cardCvv" placeholder="123" maxlength="4">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email for Receipt</label>
+                    <input type="email" class="form-control" id="donorEmail" placeholder="you@example.com">
+                </div>
+
+                <button class="btn btn-primary" id="payWithCard">
+                    <i class="fas fa-lock"></i> Pay with Card
+                </button>
+            </div>
+
+            <!-- Bank Transfer Form -->
+            <div class="payment-form" id="bankForm">
+                <div class="info-card" style="margin: 20px 0; text-align: left;">
+                    <h3><i class="fas fa-university"></i> Bank Transfer Details</h3>
+                    <p><strong>Bank:</strong> Equity Bank Kenya</p>
+                    <p><strong>Account Name:</strong> KUSDA Church</p>
+                    <p><strong>Account Number:</strong> 1234567890</p>
+                    <p><strong>Branch:</strong> Nairobi Main Branch</p>
+                    <p><strong>Swift Code:</strong> EQBLKENA</p>
+                    <p><strong>Reference:</strong> Your Name + "Donation"</p>
+                </div>
+                
+                <div class="form-group">
+                    <label>Your Email (for receipt)</label>
+                    <input type="email" class="form-control" id="bankEmail" placeholder="you@example.com">
+                </div>
+                
+                <button class="btn btn-primary" id="confirmBankTransfer">
+                    <i class="fas fa-check-circle"></i> I've Made the Transfer
+                </button>
+            </div>
+
+            <!-- PayPal Form -->
+            <div class="payment-form" id="paypalForm">
+                <div style="text-align: center; margin: 30px 0;">
+                    <p>You will be redirected to PayPal to complete your donation securely.</p>
+                    <div id="paypal-button-container" style="margin: 20px 0;"></div>
+                </div>
+            </div>
+
+            <!-- Success Messages -->
+            <div class="success-message" id="paymentSuccess">
+                <i class="fas fa-check-circle"></i>
+                <h3>Payment Successful!</h3>
+                <p id="successMessage">Your donation has been processed successfully.</p>
+                <p><strong>Transaction ID:</strong> <span id="transactionId"></span></p>
+                <p>A receipt has been sent to your email.</p>
+                <button class="btn btn-primary" id="makeAnotherDonation" style="width: auto; margin-top: 20px;">
+                    <i class="fas fa-plus"></i> Make Another Donation
+                </button>
+            </div>
+
+            <!-- Security Badges -->
+            <div class="security-badges">
+                <div class="security-badge">
+                    <i class="fas fa-lock"></i>
+                    <span>256-bit SSL Encryption</span>
+                </div>
+                <div class="security-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>PCI-DSS Compliant</span>
+                </div>
+                <div class="security-badge">
+                    <i class="fas fa-user-shield"></i>
+                    <span>GDPR Compliant</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Material Donation Form (Collapsed for brevity, same as before) -->
+        <div class="form-container" id="materialForm">
+            <!-- Similar to previous implementation -->
+            <h2><i class="fas fa-boxes"></i> Donate Materials or Items</h2>
+            <p>We gratefully accept donations of goods that support our ministry.</p>
+            
+            <div class="form-group">
+                <label>Item Description</label>
+                <textarea class="form-control" id="itemDescription" rows="4" placeholder="Describe the items you'd like to donate..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Your Contact Information</label>
+                <input type="text" class="form-control" id="materialName" placeholder="Full Name" required>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
+                    <input type="email" class="form-control" id="materialEmail" placeholder="Email" required>
+                    <input type="tel" class="form-control" id="materialPhone" placeholder="Phone Number" required>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" id="submitMaterialDonation">
+                <i class="fas fa-paper-plane"></i> Submit Donation Request
+            </button>
+            
+            <div class="success-message" id="materialSuccess">
+                <i class="fas fa-check-circle"></i>
+                <h3>Donation Request Submitted!</h3>
+                <p>Thank you! Our team will contact you within 2 business days.</p>
+            </div>
+        </div>
+
+        <!-- Informational Footer -->
+        <div class="footer-info">
+            <div class="info-card">
+                <h3><i class="fas fa-shield-alt"></i> Secure & Trusted</h3>
+                <p>All transactions are encrypted and secure. We use industry-standard security measures to protect your information.</p>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-file-invoice-dollar"></i> Tax Deductible</h3>
+                <p>All donations are tax-deductible. Receipts are issued immediately via email and annual statements by January 31st.</p>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-question-circle"></i> Need Help?</h3>
+                <p><strong>Email:</strong> giving@kusda.org<br>
+                <strong>Phone:</strong> +254 700 123 456<br>
+                <strong>WhatsApp:</strong> +254 700 123 456</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD&disable-funding=credit,card"></script>
+
+    <script>
+        // DOM Elements
+        const financialBtn = document.getElementById('financialBtn');
+        const materialBtn = document.getElementById('materialBtn');
+        const financialForm = document.getElementById('financialForm');
+        const materialForm = document.getElementById('materialForm');
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        const paymentForms = document.querySelectorAll('.payment-form');
+        const amountButtons = document.querySelectorAll('.amount-btn');
+        const customAmountInput = document.getElementById('customAmount');
+        const recurringOptions = document.querySelectorAll('.recurring-option');
+        const payWithMpesaBtn = document.getElementById('payWithMpesa');
+        const payWithAirtelBtn = document.getElementById('payWithAirtel');
+        const payWithCardBtn = document.getElementById('payWithCard');
+        const confirmBankTransferBtn = document.getElementById('confirmBankTransfer');
+        const paymentSuccess = document.getElementById('paymentSuccess');
+        const successMessage = document.getElementById('successMessage');
+        const transactionIdSpan = document.getElementById('transactionId');
+        const makeAnotherDonationBtn = document.getElementById('makeAnotherDonation');
+
+        // State Variables
+        let selectedAmount = 1000;
+        let donationFrequency = 'one-time';
+        let selectedPaymentMethod = 'mpesa';
+        let transactionInProgress = false;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize PayPal button
+            initializePayPal();
+        });
+
+        // Toggle between financial and material donation forms
+        financialBtn.addEventListener('click', () => {
+            financialBtn.classList.add('active');
+            materialBtn.classList.remove('active');
+            financialForm.classList.add('active');
+            materialForm.classList.remove('active');
+        });
+
+        materialBtn.addEventListener('click', () => {
+            materialBtn.classList.add('active');
+            financialBtn.classList.remove('active');
+            materialForm.classList.add('active');
+            financialForm.classList.remove('active');
+        });
+
+        // Amount selection
+        amountButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                amountButtons.forEach(btn => btn.classList.remove('selected'));
+                button.classList.add('selected');
+                selectedAmount = parseInt(button.dataset.amount);
+                customAmountInput.value = '';
+            });
+        });
+
+        customAmountInput.addEventListener('input', () => {
+            if (customAmountInput.value) {
+                amountButtons.forEach(btn => btn.classList.remove('selected'));
+                selectedAmount = parseFloat(customAmountInput.value) || 0;
+            }
+        });
+
+        // Donation frequency selection
+        recurringOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                recurringOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                donationFrequency = option.dataset.frequency;
+            });
+        });
+
+        // Payment method selection
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', () => {
+                paymentMethods.forEach(m => m.classList.remove('selected'));
+                method.classList.add('selected');
+                selectedPaymentMethod = method.dataset.method;
+                
+                // Show corresponding form
+                paymentForms.forEach(form => form.classList.remove('active'));
+                document.getElementById(`${selectedPaymentMethod}Form`).classList.add('active');
+            });
+        });
+
+        // Format phone number input
+        document.getElementById('mpesaPhone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 3 && value.length <= 6) {
+                value = value.substring(0, 3) + ' ' + value.substring(3);
+            } else if (value.length > 6) {
+                value = value.substring(0, 3) + ' ' + value.substring(3, 6) + ' ' + value.substring(6, 9);
+            }
+            e.target.value = value.substring(0, 11);
+        });
+
+        // Format card number
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            value = value.replace(/(\d{4})/g, '$1 ').trim();
+            e.target.value = value.substring(0, 19);
+        });
+
+        // M-Pesa Payment
+        payWithMpesaBtn.addEventListener('click', async () => {
+            if (transactionInProgress) return;
+            
+            const phoneInput = document.getElementById('mpesaPhone').value.replace(/\D/g, '');
+            const termsAgreed = document.getElementById('mpesaTerms').checked;
+            
+            if (!phoneInput || phoneInput.length !== 9) {
+                alert('Please enter a valid 10-digit M-Pesa phone number (without the leading 0)');
+                return;
+            }
+            
+            if (!termsAgreed) {
+                alert('Please agree to the M-Pesa transaction terms');
+                return;
+            }
+            
+            if (selectedAmount < 10) {
+                alert('Minimum donation amount is KES 10');
+                return;
+            }
+            
+            await processMpesaPayment(phoneInput);
+        });
+
+        // Airtel Money Payment
+        payWithAirtelBtn.addEventListener('click', async () => {
+            if (transactionInProgress) return;
+            
+            const phoneInput = document.getElementById('airtelPhone').value.replace(/\D/g, '');
+            
+            if (!phoneInput || phoneInput.length !== 9) {
+                alert('Please enter a valid 10-digit Airtel Money phone number');
+                return;
+            }
+            
+            if (selectedAmount < 10) {
+                alert('Minimum donation amount is KES 10');
+                return;
+            }
+            
+            await processAirtelPayment(phoneInput);
+        });
+
+        // Card Payment
+        payWithCardBtn.addEventListener('click', async () => {
+            if (transactionInProgress) return;
+            
+            // Validate card details
+            const cardName = document.getElementById('cardName').value;
+            const cardNumber = document.getElementById('cardNumber').value.replace(/\D/g, '');
+            const cardExpiry = document.getElementById('cardExpiry').value;
+            const cardCvv = document.getElementById('cardCvv').value;
+            const donorEmail = document.getElementById('donorEmail').value;
+            
+            if (!cardName || !cardNumber || !cardExpiry || !cardCvv || !donorEmail) {
+                alert('Please fill in all card details');
+                return;
+            }
+            
+            if (cardNumber.length < 13) {
+                alert('Please enter a valid card number');
+                return;
+            }
+            
+            if (selectedAmount < 100) {
+                alert('Minimum donation amount for card payments is KES 100');
+                return;
+            }
+            
+            await processCardPayment();
+        });
+
+        // Bank Transfer Confirmation
+        confirmBankTransferBtn.addEventListener('click', async () => {
+            const email = document.getElementById('bankEmail').value;
+            
+            if (!email) {
+                alert('Please provide your email for the receipt');
+                return;
+            }
+            
+            // Generate reference
+            const refId = 'BANK' + Date.now() + Math.floor(Math.random() * 1000);
+            
+            showSuccess({
+                method: 'bank',
+                amount: selectedAmount,
+                transactionId: refId,
+                message: 'Thank you! Please use the reference number above when making your bank transfer. We will send you a receipt once the transfer is confirmed.'
+            });
+        });
+
+        // Make Another Donation
+        makeAnotherDonationBtn.addEventListener('click', () => {
+            paymentSuccess.style.display = 'none';
+            
+            // Reset form based on last used payment method
+            paymentForms.forEach(form => form.classList.remove('active'));
+            document.getElementById(`${selectedPaymentMethod}Form`).classList.add('active');
+            
+            // Reset amount
+            amountButtons.forEach(btn => btn.classList.remove('selected'));
+            if (selectedAmount === 100) document.querySelector('[data-amount="100"]').classList.add('selected');
+            else if (selectedAmount === 500) document.querySelector('[data-amount="500"]').classList.add('selected');
+            else if (selectedAmount === 1000) document.querySelector('[data-amount="1000"]').classList.add('selected');
+            else if (selectedAmount === 2000) document.querySelector('[data-amount="2000"]').classList.add('selected');
+            else if (selectedAmount === 5000) document.querySelector('[data-amount="5000"]').classList.add('selected');
+            else if (selectedAmount === 10000) document.querySelector('[data-amount="10000"]').classList.add('selected');
+            else customAmountInput.value = selectedAmount;
+        });
+
+        // API Functions
+        async function processMpesaPayment(phoneNumber) {
+            transactionInProgress = true;
+            const originalText = payWithMpesaBtn.innerHTML;
+            payWithMpesaBtn.innerHTML = '<span class="spinner"></span> Initiating M-Pesa...';
+            payWithMpesaBtn.disabled = true;
+            
+            try {
+                // Prepare M-Pesa request data
+                const mpesaData = {
+                    phoneNumber: `254${phoneNumber}`,
+                    amount: selectedAmount,
+                    frequency: donationFrequency,
+                    fund: document.getElementById('fundSelect').value,
+                    reference: `KUSDA${Date.now()}`,
+                    description: `${donationFrequency} donation to KUSDA Church`
+                };
+                
+                // In production, use your actual M-Pesa API endpoint
+                // For demo, we'll simulate the API call
+                console.log('M-Pesa Request:', mpesaData);
+                
+                // Simulate API delay
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Simulate successful response
+                const transactionId = `MP${Date.now()}${Math.floor(Math.random() * 1000)}`;
+                
+                showSuccess({
+                    method: 'mpesa',
+                    amount: selectedAmount,
+                    transactionId: transactionId,
+                    message: `We've sent an M-Pesa prompt to ${mpesaData.phoneNumber}. Please enter your PIN to complete the donation.`
+                });
+                
+                // In production, you would:
+                // 1. Call your backend API
+                // 2. Backend calls Safaricom Daraja API
+                // 3. Handle webhook for payment confirmation
+                
+            } catch (error) {
+                alert('Error processing M-Pesa payment: ' + error.message);
+                console.error('M-Pesa error:', error);
+            } finally {
+                payWithMpesaBtn.innerHTML = originalText;
+                payWithMpesaBtn.disabled = false;
+                transactionInProgress = false;
+            }
+        }
+
+        async function processAirtelPayment(phoneNumber) {
+            transactionInProgress = true;
+            const originalText = payWithAirtelBtn.innerHTML;
+            payWithAirtelBtn.innerHTML = '<span class="spinner"></span> Processing...';
+            payWithAirtelBtn.disabled = true;
+            
+            try {
+                // Similar to M-Pesa but with Airtel Money API
+                const airtelData = {
+                    phoneNumber: `254${phoneNumber}`,
+                    amount: selectedAmount,
+                    reference: `KUSDA${Date.now()}`,
+                    currency: 'KES'
+                };
+                
+                console.log('Airtel Money Request:', airtelData);
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                const transactionId = `AT${Date.now()}${Math.floor(Math.random() * 1000)}`;
+                
+                showSuccess({
+                    method: 'airtel',
+                    amount: selectedAmount,
+                    transactionId: transactionId,
+                    message: `Airtel Money payment initiated for ${airtelData.phoneNumber}.`
+                });
+                
+            } catch (error) {
+                alert('Error processing Airtel Money payment');
+                console.error('Airtel error:', error);
+            } finally {
+                payWithAirtelBtn.innerHTML = originalText;
+                payWithAirtelBtn.disabled = false;
+                transactionInProgress = false;
+            }
+        }
+
+        async function processCardPayment() {
+            transactionInProgress = true;
+            const originalText = payWithCardBtn.innerHTML;
+            payWithCardBtn.innerHTML = '<span class="spinner"></span> Processing...';
+            payWithCardBtn.disabled = true;
+            
+            try {
+                // In production, integrate with Stripe, Flutterwave, or other payment processor
+                const cardData = {
+                    amount: selectedAmount,
+                    currency: 'KES',
+                    email: document.getElementById('donorEmail').value,
+                    frequency: donationFrequency,
+                    fund: document.getElementById('fundSelect').value
+                };
+                
+                console.log('Card Payment Request:', cardData);
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                const transactionId = `CARD${Date.now()}${Math.floor(Math.random() * 1000)}`;
+                
+                showSuccess({
+                    method: 'card',
+                    amount: selectedAmount,
+                    transactionId: transactionId,
+                    message: 'Card payment processed successfully!'
+                });
+                
+            } catch (error) {
+                alert('Error processing card payment');
+                console.error('Card error:', error);
+            } finally {
+                payWithCardBtn.innerHTML = originalText;
+                payWithCardBtn.disabled = false;
+                transactionInProgress = false;
+            }
+        }
+
+        function showSuccess(data) {
+            successMessage.textContent = data.message;
+            transactionIdSpan.textContent = data.transactionId;
+            paymentSuccess.style.display = 'block';
+            
+            // Scroll to success message
+            paymentSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function initializePayPal() {
+            // PayPal integration
+            paypal.Buttons({
+                style: {
+                    shape: 'rect',
+                    color: 'gold',
+                    layout: 'vertical',
+                    label: 'paypal'
+                },
+                createOrder: function(data, actions) {
+                    // Convert KES to USD for PayPal (approximate rate)
+                    const usdAmount = (selectedAmount / 140).toFixed(2);
+                    
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: usdAmount,
+                                currency_code: 'USD'
+                            },
+                            description: `Donation to KUSDA Church (${donationFrequency})`
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        showSuccess({
+                            method: 'paypal',
+                            amount: selectedAmount,
+                            transactionId: details.id,
+                            message: `PayPal payment completed! Thank you ${details.payer.name.given_name}.`
+                        });
+                    });
+                },
+                onError: function(err) {
+                    console.error('PayPal error:', err);
+                    alert('There was an error processing your PayPal payment.');
+                }
+            }).render('#paypal-button-container');
+        }
+
+        // Material donation submission
+        document.getElementById('submitMaterialDonation').addEventListener('click', function() {
+            const materialSuccess = document.getElementById('materialSuccess');
+            materialSuccess.style.display = 'block';
+            materialSuccess.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

@@ -7,7 +7,7 @@ $dbname =" ";
 $conn = new mysqli($servername,$username,$password,$dbname);
 if($conn->connect_error){
     die("connection failed:".$connect_error);}
-    }
+    
     $name = $conn->real_escape_string($_POST['name']);
     $contact = $connect->real_escape_string($_POST['contact']);
     $message = $connect->real_escape_string($_POST['message']);

@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kisii University Seventh-day Adventist Church</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/jpg" href="image/assetss/kisiilogo.png">
+  
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --accent: #1abc9c;
+      --light-bg: #f9f9f9;
+      --text: #333;
+      --gold: #ffd700;
+      --navy: #001f3f;
+      --white: #ffffff;
+
+        --btn-blue: #007bff;
+      --btn-green: #28a745;
+      --btn-orange: #fd7e14;
+      --btn-purple: #6f42c1;
+      --btn-red: #dc3545;
+      --btn-dark: #343a40;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+       font-family: 'Poppins', sans-serif;
+      color: #222;
+      line-height: 1.6;
+      background: linear-gradient(-45deg, #e3f2fd, #cfd8dc, #bbdefb, #90caf9);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Poppins',sans-serif;
+      font-weight: 600;
+    }
+    
+    /* Header & Navigation */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, #0f172a 100%);
+      color: var(--white);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .logo-container h1 {
+        font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3a7ca5 0%, #ff9b42 50%, #2e8b57 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 8px 15px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    nav a:hover {
+      color: var(--gold);
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    nav a:hover::after {
+      width: 70%;
+    }
+    
+    .menu-toggle {
+       display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor:pointer;
+    }
+    
+    .bar {
+      height: 3px;
+      width: 25px;
+      background: var(--white);
+      margin: 4px 0;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(transparent, rgba(50, 53, 57, 0.85)), url('image/church\ audotorium.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--white);
+      text-shadow: 0 0 2px 4px #003366;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      animation: fadeInUp 1.5s ease;
+    }
+    
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      margin-bottom: 1rem;
+      color: #ffffff;
+      text-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+      line-height: 1.05;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+    }
+    
+    .hero p {
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+      max-width: 620px;
+      color: #f7f7f7;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    
+    .btn-hero {
+      padding: 5px 22px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 220ms ease, box-shadow 220ms ease, opacity 220ms ease;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(6px);
+    }
+  
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent) 0%, #16a085 100%);
+      color: white;
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn-hero:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      color: white;
+    } 
+    
+    .btn-hero .fas { opacity: 0.95; }
+
+    /* social icons subtle glass */
+    .social-icon {
+      background-color: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(6px);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    .social-icon:hover { transform: translateY(-4px) scale(1.06); }
+    /* Social icons container */
+.icons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+/* Individual social icons */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideIn 0.6s forwards;
+}
+
+/* Delay each icon slightly */
+.icons a:nth-child(1) { animation-delay: 0.1s; }
+.icons a:nth-child(2) { animation-delay: 0.3s; }
+.icons a:nth-child(3) { animation-delay: 0.5s; }
+.icons a:nth-child(4) { animation-delay: 0.7s; }
+.icons a:nth-child(5) { animation-delay: 0.9s; }
+
+/* Hover effect */
+.social-icon:hover {
+  background-color: #f9f9f9;
+  color: #2575fc;
+  transform: scale(1.2);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Keyframes for slide-in */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+    
+    /* Sections */
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: var(--navy);
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, var(--accent), var(--gold));
+      border-radius: 2px;
+    }
+    
+    .section-padding {
+      padding: 80px 5%;
+    }
+    
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      background: #fff;
+      padding:10px 20px;
+    }
+    
+    .about-image {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* Ministries */
+    
+
+     .ministries-grid {
+       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+      .about, .ministries, .events, .sermons, .join, .contact {
+      background-color: #fff;
+      margin-bottom: 2rem;
+      margin-top:0.5rem;
+      margin-left:0.2rem;
+      margin-right:0.2rem;
+
+      border-radius: 15px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      padding: 2rem;
+      animation: fadeIn 2s ease;
+      
+    }
+
+    .ministry {
+      text-align: center;
+      padding: 1.5rem;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      transition: 0.3s;
+      
+    }
+
+    .ministry:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* contact section */
+    .contact{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    /* Events */
+    .events-carousel {
+      margin-bottom: 50px;
+    }
+    
+    .event-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      margin: 10px;
+    }
+    
+    .event-date {
+      background: linear-gradient(135deg, var(--navy) 0%, #003366 100%);
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    
+    .event-date .day {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    
+    .event-date .month {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .event-content {
+      padding: 25px;
+    }
+    
+    /* Live Service */
+    .live-service {
+      background: linear-gradient(rgba(0, 31, 63, 0.9), rgba(0, 51, 102, 0.9)), url('https://media.istockphoto.com/id/1444069352/photo/there-is-a-woman-praying-in-the-church.webp?a=1&b=1&s=612x612&w=0&k=20&c=QJkxqfMsnc5XNqbIkWs_tITgzI9UvyukMZ2VR92rYE8=');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 80px 5%;
+      margin: 80px 0;
+    }
+    
+    .live-service h2 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+    
+    .live-service p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+    
+    .btn-live {
+      padding: 15px 40px;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-live:hover {
+      background: white;
+      color: var(--navy);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Sermons */
+    .sermon-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .sermon-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+    
+    .sermon-thumbnail {
+      height: 200px;
+      overflow: hidden;
+    }
+    .btn{
+      background-color: #28a745;
+      color:#fff;
+    }
+    .sermon-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .sermon-card:hover .sermon-thumbnail img {
+      transform: scale(1.05);
+    }
+    
+    .sermon-content {
+      padding: 25px;
+    }
+    
+    .sermon-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: #0f172a;
+  color: #e2e8f0;
+  padding: 60px 20px 20px;
+  font-family: 'Poppins', sans-serif
+    }
+    
+    .footer-content {
+       display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+    }
+    
+    .footer-logo h3 {
+     color: #38bdf8;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+    }
+    
+    .footer-links h4, .footer-contact h4 {
+      color: #38bdf8;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+       color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--gold);
+      padding-left: 5px;
+    }
+    
+    .footer-contact p {
+       font-size: 15px;
+  line-height: 1.7;
+  color: #cbd5e1;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      background: var(--gold);
+      color: var(--navy);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding: 25px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .about-image {
+        order: -1;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      body{
+        line-height: 1.6;
+        font-size:16px;
+      }
+      nav ul {
+         display: none;
+        flex-direction: column;
+        background: #002b5b;
+        position: absolute;
+        top: 70px;
+        right: 4%;
+        width: 200px;
+        border-radius: 8px;
+        text-align: center;
+        padding: 0.6rem 0;
+      }
+      
+      nav ul.active {
+        display: flex;
+        
+      }
+      
+      .menu-toggle {
+        display: flex;
+        
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 0.85rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn-hero {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+    
+    /* New Feature: Prayer Request Button */
+    .prayer-request-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+      z-index: 999;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .prayer-request-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 30px rgba(231, 76, 60, 0.6);
+    }
+    
+    /* New Feature: Service Times */
+    .service-times {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      margin-top: 30px;
+    }
+    
+    .service-time-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .service-time-item:last-child {
+      border-bottom: none;
+    }
+    
+    .service-time-item .day {
+      font-weight: 600;
+      color: var(--navy);
+    }
+    
+    .service-time-item .time {
+      color: var(--accent);
+      font-weight: 500;
+    }
+    
+    /* Weekly Schedule */
+    .schedule-container {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+    
+    .schedule-day {
+      margin-bottom: 25px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .schedule-day:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    
+    .schedule-day h4 {
+      color: var(--navy);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+
+    
+
+         /* Countdown floating box */
+    .countdown-box {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #004d40;
+      color: white;
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+
+
+    /* Notification Icon Styles */
+        .notification-container {
+            position: relative;
+            display: inline-block;
+            right:0;
+        }
+        
+        .notification-icon {
+            background-color: #f5f7fa;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            color: #555;
+            font-size: 22px;
+            position: relative;
+        }
+        
+        .notification-icon:hover {
+            background-color: #eef1ff;
+            color: #4a6cf7;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff4757;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .notification-dropdown {
+            position: absolute;
+            top: 65px;
+            right: 0;
+            width: 350px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 0;
+            z-index: 1000;
+            display: none;
+            overflow: hidden;
+        }
+        
+        .notification-dropdown.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .notification-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .notification-header h3 {
+            color: #333;
+            font-size: 18px;
+        }
+        
+        .mark-all-read {
+            background: none;
+            border: none;
+            color: #4a6cf7;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .notification-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .notification-item {
+            padding: 18px 20px;
+            border-bottom: 1px solid #f5f5f5;
+            display: flex;
+            align-items: flex-start;
+            transition: background-color 0.2s;
+        }
+        
+        .notification-item:hover {
+            background-color: #f9faff;
+        }
+        
+        .notification-item.unread {
+            background-color: #f0f5ff;
+        }
+        
+        .notification-icon-small {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .notification-info {
+            flex-grow: 1;
+        }
+        
+        .notification-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .notification-time {
+            font-size: 13px;
+            color: #888;
+        }
+        
+        .notification-empty {
+            padding: 40px 20px;
+            text-align: center;
+            color: #888;
+        }
+        
+        .notification-footer {
+            padding: 15px 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+        
+        .view-all {
+            color: #4a6cf7;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        @media(max-width: 768px){
+          .bar{
+            margin:2px 0;
+          }
+          .countdown-box{
+            padding:0.6rem 0.77rem;
+            font-size:0.65rem;
+            background:#004d46;
+            color:white;
+            left:5px;
+            bottom:5px;
+          }
+        }
+        
+        
+  </style>
+</head>
+<body>
+  
+  
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <h1>KSUSDA Church</h1>
+    </div>
+    
+    <div class="menu-toggle" id="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    
+    <nav>
+      <ul id="nav-links">
+        
+        <li><a href="about.html">About</a></li>
+        <li><a href="Ministry.html">Ministries</a></li>
+        <li><a href="eventht.html">Events</a></li>
+        <li><a href="serm.html">Sermons</a></li>
+        <li><a href="contact32.html">Contact</a></li>
+        <li><a href="medical.html">Health</a></li>
+        <li><a href="donatcont.html">Donate</a></li>
+        <li><a href="reports.html">Reports</a></li>
+      
+
+        <!-- Notification Icon -->
+                <div class="notification-container">
+                    <button class="notification-icon" id="notificationButton">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge" id="notificationBadge">3</span>
+                    </button>
+                    
+                    <!-- Notification Dropdown -->
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <div class="notification-header" style="display:flex;align-items:center;gap:8px;justify-content:space-between;">
+                          <h3 style="margin:0;">Notifications</h3>
+                          <div style="display:flex;gap:8px;align-items:center;">
+                            <button class="mark-all-read" id="markAllRead">Mark all as read</button>
+                            <button class="btn btn-sm btn-outline-primary" id="addNotification" title="Add Notification">Add</button>
+                            <button class="btn btn-sm btn-outline-danger" id="clearNotifications" title="Clear Notifications">Clear</button>
+                            <button class="btn btn-sm btn-outline-secondary" id="toggleBadge" title="Toggle Badge">Hide Badge</button>
+                          </div>
+                        </div>
+                        
+                        <div class="notification-list" id="notificationList">
+                            <!-- Notifications will be dynamically inserted here -->
+                        </div>
+                        
+                        <div class="notification-footer">
+                            <a href="#" class="view-all">View all notifications</a>
+                        </div>
+                    </div>
+                </div>
+                </ul>
+      
+    </nav>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Welcome to Kisii University SDA Church</h1>
+      <p>We are a welcoming campus church for students and staff — worship, serve, and grow together in faith.</p>
+      <div class="hero-buttons">
+        <a href="abouttt.html" class="btn-hero btn-primary"><i class="fas fa-church"></i> Visit Us</a>
+        <a href="eventht.html" class="btn-hero btn-secondary"><i class="fas fa-calendar-alt"></i> Events</a>
+        <a href="ann.html" class="btn-hero btn-secondary"><i class="fas fa-bullhorn"></i> Announcements</a>
+      </div>
+    </div>
+    <div class="icons">
+      <a href="https://www.facebook.com/KSUSDA" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/ksusda" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.twitter.com/KSUSDA" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.youtube.com/KSUSDA" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@ksusda" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+      
+    </div>
+  </section>
+  
+  <!-- About Section -->
+  <section class="section-padding" id="about" style="background-color: #f9f9f9;margin-top:1.2rem;margin-bottom:1rem;">
+    <div class="container">
+      <h2 class="section-title">About Our Church</h2>
+      <div class="about-content">
+        <div>
+          <h3 style="color:#0f172a"><marquee>Our Mission & Vision</marquee></h3>
+          <p>KSUSDA is a spiritual home for students and staff at Kisii University, dedicated to nurturing faith through worship, fellowship, and service. Our mission is to spread the everlasting gospel and empower members to live Christ-centered lives on campus and beyond.</p>
+          <p>We believe in creating a welcoming environment where everyone can experience God's love, grow in their faith, and use their gifts to serve others.</p>
+          <a href="about.html" class="btn btn-primary">Read More About Us</a>
+        </div>
+        <div class="about-image">
+          <img src="image/ksuda.jpeg">
+        </div>
+      </div>
+      
+      <!-- Service Times -->
+      <div class="service-times">
+        <h3 class="text-center mb-4">Weekly Service Times</h3>
+        <div class="service-time-item">
+          <span class="day">Sabbath School</span>
+          <span class="time">Saturday 8:00 AM - 9:30 AM</span>
+        </div>
+        <div class="service-time-item">
+          <span class="day">Divine Worship</span>
+          <span class="time">Saturday 9:45 AM - 1:00 PM</span>
+        </div>
+        <div class="service-time-item">
+          <span class="day">Midweek Prayer</span>
+          <span class="time">Wednesday 6:30 PM - 8:30 PM</span>
+        </div>
+        <div class="service-time-item">
+          <span class="day">Friday Vespers</span>
+          <span class="time">Friday 6:30 PM - 8:30 PM</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Ministries Section -->
+     <section class="ministries" id="ministries">
+    <h3 class="section-title">Our Ministries</h3>
+    <div class="ministries-grid">
+      <div class="ministry">
+        <h4>KSUSDA Departments</h4>
+        <p>Equipping young people to grow in faith, leadership, and service.</p>
+        <a href="Ministry.html" class="btn btn-green">Join Us</a>
+      </div>
+      <div class="ministry">
+        <h4>KSUSDA Ministries</h4>
+        <p>The backbone of the church.Helps Students to be truly followers of christ</p>
+        <a href="Ministry.html" class="btn btn-green">Join Us</a>
+      </div>
+      <div class="ministry">
+        <h4>Community Outreach</h4>
+        <p>Spreading hope through acts of kindness, evangelism, and mission work.</p>
+        <a href="eventht.html" class="btn btn-purple">Join Us</a>
+      </div>
+    </div>
+  </section>
+
+    <section class="contact" id="contact">
+    <div>
+      <h3 class="section-title">Contact Us</h3>
+      <p>Email: ksusda@kisiiuniversity.ac.ke</p>
+      <p>Phone: +254 791302316</p>
+      <p>Address: Kisii University SDA Church, Kisii, Kenya</p>
+      <a href="contact32.html" class="btn btn-dark" style="margin:15px 0;">Contact Us</a>
+    </div>
+    <div>
+      <iframe src="https://www.google.com/maps?q=kisii%20university&output=embed" width="100%" height="250" style="border:0;" allowfullscreen></iframe>
+    </div>
+  </section>
+  
+  <!-- Events Section -->
+  <section class="section-padding" id="events" style="background-color: #f9f9f9;margin:1rem 0;max-width:100%;">
+    <div class="container">
+      <h2 class="section-title">Upcoming Events</h2>
+      <div class="events-carousel">
+        <div id="eventsCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row align-items-center">
+                <div class="col-md-6">
+                  <img src="image/assetss/mm department.jpeg" class="d-block w-100 rounded" alt="Youth Revival">
+                </div>
+                <div class="col-md-6">
+                  <div class="event-content">
+                    <div class="event-date">
+                      <div class="day">15</div>
+                      <div class="month">June</div>
+                    </div>
+                    <h3>Music Sabbath</h3>
+                    <p>Experience powerful worship, prayer, and spiritual revival for all young people. This week-long event will transform your spiritual life.</p>
+                    <a href="eventht.html" class="btn-outline-info">Register 
+                      Now</a>
+                     
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row align-items-center">
+                <div class="col-md-6">
+                  <img src="image/video/childr.jpg" class="d-block w-100 rounded" alt="Choir Weekend">
+                </div>
+                <div class="col-md-6">
+                  <div class="event-content">
+                    <div class="event-date">
+                      <div class="day">22</div>
+                      <div class="month">June</div>
+                    </div>
+                    <h3>KSUSDA Choir Day</h3>
+                    <p>A weekend filled with heavenly gospel music, praise, and worship. Join our choirs for a special weekend of musical celebration.</p>
+                    <a href="eventht.html" class="btn-outline-primary">Learn More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#eventsCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#eventsCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Weekly Schedule -->
+      <div class="schedule-container mt-4">
+        <h3 class="text-center mb-3">This Week at KSUSDA</h3>
+        <div class="schedule-day">
+          <h4><i class="fas fa-calendar-day"></i> Monday - Voice of Prophecy</h4>
+          <p>Join us for an evening of study, prayer, and sharing God's Words. 6:00 PM at the Tuition Complex Building , Kisii Campus.</p>
+        </div>
+        <div class="schedule-day">
+          <h4><i class="fas fa-calendar-day"></i> Wednesday - Midweek Vespers</h4>
+          <p>Midweek prayer & Health Study. Bring your prayer requests and join us in seeking God. 5:00 PM.</p>
+        </div>
+        <div class="schedule-day">
+          <h4><i class="fas fa-calendar-day"></i> Friday - Friday Vespers</h4>
+          <p>Join Us this Friday as We welcome the sabbath of the lord.From 6:30 PM to 8:30 PM at Old Amphithetre, Kisii Campus</p>
+        </div>
+        <div class="schedule-day">
+          <h4><i class="fas fa-calendar-day"></i> Saturday - Sabbath Services</h4>
+          <p>Sabbath School at 8:00 AM, Divine Worship at 9:45 AM. Guest speaker: Pr. M. Okech.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Live Service -->
+  <section class="live-service" style="background-color: #fff;color:#0f172a;margin:1rem 0;">
+    <div class="container">
+      <h2>Join Our Live Service</h2>
+      <p>Can't make it in person? Join our live stream every Sabbath at 8:00 AM for our main worship service.</p>
+      <a href="https://youtu.be/yPn-xtfHmSw?list=RDyPn-xtfHmSw" class="btn-live"><i class="fas fa-video"></i> Watch Live Now</a>
+    </div>
+  </section>
+<!-- Recent Sermons Section -->
+<section class="section-padding" id="sermons" style="background: #ffffff; margin:1rem 0; padding:2rem 0;">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center; margin-bottom:2rem;">Recent Sermons</h2>
+    <div class="row" style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+
+      <!-- Sermon Card 1 -->
+      <div class="sermon-card" style="flex:1 1 300px; background:#f8f8f8; border-radius:10px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.2);">
+        <div class="sermon-thumbnail">
+          <img src="https://plus.unsplash.com/premium_photo-1674331206157-f3e1581d376b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c291bHxlbnwwfHwwfHx8MA%3D%3D" alt="Faith Over Fear" style="width:100%; height:auto;">
+        </div>
+        <div class="sermon-content" style="padding:15px;">
+          <h4>It is well with my soul</h4>
+          <div class="sermon-meta" style="font-size:0.9rem; color:#555; margin-bottom:10px;">
+            <span><i class="fas fa-user"></i> Pr. Manuella</span> |
+            <span><i class="fas fa-calendar"></i> October 8, 2023</span>
+          </div>
+          <p>Learn how to overcome fear with faith in God's promises and power.</p>
+          <audio class="sermonAudio" src="https://sabbathsermons.com/wp-content/uploads/2023/12/20231223-Is-It-Well-With-Your-Soul-MB.mp3"></audio>
+          <a href="#" class="btn-ministry playSermonBtn" style="display:inline-block; padding:10px 15px; background:#4B5320; color:white; border-radius:5px; text-decoration:none; margin-top:10px;">
+            <i class="fas fa-play-circle"></i> Listen Now
+          </a>
+        </div>
+      </div>
+
+      <!-- Sermon Card 2 -->
+      <div class="sermon-card" style="flex:1 1 300px; background:#f8f8f8; border-radius:10px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.2);">
+        <div class="sermon-thumbnail">
+          <img src="image/christ messangers.jpg" alt="God's Love and Discouragement" style="width:100%; height:auto;">
+        </div>
+        <div class="sermon-content" style="padding:15px;">
+          <h4>HOW TO KEEP SABBATH HOLY</h4>
+          <div class="sermon-meta" style="font-size:0.9rem; color:#555; margin-bottom:10px;">
+            <span><i class="fas fa-user"></i> Pr. JOHN THIEL</span> |
+            <span><i class="fas fa-calendar"></i> June 1, 2015</span>
+          </div>
+          <p>This sermon teaches how to keep the Sabbath holy and honor God's commandments.</p>
+          <audio class="sermonAudio" src="https://sabbathsermons.com/wp-content/uploads/2019/01/20190119-keeping-sabbath-holy.mp3"></audio>
+          <a href="#" class="btn-ministry playSermonBtn" style="display:inline-block; padding:10px 15px; background:#4B5320; color:white; border-radius:5px; text-decoration:none; margin-top:10px;">
+            <i class="fas fa-play-circle"></i> Listen Now
+          </a>
+        </div>
+      </div>
+
+      <!-- Sermon Card 3 -->
+      <div class="sermon-card" style="flex:1 1 300px; background:#f8f8f8; border-radius:10px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.2);">
+        <div class="sermon-thumbnail">
+          <img src="image/pray3.jpg" alt="Walking in the Light" style="width:100%; height:auto;">
+        </div>
+        <div class="sermon-content" style="padding:15px;">
+          <h4>God's Love and Man's Discouragement</h4>
+          <div class="sermon-meta" style="font-size:0.9rem; color:#555; margin-bottom:10px;">
+            <span><i class="fas fa-user"></i> Pr. JOHN THIEL</span> |
+            <span><i class="fas fa-calendar"></i> May 25, 2025</span>
+          </div>
+          <p>How to live a life that reflects God's light in a dark world.</p>
+          <audio class="sermonAudio" src="https://sabbathsermons.com/wp-content/uploads/2018/04/150221-gods-love-and-mans-discouragement.mp3"></audio>
+          <a href="#" class="btn-ministry playSermonBtn" style="display:inline-block; padding:10px 15px; background:#4B5320; color:white; border-radius:5px; text-decoration:none; margin-top:10px;">
+            <i class="fas fa-play-circle"></i> Listen Now
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Now Playing Bar -->
+<div id="nowPlayingBar" style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #4B5320;
+    color: #fff;
+    display: none; /* hidden initially */
+    padding: 12px 20px;
+    box-shadow: 0 -3px 8px rgba(0,0,0,0.4);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+">
+  <span id="nowPlayingTitle" style="flex: 1; font-weight: bold; font-size: 16px;">Sermon Title</span>
+  <input type="range" id="progressBar" value="0" min="0" max="100" style="flex:2; margin: 0 10px; height: 6px; border-radius: 5px; background: #d9d9d9; accent-color: #FFD700;">
+  <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1" style="width: 80px; margin-right: 10px;">
+  <button id="pauseBtn" style="
+      background: #FFD700;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      color: #4B5320;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+  ">
+    <i class="fas fa-pause"></i>
+  </button>
+</div>
+
+
+
+  <!-- Footer -->
+  <footer style="margin-top:1rem;">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h3>KSUSDA Church</h3>
+          <p>A community of faith, hope, and love. Growing in Christ and preparing for His soon return.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+        <li><a href="#">Beliefs</a></li>
+        <li><a href="testimony/testimony.php">Testimonies</a></li>
+        <li><a href="gallery.html">Online Giving</a></li>
+        <li><a href="ann.html">Newsletter</a></li>
+      </ul>
+       
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <ul>
+        <li><a href="leadership.html">Church Blog</a></li>
+        <li><a href="music.html">Music & Video</a></li>
+        <li><a href="healthyblog.html">Health Blog</li>
+        <li><a href="localhost\KSUSDA\advanced-sermons\index.php">Reports</a></li>       
+          </ul>
+        </div>
+
+        
+        <div class="footer-contact">
+          <h4>Contact Info</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Kisii University, Kisii, Kenya</p>
+          <p><i class="fas fa-envelope"></i> ksusda@kisiiuniversity.ac.ke</p>
+          <p><i class="fas fa-phone"></i> +254 791302316</p>
+          <p><i class="fas fa-clock"></i> Sabbath Services: Sat 8:00 AM - 6:00 PM</p>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; <script>document.write(new Date().getFullYear());</script>
+ Kisii University SDA Church. All Rights Reserved &trade;. | Designed by JTech Softwares</p>
+ <!--sda logo-->
+ <p><img src="data:image/png;base64,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" alt="KSUSDA Logo" style="width: 50px; height: 50px; margin-right: 70px;">
+        <a href="#" style="color: #aaa; text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: #aaa; text-decoration: none;">Terms of Service</a></p>
+        
+      </div>
+    </div>
+  </footer>
+
+  <!--countdown box-->
+<div class="countdown-box" id="countdownBox">
+  Sabbath begins in:<br><span id="countdown"></span>
+</div>
+  
+  <!-- Prayer Request Button -->
+  <div class="prayer-request-btn" onclick="openPrayerRequest()">
+    <i class="fas fa-pray"></i>
+  </div>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  
+  <script>
+  
+    //countdown
+    function getNextSabbath(){
+      const now = new Date();
+      let daysUntilFriday = (5 - now.getDay() + 7) % 7;
+      // If it's already Friday at or after 18:00, use next week's Friday
+      if (daysUntilFriday === 0 && now.getHours() >= 18) daysUntilFriday = 7;
+      const sabbathStart = new Date(now);
+      sabbathStart.setDate(now.getDate() + daysUntilFriday);
+      sabbathStart.setHours(18,0,0,0);  //untill 6pm friday
+      return sabbathStart;
+    }
+    function updateCountdown(){
+      const now = new Date();
+      const sabbath = getNextSabbath();
+      const diff = sabbath-now;
+      const days = Math.floor(diff/(1000*60*60*24));
+      const hours = Math.floor((diff/(1000*60*60))%24);
+      const minutes = Math.floor((diff/(1000*60))%60);
+      const seconds = Math.floor((diff/1000)%60);
+      document.getElementById("countdown").textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    
+  </script>
+
+<script>
+
+        // Notifications persistence
+        const NOTIF_STORAGE_KEY = 'ksusda_notifications_v1';
+        function saveNotifications() {
+          try {
+            localStorage.setItem(NOTIF_STORAGE_KEY, JSON.stringify(notifications));
+          } catch (e) {
+            console.warn('Failed to save notifications', e);
+          }
+        }
+        function loadNotifications() {
+          try {
+            const raw = localStorage.getItem(NOTIF_STORAGE_KEY);
+            if (!raw) return null;
+            return JSON.parse(raw);
+          } catch (e) {
+            console.warn('Failed to load notifications', e);
+            return null;
+          }
+        }
+
+        // Initial notifications data (fallback)
+        const defaultNotifications = [
+          { id: 1, title: "Recent Update", message: "KSUSDA Church has launched a new song.Confirm in their media library", time: "10 min ago", type: "system", unread: true },
+          { id: 2, title: "New Message Received", message: "New event has been added kindly confirm", time: "25 min ago", type: "message", unread: true },
+          { id: 3, title: "System Update Completed", message: "The latest system update has been successfully installed.", time: "2 hours ago", type: "success", unread: true }
+        ];
+
+        let notifications = loadNotifications() || defaultNotifications.slice();
+        
+        // DOM Elements
+        const notificationButton = document.getElementById('notificationButton');
+        const notificationDropdown = document.getElementById('notificationDropdown');
+        const notificationBadge = document.getElementById('notificationBadge');
+        const notificationList = document.getElementById('notificationList');
+        const markAllReadBtn = document.getElementById('markAllRead');
+        const addNotificationBtn = document.getElementById('addNotification');
+        const clearNotificationsBtn = document.getElementById('clearNotifications');
+        const toggleBadgeBtn = document.getElementById('toggleBadge');
+        const typeButtons = document.querySelectorAll('.type-btn');
+        
+        // Initialize notifications
+        function updateNotificationDisplay() {
+            // Update badge count
+            const unreadCount = notifications.filter(n => n.unread).length;
+            notificationBadge.textContent = unreadCount;
+            
+            // Show/hide badge based on count
+            if (unreadCount === 0) {
+                notificationBadge.style.display = 'none';
+            } else {
+                notificationBadge.style.display = 'flex';
+            }
+            
+            // Update notification list
+            notificationList.innerHTML = '';
+            
+            if (notifications.length === 0) {
+                notificationList.innerHTML = '<div class="notification-empty">No notifications yet</div>';
+                return;
+            }
+            
+            notifications.forEach(notification => {
+                const notificationItem = document.createElement('div');
+                notificationItem.className = `notification-item ${notification.unread ? 'unread' : ''}`;
+                notificationItem.dataset.id = notification.id;
+                
+                // Set icon based on notification type
+                let iconClass, iconColor;
+                switch(notification.type) {
+                    case 'message':
+                        iconClass = 'fas fa-envelope';
+                        iconColor = '#4a6cf7';
+                        break;
+                    case 'system':
+                        iconClass = 'fas fa-cog';
+                        iconColor = '#6c757d';
+                        break;
+                    case 'warning':
+                        iconClass = 'fas fa-exclamation-triangle';
+                        iconColor = '#ffa502';
+                        break;
+                    case 'success':
+                        iconClass = 'fas fa-check-circle';
+                        iconColor = '#2ed573';
+                        break;
+                    case 'reminder':
+                        iconClass = 'fas fa-clock';
+                        iconColor = '#3742fa';
+                        break;
+                    default:
+                        iconClass = 'fas fa-bell';
+                        iconColor = '#4a6cf7';
+                }
+                
+                notificationItem.innerHTML = `
+                    <div class="notification-icon-small" style="background-color: ${iconColor}20; color: ${iconColor};">
+                        <i class="${iconClass}"></i>
+                    </div>
+                    <div class="notification-info">
+                        <div class="notification-title">${notification.title}</div>
+                        <div>${notification.message}</div>
+                        <div class="notification-time">${notification.time}</div>
+                    </div>
+                `;
+                
+                // Mark as read when clicked
+                notificationItem.addEventListener('click', () => {
+                  if (notification.unread) {
+                    notification.unread = false;
+                    updateNotificationDisplay();
+                    saveNotifications();
+                  }
+                });
+                
+                notificationList.appendChild(notificationItem);
+            });
+        }
+        
+        // Toggle dropdown visibility (guard against missing elements)
+        if (notificationButton && notificationDropdown) {
+          notificationButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            notificationDropdown.classList.toggle('active');
+          });
+
+          // Close dropdown when clicking outside
+          document.addEventListener('click', (event) => {
+              const clickedInsideButton = notificationButton && notificationButton.contains(event.target);
+              const clickedInsideDropdown = notificationDropdown && notificationDropdown.contains(event.target);
+              if (!clickedInsideButton && !clickedInsideDropdown) {
+                  notificationDropdown.classList.remove('active');
+              }
+          });
+        }
+        
+        // Mark all as read
+        if (markAllReadBtn) {
+          markAllReadBtn.addEventListener('click', () => {
+            notifications.forEach(notification => {
+              notification.unread = false;
+            });
+            updateNotificationDisplay();
+            saveNotifications();
+          });
+        }
+        
+        // Add a new notification (only if button exists)
+        if (addNotificationBtn) {
+          addNotificationBtn.addEventListener('click', () => {
+            const types = ['message', 'system', 'warning', 'success', 'reminder'];
+            const type = types[Math.floor(Math.random() * types.length)];
+
+            const titles = {
+              message: 'New Message',
+              system: 'System Notification',
+              warning: 'Important Alert',
+              success: 'Action Completed',
+              reminder: 'Reminder'
+            };
+
+            const messages = {
+              message: 'You have received a new message in your inbox.',
+              system: 'A system process has been completed.',
+              warning: 'Please check your account settings.',
+              success: 'Your request has been processed successfully.',
+              reminder: 'Don\'t forget to complete your profile.'
+            };
+
+            const newNotification = {
+              id: notifications.length + 1,
+              title: titles[type],
+              message: messages[type],
+              time: 'Just now',
+              type: type,
+              unread: true
+            };
+
+            notifications.unshift(newNotification);
+            updateNotificationDisplay();
+            saveNotifications();
+
+            // Show the dropdown when adding a notification
+            notificationDropdown.classList.add('active');
+          });
+        }
+        
+        // Clear all notifications (only if button exists)
+        if (clearNotificationsBtn) {
+          clearNotificationsBtn.addEventListener('click', () => {
+            notifications = [];
+            updateNotificationDisplay();
+            saveNotifications();
+          });
+        }
+        
+        // Toggle badge visibility
+        let badgeVisible = true;
+        if (toggleBadgeBtn) {
+          toggleBadgeBtn.addEventListener('click', () => {
+            badgeVisible = !badgeVisible;
+            notificationBadge.style.display = badgeVisible ? 'flex' : 'none';
+            toggleBadgeBtn.textContent = badgeVisible ? 'Hide Badge' : 'Show Badge';
+          });
+        }
+        
+        // Add specific notification types (if buttons exist)
+        if (typeButtons && typeButtons.length) {
+          typeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              const type = button.dataset.type;
+
+              const typeDetails = {
+                message: {
+                  title: 'New Message Received',
+                  message: 'You have a new message waiting in your inbox.',
+                  icon: 'fas fa-envelope'
+                },
+                system: {
+                  title: 'System Maintenance',
+                  message: 'Scheduled system maintenance will occur tonight at 2 AM.',
+                  icon: 'fas fa-cog'
+                },
+                warning: {
+                  title: 'Security Alert',
+                  message: 'Unusual login activity detected on your account.',
+                  icon: 'fas fa-exclamation-triangle'
+                },
+                success: {
+                  title: 'Welcoming Message',
+                  message: 'You are highly welcomed into our ksusda church.',
+                  icon: 'fas fa-check-circle'
+                },
+                reminder: {
+                  title: 'Meeting Reminder',
+                  message: 'You have a team meeting in 30 minutes.',
+                  icon: 'fas fa-clock'
+                }
+              };
+
+              const newNotification = {
+                id: notifications.length + 1,
+                title: typeDetails[type].title,
+                message: typeDetails[type].message,
+                time: 'Just now',
+                type: type,
+                unread: true
+              };
+
+              notifications.unshift(newNotification);
+              updateNotificationDisplay();
+              saveNotifications();
+
+              // Show the dropdown when adding a notification
+              notificationDropdown.classList.add('active');
+            });
+          });
+        }
+        
+        // Initialize the notification display
+        updateNotificationDisplay();
+    </script>
+
+  
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
+  
+    
+    // Prayer Request Function
+    function openPrayerRequest() {
+      window.location.href = 'prayerrequest.php';
+    }
+    
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.style.padding = '0.7rem 5%';
+        header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.15)';
+      } else {
+        header.style.padding = '1rem 5%';
+        header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+      }
+    });
+    
+    // Animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeInUp 1s ease forwards';
+        }
+      });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    document.querySelectorAll('.ministry-card, .sermon-card, .about-content > div').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+  <script>
+const buttons = document.querySelectorAll('.playSermonBtn');
+const nowPlayingBar = document.getElementById('nowPlayingBar');
+const nowPlayingTitle = document.getElementById('nowPlayingTitle');
+const pauseBtn = document.getElementById('pauseBtn');
+const progressBar = document.getElementById('progressBar');
+const volumeControl = document.getElementById('volumeControl');
+
+let currentAudio = null;
+let progressInterval = null;
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const audio = btn.closest('.sermon-content').querySelector('.sermonAudio');
+    const title = btn.closest('.sermon-content').querySelector('h4').textContent;
+    if (!audio) return;
+
+    // Pause all other audios
+    document.querySelectorAll('.sermonAudio').forEach(a => { if (a !== audio) a.pause(); });
+
+    // Show Now Playing bar if playing
+    nowPlayingBar.style.display = 'flex';
+    nowPlayingTitle.textContent = title;
+    currentAudio = audio;
+    pauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+
+    if (audio.paused) {
+      audio.play().catch(err => console.log('Play interrupted:', err));
+      btn.innerHTML = '<i class="fas fa-pause-circle"></i> Pause Sermon';
+    } else {
+      audio.pause();
+      btn.innerHTML = '<i class="fas fa-play-circle"></i> Listen Now';
+      nowPlayingBar.style.display = 'none'; // Hide when paused
+    }
+
+    // Reset other buttons
+    buttons.forEach(otherBtn => {
+      if (otherBtn !== btn) otherBtn.innerHTML = '<i class="fas fa-play-circle"></i> Listen Now';
+    });
+
+    // Update progress bar safely
+    clearInterval(progressInterval);
+    progressInterval = setInterval(() => {
+      if (audio.duration) progressBar.value = (audio.currentTime / audio.duration) * 100;
+    }, 500);
+
+    // Hide bar when audio ends
+    audio.onended = () => {
+      nowPlayingBar.style.display = 'none';
+      btn.innerHTML = '<i class="fas fa-play-circle"></i> Listen Now';
+      clearInterval(progressInterval);
+    };
+  });
+});
+
+// Play/Pause button in Now Playing bar
+pauseBtn.addEventListener('click', () => {
+  if (currentAudio) {
+    if (currentAudio.paused) {
+      currentAudio.play().catch(err => console.log('Play interrupted:', err));
+      pauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      nowPlayingBar.style.display = 'flex'; // Show bar when resumed
+    } else {
+      currentAudio.pause();
+      pauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+      nowPlayingBar.style.display = 'none'; // Hide bar when paused
+    }
+  }
+});
+
+// Seek functionality safely
+progressBar.addEventListener('input', () => {
+  if (currentAudio && !isNaN(currentAudio.duration)) {
+    currentAudio.currentTime = (progressBar.value / 100) * currentAudio.duration;
+  }
+});
+
+// Volume control
+volumeControl.addEventListener('input', () => {
+  if (currentAudio) currentAudio.volume = volumeControl.value;
+});
+</script>
+</body>
+</html>
+

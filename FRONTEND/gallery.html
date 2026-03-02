@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KSU SDA | Gallery</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" type="image/jpg" href="image/assetss/kisii sda logo.png">
+  <link rel="stylesheet" href="image/assetss/style.css">
   <style>
     :root {
       --primary-color: #0a1a2f;
@@ -22,67 +25,20 @@
     }
 
     /* ===== HEADER / NAVBAR ===== */
-    header {
-      background: var(--primary-color);
-      color: var(--light-color);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      flex-wrap: wrap;
-    }
-
-    header h1 {
-      color: var(--accent-color);
-      font-size: 1.6rem;
-      letter-spacing: 1px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: var(--accent-color);
-    }
-
-    @media (max-width: 700px) {
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        margin-top: 10px;
-      }
-    }
-
+    
     /* ===== PAGE HEADER ===== */
     .page-header {
       text-align: center;
-      padding: 60px 20px;
+      padding: 80px 20px;
       background: linear-gradient(rgba(10,26,47,0.8), rgba(10,26,47,0.8)), url('images/church-bg.jpg') center/cover;
       color: var(--light-color);
     }
 
-    .page-header h2 {
-      font-size: 2.3rem;
-      color: var(--accent-color);
-      margin-bottom: 10px;
-    }
 
     .page-header p {
       font-size: 15px;
       color: var(--text-light);
+      padding:40px;
     }
 
     /* ===== FILTER BUTTONS ===== */
@@ -95,23 +51,6 @@
       background: var(--primary-color);
       color: var(--light-color);
       border: none;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
       padding: 10px 22px;
       margin: 5px;
       border-radius: 25px;
@@ -219,35 +158,163 @@
 
     /* ===== FOOTER ===== */
     footer {
-      background: var(--primary-color);
-      color: var(--text-light);
+      background: linear-gradient(135deg, #0a1929 0%, #001f3f 100%);
+      color: white;
+      padding: 60px 20px 30px;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      color: #f4c542;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .footer-section h4 {
+      color: #38bdf8;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .footer-section p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+      color: #e2e8f0;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section li {
+      margin-bottom: 12px;
+    }
+
+    .footer-section a {
+      color: #ccc;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-section a:hover {
+      color: #f4c542;
+      padding-left: 5px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background: #f4c542;
+      color: #0a1929;
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 30px;
       text-align: center;
-      padding: 25px 15px;
-      font-size: 14px;
-      margin-top: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-bottom p {
+      margin: 10px 0;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom a {
+      color: #94a3b8;
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      color: #f4c542;
+    }
+
+    .ministry-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .ministry-tag {
+      background: rgba(56, 189, 248, 0.1);
+      color: #38bdf8;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(56, 189, 248, 0.3);
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== HEADER / NAVBAR ===== -->
   <header>
-    <h1>KSUSDA</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
+        <div class="header-container">
+            <div class="logo">
+                <img src="image/assetss/kisiilogo-removebg-preview.png" alt="KSUSDA church" height="80" width="80">
+               <h2 style="color:#1e90ff;font-weight: 700;">KSUSDA <span style="color:#1a6370;">Gall</span><span style="color:#e74c3c;">erry</span></h2>
+               
+               
+            </div>
+            
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                
+                <ul id="navMenu">
+         <li><a href="index45.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="ministries.html">Ministries</a></li>
-        <li><a href="sermons.html">Sermons</a></li>
+        <li><a href="Ministry.html">Ministries</a></li>
+        <li><a href="serm.html">Sermons</a></li>
         <li><a href="gallery.html" class="active">Gallery</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact32.html">Contact</a></li>
       </ul>
-    </nav>
-  </header>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ 
 
   <!-- ===== PAGE HEADER ===== -->
   <section class="page-header">
-    <h2>Gallery</h2>
     <p>Moments of Worship, Fellowship & Service — Kisii University SDA Church</p>
   </section>
 
@@ -277,39 +344,38 @@
     <div class="gallery-item" data-category="ALO" data-title="ALO Ladies Sabbath">
       <img src="image/Mega Church.jpeg" alt="ALO Ladies Sabbath">
     </div>
-    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat - Zio">
       <img src="image/zio.jpg" alt="AMO Men's Retreat">
     </div>
-    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat - Group Photo">
       <img src="image/video/men1.jpg" alt="AMO Men's Retreat">
     </div>
-    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat - Nature">
       <img src="image/nature.jpg" alt="AMO Men's Retreat">
     </div>
-    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat - Visit">
       <img src="image/visit.jpeg" alt="AMO Men's Retreat">
     </div>
-    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat - Fruit">
       <img src="image/fruit.jpg" alt="AMO Men's Retreat">
     </div>
-    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat - First Fruits">
       <img src="image/first2.jpg" alt="AMO Men's Retreat">
       </div>
-      <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+      <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat - Lizzy">
       <img src="image/video/lizzy.jpg" alt="AMO Men's Retreat">
     </div>
-    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat - Outreach">
       <img src="image/video/outreach6.jpg" alt="AMO Men's Retreat">
     </div>
-    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat - Church Design">
       <img src="image/church design.jpg" alt="AMO Men's Retreat">
     </div>
-    <div class="gallery-item" data-category="AMO" data-title="Ivona Mission">
-      <img src="image/video/outreach2.jpg" alt="AMO Men's Retreat">
+    <div class="gallery-item" data-category="AMO" data-title="Ivona Mission - Outreach">
+      <img src="image/video/outreach2.jpg" alt="Ivona Mission">
     </div>
-    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat">
+    <div class="gallery-item" data-category="AMO" data-title="AMO Men's Retreat - Congregation">
       <img src="image/congregration.jpg" alt="AMO Men's Retreat">
-    </div>
     </div>
   </section>
 
@@ -321,10 +387,65 @@
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    &COPY;2025 Kisii University SDA | All Rights Reserved
-    <hr>
-    <p>Designed and Developed by Jtech Softwares</p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Kisii University SDA Church</h3>
+        <p>"A community of faith, hope, and love. Growing in Christ and preparing for His soon return through worship, fellowship, and service."</p>
+        <p><strong>Our Mission:</strong> To nurture spiritual growth, foster meaningful relationships, and serve our community with compassion and excellence.</p>
+        <div class="social-icons">
+          <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h4>Service Times</h4>
+        <p><i class="fas fa-clock"></i> <strong>Sabbath School:</strong> Saturday 8:00 AM - 9:30 AM</p>
+        <p><i class="fas fa-clock"></i> <strong>Divine Service:</strong> Saturday 9:30 AM - 6:00 PM</p>
+        <p><i class="fas fa-clock"></i> <strong>YearGroup Study:</strong> Tuesday 6:30 PM - 8:30 PM</p>
+        <p><i class="fas fa-clock"></i> <strong>Midweek Prayer:</strong> Wednesday 6:30 PM - 8:30 PM</p>
+        <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Kisii University Campus</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index45.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+          <li><a href="leadership.html"><i class="fas fa-users"></i> Leadership</a></li>
+          <li><a href="serm.html"><i class="fas fa-bible"></i> Sermons</a></li>
+          <li><a href="contact32.html"><i class="fas fa-images"></i> Gallery</a></li>
+          <li><a href="contact32.html"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Our Ministries</h4>
+        <div class="ministry-tags">
+          <span class="ministry-tag">AMO</span>
+          <span class="ministry-tag">ALO</span>
+          <span class="ministry-tag">Christ Messengers</span>
+          <span class="ministry-tag">ACTS on Mission</span>
+        </div>
+        <p style="margin-top: 20px;"><strong>Contact Information:</strong></p>
+        <p><i class="fas fa-phone"></i> +254 791 302 316</p>
+        <p><i class="fas fa-envelope"></i> ksusda@kisiiuniversity.ac.ke</p>
+        <p><i class="fas fa-globe"></i> www.ksusda.org</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <script>document.write(new Date().getFullYear());</script> Kisii University Seventh-day Adventist Church. All Rights Reserved.</p>
+      <p>Designed and Developed by <a href="#" style="color: #f4c542;">JTech Softwares</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      <p style="margin-top: 15px; font-style: italic; color: #64748b;">"Go therefore and make disciples of all nations..." - Matthew 28:19</p>
+    </div>
   </footer>
+ 
+   
+  
 
   <!-- ===== SCRIPT ===== -->
   <script>

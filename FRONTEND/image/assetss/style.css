@@ -1,0 +1,191 @@
+/*This folder contains the CSS file for the healthyblog.html page. It defines the styles and layout for the elements on the page, including the header, hero section, main content, and footer. The CSS file is responsible for the visual appearance of the healthyblog.html page, such as colors, fonts, spacing, and responsiveness.*/
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0ea2df;
+            --secondary: #8bc34a;
+            --accent: #ff9800;
+            --new:#6d9795;
+            --new2:#d1d0c7;
+            --light: #f9f7f2;
+            --dark: #1e2f23;
+            --text: #333;
+            --text-light: #6d9795;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+        }
+
+        body {
+             font-family: 'Poppins', sans-serif;
+      color: #222;
+      line-height: 1.6;
+      background: linear-gradient(-45deg, #e3f2fd, #cfd8dc, #bbdefb, #90caf9);
+      background-size: 400% 400%;
+            overflow-x: hidden;
+        }
+
+        /* Loader */
+        #page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--light);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader-spinner {
+            width: 70px;
+            height: 70px;
+            border: 5px solid rgba(45, 90, 39, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        .loader-text {
+            font-size: 1.2rem;
+            color: red;
+            font-weight: 500;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: navy;
+            font-weight: 500;
+            font-size: 16px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {      
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      font-size:24px;
+      color:#1877f2;
+      background: none;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor:pointer;
+      border:none;
+
+        }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: white;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 20px;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+    
+    nav ul.active {
+        right: 0;
+    }
+    
+    nav ul li {
+        margin-bottom: 4px;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        font-size: 18px;
+        padding: 4px 20px;
+        display: block;
+    }
+}

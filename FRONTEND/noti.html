@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Verse</title>
+    <style>
+        body {font-family: Arial, sans-serif; margin: 0; background: #f5f9f7;}
+        .verse-notification {position: fixed; top: 20px; right: 20px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border-left: 5px solid #2d8c6f; max-width: 300px; animation: slideIn 0.5s ease; z-index: 1000; display: none;}
+        .verse-notification.active {display: block;}
+        .verse-text {font-style: italic; margin-bottom: 10px; line-height: 1.5; color: #333;}
+        .verse-reference {color: #2d8c6f; font-weight: bold; text-align: right;}
+        .timer-bar {height: 4px; background: #ddd; width: 100%; margin-top: 15px; border-radius: 2px; overflow: hidden;}
+        .timer-progress {height: 100%; background: #2d8c6f; width: 100%; transition: width 1s linear;}
+        @keyframes slideIn {from {transform: translateX(100%); opacity: 0;} to {transform: translateX(0); opacity: 1;}}
+        @keyframes fadeOut {to {opacity: 0; transform: translateX(100%);}}
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; margin-top: 50px; color: #2d8c6f;">Daily Bible Verse</h1>
+    <p style="text-align: center; color: #666;">The verse notification will appear automatically in 2 seconds</p>
+    
+    <div class="verse-notification" id="verseNotification">
+        <div class="verse-text" id="verseText">For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.</div>
+        <div class="verse-reference" id="verseReference">Jeremiah 29:11</div>
+        <div class="timer-bar"><div class="timer-progress" id="timerProgress"></div></div>
+    </div>
+
+
+
+    <!--Filtering buttons-->
+    <div class="remedies-filter fade in">
+        <button class="filter-btn active" data-filter="all">All Remedies</button>
+        <button class="filter-btn" data-filter="skin">Skin Soothes</button>
+        <button class="filter-btn" data-filter="digestive">Digestive</button>
+        <button class="filter-btn" data-filter="skin">Skin</button>
+        <button class="filter-btn" data-filter="immune">Immune</button>
+    </div>
+
+    <div class="remedies-grid" id="remediesGrid">
+        <!--Remedies will be auto generated here-->
+    </div>
+
+    <script>
+        const remediesData = [
+            {id:1,
+            name:"Ginger Tea Digestion",
+            category:"digestive",
+            description:"Stimulate Digestive enzymes",
+            image:"image/3  angels messages.jpg"
+            },
+            {
+                id:2,
+                name:"Aloevera Smooth Skin",
+                category:"skin",
+                description:"Alo vera helps in smooothing the skin by fighting off bacteria",
+                image:"image/church.jpg"
+            },
+            {
+                id:3,
+                name:"Rosemary stress relief",
+                category:"stress",
+                description:"Rosemary helps in smoothing the skin",
+                img:"image/community health screening.jpeg"
+            }
+        ];
+        //Generate remedies items
+        const remediesGrid = document.getElementById('remediesGrid');
+        function generateRemedyItems(remedies){
+            remediesGrid.innerHTML = '';
+            remedies.forEach(remedy=>{
+                const remedyItem = document.createElement('div');
+                remedyItem.className = `remedy-item fade-in ${remedy.category}`;
+                remedyItem.setAttribute('data-category',remedy.category);
+
+                remedyItem.innerHTML = `
+                <div class="remedy-img lazy-load data-bg="${remedy.img} style="background-image:url('${remedy.img}')"</div>
+                    <span class="remedy-category">${remedy.category.charAt(0).toUpperCase()+remedy.category.slice(1)}
+                        </span>
+                        <h3>${remedy.name}</h3>
+                        <p>${description}</p>
+                        </div>
+                `;
+                remediesGrid.appendChild(remedyItem);
+                remedyItems.push(remedyItem);
+            });
+            //initialize lazy loading for images
+            intLazyLoading();
+            //Re-initialize fade-in observer for new elements
+            document.querySelectorAll('.remedy-item').forEach(el=>
+                observer.observe(el)
+            );
+        }
+
+        //initialize with all remedies
+        generateRemedyItems(remoteData);
+        //filter button functionality
+        filterButtons.forEach(button=>{
+            button.addEventListener('click',function(){
+                //remove active class for filter buttons
+                filterButtons.forEach(btn=>btn.classList.remove('active'));
+                //Add active when clicked on
+                this.classList.add('active');
+                const filter = this.getAttribute('data-filter');
+                if(filter === 'all'){
+                    generateRemedyItems(remediesData);
+                }else{
+                    const filteredRemedies = remediesData.filter(remedy=>remedy.category === filter);
+                    generateRemedyItems(filteredRemedies);
+                }
+            });
+        });
+    </script>
+
+    <script>
+        const verses = [
+            {text: "Trust in the Lord with all your heart and lean not on your own understanding.", ref: "Proverbs 3:5"},
+            {text: "I can do all things through Christ who strengthens me.", ref: "Philippians 4:13"},
+            {text: "The Lord is my shepherd, I shall not want.", ref: "Psalm 23:1"},
+            {text: "Be strong and courageous. Do not be afraid; do not be discouraged.", ref: "Joshua 1:9"},
+            {text: "For God so loved the world that he gave his one and only Son.", ref: "John 3:16"}
+        ];
+        
+        function showDailyVerse() {
+            // Get random verse
+            const verse = verses[Math.floor(Math.random() * verses.length)];
+            document.getElementById('verseText').textContent = verse.text;
+            document.getElementById('verseReference').textContent = verse.ref;
+            
+            // Show notification
+            const notification = document.getElementById('verseNotification');
+            notification.classList.add('active');
+            
+            // Start countdown timer
+            const progress = document.getElementById('timerProgress');
+            const displayTime = 10000; // 10 seconds
+            
+            progress.style.width = '100%';
+            progress.style.transition = `width ${displayTime}ms linear`;
+            
+            setTimeout(() => {
+                progress.style.width = '0%';
+            }, 10);
+            
+            // Auto-hide after display time
+            setTimeout(() => {
+                notification.classList.remove('active');
+                // Schedule next verse for tomorrow
+                const now = new Date();
+                const tomorrow = new Date(now);
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                tomorrow.setHours(9, 0, 0, 0); // Next day at 9 AM
+                
+                const timeUntilTomorrow = tomorrow.getTime() - now.getTime();
+                setTimeout(showDailyVerse, timeUntilTomorrow);
+            }, displayTime);
+        }
+        
+        // Start automatically after 2 seconds
+        setTimeout(showDailyVerse, 2000);
+    </script>
+</body>
+</html>

@@ -1,148 +1,1078 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    body{
-      background: #0a0a23;
-      margin:0;
-      font-family:sans-serif,Arial;
-      color:white;
+    <!-- Meta Tags for SEO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kisii University SDA Church Ministries - Join various ministry families for spiritual growth, fellowship, and service">
+    <meta name="keywords" content="Kisii University, SDA Church, Ministries, Christian Fellowship, Youth Ministry, Worship, Bible Study">
+    <meta name="author" content="Kisii University SDA Church">
+    
+    <title>Kisii University SDA Church Ministries | Join Our Ministry Families</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="image/assetss/header.css">
+    <link rel="icon" type="image/png" href="image/assetss/kisiilogo.png">
+    
+    <style>
+        /* Custom CSS Variables */
+        :root {
+            --black: #2c3e50;
+            --dark-gray: #2c3e50;
+            --gray: #95a4a6;
+            --light-gray: #777777;
+            --lighter-gray: #e0e0e0;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --accent: #e74c3c;
+            --accent-light: #555555;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+            --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
 
-    }
-    .registration-form{
-      background: rgb(53, 7, 7);
-      max-width:600px;
-      width:95vw;
-      padding:10px  16px 14px  16px;
-      margin:20px auto;
-      outline:none;
-      border-radius:5px;
-      box-shadow:0 2px 25px gold;
-    }
-    h2{
-      color:#00bcd4;
-    }
-    .registration-form h2{
-      margin-bottom:20px;
-      font-size: 2rem;
-      font-weight: 700;
-      text-align:center;
-      animation:zoomInOut 3s infinite ease-in-out;
+        /* Base Styles */
+        body {
+             font-family: 'Poppins', sans-serif;
+      color: #222;
+      line-height: 1.6;
+      background: linear-gradient(-45deg, #e3f2fd, #cfd8dc, #bbdefb, #f9f9f9);
+      background-size: 400% 400%;
+        }
 
-    }
-    @keyframes zoomInOut{
-      0%,100%{transform:scale(1);color:white;}
-      50%{transform:scale(1.5);color:green;}
-    }
-    label{
-    color:#fff;
-    font-weight: bold;
-    }
-    select,button{
-      width:98%;
-      margin:20px;
-      padding:12px 56px;
-      margin-top:8px;
-      border-radius: 6px;
-      font-size: 1.1rem;
-    }
-    button{
-      background: teal;
-      color:#f9f9f9;
-      margin-top:20px;
-      border:2px solid teal;
-      width:98%;
-      font-size:1.1rem;
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      margin-bottom:20px;
-      padding:12px 16px;
-    }
-    button:hover{
-      background: darkslateblue;
-      color:white;
-    }
-    @media(max-width:600px){
-      .registration-form{
-        max-width:95vw;
-        padding:6px 2vw;
-        margin:8px auto;
-      }
-      .registration-form h2{
-        font-size:1rem;
-        padding:6px;
-      }
-      label{
-        font-size:0.95rem;
-      }
-      body{
-        font-size:0.9rem;
-      }
-      select,button{
-        font-size:1rem;
-        padding:6px;
-        margin:10px 0 0 0;
-      }
-    }
-  </style>
+        h1, h2, h3, h4, .logo-font {
+            font-family: 'Playfair', sans-serif;
+            font-weight: 600;
+            color: var(--black);
+        }       
+
+        /* Modern Ministry Cards */
+        .ministry-card {
+            border: none;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            height: 100%;
+            box-shadow: var(--card-shadow);
+            background: var(--white);
+            opacity: 0;
+            animation: fadeIn 0.6s forwards;
+        }
+
+        .ministry-card:nth-child(1) { animation-delay: 0.1s; }
+        .ministry-card:nth-child(2) { animation-delay: 0.2s; }
+        .ministry-card:nth-child(3) { animation-delay: 0.3s; }
+        .ministry-card:nth-child(4) { animation-delay: 0.4s; }
+        .ministry-card:nth-child(5) { animation-delay: 0.5s; }
+        .ministry-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .ministry-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .card-image-container {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .ministry-card:hover .card-image-container img {
+            transform: scale(1.05);
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .ministry-name-overlay {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--black);
+        }
+
+        .card-text {
+            color: var(--light-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .card-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .card-buttons .btn {
+            flex: 1;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.85rem;
+            border-radius: 6px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+            font-size: 2.2rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--light-gray);
+            max-width: 600px;
+            margin: 0.5rem auto 0;
+        }
+
+        /* Leader Cards */
+        .leader-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--lighter-gray);
+            height: 100%;
+            box-shadow: var(--shadow);
+        }
+
+        .leader-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .leader-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--lighter-gray);
+            margin: 0 auto 1rem;
+            transition: var(--transition);
+        }
+
+        .leader-card:hover .leader-photo {
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .leader-name {
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .leader-role {
+            font-size: 0.85rem;
+            color: var(--light-gray);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .leader-ministry {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+            padding: 0.25rem 0.75rem;
+            background: var(--light-bg);
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.75rem;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: var(--transition);
+            flex: 1;
+            min-width: 70px;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Form Styles */
+        .selection-form {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--lighter-gray);
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-select {
+            padding: 0.75rem;
+            border: 1px solid var(--lighter-gray);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .form-select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 0.25rem rgba(231, 76, 60, 0.15);
+        }
+
+        /* Modal Styles */
+        .modal-content {
+            border-radius: var(--border-radius);
+            border: none;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .modal-header {
+            background-color: var(--black);
+            color: var(--white);
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            padding: 1.5rem;
+        }
+
+        .modal-title {
+            font-weight: 600;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--white);
+            opacity: 0.8;
+            transition: var(--transition);
+            font-size: 1.5rem;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            opacity: 1;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .table th {
+            font-weight: 600;
+            color: var(--black);
+            background-color: var(--light-bg);
+        }
+
+        .table td {
+            vertical-align: middle;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: #f8fafc;
+            margin-top: 5rem;
+        }
+
+        .footer h3, .footer h4 {
+            color: #38bdf8;
+        }
+
+        .footer a {
+            color: #cbd5e1;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #38bdf8;
+        }
+
+        .social-icons a {
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeIn 0.3s;
+        }
+
+        .popup-content {
+            position: relative;
+            background: var(--white);
+            padding: 20px;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: var(--border-radius);
+            animation: slideUp 0.4s;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .popup-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0,0,0,0.1);
+            border-radius: 50%;
+            border-top-color: var(--accent);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .card-image-container {
+                height: 200px;
+            }
+            
+            .selection-form {
+                padding: 1.5rem;
+            }
+            
+            .card-buttons {
+                flex-direction: column;
+            }
+            
+            .leader-photo {
+                width: 90px;
+                height: 90px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .card-image-container {
+                height: 180px;
+            }
+            
+            .card-body {
+                padding: 1.25rem;
+            }
+            
+            .card-title {
+                font-size: 1.1rem;
+            }
+            
+            .leader-card {
+                padding: 1.25rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h2><marquee>Choose your Ministry and Family</marquee></h2>
-<section class="registration-form">
-  <h2>Join a Ministry</h2>
-  <form>
-    <!-- Ministry Dropdown -->
-    <label for="ministry">Select Ministry:</label>
-    <select id="ministry" name="ministry">
-      <option value="">-- Choose Ministry --</option>
-      <option value="youth">Youth Ministry</option>
-      <option value="music">Music Ministry</option>
-      <option value="outreach">Outreach Ministry</option>
-    </select>
+    <!-- Event Popup -->
+    <div id="eventPopup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()" style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:28px; color:#333;">&times;</span>
+            <img src="image/bible study.jpeg">
+                 alt="Church Auditorium Event - Kisii University SDA Church Activities" class="img-fluid">
+        </div>
+    </div>
 
-    <br><br>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="abouttt.html" class="logo">
+                    <div class="logo-icon">
+                    <img src="image/assetss/kisiilogo-removebg-preview.png" alt="KSUSDA Church Logo">
+                    </div>
+                    <div class="logo-text">KSUSDA Church</div>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav class="nav-links" id="navLinks">
+                    <a href="#">Home</a>
+                    <a href="#" class="active">Ministries</a>
+                     <a href="#">News</a>
+                    <a href="#">Blog</a>
+                    <a href="#leaderContainer">Leaders</a>
+                    <a href="#">Contact</a>
+                </nav>
+                
+                
+            </div>
+        </div>
+    </header>
 
-    <!-- Family Dropdown -->
-    <label for="family">Select Family:</label>
-    <select id="family" name="family">
-      <option value="">-- Choose Family --</option>
-    </select>
+    <!-- Main Content -->
+    <main>
+        <!-- Ministries Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Ministries</h2>
+                    <p class="section-subtitle">Join one of our vibrant ministry families for spiritual growth and service</p>
+                </div>
+                
+                <div class="row g-4" id="ministriesContainer">
+                    <!-- Ministry cards will be loaded here -->
+                </div>
+            </div>
+        </section>
 
-    <button type="submit">Submit</button>
-  </form>
-</section>
+        <!-- Ministry Selection Form -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="selection-form">
+                            <h2 class="text-center mb-4">Join a Ministry Family</h2>
+                            <form id="ministryForm">
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-6">
+                                        <label for="ministrySelect" class="form-label">Select a Ministry</label>
+                                        <select id="ministrySelect" class="form-select" required>
+                                            <option value="" disabled selected>Choose a ministry</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="familySelect" class="form-label">Select a Family</label>
+                                        <select id="familySelect" class="form-select" required>
+                                            <option value="" disabled selected>First select a ministry</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-dark px-5 py-2">Join Ministry Family</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<script>
-  // Families grouped by ministry
-  const families = {
-    youth: ["Christ Abiders Family", "Newzion Family", "Evangelism Family"],
-    music: ["Choir Family", "Praise Team Family", "Instrumental Family"],
-    outreach: ["Evangelism Family", "Community Service Family", "Health Ministry Family"]
-  };
+        <!-- Ministry Leaders -->
+        <section class="py-5">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Ministry Leaders</h2>
+                    <p class="section-subtitle">Meet our dedicated leaders. Contact them for ministry inquiries.</p>
+                </div>
+                
+                <div class="row g-4" id="leadersContainer">
+                    <!-- Leader cards will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
 
-  const ministrySelect = document.getElementById("ministry");
-  const familySelect = document.getElementById("family");
+    <!-- Modals -->
+    <div class="modal fade" id="calendarModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="calendarTitle">Ministry Activities Calendar</h5>
+                    <button type="button" class="close-btn" data-bs-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="calendarTable">
+                            <!-- Calendar will be populated by JavaScript -->
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  ministrySelect.addEventListener("change", function () {
-    const selectedMinistry = this.value;
-    familySelect.innerHTML = '<option value="">-- Choose Family --</option>';
+    <div class="modal fade" id="weeklyProgramsModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="weeklyProgramsTitle">Weekly Programs</h5>
+                    <button type="button" class="close-btn" data-bs-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="weeklyProgramsTable">
+                            <!-- Weekly programs will be populated by JavaScript -->
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    if (selectedMinistry && families[selectedMinistry]) {
-      families[selectedMinistry].forEach(family => {
-        let option = document.createElement("option");
-        option.value = family.toLowerCase().replace(/\s+/g, "-");
-        option.textContent = family;
-        familySelect.appendChild(option);
-      });
-    }
-  });
-</script>
+    <!-- Footer -->
+    <footer class="footer pt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h3 class="mb-3">Kisii University SDA Church</h3>
+                    <p>A community of faith devoted to worship, fellowship, and spiritual growth. Join us in spreading the everlasting gospel.</p>
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <h4 class="mb-3">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home">Home</a></li>
+                        <li class="mb-2"><a href="#ministries">Ministries</a></li>
+                        <li class="mb-2"><a href="#sermons">Sermons</a></li>
+                        <li class="mb-2"><a href="#events">Events</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h4 class="mb-3">Ministries</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#first-fruit">First Fruit Ministry</a></li>
+                        <li class="mb-2"><a href="#music">Music Ministry</a></li>
+                        <li class="mb-2"><a href="#children">Children's Ministry</a></li>
+                        <li class="mb-2"><a href="#welfare">Welfare & Outreach</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-4">
+                    <h4 class="mb-3">Follow Us</h4>
+                    <div class="social-icons mb-3">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <p><i class="fas fa-envelope me-2"></i>info@ksusda.org</p>
+                    <p><i class="fas fa-phone me-2"></i>+254 791 302 316</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom text-center">
+                <p>&copy; 2025 Kisii University SDA Church | Designed by JTech Softwares</p>
+            </div>
+        </div>
+    </footer>
 
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Simplified JavaScript -->
+    <script>
+        // Ministry data with Unsplash images
+        const ministries = [
+            {
+                id: 1,
+                name: "First Fruit Ministry",
+                image: "image/ksusda1.jpeg",
+                description: "Empowering young people through spiritual growth, fellowship, and leadership development.",
+                families: ["Teens Fellowship", "Campus Youth", "Young Professionals", "Youth Choir"],
+                weeklyPrograms: [
+                    { day: "Thursday", time: "6:30 PM to 8:30PM", activity: "Song Training" },
+                    { day: "Friday", time: "5:00 PMto 6:30PM ", activity: "Song Polishing" },
+                    { day: "Sunday", time: "2:00PM to 4:00PM", activity: "Bible Study" }
+                ],
+                leaders: [
+                    { 
+                        name: "John Maroa", 
+                        role: "Ministry Chair", 
+                        photo: "image/church.jpg",
+                        phone: "+254 712 345 678",
+                        email: "john.mwangi@ksusda.org",
+                        whatsapp: "+254712345678"
+                    },
+                    { 
+                        name: "Faridah Momanyi", 
+                        role: "Assistant", 
+                        photo: "image/html.jpeg",
+                        phone: "+254 723 456 789",
+                        email: "momanyi.auma@ksusda.org",
+                        whatsapp: "+254723456789"
+                    }
+                ],
+                calendar: [
+                    { month: "January", activity: "Common sharing", date: "18" },
+                    { month: "February", activity: "Gospel Campaign Harambee", date: "10" }
+                ]
+            },
+            {
+                id: 2,
+                name: "Music Ministry",
+                image: "image/zio.jpg",
+                description: "Leading worship through music, developing choir members, and organizing musical programs.",
+                families: ["Main Choir", "Praise Team", "Instrumentalists", "Children's Choir"],
+                weeklyPrograms: [
+                    { day: "Tuesday", time: "5:30 PM", activity: "Choir Practice" },
+                    { day: "Thursday", time: "5:30 PM", activity: "Voice Training" },
+                    { day: "Friday", time: "4:00 PM", activity: "Rehearsal" }
+                ],
+                leaders: [
+                    { 
+                        name: "Grace Atieno", 
+                        role: "Choir Director", 
+                        photo: "image/out2.jpg",
+                        phone: "+254 745 678 901",
+                        email: "grace.atieno@ksusda.org",
+                        whatsapp: "+254745678901"
+                    }
+                ],
+                calendar: [
+                    { month: "January", activity: "Choir Leaders Recruitment", date: "5" },
+                    { month: "February", activity: "Music Workshop", date: "16" }
+                ]
+            },
+            {
+                id: 3,
+                name: "Children's Ministry",
+                image: "image/Life is not meant to be lived in isolation but in….jpeg",
+                description: "Nurturing children in faith through Bible lessons, activities, and spiritual guidance.",
+                families: ["Nursery", "Kindergarten", "Primary Kids", "Junior Church"],
+                weeklyPrograms: [
+                    { day: "Saturday", time: "9:30 AM", activity: "Children's Sabbath School" },
+                    { day: "Wednesday", time: "4:00 PM", activity: "Bible Club" }
+                ],
+                leaders: [
+                    { 
+                        name: "Mary Wanjiku", 
+                        role: "Coordinator", 
+                        photo: "image/ksusda1.jpeg",
+                        phone: "+254 767 890 123",
+                        email: "mary.wanjiku@ksusda.org",
+                        whatsapp: "+254767890123"
+                    }
+                ],
+                calendar: [
+                    { month: "January", activity: "Teachers Training", date: "6" },
+                    { month: "February", activity: "Children's Day", date: "17" }
+                ]
+            },
+            {
+                id: 4,
+                name: "Personal Ministry",
+                image: "image/nature.jpg",
+                description: "Fostering a culture of prayer through intercession, prayer meetings, and spiritual support.",
+                families: ["Intercessory Group", "Prayer Warriors", "Weekly Prayer", "Crisis Prayer"],
+                weeklyPrograms: [
+                    { day: "Monday", time: "6:00 PM", activity: "Intercessory Prayer" },
+                    { day: "Wednesday", time: "7:00 PM", activity: "Prayer Meeting" }
+                ],
+                leaders: [
+                    { 
+                        name: "Samuel Ng'ang'a", 
+                        role: "Prayer Coordinator", 
+                        photo: "image/community health screening.jpeg",
+                        phone: "+254 789 012 345",
+                        email: "samuel.nganga@ksusda.org",
+                        whatsapp: "+254789012345"
+                    }
+                ],
+                calendar: [
+                    { month: "January", activity: "New Year Prayer Vigil", date: "1" },
+                    { month: "February", activity: "Prayer Conference", date: "9-10" }
+                ]
+            },
+            {
+                id: 5,
+                name: "New Zion Ministry",
+                image: "image/aloe vera.jpg",
+                description: "Serving the community through evangelism, charity work, and social support programs.",
+                families: ["Evangelism Team", "Benevolence", "Hospital Visits", "Prison Ministry"],
+                weeklyPrograms: [
+                    { day: "Tuesday", time: "4:00 PM", activity: "Planning Meeting" },
+                    { day: "Thursday", time: "3:00 PM", activity: "Community Outreach" }
+                ],
+                leaders: [
+                    { 
+                        name: "Paul Omondi", 
+                        role: "Outreach Director", 
+                        photo: "image/video/vegetables.jpeg",
+                        phone: "+254 701 234 567",
+                        email: "paul.omondi@ksusda.org",
+                        whatsapp: "+254701234567"
+                    }
+                ],
+                calendar: [
+                    { month: "January", activity: "Community Clean-up", date: "19" },
+                    { month: "February", activity: "Hospital Visitation", date: "14" }
+                ]
+            },
+            {
+                id: 6,
+                name: "Christ Messenger",
+                image: "image/undefined (1).jpeg",
+                description: "Spreading the Gospel through evangelism, community outreach, and discipleship programs.",
+                families: ["Street Evangelism", "Door-to-Door", "Radio Ministry", "Bible Study"],
+                weeklyPrograms: [
+                    { day: "Thursday", time: "6:30 PM to 8:30PM", activity: "Song Training" },
+                    { day: "Friday", time: "5:00PM to 6:30PM", activity: "Song Polishing" },
+                    {day: "Sunday", time: "2:00 PM to 4:00 PM", activity: "Bible Study"}
+                ],
+                leaders: [
+                    { 
+                        name: "Elizabeth Njeru", 
+                        role: "Evangelism Director", 
+                        photo: "image/ksuda.jpeg",
+                        phone: "+254 703 456 789",
+                        email: "elizabeth.njeru@ksusda.org",
+                        whatsapp: "+254703456789"
+                    }
+                ],
+                calendar: [
+                    { month: "January", activity: "Evangelism Training", date: "12" },
+                    { month: "February", activity: "Community Outreach", date: "15" }
+                ]
+            }
+        ];
 
+        // DOM elements
+        const elements = {
+            ministriesContainer: document.getElementById('ministriesContainer'),
+            ministrySelect: document.getElementById('ministrySelect'),
+            familySelect: document.getElementById('familySelect'),
+            ministryForm: document.getElementById('ministryForm'),
+            leadersContainer: document.getElementById('leadersContainer'),
+            eventPopup: document.getElementById('eventPopup')
+        };
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadMinistries();
+            loadLeaders();
+            setupEventListeners();
+            
+            // Show popup after 1 second
+            setTimeout(() => {
+                elements.eventPopup.style.display = 'flex';
+                setTimeout(closePopup, 10000);
+            }, 1000);
+        });
+
+        // Load ministries
+        function loadMinistries() {
+            ministries.forEach(ministry => {
+                // Add ministry card
+                const col = document.createElement('div');
+                col.className = 'col-lg-4 col-md-6';
+                col.innerHTML = `
+                    <div class="ministry-card">
+                        <div class="card-image-container">
+                            <img src="${ministry.image}" alt="${ministry.name} - Kisii University SDA Church" loading="lazy">
+                            
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">${ministry.name}</h3>
+                            <p class="card-text">${ministry.description}</p>
+                            <div class="card-buttons">
+                                <button class="btn btn-outline-primary view-calendar" data-id="${ministry.id}">
+                                    <i class="far fa-calendar-alt me-1"></i> Calendar
+                                </button>
+                                <button class="btn btn-outline-success view-weekly" data-id="${ministry.id}">
+                                    <i class="fas fa-calendar-week me-1"></i> Weekly
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                elements.ministriesContainer.appendChild(col);
+
+                // Add to dropdown
+                const option = document.createElement('option');
+                option.value = ministry.id;
+                option.textContent = ministry.name;
+                elements.ministrySelect.appendChild(option);
+            });
+        }
+
+        // Load leaders
+        function loadLeaders() {
+            ministries.forEach(ministry => {
+                ministry.leaders.forEach(leader => {
+                    const col = document.createElement('div');
+                    col.className = 'col-lg-4 col-md-6 col-sm-6';
+                    col.innerHTML = `
+                        <div class="leader-card">
+                            <img src="${leader.photo}" alt="${leader.name}" class="leader-photo" loading="lazy">
+                            <h4 class="leader-name">${leader.name}</h4>
+                            <p class="leader-role">${leader.role}</p>
+                            <div class="leader-ministry">${ministry.name}</div>
+                            <div class="contact-buttons">
+                                ${leader.phone ? `<a href="tel:${leader.phone}" class="btn btn-outline-success btn-sm contact-btn">
+                                    <i class="fas fa-phone"></i> Call
+                                </a>` : ''}
+                                ${leader.email ? `<a href="mailto:${leader.email}" class="btn btn-outline-info btn-sm contact-btn">
+                                    <i class="fas fa-envelope"></i> Email
+                                </a>` : ''}
+                                ${leader.whatsapp ? `<a href="https://wa.me/${leader.whatsapp.replace('+', '')}" 
+                                   target="_blank" class="btn btn-outline-secondary btn-sm contact-btn">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </a>` : ''}
+                            </div>
+                        </div>
+                    `;
+                    elements.leadersContainer.appendChild(col);
+                });
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Ministry select change
+            elements.ministrySelect.addEventListener('change', function() {
+                const ministryId = parseInt(this.value);
+                const ministry = ministries.find(m => m.id === ministryId);
+                
+                elements.familySelect.innerHTML = '<option value="" disabled selected>Select a family</option>';
+                
+                if (ministry) {
+                    ministry.families.forEach(family => {
+                        const option = document.createElement('option');
+                        option.value = family;
+                        option.textContent = family;
+                        elements.familySelect.appendChild(option);
+                    });
+                }
+            });
+
+            // Form submission
+            elements.ministryForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const ministryId = parseInt(elements.ministrySelect.value);
+                const family = elements.familySelect.value;
+                const ministry = ministries.find(m => m.id === ministryId);
+                
+                if (!ministry || !family) {
+                    alert('Please select both a ministry and a family.');
+                    return;
+                }
+                
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<span class="loading"></span> Joining...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    alert(`Thank you for joining ${family} in ${ministry.name}! We will contact you soon.`);
+                    this.reset();
+                    elements.familySelect.innerHTML = '<option value="" disabled selected>First select a ministry</option>';
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 1500);
+            });
+
+            // Calendar and weekly buttons
+            document.addEventListener('click', function(e) {
+                const btn = e.target.closest('.view-calendar');
+                if (btn) {
+                    const ministryId = parseInt(btn.dataset.id);
+                    openCalendar(ministryId);
+                }
+                
+                const weeklyBtn = e.target.closest('.view-weekly');
+                if (weeklyBtn) {
+                    const ministryId = parseInt(weeklyBtn.dataset.id);
+                    openWeeklyPrograms(ministryId);
+                }
+            });
+
+            // Notification button
+            document.getElementById('notificationBtn').addEventListener('click', function() {
+                alert('Notifications:\n1. Youth Meeting - Saturday 9 AM\n2. Prayer Night - Wednesday 7 PM\n3. Community Outreach - Next Sunday');
+            });
+
+            // Prayer request button
+            document.getElementById('prayerRequestBtn').addEventListener('click', function() {
+                window.location.href = 'prayer-request.html';
+            });
+        }
+
+        // Open calendar modal
+        function openCalendar(ministryId) {
+            const ministry = ministries.find(m => m.id === ministryId);
+            if (!ministry) return;
+            
+            document.getElementById('calendarTitle').textContent = `${ministry.name} Calendar`;
+            
+            let tableHTML = `
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Activity</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            ministry.calendar.forEach(item => {
+                tableHTML += `
+                    <tr>
+                        <td>${item.month}</td>
+                        <td>${item.activity}</td>
+                        <td>${item.date}</td>
+                    </tr>
+                `;
+            });
+            
+            tableHTML += '</tbody></table>';
+            document.getElementById('calendarTable').innerHTML = tableHTML;
+            
+            // Show modal
+            new bootstrap.Modal(document.getElementById('calendarModal')).show();
+        }
+
+        // Open weekly programs modal
+        function openWeeklyPrograms(ministryId) {
+            const ministry = ministries.find(m => m.id === ministryId);
+            if (!ministry) return;
+            
+            document.getElementById('weeklyProgramsTitle').textContent = `${ministry.name} Weekly Programs`;
+            
+            let tableHTML = `
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Time</th>
+                            <th>Activity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            ministry.weeklyPrograms.forEach(program => {
+                tableHTML += `
+                    <tr>
+                        <td>${program.day}</td>
+                        <td>${program.time}</td>
+                        <td>${program.activity}</td>
+                    </tr>
+                `;
+            });
+            
+            tableHTML += '</tbody></table>';
+            document.getElementById('weeklyProgramsTable').innerHTML = tableHTML;
+            
+            // Show modal
+            new bootstrap.Modal(document.getElementById('weeklyProgramsModal')).show();
+        }
+
+        // Close popup
+        function closePopup() {
+            elements.eventPopup.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
+                    
