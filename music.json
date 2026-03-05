@@ -6,22 +6,22 @@
     "file":"image/assetss/asubuhi ni karibu.mp3"
   },
   {
-    "title": "KSUSDA Choir - Lift Him Up",
-    "description": "Praise worship song.",
+    "title": "495 - Near to the Heart of God",
+    "description": "Meditation and Prayer",
     "type": "audio",
-    "file": "image/Blue and White Modern Esport Game Presentation (1).mp4"
+    "file": "http://sdahymnals.com/Hymnal/mp3/495%20%E2%80%93%20Near%20to%20the%20Heart%20of%20God.mp3"
   },
   {
-"title": "KSUSDA -Trusting God",
+"title": "My Maker and My King",
 "description": "Powerful song by KSUSDA choir",
 "type": "audio",
-"file":""
+"file":"http://sdahymnals.com/Hymnal/mp3/015%20%E2%80%93%20My%20Maker%20and%20My%20King.mp3"
   },
   {
     "title": "KSUSDA Sabbath Live Recording",
     "description": "A blessing video from last Sabbath.",
     "type": "video",
-    "file": "image/Blue and White Modern Esport Game Presentation (1).mp4"
+    "file": "http://sdahymnals.com/Hymnal/mp3/633%20%E2%80%93%20When%20We%20All%20Get%20to%20Heaven.mp3"
   },
   {
     "title": "KSUSDA Sabbath Live Recording",
@@ -47,6 +47,34 @@
     "description": "A blessing video from last Sabbath.",
     "type": "audio",
     "file": "http://sdahymnals.com/Hymnal/mp3/618%20%E2%80%93%20Stand%20Up!%20Stand%20Up%20for%20Jesus!.mp3"
-  }
+  },
+    {
+    "title": "493 - Like the woman in the well",
+    "description": "This song was sung by karoke.",
+    "type": "audio",
+    "file": "http://sdahymnals.com/Hymnal/mp3/493%20%E2%80%93%20Fill%20My%20Cup%20Lord.mp3"
+  },
+  {
+    "title": "341 - To God Be the Glory",
+    "description": "This song was sung by karoke.",
+    "type": "audio",
+    "file": "http://sdahymnals.com/Hymnal/mp3/341%20%E2%80%93%20To%20God%20Be%20the%20Glory.mp3"
+  },
+    {
+      "title": "343 - Amazing Grace",
+      "description": "This song was sung by karoke.",
+      "type": "audio",
+      "file": "http://sdahymnals.com/Hymnal/mp3/108%20%E2%80%93%20Amazing%20Grace.mp3"
+    },
+      {
+      "title": "388 – Don’t Forget the Sabbath",
+      "description": "This song was sung by karoke.",
+      "type": "audio",
+      "file": "http://sdahymnals.com/Hymnal/mp3/388%20%E2%80%93%20Don%E2%80%99t%20Forget%20the%20Sabbath.mp3"
+    }
+
   
 ]
+
+  
+
