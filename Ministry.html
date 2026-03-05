@@ -476,6 +476,69 @@
                 padding: 1.25rem;
             }
         }
+        /* this is a style for department section */
+        .departments {
+            margin-top:20px;
+            background: var(--light-bg);
+            width:100%;
+            padding:3rem 2rem;
+        
+            box-shadow:0 4px 3px rgba(0,0,0,0.1);
+        }
+        .departments h2{
+            text-align:center;
+            font-size:2.5rem;
+            color: var(--black);
+            margin-bottom:2rem;
+             }
+             .departments p{
+                text-align:center;
+                color:var(--light-gray);
+                font-size:1.2rem;
+             }
+        .department-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+@media (max-width: 900px) {
+  .department-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .department-container {
+    grid-template-columns: 1fr;
+  }
+}
+        
+        .department{
+            background: var(--white);
+            padding:1.5rem;
+            border-radius:8px;
+            box-shadow:0 2px 10px rgba(0,0,0,0.3);
+            text-align:center;
+        }
+        .deparment h3{
+            margin-top:10px;
+            font-size: 2rem;
+            color:  navy;
+        }
+        .department p{
+            color: var(--light-gray);
+            font-size:1rem;
+            margin-top:10px;
+            text-align: left;
+            padding:10px;
+        }
+        .department i{
+            font-size: 2rem;
+            color: var(--accent);
+
+        }
     </style>
 </head>
 <body>
@@ -564,6 +627,56 @@
             </div>
         </section>
 
+        <!--This is a section that includes the departments we have in ksusda-->
+        <section class="departments">
+            <h2>Our Departments</h2>
+            <p>Each department plays a vital role in the spiritual and organizational life of our church</p>
+            <div class="department-container">
+                <div class="department">
+                    <i class="fas fa-building"></i>
+                    <h3>Deacons & Deaconesses</h3>
+                    <p>Serving the congregation through practical ministry and support.</p>
+                    
+                    <p><i class="fas fa-user"></i>&nbsp;Head Deacon : Michael Wamalwa</p>
+                </div>
+                <div class="department">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Communication</h3>
+                    <p>Managing church communications, media, and online presence.</p>
+                    
+                    <p><i class="fas fa-user"></i>&nbsp;Communication Director : Omar Davies</p>
+                </div>
+                <div class="department">
+                    <i class="fas fa-book"></i>
+                    <h3>Education</h3>
+                    <p>Supporting academic excellence and Christian education initiatives. </p>
+                   
+                    <p><i class="fas fa-user"></i>&nbsp;Elder : John Kamau</p>
+                </div>
+                 <div class="department">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Welfare </h3>
+                    <p>The Welfare Department  is responsible for caring for the social and physical needs of church members. It helps people who are sick, in financial difficulty, bereaved, or facing other problems, and organizes support such as visits, food, donations, and assistance during emergencies.  </p>
+                   
+                    <p><i class="fas fa-user"></i>&nbsp;Welfare Director : Jane Omondi</p>
+                </div>
+                 <div class="department">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Stewardship </h3>
+                    <p> The Stewardship Department in a church is responsible for teaching and encouraging members to faithfully manage God's resources, including time, talents, and money. It promotes tithing, offerings, and responsible use of resources, and motivates members to serve and support church activities.</p>
+                   
+                    <p><i class="fas fa-user"></i>&nbsp;Stewardship Director : John Mwangi</p>
+                </div>
+                 <div class="department">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>MasterGuide </h3>
+                    <p> The Master Guide Department in a church is responsible for training and mentoring youth and leaders, especially in spiritual growth, leadership, and service. It helps guide young people to develop good character, strong faith, and leadership skills while supporting church and community activities.<strong>Its main goal is to prepare committed Christian leaders to serve the church and society</strong></p>
+                   
+                    <p><i class="fas fa-user"></i>&nbsp;Master Guide Director : Keith Ndiema</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Ministry Leaders -->
         <section class="py-5">
             <div class="container">
@@ -628,19 +741,19 @@
                 <div class="col-lg-2 col-md-4">
                     <h4 class="mb-3">Quick Links</h4>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#home">Home</a></li>
-                        <li class="mb-2"><a href="#ministries">Ministries</a></li>
-                        <li class="mb-2"><a href="#sermons">Sermons</a></li>
-                        <li class="mb-2"><a href="#events">Events</a></li>
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="Ministry.html">Ministries</a></li>
+                        <li class="mb-2"><a href="serm.html">Sermons</a></li>
+                        <li class="mb-2"><a href="eventht.html">Events</a></li>
                     </ul>
                 </div>
                 
                 <div class="col-lg-3 col-md-4">
                     <h4 class="mb-3">Ministries</h4>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#first-fruit">First Fruit Ministry</a></li>
-                        <li class="mb-2"><a href="#music">Music Ministry</a></li>
-                        <li class="mb-2"><a href="#children">Children's Ministry</a></li>
+                        <li class="mb-2"><a href="Ministry.html#first-fruit">First Fruit Ministry</a></li>
+                        <li class="mb-2"><a href="Ministry.html#music">Music Ministry</a></li>
+                        <li class="mb-2"><a href="Ministry.html#children">Children's Ministry</a></li>
                         <li class="mb-2"><a href="#welfare">Welfare & Outreach</a></li>
                     </ul>
                 </div>
