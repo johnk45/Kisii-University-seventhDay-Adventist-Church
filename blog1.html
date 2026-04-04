@@ -504,6 +504,14 @@
             gap: 10px;
             font-size: 0.9rem;
         }
+         .verse-notification {position: fixed; top: 20px; right: 20px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border-left: 5px solid #2d8c6f; max-width: 300px; animation: slideIn 0.5s ease; z-index: 1000; display: none;}
+        .verse-notification.active {display: block;}
+        .verse-text {font-style: italic; margin-bottom: 10px; line-height: 1.5; color: #333;}
+        .verse-reference {color: #2d8c6f; font-weight: bold; text-align: right;}
+        .timer-bar {height: 4px; background: #ddd; width: 100%; margin-top: 15px; border-radius: 2px; overflow: hidden;}
+        .timer-progress {height: 100%; background: #2d8c6f; width: 100%; transition: width 1s linear;}
+        @keyframes slideIn {from {transform: translateX(100%); opacity: 0;} to {transform: translateX(0); opacity: 1;}}
+        @keyframes fadeOut {to {opacity: 0; transform: translateX(100%);}}
     </style>
 </head>
 <body>
@@ -740,7 +748,64 @@
             </div>
         </aside>
     </div>
-    
+
+    <!--show notification-->
+    <div class="verse-notification" id="verseNotification">
+        <div class="verse-text" id="verseText">
+            For I know the plans I have for you desclares the lord,plans to prosper you and not to harm you. Plans to give you hope and a future.
+        </div>
+        <div class="verse-reference" id="verseReference">Jeremiah 29:11</div>
+        <div class="timer-bar">
+            <div class="timer-progress" id="timerProgress"></div>
+        </div>
+    </div>
+    <script>
+        const verses = [
+            {text:"Trust the lord with all your heart and lean not in your own understanding .",ref:"proverbs 3:5"},
+            {text:"I do all things through christ who strengthens me.",ref:"Phillipians 4:13"},
+            {text:"The lord is my shepherd , I shall not want .",ref:"Psalm 23:1"},
+            {text:"Be strong and courages .Do not be afraid; do not be dsicouraged.",ref:"Joshua 1:19"},
+            {text:"For God so loved the world that he gave his only son that whoever believed on him ,shall not perish but have everlasting life .",ref:"John 3:16"}
+        ];
+
+        function showDisplay(){
+            //get random verse
+            const verse = verses[Math.floor(Math.random() * verses.length)];
+            document.getElementById('verseText').textContent = verse.text;
+            document.getElementById('verseReference').textContent = verse.ref;
+
+            //show notification
+            const notification = document.getElementById('verseNotification');
+            notification.classList.add('active');
+
+            //start countdown timer
+            const progress = document.getElementById('timerProgress');
+            const displayTime = 10000; // 10seconds
+
+            progress.style.width = '100%';
+            progress.style.transition = `width ${displayTime}ms linear`;
+
+            setTimeout(()=>{
+                progress.style.width = '0%';
+            },10);
+
+            //Auto-hide after display time
+            setTimeout(()=>{
+                notification.classList.remove('active');
+                //schedule nextverse for tomorrow
+                const now = new Date();
+                const tomorrow = new Date(now);
+                tomorrow.setDate(tomorrow.getDate()+1);
+                tomorrow.setHours(9,0,0,0);   //next day at 9am
+
+                const timeUntilTomorrow = tomorrow.getTime() - now.getTime();
+                setTimeout(showDaily,timeUntilTomorrow);
+            },displayTime);
+
+        }
+        //start automatically after 2 seconds
+        setTimeout(showDisplay,2000);
+    </script>
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -776,7 +841,7 @@
             </div>
             
             <div class="copyright">
-                <p>© 2025 Kisii University SDA Church Blog. All Rights Reserved.</p>
+                <p>&copy; <script>document.write(new Date().getFullYear());</script> Kisii University SDA Church Blog. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
