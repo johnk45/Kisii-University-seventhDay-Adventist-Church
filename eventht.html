@@ -64,52 +64,11 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .logo:hover {
-            transform: translateY(-2px);
-        }
-
-        .logo-icon {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 6px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(58, 124, 165, 0.2);
-            transition: var(--transition);
-            backdrop-filter: blur(10px);
-        }
-
-        .logo-icon:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            border-color: var(--primary);
-            transform: translateY(-1px);
-        }
-
-        .logo-icon img {
-            width: 45px;
-            height: 45px;
-            object-fit: contain;
-            border-radius: 6px;
-            transition: var(--transition);
-        }
-
-        .logo-icon img:hover {
-            transform: scale(1.05);
+         
         }
 
         .logo-text {
+            margin-left:1rem;
             font-family: 'Poppins', sans-serif;
             font-size: 1.8rem;
             font-weight: 700;
@@ -119,6 +78,14 @@
             color: transparent;
             letter-spacing: 1px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+        }
+        .logo-text:hover {
+            background: linear-gradient(135deg, #089cf1 0%, #f37406 50%, #07f068 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color:transparent;
+
         }
 
        
@@ -977,12 +944,8 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <div class="header-content">
-                <a href="abouttt.html" class="logo">
-                    <div class="logo-icon">
-                    <img src="image/assetss/kisiilogo-removebg-preview.png" alt="KSUSDA Church Logo">
-                    </div>
-                    <div class="logo-text">KSUSDA Church</div>
+            <div class="header-content">              
+             <a class="logo-text" href="about.html">KSUSDA Church</a>
                 </a>
                 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -990,9 +953,9 @@
                 </button>
                 
                 <nav class="nav-links" id="navLinks">
-                    <a href="index45.html">Home</a>
-                    <a href="serm.html">Sermons</a>
                     <a href="eventht.html" class="active">Events</a>
+                    <a href="indexx.html">Home</a>
+                    <a href="serm.html">Sermons</a>
                     <a href="Ministry.html">Ministries</a>
                     <a href="about.html">About</a>
                     <a href="contact32.html">Contact</a>
