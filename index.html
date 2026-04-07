@@ -147,6 +147,38 @@
       border-radius: 5px;
       transition: 0.3s;
     }
+
+    /* Dropdown styles */
+    .dropdown ul {
+      display: none;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.85);
+      min-width: 200px;
+      border-radius: 5px;
+      padding: 10px 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .dropdown:hover ul {
+      display: block;
+    }
+
+    .dropdown ul li {
+      list-style: none;
+    }
+
+    .dropdown ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 20px;
+      display: block;
+    }
+
+    .dropdown ul li a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--gold);
+    }
     
     /* Hero section */
     .hero {
@@ -973,7 +1005,16 @@
       <ul id="nav-links">
         
         <li><a href="about.html">About</a></li>
-        <li><a href="Ministry.html">Ministries</a></li>
+
+        <li class="dropdown"><a href="Ministry.html"><span>Ministries</span><i class="bi bi-chevron-down toggle drop-down"></i></a>
+          <ul>
+            <li><a href="#">First Fruit Ministry</a></li>
+             <li><a href="#">New Zion Ministry</a></li>
+              <li><a href="#">Christ Messengers</a></li>
+              <li><a href="#">Children Ministry</a></li>
+          </ul>
+        
+        </li>
         <li><a href="eventht.html">Events</a></li>
         <li><a href="serm.html">Sermons</a></li>
         <li><a href="contact32.html">Contact</a></li>
@@ -1045,7 +1086,7 @@
           <a href="about.html" class="btn btn-primary">Read More About Us</a>
         </div>
         <div class="about-image">
-          <img src="image/ksuda.jpeg">
+          <img src="image/ksuda.jpeg" alt="church altar" loading="lazy" class="img-fluid">
         </div>
       </div>
       
@@ -1370,8 +1411,10 @@
     <i class="fas fa-pray"></i>
   </div>
   
+  
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   
   <script>
