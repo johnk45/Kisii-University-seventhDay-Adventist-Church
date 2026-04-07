@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>First Fruit Ministry | KSUSDA Church</title>
+    <!-- Bootstrap 5 + Icons + Google Fonts (clean modern) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background-color: #fefaf5;
+            color: #1e2a2f;
+            scroll-behavior: smooth;
+        }
+        /* common ministry colors: deep teal, warm gold, soft cream */
+        :root {
+            --primary-deep: #1f5e5c;    /* deep teal / rich green-blue (first fruit harvest) */
+            --primary-light: #2f827f;
+            --accent-gold: #e2b13b;     /* harvest gold */
+            --accent-warm: #f4a261;
+            --cream-bg: #fff9ef;
+            --soft-gray: #f7f3eb;
+        }
+        .bg-ministry {
+            background-color: var(--primary-deep);
+        }
+        .btn-primary-custom {
+            background-color: var(--primary-deep);
+            border-color: var(--primary-deep);
+            color: white;
+            transition: all 0.2s ease;
+        }
+        .btn-primary-custom:hover {
+            background-color: #124a48;
+            border-color: #124a48;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+        }
+        .btn-outline-custom {
+            border: 2px solid var(--primary-deep);
+            color: var(--primary-deep);
+            background: transparent;
+        }
+        .btn-outline-custom:hover {
+            background-color: var(--primary-deep);
+            color: white;
+        }
+        .text-gold {
+            color: var(--accent-gold);
+        }
+        .bg-cream {
+            background-color: var(--cream-bg);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #fef7e8 0%, #faeecd 100%);
+            padding: 4rem 0 5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--accent-gold);
+            border-radius: 4px;
+        }
+        .card-modern {
+            border: none;
+            border-radius: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            background: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+        }
+        .card-modern:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+        }
+        .icon-circle {
+            background-color: rgba(31,94,92,0.1);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 60px;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            color: var(--primary-deep);
+        }
+        .stat-number {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--primary-deep);
+            line-height: 1.2;
+        }
+        .gallery-img {
+            border-radius: 1.2rem;
+            aspect-ratio: 1 / 0.9;
+            background-size: cover;
+            background-position: center;
+            background-color: #d9ceb5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+            transition: 0.2s;
+        }
+        .schedule-row {
+            border-bottom: 1px solid #ede6db;
+            padding: 0.9rem 0;
+        }
+        .footer {
+            background-color: #0f3a38;
+            color: #dfe9e8;
+        }
+        .leader-img-place {
+            width: 100px;
+            height: 100px;
+            background: #e3daca;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1rem;
+        }
+        @media (max-width: 768px) {
+            .hero-section { padding: 2.5rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation (simple bootstrap) -->
+<nav class="navbar navbar-expand-lg bg-white py-3 shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-4" href="#">
+            <i class="bi bi-flower2 text-gold me-2"></i>First Fruit <span style="color: var(--primary-deep);">Ministry</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
+                <li class="nav-item"><a class="nav-link fw-semibold" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="#offerings">Offerings</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="#schedule">Schedule</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="#leaders">Leaders</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="#events">Events</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="#faq">FAQ</a></li>
+            </ul>
+            <a href="#" class="btn btn-primary-custom ms-lg-3 px-4 rounded-pill">Give First Fruit <i class="bi bi-gift"></i></a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section with meeting details & quick stats -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-7">
+                <div class="badge bg-warning text-dark px-3 py-2 rounded-pill mb-3 fw-semibold"><i class="bi bi-calendar-heart"></i> “Honor the LORD with the first of all your produce” — Proverbs 3:9</div>
+                <h1 class="display-4 fw-bold mb-3">First Fruit <span style="color: var(--primary-deep);">Giving & Devotion</span></h1>
+                <p class="lead mb-4">A ministry dedicated to honoring God with the first and best of our time, talents, and treasures. Join us as we plant seeds of faith and harvest spiritual abundance at KSUSDA Church.</p>
+                <div class="bg-white p-3 rounded-4 shadow-sm d-inline-flex flex-wrap gap-3 mb-4">
+                    <div><i class="bi bi-clock-history text-gold me-2"></i><strong>Every First Saturday</strong>  |  9:00 AM – 12:00 PM</div>
+                    <div><i class="bi bi-geo-alt-fill text-gold me-2"></i><strong>KSUSDA Sanctuary Hall</strong>  |  Online via Zoom</div>
+                </div>
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="#" class="btn btn-primary-custom px-4 py-2 rounded-pill fw-semibold"><i class="bi bi-calendar-check"></i> Join First Saturday</a>
+                    <a href="#" class="btn btn-outline-custom px-4 py-2 rounded-pill"><i class="bi bi-envelope-paper"></i> Pledge First Fruit</a>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="row g-3">
+                    <div class="col-6"><div class="bg-white p-3 rounded-4 text-center shadow-sm"><div class="stat-number">250+</div><div class="text-muted">Active Givers</div></div></div>
+                    <div class="col-6"><div class="bg-white p-3 rounded-4 text-center shadow-sm"><div class="stat-number">$48K+</div><div class="text-muted">Seed Offerings 2024</div></div></div>
+                    <div class="col-6"><div class="bg-white p-3 rounded-4 text-center shadow-sm"><div class="stat-number">12</div><div class="text-muted">Outreach Projects</div></div></div>
+                    <div class="col-6"><div class="bg-white p-3 rounded-4 text-center shadow-sm"><div class="stat-number">100%</div><div class="text-muted">Towards Kingdom Impact</div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section + Photo Gallery -->
+<section id="about" class="py-5 bg-cream">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-md-6">
+                <span class="text-gold fw-semibold"><i class="bi bi-seedling"></i> OUR MISSION</span>
+                <h2 class="section-title mt-2">Sowing First Fruits for Lasting Harvest</h2>
+                <p class="mt-3">First Fruit Ministry at KSUSDA Church inspires believers to dedicate the first portion of their increase — whether financial, time, or resources — back to God. Through teaching, prayer, and practical stewardship, we cultivate a lifestyle of honor and generosity.</p>
+                <p>We believe the principle of first fruit unlocks provision, breakthroughs, and supernatural multiplication in every area of life. Join our community of faithful sowers.</p>
+                <a href="#" class="btn btn-outline-custom rounded-pill mt-2">Learn our story <i class="bi bi-arrow-right"></i></a>
+            </div>
+            <div class="col-md-6">
+                <div class="row g-3">
+                    <div class="col-6"><div class="gallery-img" style="background-image: linear-gradient(120deg, #1f5e5c, #36807c), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTEgMTVoLTJ2LTJoMnYyem0wLTRoLTJWN2gyeHoiLz48L3N2Zz4='); background-blend-mode: overlay; background-size: cover;"><i class="bi bi-basket fs-1"></i> Harvest Offering</div></div>
+                    <div class="col-6"><div class="gallery-img" style="background-image: linear-gradient(130deg, #e2b13b, #d48f2b), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTEgMTVoLTJ2LTJoMnYyem0wLTRoLTJWN2gyeHoiLz48L3N2Zz4='); background-blend-mode: overlay;"><i class="bi bi-people fs-1"></i> Community Prayers</div></div>
+                    <div class="col-6"><div class="gallery-img" style="background-image: linear-gradient(145deg, #2f827f, #1e625f), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTEgMTVoLTJ2LTJoMnYyem0wLTRoLTJWN2gyeHoiLz48L3N2Zz4='); background-blend-mode: overlay;"><i class="bi bi-tree fs-1"></i> First Fruit Garden</div></div>
+                    <div class="col-6"><div class="gallery-img" style="background-image: linear-gradient(100deg, #f4a261, #e08d3a), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+PHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTEgMTVoLTJ2LTJoMnYyem0wLTRoLTJWN2gyeHoiLz48L3N2Zz4='); background-blend-mode: overlay;"><i class="bi bi-megaphone fs-1"></i> Testimony Night</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Program Offerings (cards) -->
+<section id="offerings" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="text-gold fw-semibold"><i class="bi bi-grid-3x3-gap-fill"></i> WHAT WE DO</span>
+            <h2 class="section-title" style="display: inline-block;">Kingdom Stewardship & Discipleship</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3"><div class="card-modern p-4 h-100"><div class="icon-circle"><i class="bi bi-basket2-fill"></i></div><h4>First Fruit Offering</h4><p>Monthly gathering to present first fruit offerings and learn biblical principles of harvest.</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="card-modern p-4 h-100"><div class="icon-circle"><i class="bi bi-journal-bookmark-fill"></i></div><h4>Financial Freedom Class</h4><p>Budgeting, tithing, and debt-free living from a biblical worldview. 6-week course.</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="card-modern p-4 h-100"><div class="icon-circle"><i class="bi bi-people-fill"></i></div><h4>Seed & Harvest Mentorship</h4><p>One-on-one prayer partners for entrepreneurs and families seeking breakthrough.</p></div></div>
+            <div class="col-md-6 col-lg-3"><div class="card-modern p-4 h-100"><div class="icon-circle"><i class="bi bi-cup-straw"></i></div><h4>Community Food Pantry</h4><p>Sharing first fruit produce and groceries with local families each month.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Weekly Schedule (First Fruit focused) -->
+<section id="schedule" class="py-5 bg-cream">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <span class="text-gold fw-semibold">MONTHLY RHYTHM</span>
+                <h2 class="section-title">Gather & Grow Calendar</h2>
+                <p>Join us for dedicated times of worship, teaching, and first fruit celebration. Open to all ages.</p>
+            </div>
+            <div class="col-lg-7">
+                <div class="bg-white p-4 rounded-4 shadow-sm">
+                    <div class="schedule-row d-flex"><div style="width: 130px;"><strong>First Saturday</strong></div><div>9:00 AM – First Fruit Worship & Corporate Prayer (Sanctuary)</div></div>
+                    <div class="schedule-row d-flex"><div style="width: 130px;"><strong>Second Sunday</strong></div><div>10:30 AM – First Fruit Testimonies during main service</div></div>
+                    <div class="schedule-row d-flex"><div style="width: 130px;"><strong>Third Wednesday</strong></div><div>7:00 PM – Financial Discipleship Webinar (Zoom)</div></div>
+                    <div class="schedule-row d-flex"><div style="width: 130px;"><strong>Last Friday</strong></div><div>6:30 PM – Harvest Night: Potluck & Offering Celebration</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Leadership Team Profiles + Contact -->
+<section id="leaders" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">First Fruit Leadership</h2>
+            <p class="mt-2">Passionate servants guiding the ministry of first fruit and generosity.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-6 col-lg-3 text-center"><div class="card-modern p-4 h-100"><div class="leader-img-place"><i class="bi bi-person-badge fs-1"></i></div><h5 class="fw-bold">Pastor David K.</h5><p>Lead Pastor, KSUSDA</p><div class="small text-muted"><i class="bi bi-envelope"></i> david@ksusda.org<br><i class="bi bi-telephone"></i> +254 712 345678</div></div></div>
+            <div class="col-md-6 col-lg-3 text-center"><div class="card-modern p-4 h-100"><div class="leader-img-place"><i class="bi bi-person-workspace"></i></div><h5 class="fw-bold">Eunice M.</h5><p>First Fruit Director</p><div class="small text-muted"><i class="bi bi-envelope"></i> eunice@ksusda.org<br><i class="bi bi-whatsapp"></i> +254 722 111222</div></div></div>
+            <div class="col-md-6 col-lg-3 text-center"><div class="card-modern p-4 h-100"><div class="leader-img-place"><i class="bi bi-coin"></i></div><h5 class="fw-bold">Bro. James Otieno</h5><p>Stewardship Coach</p><div class="small text-muted"><i class="bi bi-envelope"></i> james.otieno@ksusda.org</div></div></div>
+            <div class="col-md-6 col-lg-3 text-center"><div class="card-modern p-4 h-100"><div class="leader-img-place"><i class="bi bi-megaphone"></i></div><h5 class="fw-bold">Mercy Achieng</h5><p>Prayer Coordinator</p><div class="small text-muted"><i class="bi bi-envelope"></i> mercy@ksusda.org<br>Prayer line: +254 700 998877</div></div></div>
+        </div>
+        <div class="text-center mt-4"><a href="#" class="btn btn-outline-custom rounded-pill"><i class="bi bi-chat-dots"></i> Contact Ministry Team</a></div>
+    </div>
+</section>
+
+<!-- Student / Member Testimonials (first fruit testimonies) -->
+<section class="py-5 bg-cream">
+    <div class="container">
+        <div class="text-center mb-4"><h2 class="section-title">Harvest Testimonies</h2><p>Hear what God is doing through First Fruit obedience</p></div>
+        <div class="row g-4">
+            <div class="col-md-4"><div class="card-modern p-4 h-100"><i class="bi bi-chat-quote fs-1 text-gold"></i><p class="mt-2 fst-italic">“After committing my first salary as first fruit, doors opened for a business contract. God’s faithfulness is real!”</p><strong>- Rebecca N.</strong></div></div>
+            <div class="col-md-4"><div class="card-modern p-4 h-100"><i class="bi bi-chat-quote fs-1 text-gold"></i><p class="mt-2 fst-italic">“Our family started tithing first fruit and we saw supernatural provision — school fees paid and unexpected gifts.”</p><strong>- The Omondi Family</strong></div></div>
+            <div class="col-md-4"><div class="card-modern p-4 h-100"><i class="bi bi-chat-quote fs-1 text-gold"></i><p class="mt-2 fst-italic">“The First Fruit teaching transformed my view on giving. I now experience joy and financial clarity.”</p><strong>- Daniel K., Entrepreneur</strong></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Upcoming Events -->
+<section id="events" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center d-block text-md-start">Upcoming First Fruit Events</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4"><div class="card-modern p-4"><div class="d-flex gap-2 align-items-center"><i class="bi bi-calendar-week fs-2 text-gold"></i><div><h5 class="mb-0">First Saturday Gathering</h5><small>May 3 | 9 AM</small></div></div><p class="mt-2">Corporate first fruit offering + prophetic prayer. Bring your symbolic first fruit.</p><a href="#" class="text-decoration-none fw-semibold" style="color: var(--primary-deep);">Register <i class="bi bi-arrow-right"></i></a></div></div>
+            <div class="col-md-4"><div class="card-modern p-4"><div class="d-flex gap-2 align-items-center"><i class="bi bi-piggy-bank fs-2 text-gold"></i><div><h5 class="mb-0">Seed Sower Seminar</h5><small>May 12 | 6:30 PM</small></div></div><p class="mt-2">Learn biblical financial principles and practical budgeting with Q&A.</p><a href="#" class="text-decoration-none fw-semibold" style="color: var(--primary-deep);">Join Seminar</a></div></div>
+            <div class="col-md-4"><div class="card-modern p-4"><div class="d-flex gap-2 align-items-center"><i class="bi bi-basket3 fs-2 text-gold"></i><div><h5 class="mb-0">Harvest Banquet 2025</h5><small>June 7 | 4 PM</small></div></div><p class="mt-2">Celebration dinner & testimonies. Honoring faithful first fruit givers.</p><a href="#" class="text-decoration-none fw-semibold" style="color: var(--primary-deep);">Get Tickets</a></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Step-by-step guide to getting involved -->
+<section class="py-5 bg-cream">
+    <div class="container">
+        <div class="text-center mb-5"><h2 class="section-title">How to Walk in First Fruit</h2><p>Start your journey in 4 simple steps</p></div>
+        <div class="row g-4">
+            <div class="col-md-3 text-center"><div class="bg-white p-4 rounded-4 h-100 shadow-sm"><div class="bg-ministry text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; font-weight: 800;">1</div><h5>Learn the Principle</h5><p>Join our intro class or watch online teaching on first fruit.</p></div></div>
+            <div class="col-md-3 text-center"><div class="bg-white p-4 rounded-4 h-100 shadow-sm"><div class="bg-ministry text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; font-weight: 800;">2</div><h5>Set Aside Your First Fruit</h5><p>Designate the first portion (financial or symbolic) to honor God.</p></div></div>
+            <div class="col-md-3 text-center"><div class="bg-white p-4 rounded-4 h-100 shadow-sm"><div class="bg-ministry text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; font-weight: 800;">3</div><h5>Present at Gathering</h5><p>Bring your offering to the First Saturday service or online portal.</p></div></div>
+            <div class="col-md-3 text-center"><div class="bg-white p-4 rounded-4 h-100 shadow-sm"><div class="bg-ministry text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; font-weight: 800;">4</div><h5>Receive & Multiply</h5><p>Join small groups, share testimonies, and watch God’s harvest.</p></div></div>
+        </div>
+        <div class="text-center mt-5"><a href="#" class="btn btn-primary-custom rounded-pill px-5 py-3 fs-6"><i class="bi bi-check2-circle"></i> I want to start First Fruit</a></div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center d-block" style="text-align: center; width: 100%;">Frequently Asked Questions</h2>
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item border-0 mb-3 shadow-sm rounded-4"><h2 class="accordion-header"><button class="accordion-button rounded-4 bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">What exactly is “First Fruit” in the Bible?</button></h2><div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">First Fruit is the biblical practice of offering the first and best portion of your harvest (Proverbs 3:9, Exodus 23:19) as an act of honor, trust, and thanksgiving to God. It acknowledges God as the source of all increase.</div></div></div>
+                    <div class="accordion-item border-0 mb-3 shadow-sm rounded-4"><h2 class="accordion-header"><button class="accordion-button collapsed rounded-4 bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Is first fruit different from tithe?</button></h2><div id="faq2" class="accordion-collapse collapse"><div class="accordion-body">Yes, first fruit is a separate offering of the first portion (often a specific amount or symbol), while tithe is 10% of increase. Both are acts of faith and obedience. First Fruit unlocks blessings over the rest.</div></div></div>
+                    <div class="accordion-item border-0 mb-3 shadow-sm rounded-4"><h2 class="accordion-header"><button class="accordion-button collapsed rounded-4 bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Can I give online or only in person?</button></h2><div id="faq3" class="accordion-collapse collapse"><div class="accordion-body">Absolutely. You can give through KSUSDA Church’s online portal, mobile money, or during our First Saturday gatherings. All designated “First Fruit” gifts go directly to ministry impact.</div></div></div>
+                    <div class="accordion-item border-0 shadow-sm rounded-4"><h2 class="accordion-header"><button class="accordion-button collapsed rounded-4 bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Who can join First Fruit Ministry?</button></h2><div id="faq4" class="accordion-collapse collapse"><div class="accordion-body">Everyone! Whether you’re a long-time member or new to KSUSDA, you can participate in teachings, gatherings, and offering. All ages welcome.</div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final Call to Action -->
+<section class="py-5" style="background: linear-gradient(115deg, #1f5e5c 0%, #2f827f 100%); color: white;">
+    <div class="container text-center">
+        <h2 class="fw-bold">Bring Your First Fruit & Experience Breakthrough</h2>
+        <p class="lead mb-4">Join us this First Saturday at KSUSDA Church or give online as an act of faith.</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="#" class="btn btn-light rounded-pill px-4 py-2 fw-semibold text-dark"><i class="bi bi-calendar-heart"></i> Upcoming Gathering</a>
+            <a href="#" class="btn btn-outline-light rounded-pill px-4 py-2"><i class="bi bi-gift-fill"></i> Give First Fruit Now</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer pt-5 pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4"><i class="bi bi-flower2 fs-3"></i><h5 class="mt-2 fw-bold">First Fruit Ministry</h5><p>KSUSDA Church · Nairobi, Kenya <br> A ministry dedicated to honoring God with the first of all increase.</p></div>
+            <div class="col-md-4 mb-4"><h5>Contact</h5><p><i class="bi bi-envelope"></i> firstfruit@ksusda.org<br><i class="bi bi-telephone"></i> +254 709 876543<br><i class="bi bi-geo-alt"></i> KSUSDA Worship Center, Ngong Rd</p></div>
+            <div class="col-md-4 mb-4"><h5>Quick Links</h5><ul class="list-unstyled"><li><a href="#" class="text-decoration-none text-white-50">First Fruit Resources</a></li><li><a href="#" class="text-decoration-none text-white-50">Giving Portal</a></li><li><a href="#" class="text-decoration-none text-white-50">Volunteer with Us</a></li><li><a href="#" class="text-decoration-none text-white-50">KSUSDA Main Site</a></li></ul></div>
+        </div>
+        <hr class="opacity-25"><div class="text-center pt-2 small">© 2025 First Fruit Ministry — KSUSDA Church. All glory to God. “Honor the Lord with your wealth and with the firstfruits of all your produce.”</div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Minimal JS for alert on demo buttons -->
+<script>
+    document.querySelectorAll('a[href="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('🙌 Thank you for your interest! Visit KSUSDA Church or contact the ministry team for more details. (Demo interaction)');
+        });
+    });
+</script>
+</body>
+</html>
