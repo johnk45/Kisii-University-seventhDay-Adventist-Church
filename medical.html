@@ -285,25 +285,103 @@
 
         /* Footer */
         footer {
-            background-color: var(--dark);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            padding: 80px 20px 40px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        footer h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        /* Newsletter Section */
+        .footer-newsletter {
+            background: linear-gradient(135deg, #1877f2 0%, #0ea5e9 100%);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .footer-newsletter h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
             color: white;
-            padding: 80px 20px 30px;
+        }
+        
+        .footer-newsletter p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+            color: #333;
+        }
+        
+        .newsletter-form button {
+            padding: 12px 30px;
+            background: white;
+            color: #1877f2;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+        
+        .footer-col:first-child {
+            grid-column: span 1;
         }
 
         .footer-col h3 {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #38bdf8;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 12px;
+            font-weight: 600;
         }
 
         .footer-col h3::after {
@@ -311,9 +389,16 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 50px;
+            width: 40px;
             height: 2px;
-            background: var(--secondary);
+            background: linear-gradient(90deg, #38bdf8, transparent);
+        }
+        
+        .footer-col p {
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
         }
 
         .footer-col ul {
@@ -321,28 +406,140 @@
         }
 
         .footer-col ul li {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+        }
+        
+        .footer-col ul li i {
+            color: #38bdf8;
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
         }
 
         .footer-col ul li a {
-            color: #bbb;
+            color: #cbd5e1;
             text-decoration: none;
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
 
         .footer-col ul li a:hover {
-            color: white;
+            color: #38bdf8;
             padding-left: 5px;
         }
 
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             margin-top: 20px;
         }
 
         .social-links a {
-            width: 40px;
+            width: 44px;
+            height: 44px;
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #38bdf8;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: #38bdf8;
+            color: white;
+            transform: translateY(-3px);
+            border-color: #38bdf8;
+        }
+        
+        /* Footer Bottom */
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        
+        .copyright p {
+            margin: 8px 0;
+        }
+
+        .copyright a {
+            color: #38bdf8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .copyright a:hover {
+            color: #0ea5e9;
+            text-decoration: underline;
+        }
+        
+        /* Footer Responsive */
+        @media (max-width: 768px) {
+            footer {
+                padding: 50px 20px 30px;
+            }
+            
+            footer h2 {
+                font-size: 1.4rem;
+                margin-bottom: 30px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            footer {
+                padding: 40px 15px 25px;
+            }
+            
+            footer h2 {
+                font-size: 1.2rem;
+                margin-bottom: 25px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .footer-newsletter {
+                padding: 25px 15px;
+            }
+            
+            .footer-newsletter h3 {
+                font-size: 1.2rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .copyright {
+                font-size: 0.85rem;
+            }
+        }
             height: 40px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
@@ -752,100 +949,360 @@
 
   /* About Intro */
   .about{
-    margin:20px auto;
-    width:100%;
-    background-color: #ffffff;
-    padding:30px 40px;
-    border-radius: 8px;
-    align-items:center;
+    margin: 40px auto;
+    width: 100%;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    padding: 50px 40px;
+    border-radius: 16px;
+    align-items: center;
   }
   .about h2{
-    padding:10px;
-    font-size:2rem;
-    text-align:center;
-  }
-  .about p{
-    padding:8px;
-    max-width:800px;
-    margin:auto;
+    padding: 10px;
+    font-size: 2.8rem;
     text-align: center;
-    
-    font-size:1.2rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 10px;
   }
-        .about-intro {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 80px;
-            align-items: center;
-            
-        }
+  .about > p{
+    padding: 8px;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+  }
+  
+  /* Statistics Section */
+  .stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 40px 0;
+    padding: 30px 0;
+  }
+  
+  .stat-card {
+    text-align: center;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--primary);
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+  
+  .stat-label {
+    color: #666;
+    font-size: 1rem;
+    font-weight: 500;
+  }
 
-        .about-content h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
+  .about-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+    align-items: center;
+  }
 
-        .about-content p {
-            margin-bottom: 20px;
-            color: #555;
-            font-size: 1.1rem;
-            text-align:initial;
-        }
+  .about-content h2 {
+    font-size: 2.3rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
 
-        .about-image {
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            height: 400px;
-        }
+  .about-content p {
+    margin-bottom: 18px;
+    color: #555;
+    font-size: 1.05rem;
+    text-align: justify;
+    line-height: 1.7;
+  }
 
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
+  .about-image {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    height: 400px;
+    position: relative;
+  }
 
-        .about-image:hover img {
-            transform: scale(1.03);
-        }
-        .cards{
-            display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .about-image:hover img {
+    transform: scale(1.05);
+  }
+  
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
+  }
+  
+  .content {
+    border: none;
+    border-radius: 12px;
+    padding: 25px;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    box-shadow: 0 4px 15px rgba(24, 119, 242, 0.2);
+    transition: all 0.3s ease;
+    text-align: center;
+    border-left: 4px solid #1877f2;
+  }
+  
+  .content:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(24, 119, 242, 0.35);
+  }
+  
+  .content h2 {
+    font-size: 1.35rem;
+    color: #1877f2;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .content p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .content i {
+    font-size: 2.2rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1877f2 0%, #0ea5e9 100%);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto 15px;
+    justify-content: center;
+    color: white;
+    height: 55px;
+    width: 55px;
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+  }
+  
+  .content i:hover {
+    transform: scale(1.1);
+  }
+        /* FAQ Section */
+        .faq-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #f5f3ff 100%);
+            padding: 50px 0;
+            margin: 40px 0;
+            border-radius: 16px;
         }
-        .content{
-            border:none;
-            border-radius:5px;
-            padding:10px 10px;
-            background-color:  #e3f2fd;
-            box-shadow:1px 2px 5px rgb(13, 114, 208);
-        }
-        .content h2{
-            font-size:1.5rem;
-        }
-        .content p{
-            font-size:1rem;
-        }
-        .content i{
-            font-size:1.8rem;
-            border-radius:50%;
-            background-color: #1877f2;
-            padding:10px;
-            display:flex;
-            align-items:center;
-            margin:0 auto;
-            justify-content:center;
-            color:white;
-            height:50px;width:50px;
-        }
-        .fas{
         
-            margin:0 auto;
+        .faq-title {
+            text-align: center;
+            margin-bottom: 40px;
         }
+        
+        .faq-title h2 {
+            font-size: 2.3rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .faq-question {
+            padding: 20px 25px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: linear-gradient(135deg, #bbdefb 0%, #90caf9 100%);
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question {
+            background: linear-gradient(135deg, #1877f2 0%, #0ea5e9 100%);
+            color: white;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 25px;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 20px 25px;
+        }
+        
+        .faq-answer p {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        /* Get Involved Section */
+        .get-involved {
+            background: linear-gradient(135deg, #1877f2 0%, #0ea5e9 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .get-involved h2 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .get-involved p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .get-involved-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-get-involved {
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-get-involved.primary {
+            background: white;
+            color: #1877f2;
+        }
+        
+        .btn-get-involved.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-get-involved.secondary {
+            background: transparent;
+            color: white;
+        }
+        
+        .btn-get-involved.secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 50px 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            margin: 40px 0;
+            border-radius: 16px;
+        }
+        
+        .testimonials-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .testimonials-title h2 {
+            font-size: 2.3rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .testimonial-stars {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial-text {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
         @media(max-width:768px){
             .about-intro, .medical-leaders-grid{
                 display:grid;
@@ -952,46 +1409,185 @@
         </div>
     </section>
 <!-- About Intro -->
- <div class="about">
-     <h2>About Our Department</h2>
-            <p>The Medical Missionary Department at Kisii University SDA Church combines spiritual ministry with healthcare excellence</p>
+<div class="about">
+    <h2>About Our Department</h2>
+    <p>The Medical Missionary Department at Kisii University SDA Church combines spiritual ministry with healthcare excellence, serving the university and broader community with compassion and professionalism.</p>
+    
+    <!-- Impact Statistics -->
+    <div class="stats-section">
+        <div class="stat-card">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Lives Impacted Annually</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">40+</div>
+            <div class="stat-label">Active Team Members</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Community Outreaches</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">8</div>
+            <div class="stat-label">Years of Service</div>
+        </div>
+    </div>
+
+    <!-- Mission & Vision -->
+    <section class="about-intro">
+        <div class="about-image">
+            <img src="https://i.pinimg.com/736x/fb/6c/ee/fb6ceedd074c863317d70f1c5202492c.jpg" alt="KSUSDA Church Gathering">
+        </div>
+        <div class="about-content">
+            <h2>Our Mission & Vision</h2>
+            <p><strong>Mission:</strong> To train and equip students and church members in the art of medical missionary work, following the example of Christ who went about doing good and healing all who were oppressed.</p>
+            <p><strong>Vision:</strong> We envision a community where every individual has access to quality healthcare coupled with spiritual hope. We believe that the gospel and health ministry go hand in hand.</p>
+            <p>Our department serves as a bridge between the university's academic excellence and the church's mission to serve humanity in need, creating a holistic approach to wellness.</p>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <h3 style="text-align: center; color: var(--primary); font-size: 2rem; margin-bottom: 30px; margin-top: 40px; font-weight: 700;">Our Core Values</h3>
+    <div class="cards">
+        <div class="content">
+            <i class="fas fa-heart"></i>
+            <h2>Compassion & Care</h2>
+            <p>We provide care with Christ-like love and genuine empathy, treating each person as a valued member of God's family.</p>
+        </div>
+        <div class="content">
+            <i class="fas fa-star"></i>
+            <h2>Excellence</h2>
+            <p>Committed to the highest standards of medical practice, professional ethics, and continuous improvement in all our services.</p>
+        </div>
+        <div class="content">
+            <i class="fas fa-people-group"></i>
+            <h2>Community Focus</h2>
+            <p>Dedicated to serving the needs of our local and global communities, prioritizing underserved and vulnerable populations.</p>
+        </div>
+        <div class="content">
+            <i class="fas fa-graduation-cap"></i>
+            <h2>Education & Training</h2>
+            <p>Equipping the next generation of medical missionaries through comprehensive training, mentorship, and practical experience.</p>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<section class="container my-5">
+    <div class="faq-section">
+        <div class="faq-title">
+            <h2>Frequently Asked Questions</h2>
+            <p style="color: #666; font-size: 1.05rem;">Find answers to common questions about our medical missionary programs and services.</p>
+        </div>
         
-        <section class="about-intro">
-              <div class="about-image">
-                <img src="https://i.pinimg.com/736x/ca/02/11/ca0211bb12d6cd622f88f8e48a38110f.jpg" alt="KSUSDA Church Gathering">
+        <div class="container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Who can join the Medical Missionary Department?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We welcome all students and church members who have a passion for healthcare and community service. No medical background is required—we provide comprehensive training for all skill levels. Students from nursing, medicine, public health, and related fields are particularly encouraged to join.</p>
+                </div>
             </div>
-            <div class="about-content">
-                <h2 class="fs-2 text-black">Our Mission</h2>
-               <p>To train and equip students and church members in the art of medical missionary work, following the example of Christ who went about doing good and healing all who were oppressed.</p>
-               <p>We believe that the gospel and health ministry go hand in hand, and through our programs, we reach communities with both physical healing and spiritual hope.</p>
-               <p>Our department serves as a bridge between the university's academic excellence and the church's mission to serve humanity in need</p>
-            
-          
-        </section>
-        <div class="cards">
-            <div class="content">
-                <i class="fas fa-heart"></i>
-                <h2>Compassion Care</h2>
-                <p>Provide Care with christ love and empathy</p>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How often do we conduct medical outreach programs?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We conduct regular outreach programs throughout the year. During the semester, we have training sessions every week on Wednesdays at 6:30 PM. Quarterly medical camps are organized in partnership with local communities, and special health weeks are conducted during specific seasons.</p>
+                </div>
             </div>
-            <div class="content">
-                <i class="fas fa-bullseye"></i>
-                <h2>Excellence</h2>
-                <p>Committed to the highest Standards of Medical Practise</p>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What types of health services do we provide?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our services include: health screening (blood pressure, diabetes, BMI), health education seminars, disease prevention workshops, first aid training, community health camps, home visits for elderly members, and spiritual care. We focus on preventive health using the NEWSTART principles (Nutrition, Exercise, Water, Sunlight, Temperance, Air, Rest, Trust).</p>
+                </div>
             </div>
-            <div class="content">
-                <i class="fas fa-users"></i>
-                <h2 class="fs-4 text-black">Community Focus</h2>
-                <p class="fs-6">Serving the needs of our local and global communities</p>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is there a cost to join or participate in programs?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Joining the Medical Missionary Department is free for all students and members. We also provide free health services and training sessions to the community. All our outreach programs are subsidized to ensure accessibility to underserved populations.</p>
+                </div>
             </div>
-            <div class="content">
-                <i class="fas fa-book"></i>
-                <h2>Education</h2>
-                <p>Training the next Generation of medical missionaries</p>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do we combine spiritual care with medical care?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We believe in holistic health—body, mind, and spirit. While providing medical services, we also offer prayer support, spiritual counseling, and Bible-based health education. Our missionaries are trained to recognize spiritual needs alongside physical health concerns and provide integrated care.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What training opportunities are available?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer training in: First Aid & CPR, Health Communication, Lifestyle Medicine, Disease Prevention, Community Health Assessment, Medical Ethics, Spiritual Care in Healthcare, and Leadership Development. Quarterly seminars feature guest speakers and practical workshops.</p>
+                </div>
             </div>
         </div>
     </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="container my-5">
+    <div class="testimonials-section">
+        <div class="testimonials-title">
+            <h2>Success Stories & Testimonials</h2>
+            <p style="color: #666; font-size: 1.05rem;">Hear from those whose lives have been touched by our medical missionary work.</p>
+        </div>
+        
+        <div class="container">
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The medical missionary program changed my perspective on healthcare. I learned that true healing goes beyond medicine—it encompasses spiritual care and community compassion."</p>
+                    <div class="testimonial-author">— Sarah K., Nursing Student</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"When I attended the health screening, I was diagnosed with high blood pressure early. The follow-up care and lifestyle guidance helped me prevent serious complications. Thank you!"</p>
+                    <div class="testimonial-author">— James M., Community Member</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The team's compassion during the community outreach was remarkable. They didn't just treat symptoms; they listened, prayed with us, and showed genuine care. Truly Christ-like service."</p>
+                    <div class="testimonial-author">— Mary N., Village Leader</div>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
+
+<!-- Get Involved Section -->
+<section class="container my-5">
+    <div class="get-involved">
+        <h2>Be Part of Our Mission</h2>
+        <p>Join us in bringing healthcare and hope to those in need. Whether you're a healthcare professional, student, or passionate community member, you can make a difference.</p>
+        <div class="get-involved-buttons">
+            <a href="#join-ministry" class="btn-get-involved primary">Join Our Team</a>
+            <a href="volunteer.html" class="btn-get-involved secondary">Volunteer Now</a>
+            <a href="donate.html" class="btn-get-involved secondary">Support Our Mission</a>
+        </div>
+    </div>
+</section>
 
     <!-- Bootstrap CDN -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -1145,57 +1741,83 @@
 
     <!-- Footer -->
     <footer id="contact">
-         <h2 style="margin-top:5px;margin-bottom:10px;padding:0;text-align: center;color:#6d9795">Kisii University Medical Missionary Department</h2>
+        <h2><i class="fas fa-heartbeat me-2"></i>Kisii University Medical Missionary Department</h2>
+        
+        <!-- Newsletter Section -->
+        <div class="footer-newsletter">
+            <h3>Stay Updated on Health Tips</h3>
+            <p>Subscribe to our newsletter for weekly natural remedies and health education</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!')">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+        
+        <!-- Footer Content -->
         <div class="footer-container">
-           
-            <div class="footer-col" style="background-color: green;color:white;padding:10px 20px;border-radius: 8px;">
-                <h3>Nature's Cure</h3>
-                <p>Your trusted source for natural remedies and holistic health solutions. Empowering individuals with knowledge passed down through generations.</p>
+            <!-- About Column -->
+            <div class="footer-col">
+                <h3><i class="fas fa-leaf me-2"></i>Medical Ministry</h3>
+                <p>Empowering students and communities through holistic healthcare combining medical excellence with spiritual care. We're committed to serving humanity and promoting health through natural remedies and health education.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             
-            <div class="footer-col" style="background-color:#1877f2;padding:10px 20px;color:white;border-radius:8px;">
-                <h3>Quick Links</h3>
+            <!-- Quick Links Column -->
+            <div class="footer-col">
+                <h3><i class="fas fa-link me-2"></i>Quick Links</h3>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#remedies">All Remedies</a></li>
-                    <li><a href="healthyblog.html">Health Blog</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#home"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="#remedies"><i class="fas fa-leaf"></i>Natural Remedies</a></li>
+                    <li><a href="healthyblog.html"><i class="fas fa-blog"></i>Health Blog</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i>About Us</a></li>
+                    <li><a href="#resources"><i class="fas fa-book"></i>Resources</a></li>
                 </ul>
             </div>
             
-            <div class="footer-col" style="background-color: teal;color:#f9f9f9;padding:10px 20px;border-radius:8px;">
-                <h3>Remedy Categories</h3>
+            <!-- Remedy Categories Column -->
+            <div class="footer-col">
+                <h3><i class="fas fa-mortar-pestle me-2"></i>Remedy Categories</h3>
                 <ul>
-                    <li><a href="#" data-filter="digestive">Digestive Health</a></li>
-                    <li><a href="#" data-filter="respiratory">Respiratory Care</a></li>
-                    <li><a href="#" data-filter="immune">Immune System</a></li>
-                    <li><a href="#" data-filter="skin">Skin & Beauty</a></li>
-                    <li><a href="#" data-filter="stress">Stress & Sleep</a></li>
+                    <li><a href="#" data-filter="digestive"><i class="fas fa-symptoms"></i>Digestive Health</a></li>
+                    <li><a href="#" data-filter="respiratory"><i class="fas fa-lungs"></i>Respiratory Care</a></li>
+                    <li><a href="#" data-filter="immune"><i class="fas fa-shield"></i>Immune System</a></li>
+                    <li><a href="#" data-filter="skin"><i class="fas fa-spa"></i>Skin & Beauty</a></li>
+                    <li><a href="#" data-filter="stress"><i class="fas fa-brain"></i>Stress & Sleep</a></li>
                 </ul>
             </div>
             
-            <div class="footer-col" style="background-color: red; color:#ccc;padding:10px 20px;border-radius:8px;">
-                <h3>Contact Us</h3>
+            <!-- Contact Column -->
+            <div class="footer-col">
+                <h3><i class="fas fa-phone me-2"></i>Contact Info</h3>
                 <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Kisii campus</li>
-                    <li><i class="fas fa-phone"></i> 0791302316</li>
-                    <li><i class="fas fa-envelope"></i> info@naturescure.com</li>
-                    <li><i class="fas fa-clock"></i> Wen: 6:30PM-8:30PM</li>
+                    <li><i class="fas fa-map-marker-alt"></i><a href="#">Kisii University Main Campus</a></li>
+                    <li><i class="fas fa-phone"></i><a href="tel:+254791302316">+254 791 302 316</a></li>
+                    <li><i class="fas fa-envelope"></i><a href="mailto:mediummissionary@ksusda.org">mediummissionary@ksusda.org</a></li>
+                    <li><i class="fas fa-clock"></i>Wed: 6:30 PM - 8:30 PM</li>
+                    <li><i class="fas fa-calendar"></i>Sunday: 2:00 PM - 4:00 PM</li>
                 </ul>
             </div>
         </div>
         
-        <div class="copyright">
-            <p>&copy; 2026 Nature's Cure. All rights reserved. | <a href="#" style="color: #aaa;">Privacy Policy</a> | <a href="#" style="color: #aaa;">Terms of Service</a></p>
-            <p>This website is for educational purposes only. Consult a healthcare professional before trying any remedy.</p>
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2026 Kisii University SDA Church - Medical Missionary Department. All rights reserved.</p>
+                <p>
+                    <a href="#">Privacy Policy</a> | 
+                    <a href="#">Terms of Service</a> | 
+                    <a href="#">Contact Us</a>
+                </p>
+                <p style="color: #64748b; font-size: 0.85rem; margin-top: 12px;">
+                    <i class="fas fa-info-circle me-1"></i>This website is for educational purposes only. Always consult a qualified healthcare professional before trying any remedy.
+                </p>
+            </div>
         </div>
     </footer>
 
@@ -1360,6 +1982,23 @@
                             top: targetElement.offsetTop - 80,
                             behavior: 'smooth'
                         });
+                    }
+                });
+            });
+            
+            // FAQ Toggle Functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const wasActive = item.classList.contains('active');
+                    
+                    // Close all other items
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    
+                    // Toggle current item
+                    if (!wasActive) {
+                        item.classList.add('active');
                     }
                 });
             });
