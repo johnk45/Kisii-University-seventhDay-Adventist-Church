@@ -75,55 +75,110 @@
     }
 
     .events-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .event-card {
+    .events-table {
+      width: 100%;
+      border-collapse: collapse;
       background: #fff;
       border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       overflow: hidden;
-      transition: transform 0.3s ease;
-      margin-bottom:20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
 
-    .event-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .event-date {
+    .events-table thead {
       background: #094067;
       color: #fff;
+    }
+
+    .events-table th {
       padding: 15px;
-      text-align: center;
+      text-align: left;
       font-weight: 600;
+      border-bottom: 2px solid #f4c542;
     }
 
-    .event-content {
-      padding: 20px;
+    .events-table td {
+      padding: 15px;
+      border-bottom: 1px solid #e0e0e0;
+      color: #5f6c7b;
     }
 
-    .event-content h3 {
+    .events-table tbody tr:hover {
+      background: #f5f5f5;
+      transition: 0.2s ease;
+    }
+
+    .events-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .event-row[data-category] {
+      display: table-row;
+    }
+
+    .event-date-col {
+      background: #094067;
+      color: #fff;
+      font-weight: 600;
+      min-width: 120px;
+    }
+
+    .event-title {
       color: #094067;
-      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 1.05rem;
     }
 
-    .event-content p {
+    .event-description {
       color: #5f6c7b;
       font-size: 0.95rem;
-      margin-bottom: 15px;
+      margin-bottom: 5px;
     }
 
-    .countdown {
+    .event-venue {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+
+    .event-countdown {
       background: #ef4565;
       color: #fff;
-      text-align: center;
-      padding: 8px;
+      padding: 8px 12px;
       border-radius: 8px;
       font-weight: bold;
       font-size: 0.9rem;
+      text-align: center;
+      min-width: 150px;
+    }
+
+    @media (max-width: 900px) {
+      .events-table th,
+      .events-table td {
+        padding: 12px;
+        font-size: 0.95rem;
+      }
+      .event-countdown {
+        min-width: 120px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .events-table {
+        font-size: 0.85rem;
+      }
+      .events-table th,
+      .events-table td {
+        padding: 10px;
+      }
+      .event-countdown {
+        min-width: 100px;
+        font-size: 0.8rem;
+      }
     }
 
     @media (max-width: 600px) {
@@ -226,70 +281,67 @@
   </div>
 
   <div class="events-grid">
-    <div class="event-card" data-category="spiritually">
-        <div class="event-date">24 Dec 2025</div>
-        <div class="event-content">
-            <h3>Camp Meeting</h3>
-            <p>Proclaiming the word of<strong>God</strong>  to Kisii Campus students and Residence</p>
-            <p><strong>Venue:Kisii Campus Chacha Square</strong></p>
-            <div class="countdown" data-date="2025-12-12"></div>
-        </div>
-    </div>
+    <table class="events-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Event Name</th>
+          <th>Description</th>
+          <th>Venue</th>
+          <th>Countdown</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="event-row" data-category="spiritually">
+          <td class="event-date-col">24 Dec 2025</td>
+          <td><span class="event-title">Camp Meeting</span></td>
+          <td><span class="event-description">Proclaiming the word of <strong>God</strong> to Kisii Campus students and Residence</span></td>
+          <td><span class="event-venue"><strong>Kisii Campus Chacha Square</strong></span></td>
+          <td><span class="countdown event-countdown" data-date="2025-12-12"></span></td>
+        </tr>
 
-  
-       
-    <div class="event-card" data-category="spiritual">
-      <div class="event-date">24 Sep 2026</div>
-      <div class="event-content">
-        <h3>Freshers' Welcome Sabbath</h3>
-        <p>Welcoming new students to the KSUSDA family through worship and fellowship.</p>
-        <p><strong>Venue:</strong> KSUSDA Church Grounds</p>
-        <div class="countdown" data-date="2026-09-24"></div>
-      </div>
-    </div>
+        <tr class="event-row" data-category="spiritual">
+          <td class="event-date-col">24 Sep 2026</td>
+          <td><span class="event-title">Freshers' Welcome Sabbath</span></td>
+          <td><span class="event-description">Welcoming new students to the KSUSDA family through worship and fellowship.</span></td>
+          <td><span class="event-venue"><strong>KSUSDA Church Grounds</strong></span></td>
+          <td><span class="countdown event-countdown" data-date="2026-09-24"></span></td>
+        </tr>
 
-    <div class="event-card" data-category="youth">
-      <div class="event-date">26 Oct 2025</div>
-      <div class="event-content">
-        <h3>Writers' Sabbath</h3>
-        <p>A creative Sabbath led by Quill Organisation, featuring poems and devotionals.</p>
-        <p><strong>Venue:</strong> Lecture Hall 3</p>
-        <div class="countdown" data-date="2025-10-26"></div>
-      </div>
-    </div>
+        <tr class="event-row" data-category="youth">
+          <td class="event-date-col">26 Oct 2025</td>
+          <td><span class="event-title">Writers' Sabbath</span></td>
+          <td><span class="event-description">A creative Sabbath led by Quill Organisation, featuring poems and devotionals.</span></td>
+          <td><span class="event-venue"><strong>Lecture Hall 3</strong></span></td>
+          <td><span class="countdown event-countdown" data-date="2025-10-26"></span></td>
+        </tr>
 
-    <div class="event-card" data-category="spiritual">
-      <div class="event-date">17-24 Dec 2025</div>
-      <div class="event-content">
-        <h3>Week of Spiritual Emphasis</h3>
-        <p>A week of revival and renewal through daily evening sermons.</p>
-        <p><strong>Venue:</strong> Main Hall</p>
-        <div class="countdown" data-date="2026-12-17"></div>
-      </div>
-    </div>
+        <tr class="event-row" data-category="spiritual">
+          <td class="event-date-col">17-24 Dec 2025</td>
+          <td><span class="event-title">Week of Spiritual Emphasis</span></td>
+          <td><span class="event-description">A week of revival and renewal through daily evening sermons.</span></td>
+          <td><span class="event-venue"><strong>Main Hall</strong></span></td>
+          <td><span class="countdown event-countdown" data-date="2026-12-17"></span></td>
+        </tr>
 
-    <div class="event-card" data-category="outreach">
-      <div class="event-date">7 Dec 2025</div>
-      <div class="event-content">
-        <h3>Charity Sabbath</h3>
-        <p>Extending love through gifts, prayers, and visits to Kisii Teaching & Referral Hospital.</p>
-        <p><strong>Venue:</strong> KisumuNdogo Children Home</p>
-        <div class="countdown" data-date="2026-12-07"></div>
-      </div>
-    </div>
+        <tr class="event-row" data-category="outreach">
+          <td class="event-date-col">7 Dec 2025</td>
+          <td><span class="event-title">Charity Sabbath</span></td>
+          <td><span class="event-description">Extending love through gifts, prayers, and visits to Kisii Teaching & Referral Hospital.</span></td>
+          <td><span class="event-venue"><strong>KisumuNdogo Children Home</strong></span></td>
+          <td><span class="countdown event-countdown" data-date="2026-12-07"></span></td>
+        </tr>
 
-    <div class="event-card" data-category="spiritual">
-      <div class="event-date">21-23 Dec 2025</div>
-      <div class="event-content">
-        <h3>KSUSDA Annual Retreat</h3>
-        <p>A refreshing spiritual retreat at Nyanchwa SDA Camp — reflection and renewal.</p>
-        <p><strong>Venue:</strong> Nyanchwa SDA Camp</p>
-        <div class="countdown" data-date="2026-12-21"></div>
-      </div>
-    </div>
-
+        <tr class="event-row" data-category="spiritual">
+          <td class="event-date-col">21-23 Dec 2025</td>
+          <td><span class="event-title">KSUSDA Annual Retreat</span></td>
+          <td><span class="event-description">A refreshing spiritual retreat at Nyanchwa SDA Camp — reflection and renewal.</span></td>
+          <td><span class="event-venue"><strong>Nyanchwa SDA Camp</strong></span></td>
+          <td><span class="countdown event-countdown" data-date="2026-12-21"></span></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-</div>
 
   
 <footer>
@@ -379,7 +431,7 @@
   <script>
     // Filter events by category
     const filterButtons = document.querySelectorAll('.filter-buttons button');
-    const eventCards = document.querySelectorAll('.event-card');
+    const eventRows = document.querySelectorAll('.event-row');
 
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
@@ -387,8 +439,8 @@
         button.classList.add('active');
 
         const filter = button.getAttribute('data-filter');
-        eventCards.forEach(card => {
-          card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'block' : 'none';
+        eventRows.forEach(row => {
+          row.style.display = (filter === 'all' || row.dataset.category === filter) ? 'table-row' : 'none';
         });
       });
     });
