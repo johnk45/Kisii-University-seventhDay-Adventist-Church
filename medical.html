@@ -9,123 +9,135 @@
     rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="image/assetss/style.css">
+    <link rel="stylesheet" href="assests/style.css">
     <style>
         
-        /* Hero Section */
         .hero {
-            padding: 160px 20px 100px;
-            background: linear-gradient(-45deg, #e3f2fd, #cfd8dc, #bbdefb, #90caf9), url('image/community\ health\ screening.jpeg');
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            color: white;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .hero-container{
+            position:relative;
+            z-index:2;
+
+        }
+        .hero-description {
+            font-size:1.1rem;
+            color:teal;
+        }
+
+        /* Video/Image Background Container */
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        /* Video styling */
+        .hero-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Mobile fallback image - hidden by default */
+        .hero-bg .mobile-fallback {
+            display: none;
+            width: 100%;
+            height: 100%;
             background-size: cover;
             background-position: center;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
+            background-repeat: no-repeat;
         }
 
+        /* Dark overlay for text readability */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* MOBILE BREAKPOINT: Replace video with image */
+        @media (max-width: 768px) {
+            .hero-bg video {
+                display: none;
+            }
+            
+            .hero-bg .mobile-fallback {
+                display: block;
+            }
+        }
+
+        /* Tablet breakpoint (optional - keep video on tablets) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hero-bg video {
+                display: block;
+            }
+        }
+
+        /* Content container (rest of your styles) */
         .hero-container {
-            max-width: 1200px;
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
+            padding: 2rem 5%;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 4rem;
             align-items: center;
         }
 
+        /* Your existing content styles here... */
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 4rem;
+            font-weight: 700;
             line-height: 1.2;
-            color: var(--dark);
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        .hero-content h1 span {
-            color: var(--primary);
+        /* Rest of your CSS remains the same... */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
         }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 30px;
+        
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
         }
-
-        .hero-btns {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 14px 30px;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            border: 2px solid var(--primary);
-        }
-
-        .btn-primary:hover {
-            background-color: transparent;
-            color: var(--primary);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .hero-mockup {
-            position: relative;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .mockup-container {
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: var(--shadow);
-            transform: perspective(1000px) rotateY(-10deg);
-            border: 1px solid rgba(45, 90, 39, 0.1);
-        }
-
-        .mockup-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .mockup-title {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        .mockup-icons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .mockup-icons i {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
+   
         .remedy-card {
             background: var(--light);
             border-radius: 15px;
@@ -539,16 +551,7 @@
             .copyright {
                 font-size: 0.85rem;
             }
-        }
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: var(--transition);
-        }
+        
 
         .social-links a:hover {
             background: var(--primary);
@@ -566,7 +569,7 @@
             border-radius:8px;
             font-size: 0.9rem;
         }
-
+    }
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero-container {
@@ -1351,63 +1354,50 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content fade-in">
-                <h1>Bringing Hope &<span>Healing</span></h1>
-                <p>Serving community in need with medical care and compassion</p>
-                <p>Explore our extensive collection of 100+ natural remedies for common ailments. From herbal teas to essential oils, find safe, effective solutions from nature's pharmacy.</p>
-                <div class="hero-btns">
-                    <a href="#remedies" class="btn btn-primary">Explore Remedies</a>
-                    <a href="#resources" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-            
-            <div class="hero-mockup fade-in">
-                <div class="mockup-container">
-                    <div class="mockup-header">
-                        <div class="mockup-title">Popular Remedies</div>
-                        <div class="mockup-icons">
-                            <i class="fas fa-heart"></i>
-                            <i class="fas fa-search"></i>
-                            <i class="fas fa-ellipsis-v"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="remedy-card">
-                        <div class="remedy-icon">
-                            <i class="fas fa-temperature-high"></i>
-                        </div>
-                        <div class="remedy-info">
-                            <h4>Fever Relief</h4>
-                            <p>Ginger & Honey Tea</p>
-                        </div>
-                    </div>
-                    
-                    <div class="remedy-card">
-                        <div class="remedy-icon">
-                            <i class="fas fa-head-side-cough"></i>
-                        </div>
-                        <div class="remedy-info">
-                            <h4>Cough Remedy</h4>
-                            <p>Turmeric Milk</p>
-                        </div>
-                    </div>
-                    
-                    <div class="remedy-card">
-                        <div class="remedy-icon">
-                            <i class="fas fa-bed"></i>
-                        </div>
-                        <div class="remedy-info">
-                            <h4>Insomnia Aid</h4>
-                            <p>Chamomile & Lavender</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+
+       
+
+<section class="hero">
+    <!-- Background: Video on desktop, Image on mobile -->
+    <div class="hero-bg">
+        <!-- Desktop Video -->
+        <video autoplay muted loop playsinline class="desktop-video">
+    <source src="https://assets.mixkit.co/videos/41576/41576-720.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>>
+        
+        <!-- Mobile Fallback Image -->
+        <div class="mobile-fallback" style="background-image: url('https://i.pinimg.com/736x/72/c1/0b/72c10b10ec61319530222bf77075a686.jpg');"></div>
+    </div>
+    
+    <!-- Overlay for text contrast -->
+    <div class="hero-overlay"></div>
+    
+   <div class="hero-container">
+    <div class="hero-content">
+        <h1>Bringing Hope Through <span>Medical Mission</span></h1>
+        
+        <p class="hero-lead">Compassionate care. Restoring health. Serving communities.</p>
+        
+        <p class="hero-description">
+            We provide accessible healthcare, health education, and support to underserved communities. 
+            Through medical outreach and preventive care, we aim to restore dignity, promote healing, and bring hope where it is needed most.
+        </p>
+
+        <div class="hero-btns">
+            <a href="#about-intro" class="btn btn-info">Our Mission <i class="fas fa-arrow-right"></i></a>
+            <a href="#about-intro" class="btn btn-secondary">Get Involved</a>
         </div>
-    </section>
+    </div>
+    
+    <div class="hero-mockup">
+        <!-- Your imagery or impact visuals here -->
+    </div>
+</div>
+</section>
+
+
 <!-- About Intro -->
 <div class="about">
     <h2>About Our Department</h2>
@@ -1487,7 +1477,7 @@
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>We welcome all students and church members who have a passion for healthcare and community service. No medical background is required—we provide comprehensive training for all skill levels. Students from nursing, medicine, public health, and related fields are particularly encouraged to join.</p>
+                    <p>We welcome all students and church members who have a passion for medical missionary and community service. No medical background is required—we provide comprehensive training for all skill levels. Students from nursing, medicine, public health, and related fields are particularly encouraged to join.</p>
                 </div>
             </div>
 
@@ -1753,6 +1743,12 @@
             </form>
         </div>
         
+     <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTopBtn" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
         <!-- Footer Content -->
         <div class="footer-container">
             <!-- About Column -->
@@ -1820,6 +1816,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="assests/script.js"></script>
 
     <!-- JavaScript - Minimized and Optimized -->
     <script>
@@ -2124,4 +2122,71 @@ document.addEventListener('DOMContentLoaded', function() {
         
     });
 });
+
+//back to top functionality
+const backToTopBtn = document.getElementById('backToTopBtn');
+
+//show/hide back to top
+window.addEventListener('scroll',()=>{
+    if(window.pageYOffset > 300){
+        backToTopBtn.classList.add('show');
+        backToTopBtn.classList.remove('hide');
+    }else{
+       backToTopBtn.classList.remove('show');
+       backToTopBtn.classList.add('hide');
+    }
+});
+//smooth scroll to top
+backToTopBtn.addEventListener('click',()=>{
+window.scrollTo({
+    top:0,
+    behavior:'smooth'
+
+});
+});
+
 </script>
+<!-- Optional: Smart loading script for even better performance -->
+<script>
+(function() {
+    // Check if on mobile or slow connection
+    function shouldLoadVideo() {
+        // Don't load video on mobile
+        if (window.innerWidth <= 768) {
+            return false;
+        }
+        
+        // Check for slow connection (if Network Information API is supported)
+        if (navigator.connection && navigator.connection.saveData) {
+            return false; // User has data saver enabled
+        }
+        
+        if (navigator.connection && navigator.connection.effectiveType) {
+            const slowTypes = ['slow-2g', '2g'];
+            if (slowTypes.includes(navigator.connection.effectiveType)) {
+                return false; // Connection is too slow
+            }
+        }
+        
+        return true;
+    }
+    
+    // Lazy load video only if needed
+    const videoElement = document.querySelector('.hero-bg video');
+    if (videoElement && !shouldLoadVideo()) {
+        // Remove video to save bandwidth
+        videoElement.remove();
+        
+        // Ensure fallback image is visible
+        const fallbackImg = document.querySelector('.hero-bg .mobile-fallback');
+        if (fallbackImg) {
+            fallbackImg.style.display = 'block';
+        }
+    } else if (videoElement) {
+        // Load video for desktop
+        videoElement.load();
+        videoElement.play().catch(e => console.log('Autoplay prevented:', e));
+    }
+})();
+</script>
+

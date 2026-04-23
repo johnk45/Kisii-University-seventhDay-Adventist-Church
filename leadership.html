@@ -6,6 +6,7 @@
     <title>Leadership - Kisii University SDA Church</title>
     <link rel="icon" type="image/jpg" href="image/assetss/kisiilogo.png">
     <link rel="stylesheet" href="image/assetss/header.css">
+    <link rel="stylesheet" href="assests/style.css">
     <style>
         /* Global Styles */
         * {
@@ -32,34 +33,120 @@
 
         /* Leadership Hero Section */
         .leadership-hero {
-             background: linear-gradient(rgba(22, 66, 91, 0.85), rgba(22, 66, 91, 0.9)), url('image/ksuda.jpeg');
-            opacity:0.96;
+             background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.95) 50%, rgba(12, 74, 110, 0.85) 100%), url('image/ksuda.jpeg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: white;
-            padding: 80px 0;
+            padding: 120px 0;
             text-align: center;
             margin-bottom: 40px;
             border-radius: 0 0 20px 20px;
-            position:relative;
-            
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leadership-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .leadership-hero .container {
+            position: relative;
+            z-index: 1;
         }
 
         .leadership-hero h1 {
-            font-size: 3.0rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            font-family:'Playfair Display', serif;
-            font-weight:700;
-
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .leadership-hero p {
             font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto;
-            opacity: 0.9;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        /* Search & Filter Section */
+        .leadership-search {
+            background: white;
+            padding: 30px;
+            margin: -30px 20px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .search-box input,
+        .search-box select {
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input:focus,
+        .search-box select:focus {
+            outline: none;
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tag {
+            padding: 8px 16px;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .filter-tag:hover,
+        .filter-tag.active {
+            background: #38bdf8;
+            color: white;
+            border-color: #38bdf8;
         }
 
         /* Leadership Structure */
@@ -103,14 +190,25 @@
             background-color: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 5px solid #2a5298;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #38bdf8;
+            position: relative;
         }
 
         .leader-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2);
+        }
+
+        .leader-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
         }
 
         .leader-img {
@@ -118,6 +216,11 @@
             height: 250px;
             object-fit: cover;
             border-bottom: 1px solid #eee;
+            transition: transform 0.3s ease;
+        }
+
+        .leader-card:hover .leader-img {
+            transform: scale(1.05);
         }
 
         .leader-info {
@@ -126,27 +229,36 @@
 
         .leader-name {
             font-size: 1.4rem;
-            color: crimson;
+            color: #38bdf8;
             margin-bottom: 8px;
+            font-weight: 600;
         }
 
         .leader-position {
-            color: #2a5298;
-            font-weight: 600;
+            color: #1e293b;
+            font-weight: 700;
             margin-bottom: 10px;
             font-size: 1.1rem;
         }
 
         .leader-department {
-            color: #666;
+            color: #64748b;
             font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .leader-card > .leader-info > p:last-of-type {
+            color: #475569;
+            font-size: 0.9rem;
+            line-height: 1.6;
             margin-bottom: 15px;
         }
 
         .leader-contact {
             margin-top: 15px;
             padding-top: 15px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #e2e8f0;
         }
 
         .contact-item {
@@ -154,55 +266,106 @@
             align-items: center;
             margin-bottom: 8px;
             font-size: 0.9rem;
-            color: #555;
+            color: #475569;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #38bdf8;
         }
 
         .contact-item i {
             margin-right: 10px;
-            color: #2a5298;
+            color: #38bdf8;
             width: 20px;
+            text-align: center;
+        }
+
+        .leader-social {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .leader-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: #f1f5f9;
+            border-radius: 50%;
+            color: #38bdf8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        .leader-social a:hover {
+            background: #38bdf8;
+            color: white;
+            transform: translateY(-3px);
         }
 
         /* Leadership Groups */
         .leadership-group {
             margin-bottom: 50px;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .group-header {
             display: flex;
             align-items: center;
             margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #eee;
+            padding: 25px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #f5f3ff 100%);
+            border-radius: 12px;
+            border-left: 4px solid #38bdf8;
         }
 
         .group-icon {
-            background-color: #1e3c72;
+            background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
-            font-size: 1.5rem;
+            margin-right: 25px;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+            flex-shrink: 0;
         }
 
         .group-title h3 {
             font-size: 1.8rem;
-            color: #1e3c72;
+            color: #1e293b;
+            margin-bottom: 5px;
+            font-weight: 700;
         }
 
         .group-title p {
-            color: #666;
+            color: #64748b;
             margin-top: 5px;
+            font-size: 0.95rem;
         }
 
         /* Elder & Deacon Lists */
         .member-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
         }
 
@@ -210,39 +373,59 @@
             background-color: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border-left: 4px solid #2a5298;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #38bdf8;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
+        }
+
+        .member-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.15);
         }
 
         .member-name {
-            font-weight: 600;
-            color: #1e3c72;
-            margin-bottom: 5px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
         }
 
         .member-role {
-            color: #2a5298;
+            color: #38bdf8;
             font-size: 0.95rem;
             margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .member-responsibility {
             font-size: 0.9rem;
-            color: #666;
+            color: #64748b;
+            line-height: 1.5;
         }
-        image{
-            align-items: center;
-            
-            margin:20px auto;
-            padding:10px 20px;
+
+        .member-item .image {
+            margin: 0 0 12px 0;
         }
-.image img{
-    height:40px;
-    width:40px;
-    object-fit: cover;
-    border-radius:50%;
-    justify-content: center;
-}
+
+        .member-item .image img {
+            height: 50px;
+            width: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #38bdf8;
+        }
 
 
       .footer {
@@ -507,10 +690,36 @@
     <!-- Leadership Hero Section -->
     <section class="leadership-hero">
         <div class="container">
-            <h1>Our Church Leadership</h1>
+            <h1><i class="fas fa-people-group mr-3"></i>Our Church Leadership</h1>
             <p>Meet the dedicated servants who guide our spiritual journey and oversee the ministries of Kisii University SDA Church. Our leadership structure follows biblical principles of service and stewardship.</p>
         </div>
     </section>
+
+    <!-- Search & Filter Section -->
+    <div class="container">
+        <div class="leadership-search">
+            <div class="search-box">
+                <input type="text" id="searchLeaders" placeholder="Search by name, position, or department...">
+                <select id="departmentFilter" onchange="filterLeaders()">
+                    <option value="">All Departments</option>
+                    <option value="Pastoral">Pastoral Team</option>
+                    <option value="Elder">Elders</option>
+                    <option value="Deacon">Deacons</option>
+                    <option value="Ministry">Ministry Leaders</option>
+                </select>
+            </div>
+            
+            <div style="margin-bottom: 0;">
+                <label style="display: block; margin-bottom: 10px; font-weight: 500; color: #1e293b;">Filter by Role:</label>
+                <div class="filter-tags">
+                    <button class="filter-tag active" onclick="filterByRole('all', this)">All Roles</button>
+                    <button class="filter-tag" onclick="filterByRole('pastor', this)"><i class="fas fa-cross mr-2"></i>Pastors</button>
+                    <button class="filter-tag" onclick="filterByRole('elder', this)"><i class="fas fa-hands-praying mr-2"></i>Elders</button>
+                    <button class="filter-tag" onclick="filterByRole('deacon', this)"><i class="fas fa-hands-helping mr-2"></i>Deacons</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Pastoral Team -->
     <section class="leadership-structure">
@@ -521,7 +730,7 @@
             
             <div class="leadership-grid">
                 <!-- Pastor 1 -->
-                <div class="leader-card">
+                <div class="leader-card" data-category="Pastoral" data-role="pastor">
                     <img src="https://media.istockphoto.com/id/1443625174/photo/black-congregation-attend-black-baptist-church-service.jpg?s=612x612&w=0&k=20&c=OG2qxnpGk2C6hPxXkcXgVtrDiNQSZtJtU13tdCnGM80=" alt="Senior Pastor" class="leader-img">
                     <div class="leader-info">
                         <h3 class="leader-name">Pr. Samuel Otieno</h3>
@@ -536,11 +745,16 @@
                                 <i class="fas fa-phone"></i> +254 712 345 678
                             </div>
                         </div>
+                        <div class="leader-social">
+                            <a href="mailto:pastor.otieno@kisiiunivsda.org" title="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="tel:+254712345678" title="Phone"><i class="fas fa-phone"></i></a>
+                            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Pastor 2 -->
-                <div class="leader-card">
+                <div class="leader-card" data-category="Pastoral" data-role="pastor">
                     <img src="https://media.istockphoto.com/id/2185288412/photo/christian-pastor-preparing-for-sermon-in-office-before-church-service.jpg?s=612x612&w=0&k=20&c=NFcDQfuQP7-YI1F3PxOGZFLPao0jslIMIbAWl2d5Adw=" alt="Youth Pastor" class="leader-img">
                     <div class="leader-info">
                         <h3 class="leader-name">Pr. Simion Kapsul</h3>
@@ -555,11 +769,16 @@
                                 <i class="fas fa-phone"></i> +254 723 456 789
                             </div>
                         </div>
+                        <div class="leader-social">
+                            <a href="mailto:pastor.kapsul@kisiiunivsda.org" title="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="tel:+254723456789" title="Phone"><i class="fas fa-phone"></i></a>
+                            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Pastor 3 -->
-                <div class="leader-card">
+                <div class="leader-card" data-category="Pastoral" data-role="pastor">
                     <img src="https://media.istockphoto.com/id/1225000765/photo/artist-performing-live-on-scene-in-music-hall.webp?a=1&b=1&s=612x612&w=0&k=20&c=IwDrE88oE3BjKY1aUQWDqxClzbc0IneNJfYvBm0av4Y=" alt="Associate Pastor" class="leader-img">
                     <div class="leader-info">
                         <h3 class="leader-name">Pr. Nyaboke Kamau</h3>
@@ -573,6 +792,11 @@
                             <div class="contact-item">
                                 <i class="fas fa-phone"></i> +254 734 567 890
                             </div>
+                        </div>
+                        <div class="leader-social">
+                            <a href="mailto:pastor.kamau@kisiiunivsda.org" title="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="tel:+254734567890" title="Phone"><i class="fas fa-phone"></i></a>
+                            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                         </div>
                     </div>
                 </div>
@@ -594,7 +818,7 @@
             </div>
             
             <div class="member-list">
-                <div class="member-item">
+                <div class="member-item" data-category="Elder" data-role="elder">
                     <div class="image">
                         <img src="image/bible study.jpeg" alt="church elder">
                      </div>
@@ -603,7 +827,7 @@
                     <p class="member-responsibility">Chairman of Elder Board, Spiritual oversight</p>
                 </div>
                 
-                <div class="member-item">
+                <div class="member-item" data-category="Elder" data-role="elder">
                     <div class="image">
                         <img src="image/bible study.jpeg" alt="church elder">
                      </div>
@@ -612,7 +836,7 @@
                     <p class="member-responsibility">Women's spiritual growth & fellowship</p>
                 </div>
                 
-                <div class="member-item">
+                <div class="member-item" data-category="Elder" data-role="elder">
                     <div class="image">
                         <img src="image/bible study.jpeg" alt="church elder">
                      </div>
@@ -622,7 +846,7 @@
                     <p class="member-responsibility">Financial oversight & resource management</p>
                 </div>
                 
-                <div class="member-item">
+                <div class="member-item" data-category="Elder" data-role="elder">
                     <div class="image">
                         <img src="image/bible study.jpeg" alt="church elder">
                      </div>
@@ -631,7 +855,7 @@
                     <p class="member-responsibility">Intercession & prayer coordination</p>
                 </div>
                 
-                <div class="member-item">
+                <div class="member-item" data-category="Elder" data-role="elder">
                     <div class="image">
                         <img src="image/bible study.jpeg" alt="church elder">
                      </div>
@@ -640,7 +864,7 @@
                     <p class="member-responsibility">Bible studies & spiritual mentoring</p>
                 </div>
                 
-                <div class="member-item">
+                <div class="member-item" data-category="Elder" data-role="elder">
                     <div class="image">
                         <img src="image/bible study.jpeg" alt="church elder">
                      </div>
@@ -666,7 +890,7 @@
             </div>
             
             <div class="member-list">
-                <div class="member-item">
+                <div class="member-item" data-category="Deacon" data-role="deacon">
                     <div class="image">
                         <img src="image/bible study.jpeg" alt="church elder">
                      </div>
@@ -675,13 +899,13 @@
                     <p class="member-responsibility">Coordinates deacon ministry & communion</p>
                 </div>
                 
-                <div class="member-item">
+                <div class="member-item" data-category="Deacon" data-role="deacon">
                     <h4 class="member-name">Sis. Ruth Moraa</h4>
                     <p class="member-role">Head Deaconess</p>
                     <p class="member-responsibility">Women's care ministry & hospitality</p>
                 </div>
                 
-                <div class="member-item">
+                <div class="member-item" data-category="Deacon" data-role="deacon">
                     <div class="image">
                         <img src="image/bible study.jpeg" alt="church elder">
                      </div>
@@ -690,7 +914,7 @@
                     <p class="member-responsibility">Welcome, seating & service logistics</p>
                 </div>
                 
-                <div class="member-item">
+                <div class="member-item" data-category="Deacon" data-role="deacon">
                     <div class="image">
                         <img src="image/bible study.jpeg" alt="church elder">
                      </div>
@@ -699,7 +923,7 @@
                     <p class="member-responsibility">Assistance to needy members</p>
                 </div>
                 
-                <div class="member-item">
+                <div class="member-item" data-category="Deacon" data-role="deacon">
                      <div class="image">
                         <img src="image/bible study.jpeg" alt="church elder">
                      </div>
@@ -708,7 +932,7 @@
                     <p class="member-responsibility">Church building & grounds maintenance</p>
                 </div>
                 
-                <div class="member-item">
+                <div class="member-item" data-category="Deacon" data-role="deacon">
                     <div class="image">
                         <img src="image/bible study.jpeg" alt="church elder">
                     </div>
@@ -861,6 +1085,13 @@
         </div>
     </section>
 
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTopBtn" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
    <footer class="footer">
   <div class="footer-container">
     <!-- About Section -->
@@ -954,9 +1185,64 @@
 
 </footer>
 </div>
-<script>
 
-    //menu toggle
+<script src="assests/script.js"></script>
+
+<script>
+  // Search and filter functionality
+  document.getElementById('searchLeaders').addEventListener('input', filterLeaders);
+  document.getElementById('departmentFilter').addEventListener('change', filterLeaders);
+
+  // Set initial state for All Roles button
+  document.addEventListener('DOMContentLoaded', function() {
+    const allRolesBtn = document.querySelector('.filter-tag');
+    if (allRolesBtn) {
+      allRolesBtn.classList.add('active');
+    }
+  });
+
+  function filterLeaders() {
+    const searchTerm = document.getElementById('searchLeaders').value.toLowerCase();
+    const departmentFilter = document.getElementById('departmentFilter').value;
+    const cards = document.querySelectorAll('.leader-card, .member-item');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const name = (card.querySelector('.leader-name, .member-name')?.textContent || '').toLowerCase();
+      const position = (card.querySelector('.leader-position, .member-role')?.textContent || '').toLowerCase();
+      const department = (card.querySelector('.leader-department')?.textContent || '').toLowerCase();
+      const category = card.getAttribute('data-category') || '';
+
+      const matchesSearch = !searchTerm || name.includes(searchTerm) || position.includes(searchTerm) || department.includes(searchTerm);
+      const matchesDepartment = !departmentFilter || category === departmentFilter;
+
+      if (matchesSearch && matchesDepartment) {
+        card.style.display = '';
+        card.style.animation = 'fadeInUp 0.3s ease';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  function filterByRole(role, element) {
+    document.querySelectorAll('.filter-tag').forEach(btn => btn.classList.remove('active'));
+    element.classList.add('active');
+
+    const cards = document.querySelectorAll('.leader-card, .member-item');
+    cards.forEach(card => {
+      const cardRole = card.getAttribute('data-role');
+      if (role === 'all' || cardRole === role) {
+        card.style.display = '';
+        card.style.animation = 'fadeInUp 0.3s ease';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  //menu toggle
 const menuToggle = document.getElementById('mobileMenuBtn');
 const navLinks = document.getElementById('navLinks');
 

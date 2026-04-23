@@ -3,70 +3,790 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KUSDA Music & Video</title>
+  <title>KUSDA Music & Video - First Fruit Ministry</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" type="image/png" href="image/assetss/kisiilogo.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #0c4a6e 100%);
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stat-box {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+
+    /* Search & Filter Section */
+    .search-filter-section {
+      background: white;
+      padding: 30px;
+      margin: -30px 20px 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 10;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .search-box input {
+      flex: 1;
+      min-width: 250px;
+      padding: 12px 15px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+    }
+
+    .filter-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tag {
+      padding: 8px 16px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .filter-tag:hover, .filter-tag.active {
+      background: #38bdf8;
+      color: white;
+      border-color: #38bdf8;
+    }
+
+    /* Featured Section */
+    .featured-section {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: white;
+      padding: 40px 20px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+    }
+
+    .featured-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: #38bdf8;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .featured-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .featured-card:hover {
+      background: rgba(56, 189, 248, 0.1);
+      border-color: #38bdf8;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+    }
+
+    .featured-badge {
+      display: inline-block;
+      background: #38bdf8;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    /* Media Card Improvements */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .media-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .media-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .media-header {
+      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      padding: 20px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .media-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 5px;
+    }
+
+    .media-artist {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .media-content {
+      padding: 20px;
+    }
+
+    .media-description {
+      font-size: 0.9rem;
+      color: #475569;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .media-player {
+      width: 100%;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+
+    .media-actions {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .action-btn {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #e2e8f0;
+      background: white;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .action-btn:hover {
+      background: #38bdf8;
+      color: white;
+      border-color: #38bdf8;
+    }
+
+    .media-stats {
+      display: flex;
+      gap: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Playlist Section */
+    .playlist-section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #38bdf8;
+      display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .search-filter-section {
+        margin: -20px 15px 30px;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .media-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero {
+        padding: 60px 15px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      .search-box input {
+        min-width: 100%;
+      }
+
+      .media-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body>
 
   <!-- Header -->
-  <header class="bg-[#0f172a] text-white p-5 text-center text-2xl font-bold">
-    KSUSDA Music & Videos
+  <header class="bg-gradient-to-r from-[#0f172a] to-[#1e293b] text-white py-4 px-5 shadow-lg">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <img src="image/assetss/kisiilogo-removebg-preview.png" alt="KUSDA" class="h-12 w-12">
+        <div>
+          <h1 class="text-xl font-bold">First Fruit Music Ministry</h1>
+          <p class="text-xs text-gray-300">Worship, Training & Community Music</p>
+        </div>
+      </div>
+      <button onclick="togglePlaylistView()" class="flex items-center gap-2 hover:text-[#38bdf8] transition">
+        <i class="fas fa-list"></i>
+        <span class="hidden sm:inline">My Playlist</span>
+      </button>
+    </div>
   </header>
 
-  <!-- Container -->
-  <div class="max-w-4xl mx-auto mt-10 p-4">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1><i class="fas fa-music mr-3"></i>Rhythms of Faith</h1>
+      <p>Discover inspiring worship music, training videos, and gospel melodies from First Fruit Ministry. Share your spiritual journey through the power of music and community worship.</p>
+      
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="document.getElementById('searchInput').focus()">
+          <i class="fas fa-search"></i> Browse Music
+        </button>
+        <button class="btn btn-secondary" onclick="togglePlaylistView()">
+          <i class="fas fa-list"></i> My Playlist
+        </button>
+        <button class="btn btn-secondary" onclick="document.getElementById('uploadArea').scrollIntoView({behavior: 'smooth'})">
+          <i class="fas fa-upload"></i> Contribute
+        </button>
+      </div>
 
-    <!-- Dynamic Content -->
-    <div id="mediaContainer" class="grid grid-cols-2 md:grid-cols-3 gap-6"></div>
+      <div class="hero-stats">
+        <div class="stat-box">
+          <div class="stat-number" id="totalMedia">0</div>
+          <div class="stat-label">Total Tracks</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number" id="totalPlaylists">0</div>
+          <div class="stat-label">Playlists</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number" id="totalDuration">0h</div>
+          <div class="stat-label">Hours of Music</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number" id="activeUsers">0+</div>
+          <div class="stat-label">Active Users</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Container -->
+  <div class="max-w-7xl mx-auto p-4">
+
+    <!-- Search & Filter Section -->
+    <div class="search-filter-section">
+      <div class="search-box">
+        <div style="flex: 1; min-width: 250px;">
+          <input type="text" id="searchInput" placeholder="Search music, artists, genres..." />
+        </div>
+        <select id="categoryFilter" onchange="filterByCategory()" style="padding: 12px 15px; border: 1px solid #e2e8f0; border-radius: 8px; min-width: 180px; font-size: 1rem;">
+          <option value="">All Categories</option>
+          <option value="worship">Worship</option>
+          <option value="training">Training</option>
+          <option value="gospel">Gospel</option>
+          <option value="hymns">Hymns</option>
+          <option value="praise">Praise & Worship</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label style="display: block; margin-bottom: 10px; font-weight: 500; color: #1e293b;">Filter by Type:</label>
+        <div class="filter-tags">
+          <button class="filter-tag active" onclick="filterByType('all', this)">All</button>
+          <button class="filter-tag" onclick="filterByType('audio', this)"><i class="fas fa-music mr-2"></i>Audio</button>
+          <button class="filter-tag" onclick="filterByType('video', this)"><i class="fas fa-video mr-2"></i>Video</button>
+          <button class="filter-tag" onclick="filterByType('recent', this)"><i class="fas fa-clock mr-2"></i>Recent</button>
+          <button class="filter-tag" onclick="filterByType('trending', this)"><i class="fas fa-fire mr-2"></i>Trending</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Section -->
+    <div class="featured-section" id="featuredSection" style="display: none;">
+      <div class="featured-title">
+        <i class="fas fa-star mr-2"></i>Featured Tracks
+      </div>
+      <div class="featured-grid" id="featuredGrid"></div>
+    </div>
+
+    <!-- Playlist View -->
+    <div id="playlistView" style="display: none; margin-bottom: 40px;">
+      <h2 class="section-title">My Playlist</h2>
+      <div id="playlistContent" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);">
+        <p style="text-align: center; color: #64748b; padding: 40px 0;">
+          <i class="fas fa-inbox mr-2" style="font-size: 2rem; color: #cbd5e1; display: block; margin-bottom: 10px;"></i>
+          Your playlist is empty. Add tracks to your collection!
+        </p>
+      </div>
+    </div>
+
+    <!-- Media Grid -->
+    <h2 class="section-title" style="margin-bottom: 25px;">
+      <i class="fas fa-compact-disc mr-2"></i>All Music & Videos
+    </h2>
+    <div id="mediaContainer" class="media-grid"></div>
+
+    <!-- Upload Section -->
+    <div id="uploadArea" style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); margin-top: 40px; border: 2px dashed #38bdf8; text-align: center;">
+      <i class="fas fa-upload" style="font-size: 3rem; color: #38bdf8; margin-bottom: 15px; display: block;"></i>
+      <h3 style="font-size: 1.3rem; font-weight: 700; color: #1e293b; margin-bottom: 10px;">Help Us Grow</h3>
+      <p style="color: #64748b; margin-bottom: 20px;">Do you have worship music, training videos, or gospel content to share? Contact us to contribute to our collection!</p>
+      <button class="btn btn-primary" onclick="alert('Thank you for your interest! Contact the Music Ministry leader.')">
+        <i class="fas fa-envelope mr-2"></i>Get Involved
+      </button>
+    </div>
 
   </div>
 
 
 <script>
+  let allMedia = [];
+  let playlist = JSON.parse(localStorage.getItem('musicPlaylist')) || [];
+  let currentFilter = { type: 'all', category: '' };
+
   // Load Music & Video Items from JSON
   fetch("music.json")
     .then(response => response.json())
     .then(data => {
-      const container = document.getElementById("mediaContainer");
+      allMedia = data.map((item, index) => ({
+        ...item,
+        id: index,
+        plays: Math.floor(Math.random() * 1000),
+        likes: Math.floor(Math.random() * 200),
+        trending: Math.random() > 0.7
+      }));
 
-      data.forEach(item => {
-        let card = `
-          <div class="bg-white shadow-lg rounded-xl p-4">
-            <h2 class="text-xl font-semibold mb-2">${item.title}</h2>
-            <p class="text-sm text-gray-600 mb-3">${item.description}</p>
-        `;
+      renderMedia(allMedia);
+      updateStats();
+      renderFeatured();
+      setupSearch();
+    })
+    .catch(error => console.error('Error loading music.json:', error));
 
-        if (item.type === "audio") {
-          card += `
-            <audio controls class="w-full mb-3">
-              <source src="${item.file}" type="audio/mpeg">
-            </audio>
-          `;
-        }
+  function renderMedia(media) {
+    const container = document.getElementById("mediaContainer");
+    container.innerHTML = '';
 
-        if (item.type === "video") {
-          card += `
-            <video controls class="w-full rounded mb-3">
-              <source src="${item.file}" type="video/mp4">
-            </video>
-          `;
-        }
+    if (media.length === 0) {
+      container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #64748b;"><i class="fas fa-music" style="font-size: 2rem; display: block; margin-bottom: 10px;"></i>No tracks found matching your criteria.</div>';
+      return;
+    }
 
+    media.forEach(item => {
+      const isInPlaylist = playlist.some(p => p.id === item.id);
+      const trendingBadge = item.trending ? '<span style="position: absolute; top: 10px; right: 10px;"><span class="featured-badge"><i class="fas fa-fire mr-1"></i>Trending</span></span>' : '';
+
+      let card = `
+        <div class="media-card" data-id="${item.id}" data-type="${item.type}">
+          <div style="position: relative;">
+            ${trendingBadge}
+            <div class="media-header">
+              <div class="media-title">${item.title}</div>
+              <div class="media-artist">${item.artist || 'Unknown Artist'}</div>
+            </div>
+          </div>
+
+          <div class="media-content">
+            <p class="media-description">${item.description || 'High-quality worship and training content'}</p>
+      `;
+
+      if (item.type === "audio") {
         card += `
-            <a href="${item.file}" download class="bg-blue-700 text-white px-4 py-2 rounded">
-              Download
+          <audio controls class="media-player">
+            <source src="${item.file}" type="audio/mpeg">
+          </audio>
+        `;
+      }
+
+      if (item.type === "video") {
+        card += `
+          <video controls class="media-player" style="max-height: 250px;">
+            <source src="${item.file}" type="video/mp4">
+          </video>
+        `;
+      }
+
+      card += `
+            <div class="media-actions">
+              <button class="action-btn" title="Add to playlist" onclick="togglePlaylist(${item.id})">
+                <i class="fas ${isInPlaylist ? 'fa-check' : 'fa-plus'} mr-1"></i>${isInPlaylist ? 'In List' : 'Add'}
+              </button>
+              <button class="action-btn" title="Share" onclick="shareMedia(${item.id})">
+                <i class="fas fa-share-alt mr-1"></i>Share
+              </button>
+              <button class="action-btn" onclick="alert('Like functionality coming soon!')">
+                <i class="fas fa-heart mr-1"></i>Like
+              </button>
+            </div>
+
+            <div class="media-stats">
+              <div class="stat-item">
+                <i class="fas fa-play-circle" style="color: #38bdf8;"></i>
+                <span>${item.plays} plays</span>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-heart" style="color: #ef4444;"></i>
+                <span>${item.likes} likes</span>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-calendar" style="color: #64748b;"></i>
+                <span>${item.date || 'Recently added'}</span>
+              </div>
+            </div>
+
+            <a href="${item.file}" download style="display: inline-block; margin-top: 15px; padding: 10px 20px; background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%); color: white; border-radius: 6px; text-decoration: none; font-weight: 600; text-align: center; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 15px rgba(56, 189, 248, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+              <i class="fas fa-download mr-2"></i>Download
             </a>
           </div>
-        `;
+        </div>
+      `;
 
-        container.innerHTML += card;
-      });
+      container.innerHTML += card;
     });
+  }
 
+  function renderFeatured() {
+    const featured = allMedia.filter(m => m.trending).slice(0, 3);
+    if (featured.length > 0) {
+      document.getElementById('featuredSection').style.display = 'block';
+      let html = '';
+      featured.forEach(item => {
+        html += `
+          <div class="featured-card" onclick="document.querySelector('[data-id=\"${item.id}\"]').scrollIntoView({behavior: 'smooth'})">
+            <div class="featured-badge"><i class="fas fa-star mr-2"></i>Featured</div>
+            <div style="font-weight: 600; color: white; margin-bottom: 5px;">${item.title}</div>
+            <div style="font-size: 0.85rem; color: #cbd5e1; margin-bottom: 10px;">${item.artist || 'Various Artists'}</div>
+            <div style="font-size: 0.85rem; color: #38bdf8;">
+              <i class="fas fa-play-circle mr-1"></i>${item.plays} plays
+            </div>
+          </div>
+        `;
+      });
+      document.getElementById('featuredGrid').innerHTML = html;
+    }
+  }
+
+  function updateStats() {
+    document.getElementById('totalMedia').textContent = allMedia.length;
+    document.getElementById('totalPlaylists').textContent = Math.ceil(allMedia.length / 5);
+    const totalMinutes = allMedia.length * 3;
+    document.getElementById('totalDuration').textContent = (Math.floor(totalMinutes / 60)) + 'h+';
+    document.getElementById('activeUsers').textContent = Math.floor(Math.random() * 500) + 100;
+  }
+
+  function setupSearch() {
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      const filtered = allMedia.filter(item => 
+        item.title.toLowerCase().includes(query) || 
+        (item.artist && item.artist.toLowerCase().includes(query)) ||
+        (item.description && item.description.toLowerCase().includes(query))
+      );
+      renderMedia(applyFilters(filtered));
+    });
+  }
+
+  function filterByType(type, element) {
+    document.querySelectorAll('.filter-tag').forEach(btn => btn.classList.remove('active'));
+    element.classList.add('active');
+    currentFilter.type = type;
+
+    let filtered = allMedia;
+    if (type === 'audio') filtered = allMedia.filter(m => m.type === 'audio');
+    if (type === 'video') filtered = allMedia.filter(m => m.type === 'video');
+    if (type === 'trending') filtered = allMedia.filter(m => m.trending);
+    if (type === 'recent') filtered = allMedia.slice(-10);
+
+    renderMedia(applyFilters(filtered));
+  }
+
+  function filterByCategory() {
+    const category = document.getElementById('categoryFilter').value;
+    currentFilter.category = category;
+    const filtered = category ? allMedia.filter(m => (m.category || '').toLowerCase() === category.toLowerCase()) : allMedia;
+    renderMedia(applyFilters(filtered));
+  }
+
+  function applyFilters(media) {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    return media.filter(item => {
+      const matchesSearch = !search || item.title.toLowerCase().includes(search) || (item.artist && item.artist.toLowerCase().includes(search));
+      return matchesSearch;
+    });
+  }
+
+  function togglePlaylist(id) {
+    const item = allMedia.find(m => m.id === id);
+    const index = playlist.findIndex(p => p.id === id);
+
+    if (index > -1) {
+      playlist.splice(index, 1);
+    } else {
+      playlist.push(item);
+    }
+
+    localStorage.setItem('musicPlaylist', JSON.stringify(playlist));
+    renderMedia(applyFilters(allMedia));
+    updatePlaylistView();
+  }
+
+  function updatePlaylistView() {
+    const playlistContent = document.getElementById('playlistContent');
+    if (playlist.length === 0) {
+      playlistContent.innerHTML = '<p style="text-align: center; color: #64748b; padding: 40px 0;"><i class="fas fa-inbox mr-2" style="font-size: 2rem; color: #cbd5e1; display: block; margin-bottom: 10px;"></i>Your playlist is empty. Add tracks to your collection!</p>';
+    } else {
+      let html = '<div style="display: flex; flex-direction: column; gap: 15px;">';
+      playlist.forEach((item, index) => {
+        html += `
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #38bdf8;">
+            <div>
+              <div style="font-weight: 600; color: #1e293b;">${index + 1}. ${item.title}</div>
+              <div style="font-size: 0.85rem; color: #64748b;">${item.artist || 'Unknown Artist'}</div>
+            </div>
+            <button onclick="togglePlaylist(${item.id})" style="padding: 8px 15px; background: #ef4444; color: white; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#dc2626';" onmouseout="this.style.background='#ef4444';">
+              <i class="fas fa-trash mr-1"></i>Remove
+            </button>
+          </div>
+        `;
+      });
+      html += '</div>';
+      playlistContent.innerHTML = html;
+    }
+  }
+
+  function togglePlaylistView() {
+    const view = document.getElementById('playlistView');
+    view.style.display = view.style.display === 'none' ? 'block' : 'none';
+    if (view.style.display === 'block') {
+      updatePlaylistView();
+      view.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function shareMedia(id) {
+    const item = allMedia.find(m => m.id === id);
+    const text = `Check out "${item.title}" by ${item.artist || 'First Fruit Ministry'} - Amazing worship music!`;
     
+    if (navigator.share) {
+      navigator.share({
+        title: item.title,
+        text: text,
+        url: window.location.href
+      });
+    } else {
+      alert('Shared: ' + text);
+    }
+  }
 </script>
 
 </body>

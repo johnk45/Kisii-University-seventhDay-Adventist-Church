@@ -13,6 +13,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assests/style.css">
 
   <style>
     :root {
@@ -710,7 +711,7 @@
     .prayer-request-btn {
       position: fixed;
       bottom: 30px;
-      right: 30px;
+      left: 30px;
       background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
       color: white;
       width: 60px;
@@ -729,6 +730,45 @@
     .prayer-request-btn:hover {
       transform: scale(1.1);
       box-shadow: 0 10px 30px rgba(231, 76, 60, 0.6);
+    }
+    
+    /* Scroll to Top Button */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 8px 25px rgba(26, 188, 156, 0.4);
+      z-index: 999;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .scroll-to-top:hover {
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 10px 30px rgba(26, 188, 156, 0.6);
+    }
+    
+    .scroll-to-top.show {
+      display: flex;
+    }
+    
+    @media(max-width: 768px) {
+      .scroll-to-top {
+        width: 50px;
+        height: 50px;
+        bottom: 90px;
+        right: 20px;
+        font-size: 1.2rem;
+      }
     }
     
     /* New Feature: Service Times */
@@ -789,195 +829,44 @@
       gap: 10px;
     }
 
+.testimony-marquee {
+  overflow: hidden;
+  width: 100%;
+}
+.testimony-track {
+  display: flex;
+  animation: scroll-left 30s linear infinite;
+}
+.testimony-box {
+  flex: 0 0 300px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+.bi-chat-quote {
+  color: #FFD700;
+}
+
+/* Animation */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .testimony-box {
+    flex: 0 0 45%;
+  }
+}
+@media (max-width: 576px) {
+  .testimony-box {
+    flex: 0 0 90%;
+  }
+}
 
     
 
-         /* Countdown floating box */
-    .countdown-box {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: #004d40;
-      color: white;
-      padding: 1rem 1.2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      font-size: 0.9rem;
-      text-align: center;
-    }
-
-
-
-    /* Notification Icon Styles */
-        .notification-container {
-            position: relative;
-            display: inline-block;
-            right:0;
-        }
-        
-        .notification-icon {
-            background-color: #f5f7fa;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: none;
-            color: #555;
-            font-size: 22px;
-            position: relative;
-        }
-        
-        .notification-icon:hover {
-            background-color: #eef1ff;
-            color: #4a6cf7;
-        }
-        
-        .notification-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background-color: #ff4757;
-            color: white;
-            border-radius: 50%;
-            width: 22px;
-            height: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        
-        .notification-dropdown {
-            position: absolute;
-            top: 65px;
-            right: 0;
-            width: 350px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            padding: 0;
-            z-index: 1000;
-            display: none;
-            overflow: hidden;
-        }
-        
-        .notification-dropdown.active {
-            display: block;
-            animation: fadeIn 0.3s;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .notification-header {
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .notification-header h3 {
-            color: #333;
-            font-size: 18px;
-        }
-        
-        .mark-all-read {
-            background: none;
-            border: none;
-            color: #4a6cf7;
-            cursor: pointer;
-            font-weight: 500;
-        }
-        
-        .notification-list {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        
-        .notification-item {
-            padding: 18px 20px;
-            border-bottom: 1px solid #f5f5f5;
-            display: flex;
-            align-items: flex-start;
-            transition: background-color 0.2s;
-        }
-        
-        .notification-item:hover {
-            background-color: #f9faff;
-        }
-        
-        .notification-item.unread {
-            background-color: #f0f5ff;
-        }
-        
-        .notification-icon-small {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .notification-info {
-            flex-grow: 1;
-        }
-        
-        .notification-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        
-        .notification-time {
-            font-size: 13px;
-            color: #888;
-        }
-        
-        .notification-empty {
-            padding: 40px 20px;
-            text-align: center;
-            color: #888;
-        }
-        
-        .notification-footer {
-            padding: 15px 20px;
-            text-align: center;
-            border-top: 1px solid #eee;
-        }
-        
-        .view-all {
-            color: #4a6cf7;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        @media(max-width: 768px){
-          .bar{
-            margin:2px 0;
-          }
-          .countdown-box{
-            padding:0.6rem 0.77rem;
-            font-size:0.9rem;
-            background:#004d46;
-            color:white;
-            left:5px;
-            bottom:5px;
-          }
-          .notification-icon{
-            display:none;
-          }
-        }
-        
+   
         
   </style>
 </head>
@@ -1030,32 +919,6 @@
         <li><a href="donatcont.html">Give</a></li>
         </ul>
         </nav>
-                    <button class="notification-icon" id="notificationButton">
-                        <i class="fas fa-bell"></i>
-                        <span class="notification-badge" id="notificationBadge">3</span>
-                    </button>
-                    
-                    <!-- Notification Dropdown -->
-                    <div class="notification-dropdown" id="notificationDropdown">
-                        <div class="notification-header" style="display:flex;align-items:center;gap:8px;justify-content:space-between;">
-                          <h3 style="margin:0;">Notifications</h3>
-                          <div style="display:flex;gap:8px;align-items:center;">
-                            <button class="mark-all-read" id="markAllRead">Mark all as read</button>
-                            <button class="btn btn-sm btn-outline-primary" id="addNotification" title="Add Notification">Add</button>
-                            <button class="btn btn-sm btn-outline-danger" id="clearNotifications" title="Clear Notifications">Clear</button>
-                            <button class="btn btn-sm btn-outline-secondary" id="toggleBadge" title="Toggle Badge">Hide Badge</button>
-                          </div>
-                        </div>
-                        
-                        <div class="notification-list" id="notificationList">
-                            <!-- Notifications will be dynamically inserted here -->
-                        </div>
-                        
-                        <div class="notification-footer">
-                            <a href="#" class="view-all">View all notifications</a>
-                        </div>
-                    </div>
-                </div>
                 
       
     
@@ -1267,85 +1130,38 @@
           </a>
         </div>
       </div>
-
-      <!-- Sermon Card 2 -->
-      <div class="sermon-card" style="flex:1 1 300px; background:#f8f8f8; border-radius:10px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.2);">
-        <div class="sermon-thumbnail">
-          <img src="image/christ messangers.jpg" alt="God's Love and Discouragement" style="width:100%; height:auto;">
-        </div>
-        <div class="sermon-content" style="padding:15px;">
-          <h4>HOW TO KEEP SABBATH HOLY</h4>
-          <div class="sermon-meta" style="font-size:0.9rem; color:#555; margin-bottom:10px;">
-            <span><i class="fas fa-user"></i> Pr. JOHN THIEL</span> |
-            <span><i class="fas fa-calendar"></i> June 1, 2015</span>
-          </div>
-          <p>This sermon teaches how to keep the Sabbath holy and honor God's commandments.</p>
-          <audio class="sermonAudio" src="https://sabbathsermons.com/wp-content/uploads/2019/01/20190119-keeping-sabbath-holy.mp3"></audio>
-          <a href="#" class="btn-ministry playSermonBtn" style="display:inline-block; padding:10px 15px; background:#4B5320; color:white; border-radius:5px; text-decoration:none; margin-top:10px;">
-            <i class="fas fa-play-circle"></i> Listen Now
-          </a>
-        </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="serm.html" class="btn btn-primary">View All Sermons</a>
       </div>
-
-      <!-- Sermon Card 3 -->
-      <div class="sermon-card" style="flex:1 1 300px; background:#f8f8f8; border-radius:10px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.2);">
-        <div class="sermon-thumbnail">
-          <img src="https://i.pinimg.com/1200x/52/b0/64/52b064e73bcd817c4fee70c07faf1a92.jpg" alt="Walking in the Light" style="width:100%; height:auto;">
-        </div>
-        <div class="sermon-content" style="padding:15px;">
-          <h4>God's Love and Man's Discouragement</h4>
-          <div class="sermon-meta" style="font-size:0.9rem; color:#555; margin-bottom:10px;">
-            <span><i class="fas fa-user"></i> Pr. JOHN THIEL</span> |
-            <span><i class="fas fa-calendar"></i> May 25, 2025</span>
-          </div>
-          <p>How to live a life that reflects God's light in a dark world.</p>
-          <audio class="sermonAudio" src="https://sabbathsermons.com/wp-content/uploads/2018/04/150221-gods-love-and-mans-discouragement.mp3"></audio>
-          <a href="#" class="btn-ministry playSermonBtn" style="display:inline-block; padding:10px 15px; background:#4B5320; color:white; border-radius:5px; text-decoration:none; margin-top:10px;">
-            <i class="fas fa-play-circle"></i> Listen Now
-          </a>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- Now Playing Bar -->
-<div id="nowPlayingBar" style="
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #4B5320;
-    color: #fff;
-    display: none; /* hidden initially */
-    padding: 12px 20px;
-    box-shadow: 0 -3px 8px rgba(0,0,0,0.4);
-    z-index: 1000;
-    display: none;
-    align-items: center;
-    font-family: 'Segoe UI', sans-serif;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-">
-  <span id="nowPlayingTitle" style="flex: 1; font-weight: bold; font-size: 16px;">Sermon Title</span>
-  <input type="range" id="progressBar" value="0" min="0" max="100" style="flex:2; margin: 0 10px; height: 6px; border-radius: 5px; background: #d9d9d9; accent-color: #FFD700;">
-  <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1" style="width: 80px; margin-right: 10px;">
-  <button id="pauseBtn" style="
-      background: #FFD700;
-      border: none;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      color: #4B5320;
-      font-size: 18px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s;
-  ">
-    <i class="fas fa-pause"></i>
+<!-- Gallery Section -->
+<section class="section-padding" id="gallery" style="background-color: #f9f9f9; margin: 1rem 0;">
+  <div class="container">
+    <h2 class="section-title">Gallery</h2>
+    <p class="text-center mb-4">Explore moments from our church events and activities</p>
+    <div class="row" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+      <div style="flex: 1 1 200px; min-width: 200px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <img src="https://i.pinimg.com/1200x/24/4e/4e/244e4e7a0aa28ca864ad98e486f1e038.jpg" alt="Church Event" style="width: 100%; height: 200px; object-fit: cover;">
+      </div>
+      <div style="flex: 1 1 200px; min-width: 200px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <img src="https://i.pinimg.com/1200x/fb/ae/2b/fbae2b8737458e83970d088af7488adf.jpg" alt="Choir Performance" style="width: 100%; height: 200px; object-fit: cover;">
+      </div>
+      <div style="flex: 1 1 200px; min-width: 200px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <img src="image/ksuda.jpeg" alt="Church Altar" style="width: 100%; height: 200px; object-fit: cover;">
+      </div>
+      <div style="flex: 1 1 200px; min-width: 200px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <img src="image/christ messangers.jpg" alt="Ministry Activity" style="width: 100%; height: 200px; object-fit: cover;">
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="gallery.html" class="btn btn-primary">View Full Gallery</a>
+    </div>
+  </div>
+</section>
+
   </button>
 </div>
 
@@ -1354,11 +1170,11 @@
   <div class="container">
     <!-- Section Title -->
     <div class="text-center mb-4">
-      <h2 class="section-title">Testimonies</h2>
-      <p>Hear what God is doing through KSUSDA Church</p>
+      <h2 class="section-title">Member Testimonies</h2>
+      <p>Hear inspiring stories from our community members about their faith journey with KSUSDA Church</p>
     </div>
 
-    <!-- Infinite Scroll Wrapper -->
+    <!-- Scrolling Testimonies Carousel -->
     <div class="testimony-marquee">
       <div class="testimony-track d-flex gap-4">
         <!-- Testimony 1 -->
@@ -1367,7 +1183,7 @@
           <p class="mt-2 fst-italic">
             “Joining KSUSDA Church helped me grow spiritually. I learned the value of faithful giving.”
           </p>
-          <strong>- Joshua O., 3years</strong>
+          <strong>- HegiaH O., 3years</strong>
         </div>
 
         <!-- Testimony 2 -->
@@ -1394,7 +1210,7 @@
           <p class="mt-2 fst-italic">
             “I thank God for the transformation in my life through KSUSDA Church.It has been a journey of faith and growth.”
           </p>
-          <strong>- James K., 7 years</strong>
+          <strong>- James O., 7 years</strong>
         </div>
 
         <!-- Testimony 5 -->
@@ -1412,7 +1228,7 @@
           <p class="mt-2 fst-italic">
             “The community support and teachings inspired me to mentor others in faith and giving.”
           </p>
-          <strong>- Sylivester O., 7 years</strong>
+          <strong>- Mercy A., 7 years</strong>
         </div>
 
         <!-- Duplicate testimonials for seamless loop -->
@@ -1421,7 +1237,7 @@
           <p class="mt-2 fst-italic">
             “Joining KSUSDA Church helped me grow spiritually. I learned the value of faithful giving.”
           </p>
-          <strong>- Joshua O., 3years</strong>
+          <strong>- Hellen S., 3years</strong>
         </div>
         <div class="p-4 text-center testimony-box">
           <i class="bi bi-chat-quote fs-1 text-gold"></i>
@@ -1435,47 +1251,54 @@
   </div>
 </section>
 
-<!-- CSS -->
-<style>
-.testimony-marquee {
-  overflow: hidden;
-  width: 100%;
-}
-.testimony-track {
-  display: flex;
-  animation: scroll-left 30s linear infinite;
-}
-.testimony-box {
-  flex: 0 0 300px;
-  background-color: #f8f9fa;
-  border-radius: 10px;
-}
-.bi-chat-quote {
-  color: #FFD700;
-}
-
-/* Animation */
-@keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* move half the track for seamless loop */
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  .testimony-box {
-    flex: 0 0 45%;
-  }
-}
-@media (max-width: 576px) {
-  .testimony-box {
-    flex: 0 0 90%;
-  }
-}
-</style>
 
 
+<!-- Church Leadership Section -->
+<section class="section-padding" id="leadership" style="background-color: #ffffff; margin: 1rem 0;">
+  <div class="container">
+    <h2 class="section-title">Church Leadership</h2>
+    <p class="text-center mb-5">Meet the dedicated leaders serving KSUSDA Church</p>
+    <div class="row" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+      <div class="text-center" style="flex: 1 1 250px; min-width: 250px;">
+        <img src="https://media.istockphoto.com/id/2221715270/photo/senior-holding-bible-and-smiling-near-rustic-wall.webp?a=1&b=1&s=612x612&w=0&k=20&c=loWp3QDC4jlwyiraIg_ywRGjom3f2TuK0MQqmjdnzz4=" alt="Pastor Clifford" style="width: 150px; height: 150px; margin: 0 auto 15px; border-radius: 50%; object-fit: cover; border: 4px solid #1abc9c; display: block;">
+        <h4 style="color: #0f172a; margin-bottom: 5px;">Pastor Clifford Ratemo</h4>
+        <p style="color: #666; margin-bottom: 10px; font-size: 0.9rem;">Senior Pastor</p>
+        <p style="color: #888; font-size: 0.85rem;">Leading with vision and spiritual guidance</p>
+      </div>
+      <div class="text-center" style="flex: 1 1 250px; min-width: 250px;">
+        <img src="https://media.istockphoto.com/id/1443625215/photo/black-congregation-attend-black-baptist-church-service.webp?a=1&b=1&s=612x612&w=0&k=20&c=Wr63qCdSUYSR3iEiZy15qXxr6d4azeIEqc5ElDsegZQ=" alt="Pastor Manuella" style="width: 150px; height: 150px; margin: 0 auto 15px; border-radius: 50%; object-fit: cover; border: 4px solid #3a7ca5; display: block;">
+        <h4 style="color: #0f172a; margin-bottom: 5px;">Pastor Manuella</h4>
+        <p style="color: #666; margin-bottom: 10px; font-size: 0.9rem;">Associate Pastor</p>
+        <p style="color: #888; font-size: 0.85rem;">Nurturing spiritual growth in youth</p>
+      </div>
+      <div class="text-center" style="flex: 1 1 250px; min-width: 250px;">
+        <img src="https://images.unsplash.com/flagged/photo-1557896279-080cb03b9ca6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cHJlYWNoZXJ8ZW58MHx8MHx8fDA%3D" alt="Elder Council" style="width: 150px; height: 150px; margin: 0 auto 15px; border-radius: 50%; object-fit: cover; border: 4px solid #ff9b42; display: block;">
+        <h4 style="color: #0f172a; margin-bottom: 5px;">Elder John K.</h4>
+        <p style="color: #666; margin-bottom: 10px; font-size: 0.9rem;">Elders & Deacons</p>
+        <p style="color: #888; font-size: 0.85rem;">Supporting pastoral ministry</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="leadership.html" class="btn btn-primary">Meet Our Leadership Team</a>
+    </div>
+  </div>
+</section>
 
-  <!-- Footer -->
+<!-- Newsletter Section -->
+<section class="section-padding" id="newsletter" style="background: linear-gradient(135deg, #001f3f 0%, #0f172a 100%); color: white; margin: 1rem 0; text-align: center;">
+  <div class="container">
+    <h2 style="font-size: 2rem; margin-bottom: 1rem;">Stay Connected</h2>
+    <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">Subscribe to our newsletter for updates on events, sermons, and church news</p>
+    <form id="newsletter-form" style="max-width: 500px; margin: 0 auto; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+      <input type="email" id="newsletter-email" placeholder="Enter your email address" required style="flex: 1 1 250px; padding: 12px 15px; border: none; border-radius: 5px; font-size: 1rem; min-width: 200px;">
+      <button type="submit" class="btn btn-primary" style="padding: 12px 30px; font-weight: 600;">Subscribe</button>
+    </form>
+    <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.8;">We respect your privacy. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+  </button>
+</div>
   <footer style="margin-top:1rem;">
     <div class="container">
       <div class="footer-content">
@@ -1532,23 +1355,22 @@
       </div>
     </div>
   </footer>
-
-  <!--countdown box-->
-<div class="countdown-box" id="countdownBox">
-  Sabbath begins in:<br><span id="countdown"></span>
-</div>
   
   <!-- Prayer Request Button -->
   <div class="prayer-request-btn" onclick="openPrayerRequest()">
     <i class="fas fa-pray"></i>
   </div>
-  
-  
+
+ <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTopBtn" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  
+  <script src="assests/script.js"></script>
   <script>
   
     //countdown
@@ -1868,17 +1690,7 @@
       window.location.href = 'prayerrequest.php';
     }
     
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-      const header = document.querySelector('header');
-      if (window.scrollY > 50) {
-        header.style.padding = '0.7rem 5%';
-        header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.15)';
-      } else {
-        header.style.padding = '1rem 5%';
-        header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-      }
-    });
+
     
     // Animation on scroll
     const observerOptions = {
@@ -1982,6 +1794,24 @@ progressBar.addEventListener('input', () => {
 volumeControl.addEventListener('input', () => {
   if (currentAudio) currentAudio.volume = volumeControl.value;
 });
+</script>
+
+<script>
+// Newsletter Subscribe Function
+const newsletterForm = document.getElementById('newsletter-form');
+if (newsletterForm) {
+  newsletterForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const emailInput = document.getElementById('newsletter-email');
+    const email = emailInput.value.trim();
+    
+    if (email) {
+      alert('Thank you for subscribing! A confirmation email has been sent to ' + email);
+      emailInput.value = ''; // Clear the input field
+    }
+  });
+}
 </script>
 </body>
 </html>
