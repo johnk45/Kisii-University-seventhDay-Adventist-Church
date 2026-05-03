@@ -6,6 +6,7 @@
     <meta name="description" content="Nothing Can Separate - A story about God's unconditional love">
     <meta name="author" content="KUSDA Ministry">
     <title>Nothing Can Separate - God's Unconditional Love</title>
+      <link rel="stylesheet" type="text/css" href="header.css">
     <style>
         * {
             margin: 0;
@@ -41,7 +42,7 @@
         }
 
         /* Header Section */
-        header {
+        section {
             text-align: center;
             padding: 40px 20px;
             background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
@@ -51,14 +52,14 @@
             box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
         }
 
-        header h1 {
+        section h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        header .subtitle {
+        section .subtitle {
             font-size: 1.1em;
             opacity: 0.9;
             font-style: italic;
@@ -188,12 +189,37 @@
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    
+                    <h1>Kisii Uni SDA <span>Blog</span></h1>
+                </div>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="serm.html"><i class="fas fa-book-bible"></i> Sermons</a></li>
+                        <li><a href="eventht.html"><i class="fas fa-calendar"></i> Events</a></li>
+                        <li><a href="prayerrequest.html"><i class="fas fa-pray"></i> Prayer</a></li>
+                        <li><a href="contact32.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                    <button class="hamburger" id="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
     <div class="container">
-        <!-- Header -->
-        <header>
+        <!-- section -->
+        <section>
             <h1>Nothing Can Separate</h1>
             <p class="subtitle">A Story of God's Unconditional Love</p>
-        </header>
+        </section>
 
         <!-- Story Content -->
         <div class="story-content">
