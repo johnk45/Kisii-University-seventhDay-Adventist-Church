@@ -648,7 +648,7 @@
                         <span><i class="fas fa-clock"></i> Reading Time: 15 mins</span>
                     </div>
                     <div class="word-count">
-                        <i class="fas fa-file-alt"></i> Sermon Summary: Approximately 3,000 words
+                        <i class="fas fa-file-alt"></i> Sermon Summary: 
                     </div>
                 </div>
                 
@@ -908,53 +908,7 @@
             <div class="timer-progress" id="timerProgress"></div>
         </div>
     </div>
-    <script>
-        const verses = [
-            {text:"Trust the lord with all your heart and lean not in your own understanding .",ref:"proverbs 3:5"},
-            {text:"I do all things through christ who strengthens me.",ref:"Phillipians 4:13"},
-            {text:"The lord is my shepherd , I shall not want .",ref:"Psalm 23:1"},
-            {text:"Be strong and courages .Do not be afraid; do not be dsicouraged.",ref:"Joshua 1:19"},
-            {text:"For God so loved the world that he gave his only son that whoever believed on him ,shall not perish but have everlasting life .",ref:"John 3:16"}
-        ];
-
-        function showDisplay(){
-            //get random verse
-            const verse = verses[Math.floor(Math.random() * verses.length)];
-            document.getElementById('verseText').textContent = verse.text;
-            document.getElementById('verseReference').textContent = verse.ref;
-
-            //show notification
-            const notification = document.getElementById('verseNotification');
-            notification.classList.add('active');
-
-            //start countdown timer
-            const progress = document.getElementById('timerProgress');
-            const displayTime = 10000; // 10seconds
-
-            progress.style.width = '100%';
-            progress.style.transition = `width ${displayTime}ms linear`;
-
-            setTimeout(()=>{
-                progress.style.width = '0%';
-            },10);
-
-            //Auto-hide after display time
-            setTimeout(()=>{
-                notification.classList.remove('active');
-                //schedule nextverse for tomorrow
-                const now = new Date();
-                const tomorrow = new Date(now);
-                tomorrow.setDate(tomorrow.getDate()+1);
-                tomorrow.setHours(9,0,0,0);   //next day at 9am
-
-                const timeUntilTomorrow = tomorrow.getTime() - now.getTime();
-                setTimeout(showDaily,timeUntilTomorrow);
-            },displayTime);
-
-        }
-        //start automatically after 2 seconds
-        setTimeout(showDisplay,2000);
-    </script>
+    
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -990,7 +944,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; <script>document.write(new Date().getFullYear());</script> Kisii University SDA Church Blog. All Rights Reserved.</p>
+                <p>&copy; 2025 - <script>document.write(new Date().getFullYear());</script> Kisii University SDA Church Blog. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -1151,6 +1105,52 @@
             }
         `;
         document.head.appendChild(style);
+   
+        const verses = [
+            {text:"Trust the lord with all your heart and lean not in your own understanding .",ref:"proverbs 3:5"},
+            {text:"I do all things through christ who strengthens me.",ref:"Phillipians 4:13"},
+            {text:"The lord is my shepherd , I shall not want .",ref:"Psalm 23:1"},
+            {text:"Be strong and courages .Do not be afraid; do not be dsicouraged.",ref:"Joshua 1:19"},
+            {text:"For God so loved the world that he gave his only son that whoever believed on him ,shall not perish but have everlasting life .",ref:"John 3:16"}
+        ];
+
+        function showDisplay(){
+            //get random verse
+            const verse = verses[Math.floor(Math.random() * verses.length)];
+            document.getElementById('verseText').textContent = verse.text;
+            document.getElementById('verseReference').textContent = verse.ref;
+
+            //show notification
+            const notification = document.getElementById('verseNotification');
+            notification.classList.add('active');
+
+            //start countdown timer
+            const progress = document.getElementById('timerProgress');
+            const displayTime = 10000; // 10seconds
+
+            progress.style.width = '100%';
+            progress.style.transition = `width ${displayTime}ms linear`;
+
+            setTimeout(()=>{
+                progress.style.width = '0%';
+            },10);
+
+            //Auto-hide after display time
+            setTimeout(()=>{
+                notification.classList.remove('active');
+                //schedule nextverse for tomorrow
+                const now = new Date();
+                const tomorrow = new Date(now);
+                tomorrow.setDate(tomorrow.getDate()+1);
+                tomorrow.setHours(9,0,0,0);   //next day at 9am
+
+                const timeUntilTomorrow = tomorrow.getTime() - now.getTime();
+                setTimeout(showDaily,timeUntilTomorrow);
+            },displayTime);
+
+        }
+        //start automatically after 2 seconds
+        setTimeout(showDisplay,2000);
     </script>
 </body>
 </html>
