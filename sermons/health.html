@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Health and Spiritual Wellness - Biblical principles on diet, appetite control, and physical health">
+    <meta name="author" content="KUSDA Ministry">
+    <title>Health and Spiritual Wellness - Biblical Perspectives</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #5a6c7d;
+            --secondary-color: #7a8fa0;
+            --accent-color: #4a9fb5;
+            --dark-color: #1a1a1a;
+            --light-color: #f9f9f9;
+            --text-color: #2c3e50;
+            --border-color: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f5f7fa;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(90, 108, 125, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 50px;
+        }
+
+        section h2 {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        section h3 {
+            font-size: 1.5em;
+            color: var(--dark-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Paragraph Styles */
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+            line-height: 1.9;
+            color: #333;
+        }
+
+        p:first-of-type {
+            font-weight: 500;
+            font-size: 1.05em;
+            color: var(--dark-color);
+        }
+
+        /* Scripture Box */
+        .scripture {
+            background: linear-gradient(135deg, rgba(39, 174, 96, 0.08) 0%, rgba(46, 204, 113, 0.08) 100%);
+            border-left: 5px solid var(--primary-color);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 4px;
+            font-style: italic;
+            color: #2c3e50;
+            line-height: 1.9;
+        }
+
+        .scripture .reference {
+            display: block;
+            text-align: right;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 12px;
+            font-style: normal;
+        }
+
+        /* Highlight Box */
+        .highlight {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 4px;
+            color: #856404;
+        }
+
+        .highlight strong {
+            color: #d39e00;
+        }
+
+        /* Key Points */
+        .key-points {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .key-points ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .key-points li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .key-points li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Card Layout */
+        .card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 15px rgba(90, 108, 125, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .card h4 {
+            font-size: 1.3em;
+            color: var(--dark-color);
+            margin-bottom: 12px;
+        }
+
+        /* Quote Styles */
+        .quote {
+            border-left: 4px solid var(--accent-color);
+            padding: 20px 25px;
+            margin: 25px 0;
+            background-color: #fef5f5;
+            border-radius: 4px;
+            font-style: italic;
+            color: #c0392b;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .column {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .column h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table tr:hover {
+            background-color: #f0f8f5;
+        }
+
+        /* Emphasis Styles */
+        strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .emphasis {
+            background: linear-gradient(120deg, rgba(39, 174, 96, 0.1), rgba(46, 204, 113, 0.1));
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-radius: 8px;
+        }
+
+        footer p {
+            color: #bdc3c7;
+            margin-bottom: 10px;
+        }
+
+        footer .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Removed social links styles */
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header .subtitle {
+                font-size: 1em;
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            section h2 {
+                font-size: 1.6em;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 5px;
+            }
+
+            nav a {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+
+            .scripture {
+                padding: 15px 20px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            table th, table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Health and Spiritual Wellness</h1>
+            <p class="subtitle">Biblical Principles on Diet, Appetite, and Physical Health</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#appetite">Appetite Control</a></li>
+                <li><a href="#brain">Mind & Body</a></li>
+                <li><a href="#daniel">Daniel's Example</a></li>
+                <li><a href="#principles">Key Principles</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Overview Section -->
+            <section id="overview">
+                <h2>Biblical Foundation</h2>
+                
+                <p>The Bible presents a profound connection between physical health and spiritual wellness. During the antitypical day of atonement, when individuals are being accounted worthy or unworthy of eternal life, we are called to exercise mastery over our appetites and desires.</p>
+
+                <div class="scripture">
+                    <p>"Take heed to yourselves, lest at any time your hearts be overcharged with surfeiting, and drunkenness, and cares of this life, and so that day come upon you unawares…. Watch ye therefore, and pray always that ye may be accounted worthy to escape all these things that shall come to pass, and to stand before the Son of man."</p>
+                    <span class="reference">Luke 21:34-36</span>
+                </div>
+
+                <p>The prophet Isaiah provides a vivid description of the contrast between those who heed God's call and those who ignore it:</p>
+
+                <div class="scripture">
+                    <p>"In that day did the Lord God of hosts call to weeping, and to mourning, and to baldness, and to girding with sackcloth: and behold, joy and gladness, slaying oxen, and killing sheep, eating flesh and drinking wine: let us eat and drink; for to morrow we shall die."</p>
+                    <span class="reference">Isaiah 22:12-13</span>
+                </div>
+            </section>
+
+            <!-- Appetite Control Section -->
+            <section id="appetite">
+                <h2>Mastery Over Appetite</h2>
+
+                <p>God calls His people to be masters of their appetites, not slaves to them. This distinction is crucial for spiritual development and maintaining a clear mind for discerning divine truth.</p>
+
+                <h3>What is Surfeiting?</h3>
+                <p><strong>Surfeiting</strong> is taking too freely of food, whether it be good or bad. It refers to overindulgence and excessive consumption, even of wholesome foods.</p>
+
+                <h3>What is Drunkenness?</h3>
+                <p><strong>Drunkenness</strong> in this context refers to partaking of improper foods—those that are injurious to health and cloud the mind. The glutton and drunkard are classified together in Scripture:</p>
+
+                <div class="scripture">
+                    <p>"Be not among winebibbers; among riotous eaters of flesh; for the drunkard and the glutton shall come to poverty."</p>
+                    <span class="reference">Proverbs 23:20-21</span>
+                </div>
+
+                <div class="highlight">
+                    <strong>Key Point:</strong> One can becloud the mind and ruin the health by overeating of even the best of food. Both quantity and quality of food matter.
+                </div>
+
+                <h3>The Rule for Eating</h3>
+                <p>Scripture provides practical guidance on consuming even good foods:</p>
+
+                <div class="key-points">
+                    <ul>
+                        <li><strong>"My son, eat thou honey, because it is good."</strong> - Proverbs 24:13</li>
+                        <li><strong>"Hast thou found honey? eat so much as is sufficient for thee."</strong> - Proverbs 25:16</li>
+                        <li><strong>"It is not good to eat much honey."</strong> - Proverbs 25:27</li>
+                    </ul>
+                </div>
+
+                <p>These three texts establish a rule for eating: consume only good foods, and only <span class="emphasis">so much as is sufficient</span>. Those who follow this principle will enjoy good health and a clear mind.</p>
+
+                <div class="quote">
+                    <strong>"Our first parents failed on the test of appetite, but where they failed, Christ triumphed. It is possible for a Christian, with the indwelling Christ in the heart, to be complete master of his appetite—to abstain from all food that is injurious, however much the natural appetite may crave it."</strong>
+                </div>
+            </section>
+
+            <!-- Brain and Body Connection -->
+            <section id="brain">
+                <h2>The Mind-Body Connection</h2>
+
+                <p>Understanding how appetite affects our mental and spiritual capacity is essential for spiritual wellness.</p>
+
+                <div class="two-column">
+                    <div class="column">
+                        <h4>Impact on the Nervous System</h4>
+                        <p>The brain nerves that communicate with the entire system are the only medium through which Heaven can communicate to us and affect our inmost life. Whatever disturbs the circulation of the electric currents in the nervous system lessens the strength of vital powers and deadens the sensibilities of the mind.</p>
+                    </div>
+                    <div class="column">
+                        <h4>Spiritual Consequences</h4>
+                        <p>When the brain is clouded by improper diet, spiritual perception is dimmed. God desires His people to have clear minds to comprehend divine truth and follow His work in the heavenly sanctuary.</p>
+                    </div>
+                </div>
+
+                <h3>The Role of Flesh Meat</h3>
+                <p>The use of flesh meat strengthens the lower propensities and excites them to increased activity. Parents who allow their children to eat meat freely, use butter and eggs excessively, will likely see:</p>
+
+                <div class="key-points">
+                    <ul>
+                        <li>Disease in various forms</li>
+                        <li>Impaired physical health</li>
+                        <li>Weakened mental capacity</li>
+                        <li>Diminished spirituality</li>
+                        <li>Increased excitation of base passions</li>
+                    </ul>
+                </div>
+
+                <div class="highlight">
+                    <strong>Important:</strong> Man is built up from what he eats. Parents should discard everything that endangers the moral and physical health of their children.
+                </div>
+            </section>
+
+            <!-- Daniel's Example -->
+            <section id="daniel">
+                <h2>The Daniel Fast: A Model for Health</h2>
+
+                <p>The prophet Daniel provides an excellent example of using dietary discipline to achieve spiritual clarity and understanding:</p>
+
+                <div class="scripture">
+                    <p>"In those days I Daniel was mourning three full weeks. I ate no pleasant bread, neither came flesh nor wine in my mouth, neither did I anoint myself at all, till three whole weeks were fulfilled."</p>
+                    <span class="reference">Daniel 10:2-3</span>
+                </div>
+
+                <h3>Understanding Daniel's Approach</h3>
+                <p>When Daniel wanted to understand a vision, he engaged in what we now call a "Daniel Fast." But importantly, <strong>he did not stop eating entirely</strong>. Instead, he ate clean, wholesome foods to maintain a clear brain for receiving divine understanding.</p>
+
+                <div class="card">
+                    <h4>The Daniel Fast Today</h4>
+                    <p>Today, God calls His people to a similar practice—not a complete fast from eating, but a conscious choice to eat only foods that promote mental clarity and spiritual receptivity. This allows us to:</p>
+                    <ul style="margin-top: 15px; margin-left: 20px;">
+                        <li>Maintain physical strength</li>
+                        <li>Achieve mental clarity</li>
+                        <li>Enhance spiritual perception</li>
+                        <li>Prepare for eternal life</li>
+                    </ul>
+                </div>
+
+                <div class="scripture">
+                    <p>"In the third year of Cyrus king of Persia a thing was revealed unto Daniel, whose name was called Belteshazzar; and the thing was true, but the time appointed was long: and he understood the thing, and had understanding of the vision."</p>
+                    <span class="reference">Daniel 10:1</span>
+                </div>
+            </section>
+
+            <!-- Key Principles Section -->
+            <section id="principles">
+                <h2>Essential Health Principles</h2>
+
+                <h3>Christ's Example</h3>
+                <p>Jesus Christ was tested on appetite from childhood. The prophet Isaiah says:</p>
+
+                <div class="scripture">
+                    <p>"Butter and honey shall He eat, that He may know to refuse the evil, and choose the good."</p>
+                    <span class="reference">Isaiah 7:15</span>
+                </div>
+
+                <p>Jesus ate according to Biblical rules, which developed in Him spiritual strength and power to discern between good and evil. His manner of eating became a model for all believers.</p>
+
+                <h3>God's Purpose for Our Health</h3>
+                <div class="scripture">
+                    <p>"Beloved, I wish above all things that thou mayest prosper and be in health, even as thy soul prospereth."</p>
+                    <span class="reference">3 John 2</span>
+                </div>
+
+                <p>God desires His people to have good health with souls free from condemnation. Satan, on the other hand, delights in beclouding the brain and destroying health.</p>
+
+                <h3>Testing Times and Divine Care</h3>
+                <p>Those who practice simple diet and develop fixed habits of wholesome eating during their probation will be sustained even in times of drought:</p>
+
+                <div class="highlight">
+                    <strong>"Their bread and water will be sure, and habits of simple diet have become so fixed during their time of probation that though there may be a drought, God can feed them as He did Israel in the wilderness."</strong>
+                </div>
+
+                <!-- Comparison Table -->
+                <h3>Comparison: Mastery vs. Slavery to Appetite</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Mastery Over Appetite</th>
+                            <th>Slavery to Appetite</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Clear, sharp mind</td>
+                            <td>Clouded, sluggish thinking</td>
+                        </tr>
+                        <tr>
+                            <td>Spiritual perception heightened</td>
+                            <td>Spiritual blindness</td>
+                        </tr>
+                        <tr>
+                            <td>Good physical health</td>
+                            <td>Various diseases and ailments</td>
+                        </tr>
+                        <tr>
+                            <td>Control of base passions</td>
+                            <td>Excitement of base appetites</td>
+                        </tr>
+                        <tr>
+                            <td>Prepared for eternity</td>
+                            <td>Unfit for God's kingdom</td>
+                        </tr>
+                        <tr>
+                            <td>Blessed with divine wisdom</td>
+                            <td>Deceived by seducing spirits</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Warnings Section -->
+            <section>
+                <h2>Solemn Warnings</h2>
+
+                <div class="scripture">
+                    <p>"Now the Spirit speaketh expressly, that in the latter times some shall depart from the faith, giving heed to seducing spirits, and doctrines of devils."</p>
+                    <span class="reference">1 Timothy 4:1-2</span>
+                </div>
+
+                <p>In these last days, many will be deceived about what foods are permissible. However, Scripture assures us:</p>
+
+                <div class="scripture">
+                    <p>"For every creature of God is good, and nothing to be refused, if it be received with thanksgiving: for it is sanctified by the word of God and prayer."</p>
+                    <span class="reference">1 Timothy 4:4-5</span>
+                </div>
+
+                <div class="key-points">
+                    <ul>
+                        <li>Those who practice intemperance will be "consumed together" says the Lord</li>
+                        <li>The indulgence of appetite clouds the mind and separates us from God</li>
+                        <li>Intemperance in eating is as serious a sin as drunkenness</li>
+                        <li>Only through Christ's indwelling power can we achieve complete mastery</li>
+                    </ul>
+                </div>
+
+                <div class="quote">
+                    <strong>"Satan delights in beclouding the brain and destroying the health. All who will fulfil the antitype will be masters of their appetites, that they may prepare to meet the Saviour when He comes to the earth as King of kings and Lord of lords."</strong>
+                </div>
+            </section>
+
+            <!-- Conclusion -->
+            <section>
+                <h2>Conclusion</h2>
+
+                <div class="card">
+                    <h4>A Call to Holistic Health</h4>
+                    <p>The biblical message on health is clear: we are called to be masters of our appetites, not slaves to them. This mastery isn't about legalism or deprivation—it's about freedom. When we control what we eat and how much we eat, we free our minds to commune with God, comprehend spiritual truths, and prepare ourselves for eternity.</p>
+                    <p style="margin-top: 15px;">By following the examples of Daniel and Christ, by understanding the connection between our physical habits and spiritual capacity, and by trusting in God's power working through us, we can achieve the wholeness—physical, mental, and spiritual—that God desires for His people.</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 KUSDA Ministry | Health and Spiritual Wellness</p>
+            <p>Dedicated to promoting biblical principles of health and spiritual growth</p>
+        </footer>
+    </div>
+</body>
+</html>

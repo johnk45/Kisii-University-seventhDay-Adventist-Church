@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Christian perspective on the consequences of sex before marriage based on Biblical teachings">
+    <meta name="author" content="KUSDA Ministry">
+    <title>The Consequences of Sex Before Marriage - Christian Perspective</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        /* Header Styles */
+        header {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #e74c3c;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            font-family: 'Poppins', 'Georgia', serif;
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+        }
+
+        header .subtitle {
+            font-size: 1.3em;
+            color: #e74c3c;
+            font-family: 'Poppins', serif;
+            font-weight: 600;
+        }
+
+        /* Article Section */
+        article {
+            margin-bottom: 50px;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 50px;
+        }
+
+        section h2 {
+            font-size: 1.8em;
+            margin-top: 45px;
+            margin-bottom: 25px;
+            color: #1a1a1a;
+            font-family: 'Poppins', serif;
+            font-weight: 700;
+            border-left: 4px solid #e74c3c;
+            padding-left: 15px;
+        }
+
+        section h3 {
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-family: 'Poppins', serif;
+            font-weight: 600;
+        }
+
+        /* Paragraph Styles */
+        p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: #2c3e50;
+            text-align: justify;
+            line-height: 1.85;
+        }
+
+        section > p:first-of-type {
+            font-size: 1.05em;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        /* Blockquote for Scripture Styles */
+        blockquote {
+            margin: 30px 0;
+            padding: 20px 25px;
+            background-color: #f8f8f8;
+            border-left: 4px solid #e74c3c;
+            font-style: italic;
+            color: #444;
+            border-radius: 4px;
+            line-height: 1.8;
+        }
+
+        blockquote p {
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+
+        blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .scripture-ref {
+            display: block;
+            text-align: right;
+            font-weight: 600;
+            color: #666;
+            margin-top: 10px;
+            font-style: normal;
+            font-size: 0.9em;
+        }
+
+        /* Emphasis Styles */
+        strong {
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        em {
+            color: #555;
+            font-style: italic;
+        }
+
+        a {
+            color: #e74c3c;
+            text-decoration: none;
+            border-bottom: 1px solid #e74c3c;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #c0392b;
+        }
+
+        sup a {
+            border-bottom: none;
+            font-size: 0.8em;
+        }
+
+        /* Footnotes Section */
+        .footnotes {
+            margin-top: 60px;
+            padding: 30px 25px;
+            border-top: 3px solid #e74c3c;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .footnotes h2 {
+            font-size: 1.5em;
+            margin-bottom: 25px;
+            color: #1a1a1a;
+            border-left: none;
+            padding-left: 0;
+            margin-top: 0;
+        }
+
+        .footnote-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            gap: 10px;
+        }
+
+        .footnote-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .footnote-num {
+            display: inline-block;
+            font-weight: 700;
+            color: #e74c3c;
+            flex-shrink: 0;
+            min-width: 30px;
+        }
+
+        .footnote-text {
+            display: block;
+            font-size: 0.95em;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            text-align: center;
+            color: #888;
+            font-size: 0.9em;
+            border-top: 1px solid #ddd;
+        }
+
+        footer p {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            header .subtitle {
+                font-size: 1.1em;
+            }
+
+            section h2 {
+                font-size: 1.4em;
+            }
+
+            section h3 {
+                font-size: 1.2em;
+            }
+
+            blockquote {
+                margin: 20px 0;
+                padding: 15px 20px;
+                font-size: 0.95em;
+            }
+
+            p {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>The Consequences of Sex Before Marriage</h1>
+            <p class="subtitle">A Christian Perspective</p>
+        </header>
+
+        <article>
+            <section>
+                <p>It is clear from Scripture that God has forbidden sex before marriage. God expects us to marry in a state of virginity (cf. Deut. 22:13-21). Still, no matter how sad, people do sometimes fall into this sin. How should we view such situations and what are the consequences? It is to these questions that I wish to address myself in this article.</p>
+            </section>
+
+            <section>
+                <h2>Understanding the Seriousness of Sexual Sin</h2>
+                <p>The first matter that many seem to raise is whether this sin is as serious as people sometimes make it out to be: "Isn't swearing a sin too?" Why is such an emphasis placed on sexual sin? It is important to understand that the seriousness of this sin and the emphasis placed upon it comes directly from the Bible. In 1 Corinthians 6:18 the apostle Paul admonishes us:</p>
+
+                <blockquote>
+                    <p><strong>"Flee sexual immorality. Every sin that a man does is outside the body, but he who commits sexual immorality sins against his own body."</strong></p>
+                    <span class="scripture-ref">1 Corinthians 6:18</span>
+                </blockquote>
+
+                <p>But is sex before marriage immorality? Paul uses a word (<em>porneia</em>) that was used in his day to indicate all forms of forbidden sexual activity, including sex before marriage as well as adultery after marriage. Paul singles out sexual sin from among all others. Special emphasis is placed on it because with this sin one sins against his own body. This matter is further explained in the following verses:</p>
+
+                <blockquote>
+                    <p>"Or do you not know that your body is the temple of the Holy Spirit who is in you, whom you have from God, and you are not your own? For you were bought at a price; therefore glorify God in your body and in your spirit, which are God's."</p>
+                    <span class="scripture-ref">1 Corinthians 6:19-20</span>
+                </blockquote>
+
+                <p>It is not only that with participation in forbidden sexual activity we sin against our bodies, but by this sin the Holy Spirit is also grieved (cf. Eph. 4:30). If we are believers the Holy Spirit dwells within our hearts. In this way our bodies become temples of the Holy Spirit. By means of sexual sin this temple becomes defiled. The holiness of God is besmirched. That's why the apostle Paul admonishes: "Flee immorality (i.e. sexual sin)." It is not merely a matter of forbidding, but also a command to run away from this sin. We must be careful not even to come near such sins. Paul is aware how easily and strongly our sinful desires can become inflamed!</p>
+            </section>
+
+            <section>
+                <h2>The Consequences of Premarital Sexual Relations</h2>
+                <p>The seriousness of this sin is also explained in Scripture by its consequences. Sex before marriage is not a sin that can be solved with a simple prayer for forgiveness. There are also other parties, who have been sinned against. God expects us to be reconciled with those against whom we have sinned before we come to Him with a prayer for forgiveness (cf. Lev. 6:1-7)<sup><a href="#footnote-1">[1]</a></sup>. The parties concerned, when sex before marriage has occurred, are clearly described in God's law:</p>
+
+                <blockquote>
+                    <p><strong>Exodus 22:16-17</strong></p>
+                    <p>"If a man entices a virgin who is not betrothed, and lies with her, he shall surely pay the bride-price for her to be his wife. If her father utterly refuses to give her to him, he shall pay money according to the bride-price of virgins."</p>
+                </blockquote>
+
+                <blockquote>
+                    <p><strong>Deuteronomy 22:28-29</strong></p>
+                    <p>"If a man finds a young woman who is a virgin, who is not betrothed, and he seizes her and lies with her, and they are found out, then the man who lay with her shall give to the young woman's father fifty shekels of silver, and she shall be his wife because he has humbled her; he shall not be permitted to divorce her all his days."<sup><a href="#footnote-2">[2]</a></sup></p>
+                </blockquote>
+
+                <p>Both of these laws show us that pre-marital indulgence in these privileges, reserved by our Lord for the bond of marriage, involves the obligation to marry. A boy and a girl who have become physically one must marry, regardless of whether the girl has become pregnant (see below for an exception). God has restricted physical unity to marriage. That is also why, in the Old Testament, the Lord commanded a fine to be paid to the father of the girl, namely 50 shekels of silver. This fine is called "the bride-price" (NKJV/ESV) in Exodus 22, but the translation can be confusing for it might appear that a dowry is meant. That is not the case. It is a financial penalty.</p>
+
+                <h3>Clarification on Dowries and Financial Penalties</h3>
+                <p>At this point I should clear up any misunderstanding. It certainly was, and is, an Eastern custom for a dowry to be paid when a daughter is given away in marriage. We learn from the Bible that this was also the practice in Israel. See, for example, 1 Kings 9:16 and Micah 1:13-14 for the custom of paying a dowry to the girl. But, and this is particularly noteworthy, God's law says nothing about this practice at all. You will not find rules for dowries anywhere in the Bible. The only thing we read in this regard is that when there has been sexual intercourse before marriage a fine of 50 shekels of silver must be paid to the father of the girl.</p>
+
+                <p>When we consider that the average annual salary for a labourer in Moses' time was ten silver shekels, we may conclude that such a fine was roughly equivalent to five years wages!<sup><a href="#footnote-3">[3]</a></sup> If such an amount could not be raised the only solution would be debt-slavery. In this way we can see that this sin was not small in God's eyes. Stealing the gifts of marriage in advance has clear consequences.</p>
+            </section>
+
+            <section>
+                <h2>The Role of Parents and Parental Responsibility</h2>
+                <p>We also see here the role of the father (representing both parents) of the girl. The Lord makes parents responsible for bringing up their daughters to be God-fearing so that they can be given away in marriage pure (i.e. as a virgin) to a future husband (cf. Lev. 19:29)<sup><a href="#footnote-4">[4]</a></sup>.</p>
+
+                <p>When a girl's virginity is lost, the boy concerned has encroached upon that which is the responsibility of her parents. He has not only sinned against God, but also against the parents of the girl. God makes the parents responsible for the virginity of their daughters. Even when the girl has consented, or worse, was the main cause of the sin, God's law requires the young man to be held chiefly responsible. The girl must take her share of the guilt before God and her parents, but the young man much more so. When he took the girl out, he received a measure of trust from her parents to treat her in a respectful pure manner. This trust has been broken.</p>
+
+                <h3>The Purpose and Boundaries of Courtship</h3>
+                <p>In courtship, a young man and woman seek to get to know each other better in order to determine whether or not the way toward marriage is an appropriate path for them. The young man ought to be aware that he is seeking to be the head of a new house, also in a spiritual way. If he tempts the girl (or responds to a temptation on her part) he does not show himself to be the sort of person who will lead a future family in the way of the Lord. He does not show a respectful love for her, but only a desire to satisfy his own lust. He also needs to remember that during the period of courtship, the girl does not belong to him, but to her parents. Her father is still responsible for her and the boy must answer for his actions to him.</p>
+
+                <p>In this respect fathers need to take this responsibility seriously and earnestly imprint this on any boy wishing to court their daughter. Courtship itself is not a matter of a girl and a boy deciding independently of her parents that they are going to go out with each other. The father's permission and oversight ought to be sought even at this point. The whole reason for courtship ought to be an opportunity to better get to know each other so that a decision respecting a life-partnership can be responsibly taken. During this period, sexual activity has no place. One ought to be able to break off a courtship and accept the fact that the other person may happily end up marrying somebody else. If there has been any kind of sexual activity, this will seriously affect the way that you end up viewing this person, who is not your marriage partner, but may well be sitting next to you at the Lord's Supper and have become the wife / husband of your best friend.</p>
+
+                <p>What this means is that the common and sinful notion that courtship can involve a measure of sexual contact such as intimate kissing is utterly false. Not only does this increase the level of temptation, but more seriously, you have violated the intimacy of someone who may end up being another person's marriage partner. A good rule of thumb is this: if you would not like to be seen engaged in a certain activity with your neighbour's wife / husband, then you ought not to be engaged in that activity with someone whom you are courting. Paul writes in Romans 13:14:</p>
+
+                <blockquote>
+                    <p>"Let us walk decently as in the day, not in revelry and drunkenness, not in sexual encounters and licentiousness, not in strife and envy, but put on the Lord Jesus Christ and do not make provision for the flesh unto (its) desires."<sup><a href="#footnote-5">[5]</a></sup></p>
+                    <span class="scripture-ref">Romans 13:14</span>
+                </blockquote>
+
+                <p>When he says "do not make provision for the flesh", he uses a verb which basically refers to taking thought beforehand, in other words, preparing oneself for the eventuality of sexual sin. This sinful preparation can be done in many ways, whether by fantasising sinful connections in one's mind, by allowing oneself to get into situations or go to places or parties which you know beforehand may present wrongful temptations, or even more shamefully by providing oneself with condoms. Paul admonishes young men further in 1 Thessalonians 4:3-7 where the word ‛vessel' clearly refers to the male sexual organ<sup><a href="#footnote-6">[6]</a></sup>:</p>
+
+                <blockquote>
+                    <p>"For this is the will of God, your sanctification: that you should abstain from sexual immorality; that each of you should know how to possess his own vessel in sanctification and honor, not in passion of lust, like the Gentiles who do not know God; that no one should take advantage of and defraud his brother in this matter, because the Lord is the avenger of all such, as we also forewarned you and testified. For God did not call us to uncleanness, but in holiness. Therefore he who rejects this does not reject man, but God, who has also given us His Holy Spirit."</p>
+                    <span class="scripture-ref">1 Thessalonians 4:3-7</span>
+                </blockquote>
+            </section>
+
+            <section>
+                <h2>Parental Permission and Marriage Obligations</h2>
+                <p>If sexual intercourse itself occurs, the Lord has given a moral obligation to be joined in marriage. However, along with the demand to marry in these circumstances God has also given a safety rule. This demand is not etched in stone. The father of the girl (as head of the family) has the right to refuse permission for such a marriage. This is for the protection of the girl. When such a sin occurs, it is often the case that the boy and girl are head over heels in love. But love can be blind. It is possible that the boy is not at all suited for the girl. This is something that the father of the girl should ascertain. Sex before marriage does not automatically lead to a forced marriage. However, we must remember that the participants have stolen in advance what rightly belongs only to marriage.</p>
+
+                <p>As already stated, it is not my intention to suggest that the mother has no role to play (see Prov. 6:20). In our society it would be normal (and also good) that parents discuss these matters together. The father, as head, will provide leadership and bear the final responsibility (just as Adam – not Eve – had to bear the final responsibility for the fall into sin).</p>
+
+                <h3>The Biblical Foundation for Parental Permission</h3>
+                <p>The Bible speaks from the position that a father gives his daughter away to her husband (see, e.g., 1 Cor. 7:36-38). It is important that the father (thus the parents, with father as head) grant permission for his daughter to marry. That is also why we still have the practice of a young man asking permission from the father of his fiancee to take her hand in marriage. This is not just a nice, laudable practice, but a tradition with a Biblical foundation.<sup><a href="#footnote-7">[7]</a></sup></p>
+
+                <p>Sometimes the question is raised whether it is necessary to seek the parents' permission if the girl has already done profession of her faith. This exposes an apparent misunderstanding about the nature of public profession of faith. A child that professes his (her) faith does, indeed, publicly say that he wants to live in faithfulness to his Lord and accept all the responsibilities of full membership in Christ's church. That includes admission to the Lord's Supper table. But it does not mean that before doing profession of his faith he had no personal responsibility for his faith. Indeed, if a baptised member falls into sin the consistory has the right (even the duty) to deal with this matter, and may even put him under discipline (see the form for the excommunication of non-communicant members). Neither does profession of one's faith undo previous authority-relationships. A person who has done profession of faith must still obey his boss at work. The same goes for obedience to parents (when he/she lives at home). They remain his parents. Of course the relationship between parents and children in regards to responsibilities must change as children become older, but public profession of faith does not eliminate such a relationship.</p>
+
+                <p>It is not necessarily wrong for a boy and a girl to get to know one another before they marry, but the permission to marry given by the parents of the girl remains a biblical requirement. The Bible clearly speaks (with reference to the father) of giving in marriage. Through the formation of a new marriage-bond the authority of the parents comes to a definitive end (Gen. 2:24). If a woman were to marry for a second time, she would do so independently (1 Cor. 7:39).</p>
+
+                <p>Circumstances can become complicated if parents irresponsibly refuse permission to marry. In such cases it may be possible to appeal to the consistory, who should judge whether the parents are sinning in their refusal (for example, if they want their daughter only to marry into money).<sup><a href="#footnote-8">[8]</a></sup></p>
+            </section>
+
+            <section>
+                <h2>Repentance and the Path Forward</h2>
+                <p>All of this shows that when sex has occurred before marriage, the boy has certain responsibilities over against the father of the girl. It is the father's duty to give his daughter away in marriage, regardless of her age (see 1 Cor. 7:36-38). The sin must also be humbly confessed to the father.<sup><a href="#footnote-9">[9]</a></sup> A Christian boy will also be the more humbled when he realises that in the Old Testament an amount of five times his annual salary would have been paid to the father. The girl, whose virginity has been definitively lost, becomes his responsibility and under his care. And the father must be reminded that in such a case the Lord has demanded marriage, unless the father refuses permission (with good grounds). If the father notices that both the boy and his daughter show genuine repentance for their sin and also a desire to bring it before the Lord – and if there are no other serious reasons to prevent it – the marriage ceremony, in obedience to the Word of God, should be arranged as soon as possible.</p>
+
+                <p>Genuine repentance for a sin not only entails sorrow before the Lord, but also that we seriously work at avoiding this sin in the future. This may require that two persons engaged to be married need to agree no longer to see each other in situations where they are easily compromised (e.g., babysitting together in the evening). They might, in such situations, agree always to invite a third party to prevent temptation getting the better of them. The prayer "lead us not into temptation" cannot be very sincere if we insist on placing ourselves in tempting situations!</p>
+
+                <h3>The Permanence of Marriage After Premarital Relations</h3>
+                <p>Yet one more consequence follows for the newly married couple. Where sexual intercourse has occurred before marriage, the Lord ordains that the couple may never divorce. Such a marriage may never be annulled. Herein a certain protection is again afforded to the girl. She may never be abandoned. Her husband will always be responsible for her well-being, even if they should come upon difficult times in which it is necessary to separate. He will, as long as he lives, be responsible for her protection and support.</p>
+            </section>
+
+            <section>
+                <h2>Conclusion: Walking in God's Way</h2>
+                <p>May the Lord grant us the strength and power not to fall into this sin. By becoming aware of the weight and seriousness of this matter in the eyes of the Lord we will be motivated all the more to do everything we can to prevent it – and not only to prevent it, but to run away from it. Should one fall into such a sin, the way of reconciliation with our Lord is clear. Let us never try to cover up such sins. The consequences of doing that are eternal. Pray to God for the necessary strength and humility to follow His way in these matters.</p>
+            </section>
+        </article>
+
+        <aside class="footnotes">
+            <h2>Footnotes</h2>
+            
+            <div class="footnote-item" id="footnote-1">
+                <span class="footnote-num">[1]</span>
+                <span class="footnote-text">The Lord's command to be reconciled with those against whom we have sinned is not only for the sake of those against whom we have sinned, but also for our own sake. If we do not seek reconciliation with those against whom we have sinned, we will not be able to come to God with a sincere heart and ask for forgiveness. We will be trying to cover up our sins, which is a sin in itself (cf. Prov. 28:13).</span>
+            </div>
+
+            <div class="footnote-item" id="footnote-2">
+                <span class="footnote-num">[2]</span>
+                <span class="footnote-text">The word "humbled" (NKJV) is a euphemism for the fact that the girl has been defiled. The ESV translates this word as "disgraced". The Hebrew word used here (nabal) is also used in the Old Testament to refer to a man who is morally corrupt and disgraceful (see, e.g., 1 Sam. 25:25). The girl has been morally defiled and disgraced by the sexual sin. The boy has taken something that belongs to the girl and has defiled it.</span>
+            </div>
+
+            <div class="footnote-item" id="footnote-3">
+                <span class="footnote-num">[3]</span>
+                <span class="footnote-text">This financial penalty represented a significant portion of a laborer's lifetime earnings, emphasizing the gravity of the offense in biblical times.</span>
+            </div>
+
+            <div class="footnote-item" id="footnote-4">
+                <span class="footnote-num">[4]</span>
+                <span class="footnote-text">Parents bear the responsibility to raise their children with godly values and to protect their purity until marriage (cf. Lev. 19:29).</span>
+            </div>
+
+            <div class="footnote-item" id="footnote-5">
+                <span class="footnote-num">[5]</span>
+                <span class="footnote-text">"Making provision for the flesh" refers to deliberately putting oneself in situations that encourage sin. This includes not only physical preparation but also mental and spiritual negligence regarding temptation.</span>
+            </div>
+
+            <div class="footnote-item" id="footnote-6">
+                <span class="footnote-num">[6]</span>
+                <span class="footnote-text">The Greek word used here refers to the body or physical form, with the specific meaning in this context pointing to the male sexual organ and the responsibility to control it.</span>
+            </div>
+
+            <div class="footnote-item" id="footnote-7">
+                <span class="footnote-num">[7]</span>
+                <span class="footnote-text">This practice finds its basis in the biblical principle that the father is the head of the family and has authority over his unmarried daughter until she is given in marriage (Gen. 2:24, 1 Cor. 7:36-38).</span>
+            </div>
+
+            <div class="footnote-item" id="footnote-8">
+                <span class="footnote-num">[8]</span>
+                <span class="footnote-text">The church leadership may intervene when parents unreasonably withhold permission for marriage, ensuring that their refusal is not based on selfish or ungodly motives.</span>
+            </div>
+
+            <div class="footnote-item" id="footnote-9">
+                <span class="footnote-num">[9]</span>
+                <span class="footnote-text">Confession to the father of the girl is an important step in the process of repentance and reconciliation, acknowledging the violation of his authority and trust.</span>
+            </div>
+        </aside>
+
+        <footer>
+            <p>&copy; KUSDA Ministry. This article presents a Christian perspective on biblical teaching regarding premarital sexual relations.</p>
+        </footer>
+    </div>
+</body>
+</html>

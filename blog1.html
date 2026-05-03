@@ -94,6 +94,22 @@
             color: var(--secondary);
         }
         
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+        
+        .hamburger:hover {
+            color: var(--secondary);
+        }
+        
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), 
@@ -181,6 +197,31 @@
         
         .post-content p {
             margin-bottom: 20px;
+        }
+        
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 999px;
+            border: 2px solid var(--secondary);
+            background: white;
+            color: var(--secondary);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .read-more-btn:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .more-content {
+            display: none;
         }
         
         .scripture-box {
@@ -384,6 +425,7 @@
         .recent-sermons li {
             padding: 15px 0;
             border-bottom: 1px solid #f0f0f0;
+            list-style: none;
         }
         
         .recent-sermons li:last-child {
@@ -416,6 +458,15 @@
             border-bottom: 1px solid #f0f0f0;
             display: flex;
             justify-content: space-between;
+            list-style: disc;
+        }
+        .categories li a {
+            text-decoration: none;
+            color: var(--dark);
+            transition: color 0.3s;
+        }
+        .categories li a:hover {
+            color: var(--secondary);
         }
         
         .categories li:last-child {
@@ -491,6 +542,40 @@
             .post-title {
                 font-size: 1.6rem;
             }
+            
+            /* Hamburger menu styles */
+            .hamburger {
+                display: block;
+            }
+            
+            #nav-menu {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 50px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                z-index: 99;
+                box-shadow: var(--shadow);
+            }
+            
+            #nav-menu.open {
+                transform: translateX(0);
+            }
+            
+            nav li {
+                margin: 20px 0;
+            }
+            
+            nav a {
+                font-size: 1.2rem;
+            }
         }
         
         /* Word Count Indicator */
@@ -524,13 +609,16 @@
                     <h1>Kisii Uni SDA <span>Blog</span></h1>
                 </div>
                 <nav>
-                    <ul>
+                    <ul id="nav-menu">
                         <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
                         <li><a href="serm.html"><i class="fas fa-book-bible"></i> Sermons</a></li>
                         <li><a href="eventht.html"><i class="fas fa-calendar"></i> Events</a></li>
                         <li><a href="prayerrequest.html"><i class="fas fa-pray"></i> Prayer</a></li>
                         <li><a href="contact32.html"><i class="fas fa-envelope"></i> Contact</a></li>
                     </ul>
+                    <button class="hamburger" id="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </nav>
             </div>
         </div>
@@ -571,32 +659,100 @@
                         "For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future." - Jeremiah 29:11 (NIV)
                     </div>
                     
-                    <h3>Context of the Promise</h3>
-                    <p>To fully appreciate this promise, we must understand its original context. Jeremiah spoke these words to Israelites in exile—people who had lost everything: their homes, their temple, their nation. They were living as captives in Babylon, a foreign land with foreign gods. It was in this place of displacement and despair that God's promise came.</p>
-                    
-                    <p>The exiles were tempted to believe that God had abandoned them. False prophets were declaring that their exile would be short, but Jeremiah delivered the hard truth: they would be in Babylon for 70 years. Yet, within that difficult message came this incredible promise of hope and future.</p>
-                    
-                    <h3>Three Dimensions of God's Plan</h3>
-                    <p><strong>1. God's Knowledge:</strong> "I know the plans I have for you." The Hebrew word for "know" here (yada) implies intimate, personal knowledge. God isn't making arbitrary plans; He knows us personally and plans accordingly.</p>
-                    
-                    <p><strong>2. God's Purpose:</strong> "Plans to prosper you and not to harm you." The prosperity mentioned here isn't merely material. The Hebrew word "shalom" encompasses wholeness, completeness, peace, and wellbeing in every dimension of life.</p>
-                    
-                    <p><strong>3. God's Promise:</strong> "Plans to give you hope and a future." Hope in biblical terms isn't wishful thinking but confident expectation based on God's character and promises.</p>
-                    
-                    <h3>Application for Today</h3>
-                    <p>How do we apply this ancient promise to our modern lives? First, we must recognize that God's plans often unfold in unexpected ways. The Israelites had to settle in Babylon—build homes, plant gardens, and seek the welfare of the city (Jeremiah 29:5-7). Their hope wasn't in immediate escape but in God's faithfulness over time.</p>
-                    
-                    <p>Similarly, we're called to bloom where we're planted, even when our circumstances aren't what we hoped for. God's plans for our prosperity might look different than our expectations. Sometimes prosperity comes through character refined by trials rather than through comfortable circumstances.</p>
-                    
-                    <h3>Finding Hope in Our Babylon</h3>
-                    <p>Each of us faces our own "Babylon"—situations that feel like exile from our dreams and plans. It might be a difficult job, a strained relationship, health challenges, or financial pressures. Jeremiah's message reminds us that even in Babylon, God is at work.</p>
-                    
-                    <p>The promise of Jeremiah 29:11 isn't a guarantee of trouble-free living. Rather, it's an assurance that God is working all things together for good for those who love Him (Romans 8:28). Our hope isn't in changed circumstances but in the unchanging character of God.</p>
-                    
-                    <h3>Conclusion</h3>
-                    <p>As we navigate uncertain times, let us hold fast to the promise that God knows the plans He has for us. These plans are for our ultimate good and His glory. They include hope and a future that transcends our current circumstances. Like the Israelites in Babylon, we're called to seek God diligently, trusting that He will be found by us when we seek Him with all our hearts (Jeremiah 29:13).</p>
-                    
-                    <p>May this truth anchor our souls: The same God who had plans for exiled Israelites has plans for us today. Plans born of love, crafted in wisdom, and guaranteed by His faithfulness. In every uncertainty, we can trust the Planner.</p>
+                    <div class="more-content">
+                        <h3>Context of the Promise</h3>
+                        <p>To fully appreciate this promise, we must understand its original context. Jeremiah spoke these words to Israelites in exile—people who had lost everything: their homes, their temple, their nation. They were living as captives in Babylon, a foreign land with foreign gods. It was in this place of displacement and despair that God's promise came.</p>
+                        
+                        <p>The exiles were tempted to believe that God had abandoned them. False prophets were declaring that their exile would be short, but Jeremiah delivered the hard truth: they would be in Babylon for 70 years. Yet, within that difficult message came this incredible promise of hope and future.</p>
+                        
+                        <h3>Three Dimensions of God's Plan</h3>
+                        <p><strong>1. God's Knowledge:</strong> "I know the plans I have for you." The Hebrew word for "know" here (yada) implies intimate, personal knowledge. God isn't making arbitrary plans; He knows us personally and plans accordingly.</p>
+                        
+                        <p><strong>2. God's Purpose:</strong> "Plans to prosper you and not to harm you." The prosperity mentioned here isn't merely material. The Hebrew word "shalom" encompasses wholeness, completeness, peace, and wellbeing in every dimension of life.</p>
+                        
+                        <p><strong>3. God's Promise:</strong> "Plans to give you hope and a future." Hope in biblical terms isn't wishful thinking but confident expectation based on God's character and promises.</p>
+                        
+                        <h3>Application for Today</h3>
+                        <p>How do we apply this ancient promise to our modern lives? First, we must recognize that God's plans often unfold in unexpected ways. The Israelites had to settle in Babylon—build homes, plant gardens, and seek the welfare of the city (Jeremiah 29:5-7). Their hope wasn't in immediate escape but in God's faithfulness over time.</p>
+                        
+                        <p>Similarly, we're called to bloom where we're planted, even when our circumstances aren't what we hoped for. God's plans for our prosperity might look different than our expectations. Sometimes prosperity comes through character refined by trials rather than through comfortable circumstances.</p>
+                        
+                        <h3>Finding Hope in Our Babylon</h3>
+                        <p>Each of us faces our own "Babylon"—situations that feel like exile from our dreams and plans. It might be a difficult job, a strained relationship, health challenges, or financial pressures. Jeremiah's message reminds us that even in Babylon, God is at work.</p>
+                        
+                        <p>The promise of Jeremiah 29:11 isn't a guarantee of trouble-free living. Rather, it's an assurance that God is working all things together for good for those who love Him (Romans 8:28). Our hope isn't in changed circumstances but in the unchanging character of God.</p>
+                        
+                        <h3>Conclusion</h3>
+                        <p>As we navigate uncertain times, let us hold fast to the promise that God knows the plans He has for us. These plans are for our ultimate good and His glory. They include hope and a future that transcends our current circumstances. Like the Israelites in Babylon, we're called to seek God diligently, trusting that He will be found by us when we seek Him with all our hearts (Jeremiah 29:13).</p>
+                        
+                        <p>May this truth anchor our souls: The same God who had plans for exiled Israelites has plans for us today. Plans born of love, crafted in wisdom, and guaranteed by His faithfulness. In every uncertainty, we can trust the Planner.</p>
+                        
+                        <!-- Comments Section -->
+                        <div class="comments-section">
+                            <h2 class="comments-title">
+                                <i class="fas fa-comments"></i> Comments (24)
+                            </h2>
+                            
+                            <!-- Comment Form -->
+                            <div class="comment-form">
+                                <h3>Leave a Comment</h3>
+                                <form id="commentForm">
+                                    <div class="form-group">
+                                        <label for="name">Your Name *</label>
+                                        <input type="text" id="name" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="comment">Your Comment *</label>
+                                        <textarea id="comment" required></textarea>
+                                    </div>
+                                    
+                                    <button type="submit" class="submit-btn">
+                                        <i class="fas fa-paper-plane"></i> Post Comment
+                                    </button>
+                                </form>
+                            </div>
+                            
+                            <!-- Comments List -->
+                            <div class="comments-list" id="commentsList">
+                                <!-- Comment 1 -->
+                                <div class="comment">
+                                    <div class="comment-header">
+                                        <div class="comment-author">Sarah M.</div>
+                                        <div class="comment-date">April 14, 2025</div>
+                                    </div>
+                                    <div class="comment-content">
+                                        This sermon spoke directly to my current situation. I've been feeling like I'm in my own Babylon at work, and this reminded me that God is still in control. Thank you for this timely message!
+                                    </div>
+                                </div>
+                                
+                                <!-- Comment 2 -->
+                                <div class="comment">
+                                    <div class="comment-header">
+                                        <div class="comment-author">James O.</div>
+                                        <div class="comment-date">April 13, 2025</div>
+                                    </div>
+                                    <div class="comment-content">
+                                        I never understood the context of Jeremiah 29:11 until now. Knowing it was written to people in exile makes the promise even more powerful. God's plans for us aren't dependent on perfect circumstances.
+                                    </div>
+                                </div>
+                                
+                                <!-- Comment 3 -->
+                                <div class="comment">
+                                    <div class="comment-header">
+                                        <div class="comment-author">Mary W.</div>
+                                        <div class="comment-date">April 12, 2025</div>
+                                    </div>
+                                    <div class="comment-content">
+                                        The point about "shalom" being more than material prosperity really struck me. True prosperity is peace with God, regardless of our external situation. Thank you Pastor!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="read-more-btn toggle-readmore">
+                        <i class="fas fa-chevron-down"></i> Read more
+                    </button>
                 </div>
                 
                 <!-- Like and Share Section -->
@@ -622,70 +778,59 @@
                         </button>
                     </div>
                 </div>
-                
-                <!-- Comments Section -->
-                <div class="comments-section">
-                    <h2 class="comments-title">
-                        <i class="fas fa-comments"></i> Comments (24)
-                    </h2>
-                    
-                    <!-- Comment Form -->
-                    <div class="comment-form">
-                        <h3>Leave a Comment</h3>
-                        <form id="commentForm">
-                            <div class="form-group">
-                                <label for="name">Your Name *</label>
-                                <input type="text" id="name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="comment">Your Comment *</label>
-                                <textarea id="comment" required></textarea>
-                            </div>
-                            
-                            <button type="submit" class="submit-btn">
-                                <i class="fas fa-paper-plane"></i> Post Comment
-                            </button>
-                        </form>
-                    </div>
-                    
-                    <!-- Comments List -->
-                    <div class="comments-list" id="commentsList">
-                        <!-- Comment 1 -->
-                        <div class="comment">
-                            <div class="comment-header">
-                                <div class="comment-author">Sarah M.</div>
-                                <div class="comment-date">April 14, 2025</div>
-                            </div>
-                            <div class="comment-content">
-                                This sermon spoke directly to my current situation. I've been feeling like I'm in my own Babylon at work, and this reminded me that God is still in control. Thank you for this timely message!
-                            </div>
-                        </div>
-                        
-                        <!-- Comment 2 -->
-                        <div class="comment">
-                            <div class="comment-header">
-                                <div class="comment-author">James O.</div>
-                                <div class="comment-date">April 13, 2025</div>
-                            </div>
-                            <div class="comment-content">
-                                I never understood the context of Jeremiah 29:11 until now. Knowing it was written to people in exile makes the promise even more powerful. God's plans for us aren't dependent on perfect circumstances.
-                            </div>
-                        </div>
-                        
-                        <!-- Comment 3 -->
-                        <div class="comment">
-                            <div class="comment-header">
-                                <div class="comment-author">Mary W.</div>
-                                <div class="comment-date">April 12, 2025</div>
-                            </div>
-                            <div class="comment-content">
-                                The point about "shalom" being more than material prosperity really struck me. True prosperity is peace with God, regardless of our external situation. Thank you Pastor!
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </article>
+
+            <div class="more-blogs">
+                <h2 class="widget-title">More Sermons on Love & Relationship</h2>
+
+                <article class="blog-post">
+                    <div class="post-header">
+                        <h2 class="post-title">Love in Action: Serving One Another</h2>
+                        <div class="post-meta">
+                            <span><i class="fas fa-user"></i> Elder Grace</span>
+                            <span><i class="fas fa-calendar"></i> April 20, 2025</span>
+                            <span><i class="fas fa-book"></i> 1 John 3:18</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>True love is not only spoken, it is shown. When we serve one another with kindness and humility, we live out the heartbeat of Christ.</p>
+                        <div class="more-content">
+                            <h3>Serving in Everyday Life</h3>
+                            <p>Love is displayed in small actions: a kind word, a listening ear, food shared with the needy, and time given to those who feel forgotten. These acts build trust and reflect the character of Jesus.</p>
+                            <p>In 1 John 3:18, we are reminded that our love should be active and sincere, not merely words. Real love crosses barriers and meets needs without keeping score.</p>
+                            <h3>Relationships Strengthened by Service</h3>
+                            <p>When couples choose to serve one another, they deepen their relationship. When families serve together, they grow in unity and shared purpose. When church members serve with one heart, the whole community flourishes.</p>
+                        </div>
+                        <button class="read-more-btn toggle-readmore">
+                            <i class="fas fa-chevron-down"></i> Read more
+                        </button>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="post-header">
+                        <h2 class="post-title">Godly Relationships That Last</h2>
+                        <div class="post-meta">
+                            <span><i class="fas fa-user"></i> Sis. Faith</span>
+                            <span><i class="fas fa-calendar"></i> April 27, 2025</span>
+                            <span><i class="fas fa-book"></i> Ecclesiastes 4:12</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Relationships built on God’s word are stronger than any worldly bond. When Christ is the center, both love and trust deepen.</p>
+                        <div class="more-content">
+                            <h3>The Power of Togetherness</h3>
+                            <p>Ecclesiastes 4:12 tells us that a cord of three strands is not quickly broken. When we invite God into our relationships, His strength holds us together in hard times.</p>
+                            <h3>Faith-Based Communication</h3>
+                            <p>Speaking truth in love and honoring one another are foundations for lasting relationship. Prayer, forgiveness, and shared spiritual goals keep hearts aligned.</p>
+                            <p>Whether in friendship, family, or marriage, choosing Christlike love daily turns ordinary relationships into testimonies of God’s grace.</p>
+                        </div>
+                        <button class="read-more-btn toggle-readmore">
+                            <i class="fas fa-chevron-down"></i> Read more
+                        </button>
+                    </div>
+                </article>
+            </div>
         </div>
         
         <!-- Sidebar -->
@@ -721,12 +866,15 @@
             <div class="sidebar-widget">
                 <h3 class="widget-title">Sermon Categories</h3>
                 <ul class="categories">
-                    <li>Hope & Encouragement <span class="category-count">12</span></li>
-                    <li>Faith & Trust <span class="category-count">8</span></li>
-                    <li>Love & Relationships <span class="category-count">6</span></li>
-                    <li>Prayer & Worship <span class="category-count">10</span></li>
-                    <li>Christian Living <span class="category-count">15</span></li>
-                    <li>Prophecy & End Times <span class="category-count">5</span></li>
+                    <li><a href="sermons/shortstories.html">Short Stories</a> <span class="category-count">12</span></li>
+                    <li><a href="sermons/faithTrust.html">Faith & Trust</a> <span class="category-count">8</span></li>
+
+                    <li><a href="sermons/premaritalSex.html">Love & Relationships</a> <span class="category-count">6</span></li>
+
+                    <li><a href="sermons/prayerWorship.html">Prayer & Worship</a> <span class="category-count">10</span></li>
+                    <li><a href="sermons/ChristianLiving.html">Christian Living</a> <span class="category-count">15</span></li>
+                    <li><a href="sermons/prophecyEndTimes.html">Prophecy & End Times</a> <span class="category-count">5</span></li>
+                      <li><a href="sermons/health.html">Health and Spiritual Wellness</a> <span class="category-count">5</span></li>
                 </ul>
             </div>
             
@@ -847,6 +995,16 @@
     </footer>
 
     <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger.addEventListener('click', function() {
+            console.log('Hamburger clicked');
+            navMenu.classList.toggle('open');
+            console.log('Menu open class:', navMenu.classList.contains('open'));
+        });
+        
         // Like functionality
         const likeBtn = document.getElementById('likeBtn');
         const likeCount = document.getElementById('likeCount');
@@ -917,6 +1075,21 @@
             }
         });
         
+        document.querySelectorAll('.toggle-readmore').forEach(button => {
+            button.addEventListener('click', function() {
+                const postContent = this.closest('.post-content');
+                const moreContent = postContent.querySelector('.more-content');
+                if (!moreContent) return;
+
+                const expanded = moreContent.style.display === 'block';
+                moreContent.style.display = expanded ? 'none' : 'block';
+                this.innerHTML = expanded ? '<i class="fas fa-chevron-down"></i> Read more' : '<i class="fas fa-chevron-up"></i> Read less';
+                if (!expanded) {
+                    moreContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
         // Share functionality
         function shareOnFacebook() {
             const url = encodeURIComponent(window.location.href);
